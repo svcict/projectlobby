@@ -24,13 +24,18 @@
     medal: '<path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/>',
     trending: '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
     pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
-    check: '<path d="M20 6 9 17l-5-5"/>'
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    home: '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+    medkit: '<path d="M12 11v4"/><path d="M14 13h-4"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M18 6v14"/><path d="M6 6v14"/><rect width="20" height="14" x="2" y="6" rx="2"/>',
+    utensils: '<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
+    shirt: '<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>',
+    store: '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/>'
   };
 
   // Icon sizes per variant, from the two designs.
   const SIZES = {
-    kiosk: { pillar: 30, stat: 34, contact: 30, check: 24, pin: 34, links: false },
-    mobile: { pillar: 22, stat: 20, contact: 20, check: 20, pin: 24, links: true }
+    kiosk: { cycle: 56, pillar: 30, stat: 34, contact: 30, check: 24, pin: 34, links: false },
+    mobile: { cycle: 34, pillar: 22, stat: 20, contact: 20, check: 20, pin: 24, links: true }
   };
 
   // Charts named by a results section's `chart` field.
@@ -60,6 +65,27 @@
         <div class="pj-pillar__text"><div class="pj-pillar__title">${esc(it.title)}</div>${it.body ? `<div class="pj-pillar__body">${esc(it.body)}</div>` : ''}</div>
       </div>`).join('')}</div>
       ${s.note ? `<p class="pj-note">${typeof s.note === 'string' ? esc(s.note) : `${esc(s.note.text)} ${z.links ? `<a href="${esc(s.note.href)}" target="_blank" rel="noopener">${esc(s.note.link)}</a>` : `<span>${esc(s.note.link)}</span>`}`}</p>` : ''}
+    </div>`;
+  }
+
+  // Three needs in a loop, the way the flyer draws it: the first item on top,
+  // the other two below, with a double-headed arrow between each pair.
+  // Items take `icons` (a row, for the top one) or `icon`.
+  function cycle(s, z) {
+    const items = s.items || [];
+    const arrow = 'fill="none" stroke="#0322B1" stroke-width="4" stroke-linecap="round" marker-start="url(#pj-arrow)" marker-end="url(#pj-arrow)"';
+    return `<div class="pj-cycle">
+      ${s.heading ? `<h2 class="pj-h2">${esc(s.heading)}</h2>` : ''}
+      ${[].concat(s.sub || []).map((t) => `<p class="pj-sub">${esc(t)}</p>`).join('')}
+      <div class="pj-cycle__map">
+        <svg class="pj-cycle__arrows" viewBox="0 0 960 520" aria-hidden="true"><defs><marker id="pj-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#0322B1"/></marker></defs>
+          <path d="M370 215 Q195 225 165 275" ${arrow}/><path d="M590 215 Q765 225 795 275" ${arrow}/><path d="M360 440 Q480 500 600 440" ${arrow}/></svg>
+        ${items.map((it, i) => `<div class="pj-cycle__node pj-cycle__node--${['top', 'left', 'right'][i] || 'top'}">
+          <div class="pj-cycle__icons">${[].concat(it.icons || it.icon || []).map((n) => icon(n, z.cycle, '#0322B1', 1.6)).join('')}</div>
+          <div class="pj-cycle__body">${esc(it.body)}</div>
+          <div class="pj-cycle__title">${esc(it.title)}</div>
+        </div>`).join('')}
+      </div>
     </div>`;
   }
 
@@ -157,7 +183,7 @@
     </div>`;
   }
 
-  const RENDER = { features, stats, results, packages, list, about };
+  const RENDER = { features, cycle, stats, results, packages, list, about };
 
   window.ProjectView = {
     esc,

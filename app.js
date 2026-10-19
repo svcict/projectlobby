@@ -272,7 +272,7 @@
   // list rows), 30ms apart, capped so the last one lands well under 300ms.
   const sectionItems = () => {
     const panel = $('#pjPanels .pj-panel.is-on');
-    return panel ? $$('.pj-stat, .pj-pillar, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', panel).slice(0, 6) : [];
+    return panel ? $$('.pj-stat, .pj-pillar, .pj-cycle__node, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', panel).slice(0, 6) : [];
   };
 
   // Program page: intro, tabs and contact rise 30ms apart; the first tab's

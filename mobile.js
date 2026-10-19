@@ -215,7 +215,7 @@
     const sec = $$('#pjSections .m-section')[state.tab];
     if (sec) sec.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: 'ease' });
     if (sec && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      $$('.pj-stat, .pj-pillar, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', sec).slice(0, 6).forEach((el, i) =>
+      $$('.pj-stat, .pj-pillar, .pj-cycle__node, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', sec).slice(0, 6).forEach((el, i) =>
         el.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 180, delay: i * 30, easing: 'cubic-bezier(0.23, 1, 0.32, 1)', fill: 'backwards' }));
     }
     const bar = $('#pjTabs');

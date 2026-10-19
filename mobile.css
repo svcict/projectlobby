@@ -708,3 +708,13 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   .m-tagline__line { font-size: 13px; line-height: 1.4; }
   .pj-contact__link { font-size: 14px; }
 }
+
+/* Cycle diagram: stacked on the phone, a looping arrow between nodes. */
+.pj-cycle__arrows { display: none; }
+.pj-cycle__map { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.pj-cycle__node { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 14px 8px; }
+.pj-cycle__node + .pj-cycle__node::before { content: '\21C5'; order: -2; margin-bottom: 8px; font-size: 24px; line-height: 1; color: #0322B1; }
+.pj-cycle__icons { display: flex; gap: 10px; margin-bottom: 8px; }
+.pj-cycle__body { font-size: 15px; line-height: 1.5; }
+.pj-cycle__title { margin-bottom: 6px; font-size: 18px; font-weight: 700; color: #0322B1; }
+.pj-cycle__icons { order: -1; }

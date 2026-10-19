@@ -927,17 +927,17 @@ window.KIOSK_PROGRAMS = {
         },
         {
           "tab": "Our approach",
-          "type": "features",
+          "type": "cycle",
           "heading": "Building a self-reliant community ecosystem",
           "sub": "Improving access to income, education, and healthcare through coordinated, culturally grounded interventions.",
           "items": [
             {
-              "icon": "heart",
+              "icons": ["home", "medkit", "utensils", "shirt"],
               "title": "Fulfill basic needs",
               "body": "Improving quality of nutrition, health, education, WASH, electricity, connectivity"
             },
             {
-              "icon": "briefcase",
+              "icon": "store",
               "title": "Boost economic & community vitality",
               "body": "Financial inclusion and livelihood programs, local museums and libraries"
             },
