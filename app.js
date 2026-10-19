@@ -26,7 +26,6 @@
       'chevron-blue-32': chevron(32, '#0B53A5'),
       'back': back(28, '#FFFFFF'),
       'back-blue-32': back(32, '#0B53A5'),
-      'restart': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       'grid': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><rect x="3" y="3" width="7" height="7" rx="1" fill="#041F3F"/><rect x="14" y="3" width="7" height="7" rx="1" fill="#041F3F"/><rect x="3" y="14" width="7" height="7" rx="1" fill="#041F3F"/><rect x="14" y="14" width="7" height="7" rx="1" fill="#041F3F"/></svg>',
       'info': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><circle cx="12" cy="12" r="9.5" stroke="#FFFFFF" stroke-width="2.5"/><path d="M12 11v6M12 7.5v.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/></svg>',
       'check-blue': check('#0B53A5'),
