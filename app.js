@@ -53,7 +53,7 @@
   const idleEl = $('#idle');
 
   const state = {
-    lang: 'en', screen: 'home', prog: 'arts', project: null, projTab: 0, slide: 0,
+    screen: 'home', prog: 'arts', project: null, projTab: 0, slide: 0,
     warn: false, count: WARN_SECONDS,
     idx: 0, txtIdx: 0, txtOut: false, dragX: 0, dragging: false
   };
@@ -61,19 +61,6 @@
   // ---------- One-time setup ----------
 
   $$('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; el.style.display = 'flex'; el.style.flex = 'none'; });
-
-  // One language: no switch (see window.LANGUAGES in copy.js).
-  const MULTI_LANG = (window.LANGUAGES || ['en', 'fil']).length > 1;
-  stage.classList.toggle('is-one-lang', !MULTI_LANG);
-  $$('[data-lang-switch]').forEach((el) => {
-    el.hidden = !MULTI_LANG;
-    el.setAttribute('role', 'radiogroup');
-    el.setAttribute('aria-label', 'Language');
-    el.innerHTML =
-      '<div class="lang__pill"></div>' +
-      '<button class="u lang__opt" role="radio" data-set-lang="en">English</button>' +
-      '<button class="u lang__opt" role="radio" data-set-lang="fil">Filipino</button>';
-  });
 
   function loadSlots(root) {
     $$('.slot', root).forEach((slot) => {
@@ -118,13 +105,9 @@
   // ---------- Rendering ----------
 
   function render() {
-    const t = COPY[state.lang];
-    const en = state.lang === 'en';
-    document.documentElement.lang = en ? 'en' : 'fil';
+    const t = COPY.en;
 
     $$('[data-t]').forEach((el) => { el.textContent = t[el.dataset.t]; });
-    $$('[data-lang-switch]').forEach((el) => { el.dataset.lang = state.lang; });
-    $$('[data-set-lang]').forEach((el) => el.setAttribute('aria-checked', String(el.dataset.setLang === state.lang)));
 
     $$('[data-screen]').forEach((el) => {
       // The program page is the base layer and always stays painted.
@@ -145,8 +128,8 @@
     renderProject(t);
 
     slides.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
-    if (homeStatsKey !== state.lang) {
-      homeStatsKey = state.lang;
+    if (!homeStatsBuilt) {
+      homeStatsBuilt = true;
       $('#homeStats').innerHTML = (t.homeStats || []).map((s) => `<div class="home-stat"><div class="home-stat__value">${PV.esc(s.value)}</div><div class="home-stat__label">${PV.esc(s.label)}</div><div class="home-stat__source">${PV.esc(s.source)}</div></div>`).join('');
     }
     $$('#homeStats .home-stat').forEach((el, i) => { el.classList.toggle('is-on', i === state.slide); el.setAttribute('aria-hidden', String(i !== state.slide)); });
@@ -178,7 +161,7 @@
   // content yet are listed but don't open.
   let listKey = '';
   function renderProjectList(t) {
-    const key = state.prog + '|' + state.lang;
+    const key = state.prog;
     if (key === listKey) return;
     listKey = key;
     const chevron = ICONS['chevron-navy-24'];
@@ -199,9 +182,9 @@
     const p = PROJECTS[state.project];
     $$('[data-hero-project]').forEach((el) => el.classList.toggle('is-on', el.dataset.heroProject === state.project));
     if (!p) return;
-    const c = PV.content(p, state.lang) || {};
+    const c = PV.content(p) || {};
     const secs = c.sections || [];
-    const key = state.project + '|' + state.lang;
+    const key = state.project;
     if (key !== projectKey) {
       projectKey = key;
       const progName = PROGRAM_NAMES(t)[p.pillar] || '';
@@ -335,7 +318,7 @@
 
   // ---------- Navigation ----------
 
-  let homeStatsKey;
+  let homeStatsBuilt = false;
   let txtTimer;
   function openList(i) {
     clearTimeout(txtTimer);
@@ -363,7 +346,7 @@
   }
   function goHome() {
     stopWarn();
-    setState({ screen: 'home', lang: 'en', warn: false });
+    setState({ screen: 'home', warn: false });
   }
 
   // A visit ends (the warning ran out, or Start over): thank the visitor for
@@ -421,8 +404,6 @@
   };
 
   stage.addEventListener('click', (e) => {
-    const langBtn = e.target.closest('[data-set-lang]');
-    if (langBtn) { setState({ lang: langBtn.dataset.setLang }); return; }
     const tab = e.target.closest('[data-pj-tab]');
     if (tab) { setState({ projTab: +tab.dataset.pjTab }); return; }
     const el = e.target.closest('[data-action]');

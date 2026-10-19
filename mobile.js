@@ -42,19 +42,15 @@
 
   const slides = $$('.m-slide');
   const dots = $$('.m-dot');
-  const state = { lang: 'en', route: '', slide: 0, tab: 0 };
+  const state = { route: '', slide: 0, tab: 0 };
 
   // ---------- One-time setup ----------
 
   $$('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; });
 
-  // One language: no switch (see window.LANGUAGES in copy.js).
   // iOS only shows :active (the press scale on cards and buttons) when the
   // page listens for touches, so listen and do nothing.
   document.addEventListener('touchstart', () => {}, { passive: true });
-
-  const oneLang = (window.LANGUAGES || ['en', 'fil']).length < 2;
-  $('.lang').hidden = oneLang;
 
   // Project heroes stay stacked; only the current one shows.
   $('#pjHeroes').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].hero).map((id) => {
@@ -89,14 +85,11 @@
   // ---------- Rendering ----------
 
   function render() {
-    const t = COPY[state.lang];
+    const t = COPY.en;
     const route = ROUTES[state.route] || ROUTES[''];
     const prog = route.prog || 'arts';
-    document.documentElement.lang = state.lang === 'en' ? 'en' : 'fil';
 
     $$('[data-t]').forEach((el) => { el.textContent = t[el.dataset.t]; });
-    $('.lang').dataset.lang = state.lang;
-    $$('[data-set-lang]').forEach((el) => el.setAttribute('aria-checked', String(el.dataset.setLang === state.lang)));
 
     $$('[data-view]').forEach((el) => { el.hidden = el.dataset.view !== route.view; });
 
@@ -108,8 +101,8 @@
     renderProject(t, route.project);
 
     $('#back').hidden = route.view === 'home';
-    // Home has no back button or title, so with one language the bar is empty.
-    $('.top').hidden = route.view === 'home' && oneLang;
+    // Home has no back button or title, so the bar would be empty.
+    $('.top').hidden = route.view === 'home';
     $('#barTitle').textContent = {
       home: '', programs: t.allTitle, program: pg.title,
       project: route.project ? PROJECTS[route.project].title : ''
@@ -140,11 +133,11 @@
   function renderProject(t, id) {
     $$('[data-hero-project]').forEach((el) => { el.hidden = el.dataset.heroProject !== id; });
     const p = PROJECTS[id];
-    const key = id + '|' + state.lang;
+    const key = id;
     if (p && key === projectKey) { showTab(); return; }
     if (!p) return;
     projectKey = key;
-    const c = PV.content(p, state.lang) || {};
+    const c = PV.content(p) || {};
     const progName = { arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3, support: t.pSupport }[p.pillar] || '';
     $('#pjIntro').innerHTML =
       `<div class="m-eyebrow">${PV.esc(progName)}</div>
@@ -270,11 +263,6 @@
   $('#back').addEventListener('click', () => {
     const route = ROUTES[state.route] || ROUTES[''];
     location.hash = route.parent || '';
-  });
-
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-set-lang]');
-    if (btn) { state.lang = btn.dataset.setLang; render(); }
   });
 
   // ---------- Home photo rotation ----------

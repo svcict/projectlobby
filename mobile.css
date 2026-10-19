@@ -128,45 +128,8 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.lang {
-  position: relative;
-  flex: none;
-  height: 44px;
-  width: 128px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 4px;
-  border-radius: 6px;
-  background: var(--tint);
-}
-.lang__pill {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(50% - 4px);
-  height: 36px;
-  border-radius: 4px;
-  background: var(--blue);
-  transition: transform 220ms var(--ease-in-out);
-}
-.lang[data-lang="fil"] .lang__pill { transform: translateX(100%); }
-.lang__opt {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--blue);
-  transition: color 220ms ease;
-}
-.lang__opt[aria-checked="true"] { color: #FFFFFF; }
-/* Stretch the tap area to the switch's full 44px height. */
-.lang__opt::after { content: ''; position: absolute; inset: -4px 0; }
-
-/* Small phones: a narrower switch leaves room for the header title. */
+/* Small phones: a smaller header title. */
 @media (max-width: 360px) {
-  .lang { width: 104px; }
   .top__title { font-size: 16px; padding-left: 4px; }
 }
 

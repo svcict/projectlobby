@@ -13,12 +13,12 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 - Each screen has its own address, so the phone's back button works: `#pillars`, `#arts`, `#leadership`, `#bigbets`, `#community`, and `#program/<id>` (e.g. `#program/museum`). Older `#programs` and `#project/<id>` links still work
 - Phones that open `index.html` are sent here automatically
 
-**Language:** English only for now. The English/Filipino switch is hidden on both pages, but the Filipino text is still in `copy.js` and `programs.js`. To turn the switch back on, change `window.LANGUAGES = ['en']` to `['en', 'fil']` in `copy.js`.
+**Language:** English only. There is no language switch and no translated text.
 
 **Shared**
 
-- `copy.js`: English and Filipino interface text (buttons, headings, pillar pages)
-- `programs.js`: every program page's content, in English and Filipino
+- `copy.js`: interface text (buttons, headings, pillar pages)
+- `programs.js`: every program page's content
 - `project-view.js`: turns `programs.js` into page sections for both the kiosk and the phone
 
 ## Pillars and programs
@@ -28,9 +28,9 @@ The four carousel cards are **pillars**, in the order of the foundation's pillar
 All program pages use one layout, filled from `programs.js`. To add or edit a program, change `programs.js` only:
 
 - `pillar` puts it in that pillar's program list, in file order
-- `title`, an optional `hero` image, and `en` / `fil` content: `lead`, `body` paragraphs, `sections`, and an optional `contact`
+- `title`, an optional `hero` image, and `en` content: `lead`, `body` paragraphs, `sections`, and an optional `contact`
 - Each section becomes a tab, on both the kiosk and the phone (where the tabs stick under the header). Types: `features`, `stats`, `results`, `packages`, `list` (examples and notes are at the top of the file)
-- A program with no `en` / `fil` content is listed but can't be opened yet
+- A program with no `en` content is listed but can't be opened yet
 
 The kiosk adapts to longer content: four or more features sit in two columns, three or four stats use a compact 2×2 layout, five or six use three columns, and a long intro uses smaller text so the hero photo keeps some height. Keep each tab to roughly the length of the current ones.
 
@@ -78,6 +78,6 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 | Phone card photos | `m/*-card.webp` | 1080 wide, WebP ~78% | Smaller copies of the `*-card.jpg` photos used by the phone page (home slides, pillar cards and banners). Regenerate when a card photo changes |
 | More pillars tiles | `*-tile.jpg` | 800×450 (16:9) | Cut from the pillar card photo; regenerate when a card changes |
 
-Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text so it can switch language.
+Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text.
 
 The Filipinas Heritage Library, El Nido, U-GO, Ayala Young Leaders and Iraya Mangyan heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. Every program now has a hero photo. A hero can set `pos` (CSS object-position) in `programs.js` to keep faces in frame when it is cropped. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.

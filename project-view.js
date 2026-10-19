@@ -162,7 +162,7 @@
   window.ProjectView = {
     esc,
     // Content for a project in a language, falling back to English.
-    content(project, lang) { return (project && (project[lang] || project.en)) || null; },
+    content(project) { return (project && project.en) || null; },
     section(s, variant) { return (RENDER[s.type] || (() => ''))(s, SIZES[variant]); },
     // Intro paragraphs; an entry that is a list of strings becomes bullets.
     body(paras, cls) {

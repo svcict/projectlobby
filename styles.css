@@ -142,7 +142,6 @@ img { -webkit-user-drag: none; user-select: none; }
   padding: 0 48px;
   gap: 24px;
 }
-.bar--end { justify-content: flex-end; }
 /* Pillar and program pages: the bar continues the page above it, blue under
    the 760px left panel and white under the content. */
 .bar--light { background: linear-gradient(to right, var(--blue) 760px, #FFFFFF 760px); }
@@ -184,15 +183,10 @@ img { -webkit-user-drag: none; user-select: none; }
 .support__line { font-size: 19px; line-height: 1.35; }
 .support__go { flex: none; }
 .support__go svg path { stroke: #FFFFFF; }
-/* With one language the Home bar would be empty, so Home fills the screen. */
-.is-one-lang .screen--home { grid-template-rows: minmax(0, 1fr); }
-.is-one-lang .screen--home .bar { display: none; }
-/* With the switch hidden the bar's white half is empty, so pillar and
-   program content runs down to end level with the buttons in the blue half. */
-.is-one-lang .program-main,
-.is-one-lang .pj-main { grid-row: 1 / -1; padding-bottom: 20px; position: relative; z-index: 1; }
+/* Home has no bar: it fills the screen. */
+.screen--home { grid-template-rows: minmax(0, 1fr); }
+.screen--home .bar { display: none; }
 .bar__side { flex: 1; display: flex; gap: 16px; }
-.bar__side--end { justify-content: flex-end; }
 
 .btn-ghost {
   height: 80px;
@@ -218,40 +212,6 @@ img { -webkit-user-drag: none; user-select: none; }
   font-weight: 700;
   border-radius: 4px;
 }
-
-.lang {
-  position: relative;
-  flex: none;
-  height: 80px;
-  width: 400px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 6px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.12);
-}
-.lang__pill {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: calc(50% - 6px);
-  height: 68px;
-  border-radius: 3px;
-  background: #FFFFFF;
-  transition: transform 220ms var(--ease-in-out);
-}
-.lang[data-lang="fil"] .lang__pill { transform: translateX(100%); }
-.lang__opt {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: 600;
-  color: #FFFFFF;
-  transition: color 220ms ease;
-}
-.lang__opt[aria-checked="true"] { color: var(--blue-dark); }
 
 .panel {
   grid-row: 1;
@@ -296,9 +256,13 @@ img { -webkit-user-drag: none; user-select: none; }
 .program-body { margin: 0; font-size: 24px; line-height: 1.45; text-wrap: pretty; }
 
 .program-main {
-  grid-row: 1;
+  /* Runs down to the bottom of the screen: the bar's white half holds nothing,
+     and the buttons sit in the blue half. */
+  grid-row: 1 / -1;
+  position: relative;
+  z-index: 1;
   grid-column: 2;
-  padding: 52px 72px 40px;
+  padding: 52px 72px 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -408,9 +372,11 @@ img { -webkit-user-drag: none; user-select: none; }
 .panel__text.is-dense .pj-body { font-size: 18px; line-height: 1.4; }
 
 .pj-main {
-  grid-row: 1;
+  grid-row: 1 / -1;
+  position: relative;
+  z-index: 1;
   grid-column: 2;
-  padding: 48px 64px 40px;
+  padding: 48px 64px 20px;
   display: flex;
   flex-direction: column;
   gap: 28px;
