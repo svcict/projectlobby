@@ -231,17 +231,23 @@
 
   // ---------- Navigation ----------
 
-  let booted = false;
+  // How deep each view sits: home, pillars, a pillar, a program.
+  const DEPTH = { home: 0, programs: 1, program: 2, project: 3 };
+  let booted = false, depth = 0;
   function onRoute() {
     const key = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
     state.route = key in ROUTES ? key : '';
     state.tab = 0;
     render();
     window.scrollTo(0, 0);
-    // Each new screen rises in slightly; reduced motion keeps only the fade.
+    // Going deeper, the new screen comes in from the right; going back, from
+    // the left; reduced motion keeps only the fade.
     const view = $$('[data-view]').find((el) => !el.hidden);
+    const next = DEPTH[(ROUTES[state.route] || ROUTES['']).view] || 0;
+    const dx = next < depth ? -12 : 12;
+    depth = next;
     const move = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (view && booted) view.animate(move ? [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }] : [{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' });
+    if (view && booted) view.animate(move ? [{ opacity: 0, transform: `translateX(${dx}px)` }, { opacity: 1, transform: 'none' }] : [{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' });
     booted = true;
   }
   window.addEventListener('hashchange', onRoute);
