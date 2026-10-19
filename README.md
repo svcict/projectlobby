@@ -30,6 +30,10 @@ All project pages (Ayala Museum, CENTEX Digital Education, CENTEX Early Grades, 
 
 The kiosk adapts to longer content: four or more pillars sit in two columns, three or four stats use a compact 2×2 layout, and a long intro uses smaller text so the hero photo keeps some height. Keep each tab to roughly the length of the current ones.
 
+## Publishing updates
+
+The pages load their scripts and styles with a version tag (`app.js?v=…`) so browsers fetch fresh copies after an update instead of a cached older one. When you change any `.js` or `.css` file, change the `?v=` number in both `index.html` and `mobile.html` (any new number works, e.g. the date and time).
+
 ## Run
 
 Serve the folder and open it in a full-screen kiosk browser, for example:
