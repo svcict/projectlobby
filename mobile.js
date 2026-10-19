@@ -64,9 +64,17 @@
     const img = new Image();
     img.alt = '';
     img.decoding = 'async';
-    img.loading = 'lazy';
     img.onerror = showPlaceholder;
-    img.src = slot.dataset.src;
+    // The home slides are stacked, so lazy loading would fetch them all at
+    // once: the first loads first, the rest wait until the page has loaded.
+    // Opened on another screen (a pillar or program link), every slide waits.
+    const atHome = !location.hash.replace(/^#\/?/, '');
+    if ('priority' in slot.dataset && atHome) img.fetchPriority = 'high';
+    else img.loading = 'lazy';
+    const wait = 'defer' in slot.dataset || ('priority' in slot.dataset && !atHome);
+    const load = () => { img.src = slot.dataset.src; };
+    if (wait && document.readyState !== 'complete') window.addEventListener('load', load, { once: true });
+    else load();
     slot.appendChild(img);
   });
 

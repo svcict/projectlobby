@@ -75,6 +75,7 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 | Pillar cards | `*-card.jpg` | 1600×1000 (16:10) | Largest images; use the best you have |
 | Pillar banners | the pillar's `*-card.jpg` | 1600×1000 | Same photo as the card |
 | Program heroes | set in `programs.js` (`hero.src`) | 1600×1200 | Fills the kiosk's left column above the text; 16:10 on phones |
+| Phone card photos | `m/*-card.webp` | 1080 wide, WebP ~78% | Smaller copies of the `*-card.jpg` photos used by the phone page (home slides, pillar cards and banners). Regenerate when a card photo changes |
 | More pillars tiles | `*-tile.jpg` | 800×450 (16:9) | Cut from the pillar card photo; regenerate when a card changes |
 
 Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text so it can switch language.
