@@ -1211,7 +1211,7 @@ window.KIOSK_PROGRAMS = {
               "stats": [
                 {
                   "icon": "users",
-                  "value": "1,987",
+                  "value": "2,018",
                   "label": "Total number of Ayala Young Leaders alumni nationwide"
                 },
                 {
@@ -1338,7 +1338,7 @@ window.KIOSK_PROGRAMS = {
               "stats": [
                 {
                   "icon": "users",
-                  "value": "1,987",
+                  "value": "2,018",
                   "label": "kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa"
                 },
                 {

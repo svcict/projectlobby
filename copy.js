@@ -19,7 +19,7 @@ thanks: 'Thank you for visiting', fromLobby: 'Saved from the Ayala Foundation lo
     homeStats: [
       { value: '98%', label: 'advancement rate (employment, further studies or entrepreneurial activity)', source: 'El Nido, Palawan' },
       { value: '92,833', label: 'Total visitors in 2025', source: 'Ayala Museum' },
-      { value: '1,987', label: 'Total number of Ayala Young Leaders alumni nationwide', source: 'Ayala Young Leaders' },
+      { value: '2,018', label: 'Total number of Ayala Young Leaders alumni nationwide', source: 'Ayala Young Leaders' },
       { value: '13.8', label: 'percentage points by which 9 treatment schools outperformed control schools', source: 'CENTEX Digital Education' }
     ],
         mobileCta: 'Explore our pillars'
@@ -36,7 +36,7 @@ thanks: 'Salamat sa pagbisita', fromLobby: 'Na-save mula sa lobby ng Ayala Found
     homeStats: [
       { value: '98%', label: 'advancement rate (trabaho, karagdagang pag-aaral o pagnenegosyo)', source: 'El Nido, Palawan' },
       { value: '92,833', label: 'kabuuang bisita noong 2025', source: 'Ayala Museum' },
-      { value: '1,987', label: 'kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa', source: 'Ayala Young Leaders' },
+      { value: '2,018', label: 'kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa', source: 'Ayala Young Leaders' },
       { value: '13.8', label: 'percentage points na inilamang ng 9 treatment school sa mga control school', source: 'CENTEX Digital Education' }
     ],
         mobileCta: 'Tuklasin ang aming mga haligi'
