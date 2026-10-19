@@ -156,7 +156,9 @@
     const bet = PROGRAM_PAGES[state.txtIdx] === 'bigbets';
     $('#curTag').textContent = bet ? t.tagBet : t.tagPillar;
     $('#curTag').classList.toggle('programs__tag--bet', bet);
-    $('#curDesc').textContent = t['d' + COPY_KEY[PROGRAM_PAGES[state.txtIdx]]];
+    const desc = t['d' + COPY_KEY[PROGRAM_PAGES[state.txtIdx]]];
+    $('#curDesc').textContent = desc;
+    $('#curDesc').classList.toggle('programs__desc--long', desc.length > 160);
     $('#exploreLabel').textContent = t.learnMore;
     copyEl.classList.toggle('is-out', state.txtOut);
 

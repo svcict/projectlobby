@@ -869,8 +869,11 @@ img { -webkit-user-drag: none; user-select: none; }
 .programs__tag { padding: 6px 14px; border-radius: 6px; background: var(--orange); color: #FFFFFF; font-size: 22px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .programs__tag--bet { background: var(--blue); }
 .programs__name { margin: 0; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
-.programs__desc { margin: 0; max-width: 1100px; font-size: 30px; line-height: 1.35; color: var(--ink); text-wrap: balance; min-height: 2.7em; }
-/* min-height reserves two lines so the cards keep one size from program to program. */
+.programs__desc { margin: 0; max-width: 1100px; font-size: 30px; line-height: 1.35; color: var(--ink); text-wrap: balance; min-height: 90px; }
+/* Long descriptions (set in app.js) take smaller text on a wider measure so
+   they fit three lines. min-height reserves that space for every pillar, so
+   the cards keep one size as the carousel moves. */
+.programs__desc--long { max-width: 1540px; font-size: 22px; }
 .programs__cta { flex: none; margin-top: 32px; display: flex; justify-content: center; }
 .explore {
   height: 88px;
