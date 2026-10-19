@@ -34,6 +34,10 @@ All program pages use one layout, filled from `programs.js`. To add or edit a pr
 
 The kiosk adapts to longer content: four or more features sit in two columns, three or four stats use a compact 2×2 layout, five or six use three columns, and a long intro uses smaller text so the hero photo keeps some height. Keep each tab to roughly the length of the current ones.
 
+## Font
+
+Schibsted Grotesk (SIL Open Font License) is stored in `assets/fonts/`, so the kiosk keeps its typeface without an internet connection. Two variable font files (Latin and Latin Extended) cover every weight from 400 to 800; the `@font-face` rules are at the top of `styles.css` and `mobile.css`.
+
 ## Publishing updates
 
 The pages load their scripts and styles with a version tag (`app.js?v=…`) so browsers fetch fresh copies after an update instead of a cached older one. When you change any `.js` or `.css` file, change the `?v=` number in both `index.html` and `mobile.html` (any new number works, e.g. the date and time).

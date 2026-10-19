@@ -15,10 +15,8 @@
     if (window.top === window && !forced && (short < 600 || touchTablet)) location.replace('mobile.html' + location.hash);
   } catch (_) {}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261019061131">
+<link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20261019062244">
 </head>
 <body>
 <div class="viewport">
@@ -164,7 +162,7 @@
         <p class="programs__desc" id="curDesc"></p>
       </div>
       <div class="programs__cta">
-        <button class="u press explore" data-action="explore"><span id="exploreLabel"></span><span data-icon="chevron-navy-26"></span></button>
+        <button class="u press explore" data-action="explore"><span id="exploreLabel"></span><span data-icon="chevron-white-26"></span></button>
       </div>
     </section>
     <nav class="bar">
@@ -188,9 +186,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=20261019061131"></script>
-<script src="programs.js?v=20261019061131"></script>
-<script src="project-view.js?v=20261019061131"></script>
-<script src="app.js?v=20261019061131"></script>
+<script src="copy.js?v=20261019062244"></script>
+<script src="programs.js?v=20261019062244"></script>
+<script src="project-view.js?v=20261019062244"></script>
+<script src="app.js?v=20261019062244"></script>
 </body>
 </html>

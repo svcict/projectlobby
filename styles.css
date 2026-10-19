@@ -1,6 +1,26 @@
 /* Ayala Foundation lobby kiosk. Designed at 1920×1080; the stage is scaled to
    fit and widened/heightened so it always fills the screen edge to edge. */
 
+/* Schibsted Grotesk (SIL Open Font License), stored with the site so the
+   kiosk keeps its typeface without an internet connection. One variable file
+   per character set covers every weight from 400 to 800. */
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('assets/fonts/schibsted-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('assets/fonts/schibsted-grotesk-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --blue: #0322B1;
   --blue-dark: #073D7A;
@@ -80,6 +100,14 @@ img { -webkit-user-drag: none; user-select: none; }
 }
 .press { transition: transform 160ms var(--ease-out); }
 .press:active { transform: scale(0.97); }
+
+/* Keyboard focus: a ring just outside the control, blue on white areas and
+   white on the pillars carousel and the bottom bar. Touch and mouse never show it. */
+.u:focus-visible, a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--focus, var(--blue));
+  outline-offset: 4px;
+}
+.screen--programs, .bar { --focus: #FFFFFF; }
 
 .slot { position: absolute; inset: 0; overflow: hidden; }
 .slot img {
@@ -422,14 +450,24 @@ img { -webkit-user-drag: none; user-select: none; }
   align-items: center;
   justify-content: center;
 }
-.pj-pillar__text { display: flex; flex-direction: column; gap: 6px; }
-.pj-pillar__title { font-size: 28px; font-weight: 700; line-height: 1.2; color: var(--blue); }
+.pj-pillar__text { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+/* Item titles sit on an orange tag in white capitals, as on the program flyers. */
+.pj-pillar__title {
+  padding: 4px 14px;
+  border-radius: 6px;
+  background: var(--orange);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
 .pj-pillar__body { font-size: 22px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
 .pj-pillars--grid .pj-sub { margin-bottom: 16px; }
 .pj-pillars--grid .pj-pillars__items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
 .pj-pillars--grid .pj-pillar { grid-template-columns: 56px minmax(0, 1fr); gap: 18px; padding: 16px 0; }
 .pj-pillars--grid .pj-pillar__icon { width: 56px; height: 56px; }
-.pj-pillars--grid .pj-pillar__title { font-size: 24px; }
+.pj-pillars--grid .pj-pillar__title { padding: 3px 12px; font-size: 21px; }
 .pj-pillars--grid .pj-pillar__body { font-size: 18px; line-height: 1.4; }
 .pj-note { margin: 0; padding-top: 22px; border-top: 1px solid rgba(3, 34, 177, 0.15); font-size: 22px; line-height: 1.45; font-weight: 600; color: var(--blue); text-wrap: pretty; }
 
@@ -674,7 +712,7 @@ img { -webkit-user-drag: none; user-select: none; }
   border-radius: 4px;
   box-shadow: 0 12px 32px rgba(4, 31, 63, 0.3);
 }
-.touch__label { font-size: 44px; font-weight: 800; letter-spacing: -0.01em; color: var(--navy); }
+.touch__label { font-size: 44px; font-weight: 800; letter-spacing: -0.01em; color: #FFFFFF; }
 .touch__go {
   width: 72px;
   height: 72px;
@@ -803,7 +841,7 @@ img { -webkit-user-drag: none; user-select: none; }
   align-items: center;
   gap: 16px;
   background: var(--orange);
-  color: var(--navy);
+  color: #FFFFFF;
   font-size: 32px;
   font-weight: 700;
   border-radius: 4px;
@@ -855,7 +893,7 @@ img { -webkit-user-drag: none; user-select: none; }
   color: var(--blue);
   box-shadow: inset 0 0 0 2px rgba(3, 34, 177, 0.4);
 }
-.idle__btn--primary { font-weight: 700; color: var(--navy); background: var(--orange); box-shadow: none; }
+.idle__btn--primary { font-weight: 700; color: #FFFFFF; background: var(--orange); box-shadow: none; }
 /* Shrinks steadily over the 15-second countdown (animated in app.js). */
 .idle__bar {
   position: absolute;

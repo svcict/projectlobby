@@ -24,8 +24,8 @@
     const check = (color) => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M20 6 9 17l-5-5"/></svg>`;
     return {
       'chevron-navy-24': chevron(24, '#041F3F'),
-      'chevron-navy-26': chevron(26, '#041F3F'),
       'chevron-white-22': chevron(22, '#FFFFFF'),
+      'chevron-white-26': chevron(26, '#FFFFFF'),
       'chevron-orange-30': chevron(30, '#F0781E'),
       'chevron-blue-32': chevron(32, '#0322B1'),
       'back': back(28, 'currentColor'),
@@ -126,6 +126,8 @@
       const on = el.dataset.screen === state.screen || el.dataset.screen === 'program';
       el.classList.toggle('is-active', on);
       el.setAttribute('aria-hidden', String(el.dataset.screen !== state.screen));
+      // Screens out of view can't take keyboard focus either.
+      el.inert = el.dataset.screen !== state.screen;
     });
 
     // Pillar page.
@@ -153,6 +155,7 @@
 
     idleEl.classList.toggle('is-open', state.warn);
     idleEl.setAttribute('aria-hidden', String(!state.warn));
+    idleEl.inert = !state.warn;
     $('#idleCount').textContent = state.count;
   }
 
