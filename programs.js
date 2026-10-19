@@ -561,6 +561,7 @@ window.KIOSK_PROGRAMS = {
     "hero": {
       "id": "ugo-hero",
       "src": "assets/ugo-hero.jpg",
+      "pos": "50% 28%",
       "ph": "Scholarships photo"
     },
     "en": {
