@@ -92,22 +92,8 @@
     <div class="m-content">
       <div class="m-group">
         <h2 class="m-h2" data-t="projects"></h2>
-        <a class="u press m-project" href="#museum" data-for-prog="arts">
-          <span class="m-project__text"><span class="m-project__name">Ayala Museum</span><span class="m-project__sub" data-t="tap"></span></span>
-          <span class="m-go" data-icon="go"></span>
-        </a>
-        <button class="u press m-project" data-for-prog="arts">
-          <span class="m-project__text"><span class="m-project__name">Filipinas Heritage Library</span><span class="m-project__sub" data-t="tap"></span></span>
-          <span class="m-go" data-icon="go"></span>
-        </button>
-        <a class="u press m-project" href="#centex-de" data-for-prog="bigbets">
-          <span class="m-project__text"><span class="m-project__name">CENTEX Digital Education</span><span class="m-project__sub" data-t="tap"></span></span>
-          <span class="m-go" data-icon="go"></span>
-        </a>
-        <button class="u press m-project" data-for-prog="bigbets">
-          <span class="m-project__text"><span class="m-project__name">CENTEX Early Grades</span><span class="m-project__sub" data-t="tap"></span></span>
-          <span class="m-go" data-icon="go"></span>
-        </button>
+        <!-- Built from projects.js: every project whose program is on screen. -->
+        <div class="m-projects" id="projectList"></div>
       </div>
       <div class="m-group">
         <h2 class="m-h2" data-t="partOf"></h2>
@@ -139,110 +125,22 @@
     </div>
   </section>
 
-  <!-- Ayala Museum -->
-  <section class="view" data-view="museum" hidden>
-    <div class="m-hero m-hero--photo"><div class="slot" data-src="assets/museum-panel.jpg" data-ph="Ayala Museum photo"></div></div>
-    <div class="m-band">
-      <div class="m-eyebrow" data-t="p0"></div>
-      <h1 class="m-title m-title--museum">Ayala Museum</h1>
-    </div>
-    <div class="m-content m-content--tight">
-      <p class="m-lead" data-t="musLead"></p>
-      <p class="m-text" data-t="musBody"></p>
-      <div class="m-stats">
-        <div class="m-stat"><div class="m-stat__num">92,833</div><div class="m-stat__label" data-t="stat1"></div></div>
-        <div class="m-stat"><div class="m-stat__num">96%</div><div class="m-stat__label" data-t="stat2"></div></div>
-      </div>
-      <div class="m-box">
-        <div class="m-box__title" data-t="support"></div>
-        <a class="m-link" href="mailto:giving@ayalafoundation.org">giving@ayalafoundation.org</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CENTEX Digital Education -->
-  <section class="view" data-view="centex-de" hidden>
-    <div class="m-hero m-hero--wide"><div class="slot" data-src="assets/centex-de-banner.jpg" data-ph="CENTEX Digital Education photo"></div></div>
-    <div class="m-band">
-      <div class="m-eyebrow" data-t="p2"></div>
-      <h1 class="m-title m-title--de">CENTEX Digital Education</h1>
-      <p class="m-band__lead" data-t="deLead"></p>
-    </div>
-    <div class="m-content m-content--de">
-      <div class="m-stack">
-        <p class="m-text" data-t="deBody1"></p>
-        <p class="m-text" data-t="deBody2"></p>
-      </div>
-
-      <div class="m-approach">
-        <h2 class="m-h2" data-t="deCommTitle"></h2>
-        <p class="m-approach__sub" data-t="deCommSub"></p>
-        <div class="m-pillar">
-          <div class="m-pillar__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg></div>
-          <div class="m-pillar__text"><div class="m-pillar__title" data-t="deP1t"></div><div class="m-pillar__body" data-t="deP1b"></div></div>
-        </div>
-        <div class="m-pillar">
-          <div class="m-pillar__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg></div>
-          <div class="m-pillar__text"><div class="m-pillar__title" data-t="deP2t"></div><div class="m-pillar__body" data-t="deP2b"></div></div>
-        </div>
-        <div class="m-pillar">
-          <div class="m-pillar__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div class="m-pillar__text"><div class="m-pillar__title" data-t="deP3t"></div><div class="m-pillar__body" data-t="deP3b"></div></div>
-        </div>
-      </div>
-
-      <div class="m-results">
-        <div class="m-results__label" data-t="deResLabel"></div>
-        <div class="m-results__place"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F7941D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>San Marcelino, Zambales</div>
-        <div class="m-bigstat">
-          <div class="m-bigstat__num">78%</div>
-          <div class="m-bigstat__text" data-t="deStat"></div>
-          <div class="m-bigstat__note" data-t="deStatNote"></div>
-        </div>
-        <p class="m-results__doubled" data-t="deDoubled"></p>
-        <div class="m-chart">
-          <div class="m-chart__legend">
-            <span class="m-chart__key"><span class="m-chart__swatch" style="background:#FFD29E"></span><span data-t="dePre"></span></span>
-            <span class="m-chart__key"><span class="m-chart__swatch" style="background:#F7941D"></span><span data-t="dePost"></span></span>
-          </div>
-          <div class="m-chart__plot"><svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet" font-family="Schibsted Grotesk, sans-serif" role="img" aria-label="Box plot of pre and post mathematics scores for control and treatment schools"><line x1="60" x2="500" y1="290" y2="290" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="296" text-anchor="end" font-size="17" fill="#3D5A80">0</text><line x1="60" x2="500" y1="230" y2="230" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="236" text-anchor="end" font-size="17" fill="#3D5A80">20</text><line x1="60" x2="500" y1="170" y2="170" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="176" text-anchor="end" font-size="17" fill="#3D5A80">40</text><line x1="60" x2="500" y1="110" y2="110" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="116" text-anchor="end" font-size="17" fill="#3D5A80">60</text><line x1="60" x2="500" y1="50" y2="50" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="56" text-anchor="end" font-size="17" fill="#3D5A80">80</text><line x1="130" x2="130" y1="164" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="164" y2="164" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="98" y="197" width="64" height="42" rx="3" fill="#FFD29E"/><line x1="98" x2="162" y1="218" y2="218" stroke="#041F3F" stroke-width="3"/><line x1="210" x2="210" y1="80" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="80" y2="80" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="178" y="131" width="64" height="84" rx="3" fill="#F7941D"/><line x1="178" x2="242" y1="170" y2="170" stroke="#041F3F" stroke-width="3"/><line x1="350" x2="350" y1="137" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="137" y2="137" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="318" y="191" width="64" height="45" rx="3" fill="#FFD29E"/><line x1="318" x2="382" y1="209" y2="209" stroke="#041F3F" stroke-width="3"/><circle cx="350" cy="122" r="4" fill="#3D5A80"/><circle cx="350" cy="116" r="4" fill="#3D5A80"/><circle cx="350" cy="104" r="4" fill="#3D5A80"/><line x1="430" x2="430" y1="38" y2="245" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="38" y2="38" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="245" y2="245" stroke="#3D5A80" stroke-width="2"/><rect x="398" y="95" width="64" height="69" rx="3" fill="#F7941D"/><line x1="398" x2="462" y1="125" y2="125" stroke="#041F3F" stroke-width="3"/><circle cx="430" cy="254" r="4" fill="#3D5A80"/><circle cx="430" cy="290" r="4" fill="#3D5A80"/></svg></div>
-          <div class="m-chart__groups"><span></span><span data-t="deControl"></span><span data-t="deTreatment"></span><span></span></div>
-        </div>
-        <div class="m-callout" data-t="deOutperf"></div>
-      </div>
-
-      <div class="m-packages">
-        <h2 class="m-h2" data-t="dePkgTitle"></h2>
-        <div class="m-package">
-          <div class="m-package__title" data-t="deIetTitle"></div>
-          <div class="m-package__label" data-t="deInclusions"></div>
-          <div class="m-package__item"><span data-icon="check-blue"></span><span data-t="deIet1"></span></div>
-          <div class="m-package__item"><span data-icon="check-blue"></span><span data-t="deIet2"></span></div>
-          <div class="m-package__item"><span data-icon="check-blue"></span><span data-t="deIet3"></span></div>
-          <div class="m-package__impact" data-t="deImpact"></div>
-          <div class="m-package__foot" data-t="deFoot"></div>
-        </div>
-        <div class="m-package m-package--addon">
-          <div class="m-package__badge" data-t="deAddon"></div>
-          <div class="m-package__title" data-t="deLab"></div>
-          <div class="m-package__label" data-t="deInclusions"></div>
-          <div class="m-package__item"><span data-icon="check-orange"></span><span data-t="deLab1"></span></div>
-          <div class="m-package__item"><span data-icon="check-orange"></span><span data-t="deLab2"></span></div>
-          <div class="m-package__item"><span data-icon="check-orange"></span><span data-t="deLab3"></span></div>
-        </div>
-      </div>
-
-      <div class="m-box m-box--links">
-        <div class="m-box__title" data-t="dePartner"></div>
-        <a class="m-link" href="mailto:partnerships@ayalafoundation.org">partnerships@ayalafoundation.org</a>
-        <a class="m-link" href="https://www.ayalafoundation.org" target="_blank" rel="noopener">www.ayalafoundation.org</a>
-      </div>
+  <!-- Project page: one layout for every project in projects.js -->
+  <section class="view" data-view="project" hidden>
+    <div class="m-hero m-hero--wide" id="pjHeroes"></div>
+    <div class="m-band" id="pjIntro"></div>
+    <div class="m-content m-content--project">
+      <div class="m-stack" id="pjBody"></div>
+      <div id="pjSections" class="m-sections"></div>
+      <div class="pj-contact" id="pjContact"></div>
     </div>
   </section>
 
 </div>
 </div>
 <script src="copy.js"></script>
+<script src="projects.js"></script>
+<script src="project-view.js"></script>
 <script src="mobile.js"></script>
 </body>
 </html>

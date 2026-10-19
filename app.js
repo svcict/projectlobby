@@ -2,6 +2,9 @@
   'use strict';
 
   const COPY = window.COPY;
+  const PROJECTS = window.KIOSK_PROJECTS || {};
+  const PV = window.ProjectView;
+  const PROGRAM_NAMES = (t) => ({ arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3 });
 
   const DESIGN_W = 1920, DESIGN_H = 1080;
   const PROGRAM_COUNT = 4;
@@ -43,7 +46,7 @@
   const idleEl = $('#idle');
 
   const state = {
-    lang: 'en', screen: 'home', prog: 'arts', deTab: 0, slide: 0,
+    lang: 'en', screen: 'home', prog: 'arts', project: null, projTab: 0, slide: 0,
     warn: false, count: WARN_SECONDS,
     idx: 0, txtIdx: 0, txtOut: false, dragX: 0, dragging: false
   };
@@ -61,20 +64,29 @@
       '<button class="u lang__opt" role="radio" data-set-lang="fil">Filipino</button>';
   });
 
-  $$('.slot').forEach((slot) => {
-    const showPlaceholder = () => {
-      slot.classList.add('is-empty');
-      slot.textContent = slot.dataset.ph || '';
-    };
-    if (!slot.dataset.src) { showPlaceholder(); return; }
-    const img = new Image();
-    img.alt = '';
-    img.draggable = false;
-    img.decoding = 'async';
-    img.onerror = showPlaceholder;
-    img.src = slot.dataset.src;
-    slot.appendChild(img);
-  });
+  function loadSlots(root) {
+    $$('.slot', root).forEach((slot) => {
+      const showPlaceholder = () => {
+        slot.classList.add('is-empty');
+        slot.textContent = slot.dataset.ph || '';
+      };
+      if (!slot.dataset.src) { showPlaceholder(); return; }
+      const img = new Image();
+      img.alt = '';
+      img.draggable = false;
+      img.decoding = 'async';
+      img.onerror = showPlaceholder;
+      img.src = slot.dataset.src;
+      slot.appendChild(img);
+    });
+  }
+
+  // Project heroes are stacked once and crossfaded, like the program heroes.
+  $('#pjHeroes').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].hero).map((id) => {
+    const h = PROJECTS[id].hero;
+    return `<div class="hero-layer" data-hero-project="${PV.esc(id)}"><div class="slot" data-src="${PV.esc(h.src)}" data-ph="${PV.esc(h.ph)}"></div></div>`;
+  }).join('');
+  loadSlots(document);
 
   // ---------- Stage scaling ----------
   // Scale the 1920×1080 design to fit, then widen/heighten the stage so it
@@ -118,15 +130,8 @@
     $$('[data-hero]').forEach((el) => el.classList.toggle('is-on', el.dataset.hero === state.prog));
     $$('[data-for-prog]').forEach((el) => { el.hidden = el.dataset.forProg !== state.prog; });
     $$('[data-tile]').forEach((el) => { el.hidden = el.dataset.tile === state.prog; });
-
-    // CENTEX Digital Education tabs.
-    $('#dePill').style.transform = `translateX(${state.deTab * 100}%)`;
-    $$('[data-de-tab]').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.deTab === state.deTab)));
-    $$('[data-de-panel]').forEach((el) => {
-      const on = +el.dataset.dePanel === state.deTab;
-      el.classList.toggle('is-on', on);
-      el.setAttribute('aria-hidden', String(!on));
-    });
+    renderProjectList(t);
+    renderProject(t);
 
     slides.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
     dots.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
@@ -147,6 +152,66 @@
     $('#idleCount').textContent = state.count;
   }
 
+  // Every project in projects.js whose program is on screen. Projects without
+  // content yet are listed but don't open.
+  let listKey = '';
+  function renderProjectList(t) {
+    const key = state.prog + '|' + state.lang;
+    if (key === listKey) return;
+    listKey = key;
+    const chevron = ICONS['chevron-navy-24'];
+    $('#projectList').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].program === state.prog).map((id) => {
+      const p = PROJECTS[id];
+      const action = p.en ? ` data-action="open-project" data-project="${PV.esc(id)}"` : '';
+      return `<button class="u press project"${action}>
+        <span class="project__text"><span class="project__name">${PV.esc(p.title)}</span><span class="project__sub">${PV.esc(t.tap)}</span></span>
+        <span class="project__go">${chevron}</span>
+      </button>`;
+    }).join('');
+  }
+
+  // The project screen is rebuilt when the project or language changes;
+  // switching tabs only moves the indicator and crossfades the panels.
+  let projectKey = '';
+  function renderProject(t) {
+    const p = PROJECTS[state.project];
+    $$('[data-hero-project]').forEach((el) => el.classList.toggle('is-on', el.dataset.heroProject === state.project));
+    if (!p) return;
+    const c = PV.content(p, state.lang) || {};
+    const secs = c.sections || [];
+    const key = state.project + '|' + state.lang;
+    if (key !== projectKey) {
+      projectKey = key;
+      const progName = PROGRAM_NAMES(t)[p.program] || '';
+      $('#pjIntro').innerHTML =
+        `<div class="eyebrow">${PV.esc(progName)}</div>
+        <h1 class="pj-title">${PV.esc(p.title)}</h1>
+        ${c.lead ? `<p class="pj-lead">${PV.esc(c.lead)}</p>` : ''}
+        ${(c.body || []).map((b) => `<p class="pj-body">${PV.esc(b)}</p>`).join('')}`;
+      // Tighten a long intro if it would squeeze the hero below 240px.
+      const intro = $('#pjIntro');
+      intro.classList.remove('is-dense');
+      if ($('.screen--project .panel__media').offsetHeight < 240) intro.classList.add('is-dense');
+      $('#pjBackLabel').textContent = progName;
+      const tabs = $('#pjTabs');
+      tabs.hidden = secs.length < 2;
+      tabs.setAttribute('aria-label', p.title);
+      tabs.innerHTML = `<div class="tabs__pill" style="width:calc((100% - 12px) / ${Math.max(1, secs.length)})"></div>` +
+        secs.map((s, i) => `<button class="u tabs__tab" role="tab" data-pj-tab="${i}">${PV.esc(s.tab)}</button>`).join('');
+      $('#pjPanels').innerHTML = secs.map((s) => `<section class="pj-panel" role="tabpanel">${PV.section(s, 'kiosk')}</section>`).join('');
+      const contact = $('#pjContact');
+      contact.hidden = !c.contact;
+      contact.innerHTML = PV.contact(c.contact, 'kiosk');
+    }
+    const pill = $('#pjTabs .tabs__pill');
+    if (pill) pill.style.transform = `translateX(${state.projTab * 100}%)`;
+    $$('#pjTabs [data-pj-tab]').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.pjTab === state.projTab)));
+    $$('#pjPanels .pj-panel').forEach((el, i) => {
+      el.classList.toggle('is-on', i === state.projTab);
+      el.setAttribute('aria-hidden', String(i !== state.projTab));
+    });
+  }
+
   function renderCards() {
     cards.forEach((el, i) => {
       const d = (i - state.idx) + state.dragX / 760;
@@ -165,7 +230,7 @@
     if (state.screen === 'program') {
       // Going back from a project screen is a step out, so only animate
       // when arriving from elsewhere or switching program.
-      const fromProject = prevScreen === 'museum' || prevScreen === 'centexDE';
+      const fromProject = prevScreen === 'project';
       if ((prevScreen !== 'program' && !fromProject) || (prevScreen === 'program' && state.prog !== prevProg)) enterProgram();
     }
     if (state.screen !== prevScreen) bump();
@@ -242,8 +307,8 @@
     'start-over': goHome,
     'all-programs': () => openList(0),
     'open-prog': (el) => setState({ screen: 'program', prog: el.dataset.prog }),
-    'museum': () => setState({ screen: 'museum' }),
-    'centex-de': () => setState({ screen: 'centexDE', deTab: 0 }),
+    'open-project': (el) => setState({ screen: 'project', project: el.dataset.project, projTab: 0 }),
+    'project-back': () => setState({ screen: 'program', prog: (PROJECTS[state.project] || {}).program || 'arts' }),
     'prev': () => go(state.idx - 1),
     'next': () => go(state.idx + 1),
     // Only Arts and Culture and Big Bets have their own pages so far.
@@ -258,8 +323,8 @@
   stage.addEventListener('click', (e) => {
     const langBtn = e.target.closest('[data-set-lang]');
     if (langBtn) { setState({ lang: langBtn.dataset.setLang }); return; }
-    const tab = e.target.closest('[data-de-tab]');
-    if (tab) { setState({ deTab: +tab.dataset.deTab }); return; }
+    const tab = e.target.closest('[data-pj-tab]');
+    if (tab) { setState({ projTab: +tab.dataset.pjTab }); return; }
     const el = e.target.closest('[data-action]');
     if (el && ACTIONS[el.dataset.action]) ACTIONS[el.dataset.action](el);
   });
