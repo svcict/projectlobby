@@ -212,7 +212,10 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 /* ---------- Home ---------- */
 
 .view--home { padding: 28px 20px 32px; gap: 20px; }
-.m-logo { height: 120px; position: relative; }
+.m-logo { height: 84px; position: relative; }
+.m-tagline { margin-top: -4px; display: flex; flex-direction: column; gap: 8px; text-align: center; }
+.m-tagline__title { margin: 0; font-size: 26px; line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; color: var(--blue); text-wrap: balance; }
+.m-tagline__line { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink); text-wrap: balance; }
 .m-slides {
   position: relative;
   display: block;
@@ -637,3 +640,6 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 }
 .pj-contact__link { font-size: 16px; font-weight: 600; min-height: 44px; display: flex; align-items: center; overflow-wrap: anywhere; }
 .pj-bullets { margin: 0; padding-left: 1.2em; }
+/* Short phones: a squarer, then wider, photo keeps Explore our pillars on the first screen. */
+@media (max-height: 780px) { .m-slides { aspect-ratio: 1 / 1; } }
+@media (max-height: 700px) { .m-slides { aspect-ratio: 4 / 3; } }

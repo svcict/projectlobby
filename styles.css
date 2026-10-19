@@ -709,7 +709,10 @@ img { -webkit-user-drag: none; user-select: none; }
   background: #FFFFFF;
 }
 .home-logo-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
-.home-logo { margin: 0; width: 716px; height: 300px; position: relative; }
+.home-logo { margin: 0; width: 716px; height: 220px; position: relative; }
+.home-tagline { max-width: 680px; display: flex; flex-direction: column; gap: 18px; text-align: center; }
+.home-tagline__title { margin: 0; font-size: 52px; line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; color: var(--blue); text-wrap: balance; }
+.home-tagline__line { margin: 0; font-size: 26px; line-height: 1.4; color: var(--ink); text-wrap: balance; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .touch {
   height: 120px;
