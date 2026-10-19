@@ -322,12 +322,25 @@
     clearTimeout(txtTimer);
     setState({ screen: 'programs', idx: i, txtIdx: i, txtOut: false, dragX: 0 });
   }
+  // The pillar name and description travel with the cards: the old text
+  // leaves toward where the cards are heading, the new text arrives from the
+  // other side. Reduced motion keeps only the fade.
   function go(i) {
     i = Math.max(0, Math.min(PROGRAM_COUNT - 1, i));
     if (i === state.idx) return;
+    const dir = i > state.idx ? 1 : -1;
     clearTimeout(txtTimer);
+    copyEl.style.setProperty('--dir', dir);
     setState({ idx: i, txtOut: true });
-    txtTimer = setTimeout(() => setState({ txtIdx: i, txtOut: false }), 150);
+    txtTimer = setTimeout(() => {
+      // Jump the new text to the far side, unseen, then let it transition in.
+      copyEl.style.transition = 'none';
+      copyEl.style.opacity = '0';
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) copyEl.style.transform = `translateX(${dir * 12}px)`;
+      setState({ txtIdx: i, txtOut: false });
+      void copyEl.offsetWidth;
+      copyEl.style.transition = copyEl.style.opacity = copyEl.style.transform = '';
+    }, 150);
   }
   function goHome() {
     stopWarn();

@@ -830,9 +830,13 @@ img { -webkit-user-drag: none; user-select: none; }
   align-items: center;
   text-align: center;
   gap: 14px;
-  transition: opacity 160ms ease, filter 160ms ease, transform 200ms var(--ease-out);
+  transition: opacity 150ms var(--ease-out), transform 200ms var(--ease-out);
 }
-.programs__copy.is-out { opacity: 0; filter: blur(2px); transform: translateY(6px); }
+/* --dir (set in app.js) is 1 moving to the next pillar, -1 to the previous. */
+.programs__copy.is-out { opacity: 0; transform: translateX(calc(var(--dir, 1) * -12px)); }
+@media (prefers-reduced-motion: reduce) {
+  .programs__copy.is-out { transform: none; }
+}
 .programs__name { margin: 0; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
 .programs__desc { margin: 0; max-width: 1100px; font-size: 30px; line-height: 1.35; color: var(--ink); text-wrap: balance; min-height: 2.7em; }
 /* min-height reserves two lines so the cards keep one size from program to program. */
