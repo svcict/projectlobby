@@ -1452,7 +1452,7 @@ window.KIOSK_PROGRAMS = {
     "title": "Atletang Ayala",
     "hero": {
       "id": "atletang-hero",
-      "src": "",
+      "src": "assets/atletang-hero.jpg",
       "ph": "Atletang Ayala photo"
     },
     "en": {

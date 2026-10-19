@@ -148,7 +148,7 @@
       homeStatsKey = state.lang;
       $('#homeStats').innerHTML = (t.homeStats || []).map((s) => `<div class="home-stat"><div class="home-stat__value">${PV.esc(s.value)}</div><div class="home-stat__label">${PV.esc(s.label)}</div><div class="home-stat__source">${PV.esc(s.source)}</div></div>`).join('');
     }
-    $$('#homeStats .home-stat').forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
+    $$('#homeStats .home-stat').forEach((el, i) => { el.classList.toggle('is-on', i === state.slide); el.setAttribute('aria-hidden', String(i !== state.slide)); });
     dots.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
 
     renderCards();

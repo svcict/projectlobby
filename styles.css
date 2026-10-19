@@ -338,6 +338,8 @@ img { -webkit-user-drag: none; user-select: none; }
 .take__body { font-size: 21px; line-height: 1.4; text-wrap: pretty; }
 
 .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+/* An odd last program takes the full row instead of leaving a gap. */
+.projects > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project {
   height: 116px;
   padding: 0 32px;
