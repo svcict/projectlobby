@@ -275,19 +275,21 @@
   const programParts = $$('.screen--program .panel__text, .screen--program .program-main > .section');
   function enterProgram() { rise(programParts); }
 
-  // Program page: intro, tabs, first section and contact, 30ms apart.
+  // The items of the section on screen (impact figures, features, cards,
+  // list rows), 30ms apart, capped so the last one lands well under 300ms.
+  const sectionItems = () => {
+    const panel = $('#pjPanels .pj-panel.is-on');
+    return panel ? $$('.pj-stat, .pj-pillar, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', panel).slice(0, 6) : [];
+  };
+
+  // Program page: intro, tabs and contact rise 30ms apart; the first tab's
+  // items follow one by one, the same way they arrive on a tab switch.
   function enterProject() {
-    rise([$('#pjIntro'), $('#pjTabs'), $('#pjPanels .pj-panel.is-on'), $('#pjContact')].filter((el) => el && !el.hidden));
+    rise([$('#pjIntro'), $('#pjTabs'), $('#pjContact')].filter((el) => el && !el.hidden));
+    rise(sectionItems(), { distance: 8, duration: 180, delay: 60 });
   }
 
-  // The items of the section just opened (figures, features, cards, list
-  // rows), 30ms apart, capped so the last one lands well under 300ms.
-  function enterTab() {
-    const panel = $('#pjPanels .pj-panel.is-on');
-    if (!panel) return;
-    const items = $$('.pj-stat, .pj-pillar, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', panel).slice(0, 6);
-    rise(items, { distance: 8, duration: 180 });
-  }
+  function enterTab() { rise(sectionItems(), { distance: 8, duration: 180 }); }
 
   // Home: the main button rises in once when the kiosk starts, then stays put.
   rise([$('.touch')], { distance: 8, duration: 240, delay: 150 });
