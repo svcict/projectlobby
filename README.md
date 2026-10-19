@@ -24,7 +24,7 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 
 ## Pillars and programs
 
-The four carousel cards are **pillars**, in the order of the foundation's pillar diagram: Community Development, Arts and Culture, Leadership Development (the strategic pillars), then Education (the big bet). Each pillar has a page listing its **programs** (Ayala Museum, Filipinas Heritage Library, U-GO Scholar Grant Program, Ayala Young Leaders, Atletang Ayala, CENTEX Digital Education, CENTEX Early Grades Program, El Nido, Puerto Galera). Pillar page text is in `copy.js`. Each card is labelled Strategic pillar or Big bet. Corporate Citizenship and Volunteerism (`ccv`, pillar `support` in `programs.js`) supports all of them: it opens from the dashed "Supported by" strip on the pillars screen, and on the phone at `#program/ccv`. It has no hero photo yet.
+The four carousel cards are **pillars**, in the order of the foundation's pillar diagram: Community Development, Arts and Culture, Leadership Development (the strategic pillars), then Education (the big bet). Each pillar has a page listing its **programs** (Ayala Museum, Filipinas Heritage Library, Scholarships, Ayala Young Leaders, Atletang Ayala, CENTEX Digital Education, CENTEX Early Grades Program, El Nido, Puerto Galera). Pillar page text is in `copy.js`. Each card is labelled Strategic pillar or Big bet. Corporate Citizenship and Volunteerism (`ccv`, pillar `support` in `programs.js`) supports all of them: it opens from the dashed "Supported by" strip on the pillars screen, and on the phone at `#program/ccv`. It has no hero photo yet.
 
 All program pages use one layout, filled from `programs.js`. To add or edit a program, change `programs.js` only:
 

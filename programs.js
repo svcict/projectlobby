@@ -557,11 +557,11 @@ window.KIOSK_PROGRAMS = {
   },
   "ugo": {
     "pillar": "leadership",
-    "title": "U-GO Scholar Grant Program",
+    "title": "Scholarships",
     "hero": {
       "id": "ugo-hero",
       "src": "assets/ugo-hero.jpg",
-      "ph": "U-GO Scholar Grant Program photo"
+      "ph": "Scholarships photo"
     },
     "en": {
       "lead": "Unlocking opportunities for high-potential young women in financial need",
