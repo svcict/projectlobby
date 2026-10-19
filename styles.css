@@ -805,28 +805,43 @@ img { -webkit-user-drag: none; user-select: none; }
 
 /* ---------- Our programs ---------- */
 
+/* A blue box on the left introduces all the pillars, like the blue panel on
+   the pillar and program pages; the cards and the current pillar sit on the
+   white to its right. */
 .programs {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 56px 0 44px;
+  display: grid;
+  grid-template-columns: 640px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto auto;
   min-height: 0;
   color: var(--blue);
   overflow: hidden;
 }
-/* Title on the left; the general pillar description reads on from it, set
-   off by a hairline and kept to a comfortable measure (about 75 characters). */
-.programs__head { padding: 0 72px; display: flex; align-items: flex-start; gap: 56px; }
-.programs__heading { flex: none; display: flex; flex-direction: column; gap: 14px; }
-.programs__intro { margin: 22px 0 0; padding-left: 56px; border-left: 1px solid rgba(3, 34, 177, 0.2); max-width: 74ch; font-size: 23px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.programs__head {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  padding: 0 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  background: var(--blue);
+  color: #FFFFFF;
+}
+.programs__heading { display: flex; flex-direction: column; gap: 14px; }
+.programs__intro { margin: 0; font-size: 24px; line-height: 1.5; text-wrap: pretty; }
 .accent { width: 72px; height: 8px; background: var(--orange); }
-.programs__title { margin: 0; font-size: 60px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
+.programs__title { margin: 0; font-size: 72px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
 
 .track {
   position: relative;
   flex: 1;
+  grid-column: 2;
+  grid-row: 1;
   min-height: 0;
-  margin-top: 40px;
+  margin-top: 48px;
+  /* Clip the side cards at the blue box, but let the shadows show above and below. */
+  overflow-x: clip;
   touch-action: pan-y;
   cursor: grab;
 }
@@ -869,13 +884,14 @@ img { -webkit-user-drag: none; user-select: none; }
   transition: transform 160ms var(--ease-out), opacity 200ms ease;
 }
 .arrow:active { transform: scale(0.95); }
-.arrow--prev { left: 72px; }
-.arrow--next { right: 72px; }
+.arrow--prev { left: 36px; }
+.arrow--next { right: 36px; }
 .arrow:disabled { opacity: 0.3; pointer-events: none; }
 
 .programs__copy {
-  flex: none;
-  margin-top: 40px;
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 32px;
   padding: 0 72px;
   display: flex;
   flex-direction: column;
@@ -892,13 +908,13 @@ img { -webkit-user-drag: none; user-select: none; }
 /* Strategic pillar (orange) or Big bet (blue), as on the foundation's pillar diagram. */
 .programs__tag { padding: 6px 14px; border-radius: 6px; background: var(--orange); color: #FFFFFF; font-size: 22px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .programs__tag--bet { background: var(--blue); }
-.programs__name { margin: 0; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
-.programs__desc { margin: 0; max-width: 1100px; font-size: 30px; line-height: 1.35; color: var(--ink); text-wrap: balance; min-height: 90px; }
+.programs__name { margin: 0; font-size: 56px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
+.programs__desc { margin: 0; max-width: 980px; font-size: 26px; line-height: 1.35; color: var(--ink); text-wrap: balance; min-height: 90px; }
 /* Long descriptions (set in app.js) take smaller text on a wider measure so
    they fit three lines. min-height reserves that space for every pillar, so
    the cards keep one size as the carousel moves. */
-.programs__desc--long { max-width: 1540px; font-size: 22px; }
-.programs__cta { flex: none; margin-top: 32px; display: flex; justify-content: center; }
+.programs__desc--long { max-width: 1120px; font-size: 21px; }
+.programs__cta { grid-column: 2; grid-row: 3; margin: 26px 0 40px; display: flex; justify-content: center; }
 .explore {
   height: 88px;
   padding: 0 56px;
