@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640">
+<defs><pattern id="d" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="24" height="48" fill="#FFFFFF" fill-opacity="0.035"/></pattern></defs>
+<rect width="1600" height="640" fill="#0B53A5"/><rect width="1600" height="640" fill="url(#d)"/>
+<g fill="none" stroke="#F7941D" stroke-width="4.0" stroke-linejoin="round" stroke-linecap="round"><rect x="766.7" y="237.1" width="66.6" height="53.2" rx="5.3"/><circle cx="786.7" cy="254.1" r="6.0"/><path d="M772.0 283.9 L793.3 266.3 L806.7 275.4 L816.6 269.0 L828.0 280.7"/></g>
+<text x="800" y="357" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF">Arts and Culture banner</text>
+<text x="800" y="401" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="26" font-weight="600" fill="#F7941D">Top banner · 1600×640 (2.5:1)</text>
+</svg>
