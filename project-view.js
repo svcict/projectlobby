@@ -57,7 +57,7 @@
       ${s.highlight ? `<div class="pj-highlight pj-highlight--lead">${esc(s.highlight)}</div>` : ''}
       <div class="pj-pillars__items">${items.map((it) => `<div class="pj-pillar">
         <div class="pj-pillar__icon">${icon(it.icon, z.pillar, '#041F3F')}</div>
-        <div class="pj-pillar__text"><div class="pj-pillar__title">${esc(it.title)}</div><div class="pj-pillar__body">${esc(it.body)}</div></div>
+        <div class="pj-pillar__text"><div class="pj-pillar__title">${esc(it.title)}</div>${it.body ? `<div class="pj-pillar__body">${esc(it.body)}</div>` : ''}</div>
       </div>`).join('')}</div>
       ${s.note ? `<p class="pj-note">${typeof s.note === 'string' ? esc(s.note) : `${esc(s.note.text)} ${z.links ? `<a href="${esc(s.note.href)}" target="_blank" rel="noopener">${esc(s.note.link)}</a>` : `<span>${esc(s.note.link)}</span>`}`}</p>` : ''}
     </div>`;

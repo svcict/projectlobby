@@ -948,18 +948,21 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "title": "Access to Education",
-              "body": "Strengthening community enterprises through organizational development, skills training, and expanded market access for indigenous products to increase stable household incomes."
+              "body": "Providing daycare services, scholarships from secondary to graduate level, and supplemental feeding to improve retention and increase Iraya-Mangyan graduates."
             },
             {
               "icon": "stethoscope",
-              "title": "Health Access and Well-being",
-              "body": "Providing daycare services, scholarships from secondary to graduate level, and supplemental feeding to improve retention and increase Iraya-Mangyan graduates."
+              "title": "Health Access and Well-being"
             },
             {
               "icon": "users",
               "title": "Community Organization and Planning",
               "body": "Conducting census and baselining of 367 families and enabling participatory planning toward long-term self-management and sustainability."
             }
+          ],
+          "sub": [
+            "Since 1989, we have been implementing an integrated community development program for the Indigenous Iraya-Mangyan community of Puerto Galera covering education, livelihood development, and health.",
+            "A highlight of this program is our work to help the Iraya preserve their tradition of weaving beautiful and functional nito items, enabling them to expand their offerings and reach new markets."
           ]
         }
       ],

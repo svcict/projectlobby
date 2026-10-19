@@ -234,6 +234,7 @@
     const key = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
     state.route = key in ROUTES ? key : '';
     state.tab = 0;
+    trackHistory();
     render();
     window.scrollTo(0, 0);
     // Going deeper, the new screen comes in from the right; going back, from
@@ -248,11 +249,28 @@
   }
   window.addEventListener('hashchange', onRoute);
 
+  // Where this visit is in the browser's history, kept in history.state, so the
+  // header's back arrow can step back (like the phone's own back) instead of
+  // adding another entry. A screen that opens from outside (a QR code) has
+  // nothing behind it, so the arrow goes up one level and replaces the entry.
+  let historyIndex = history.state && typeof history.state.i === 'number' ? history.state.i : 0;
+  let replacing = false;
+  history.replaceState({ i: historyIndex }, '');
+  function trackHistory() {
+    const st = history.state;
+    if (st && typeof st.i === 'number') historyIndex = st.i;   // went back or forward
+    else {                                                      // a new screen
+      if (!replacing) historyIndex += 1;
+      history.replaceState({ i: historyIndex }, '');
+    }
+    replacing = false;
+  }
+
   // Arrived from a lobby QR code: say so once, then drop ?from=lobby so a
   // reload or a shared link doesn't repeat it. Hides itself after 6 seconds.
   if (new URLSearchParams(location.search).get('from') === 'lobby') {
     const note = $('#fromLobby');
-    history.replaceState(null, '', location.pathname + location.hash);
+    history.replaceState(history.state, '', location.pathname + location.hash);
     note.hidden = false;
     requestAnimationFrame(() => note.classList.add('is-on'));
     const close = () => { note.classList.remove('is-on'); setTimeout(() => { note.hidden = true; }, 240); };
@@ -261,8 +279,10 @@
   }
 
   $('#back').addEventListener('click', () => {
+    if (historyIndex > 0) { history.back(); return; }
     const route = ROUTES[state.route] || ROUTES[''];
-    location.hash = route.parent || '';
+    replacing = true;
+    location.replace('#' + (route.parent || ''));
   });
 
   // ---------- Home photo rotation ----------
