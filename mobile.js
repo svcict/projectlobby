@@ -32,7 +32,7 @@
   const ICONS = {
     'go': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M9 5l7 7-7 7" stroke="#041F3F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     'check-blue': check('#0B53A5'),
-    'check-orange': check('#F7941D')
+    'check-orange': check('#F0781E')
   };
 
   const $ = (sel, root = document) => root.querySelector(sel);

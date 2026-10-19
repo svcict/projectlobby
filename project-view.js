@@ -32,7 +32,7 @@
   const CHARTS = {
     // Box plot of pre/post maths scores, control vs treatment schools.
     // Hand-drawn from approximate values; replace with real data.
-    centexDE: '<svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet" font-family="Schibsted Grotesk, sans-serif" role="img" aria-label="Box plot of pre and post mathematics scores for control and treatment schools"><line x1="60" x2="500" y1="290" y2="290" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="296" text-anchor="end" font-size="17" fill="#3D5A80">0</text><line x1="60" x2="500" y1="230" y2="230" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="236" text-anchor="end" font-size="17" fill="#3D5A80">20</text><line x1="60" x2="500" y1="170" y2="170" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="176" text-anchor="end" font-size="17" fill="#3D5A80">40</text><line x1="60" x2="500" y1="110" y2="110" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="116" text-anchor="end" font-size="17" fill="#3D5A80">60</text><line x1="60" x2="500" y1="50" y2="50" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="56" text-anchor="end" font-size="17" fill="#3D5A80">80</text><line x1="130" x2="130" y1="164" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="164" y2="164" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="98" y="197" width="64" height="42" rx="3" fill="#FFD29E"/><line x1="98" x2="162" y1="218" y2="218" stroke="#041F3F" stroke-width="3"/><line x1="210" x2="210" y1="80" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="80" y2="80" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="178" y="131" width="64" height="84" rx="3" fill="#F7941D"/><line x1="178" x2="242" y1="170" y2="170" stroke="#041F3F" stroke-width="3"/><line x1="350" x2="350" y1="137" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="137" y2="137" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="318" y="191" width="64" height="45" rx="3" fill="#FFD29E"/><line x1="318" x2="382" y1="209" y2="209" stroke="#041F3F" stroke-width="3"/><circle cx="350" cy="122" r="4" fill="#3D5A80"/><circle cx="350" cy="116" r="4" fill="#3D5A80"/><circle cx="350" cy="104" r="4" fill="#3D5A80"/><line x1="430" x2="430" y1="38" y2="245" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="38" y2="38" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="245" y2="245" stroke="#3D5A80" stroke-width="2"/><rect x="398" y="95" width="64" height="69" rx="3" fill="#F7941D"/><line x1="398" x2="462" y1="125" y2="125" stroke="#041F3F" stroke-width="3"/><circle cx="430" cy="254" r="4" fill="#3D5A80"/><circle cx="430" cy="290" r="4" fill="#3D5A80"/></svg>'
+    centexDE: '<svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet" font-family="Schibsted Grotesk, sans-serif" role="img" aria-label="Box plot of pre and post mathematics scores for control and treatment schools"><line x1="60" x2="500" y1="290" y2="290" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="296" text-anchor="end" font-size="17" fill="#3D5A80">0</text><line x1="60" x2="500" y1="230" y2="230" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="236" text-anchor="end" font-size="17" fill="#3D5A80">20</text><line x1="60" x2="500" y1="170" y2="170" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="176" text-anchor="end" font-size="17" fill="#3D5A80">40</text><line x1="60" x2="500" y1="110" y2="110" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="116" text-anchor="end" font-size="17" fill="#3D5A80">60</text><line x1="60" x2="500" y1="50" y2="50" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="56" text-anchor="end" font-size="17" fill="#3D5A80">80</text><line x1="130" x2="130" y1="164" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="164" y2="164" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="98" y="197" width="64" height="42" rx="3" fill="#F8C29A"/><line x1="98" x2="162" y1="218" y2="218" stroke="#041F3F" stroke-width="3"/><line x1="210" x2="210" y1="80" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="80" y2="80" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="178" y="131" width="64" height="84" rx="3" fill="#F0781E"/><line x1="178" x2="242" y1="170" y2="170" stroke="#041F3F" stroke-width="3"/><line x1="350" x2="350" y1="137" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="137" y2="137" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="318" y="191" width="64" height="45" rx="3" fill="#F8C29A"/><line x1="318" x2="382" y1="209" y2="209" stroke="#041F3F" stroke-width="3"/><circle cx="350" cy="122" r="4" fill="#3D5A80"/><circle cx="350" cy="116" r="4" fill="#3D5A80"/><circle cx="350" cy="104" r="4" fill="#3D5A80"/><line x1="430" x2="430" y1="38" y2="245" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="38" y2="38" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="245" y2="245" stroke="#3D5A80" stroke-width="2"/><rect x="398" y="95" width="64" height="69" rx="3" fill="#F0781E"/><line x1="398" x2="462" y1="125" y2="125" stroke="#041F3F" stroke-width="3"/><circle cx="430" cy="254" r="4" fill="#3D5A80"/><circle cx="430" cy="290" r="4" fill="#3D5A80"/></svg>'
   };
 
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -61,7 +61,7 @@
     const list = s.stats || [];
     const where = s.label || s.location ? `<div class="pj-results__where">
         ${s.label ? `<div class="pj-results__label">${esc(s.label)}</div>` : ''}
-        ${s.location ? `<div class="pj-results__place">${icon('pin', z.pin, '#F7941D')}${esc(s.location)}</div>` : ''}
+        ${s.location ? `<div class="pj-results__place">${icon('pin', z.pin, '#F0781E')}${esc(s.location)}</div>` : ''}
       </div>` : '';
     const sub = s.sub ? `<p class="pj-statblock__sub">${esc(s.sub)}</p>` : '';
     return `<div class="pj-statblock">${where}${sub}<div class="pj-stats${list.length > 4 ? ' pj-stats--many' : list.length > 2 ? ' pj-stats--compact' : ''}">${list.map((st) => `<div class="pj-stat">
@@ -75,8 +75,8 @@
     const legend = s.legend || [], axis = s.axis || [];
     const chart = CHARTS[s.chart] ? `<div class="pj-chart">
         <div class="pj-chart__legend">
-          <span class="pj-chart__key"><span class="pj-chart__swatch" style="background:#FFD29E"></span>${esc(legend[0])}</span>
-          <span class="pj-chart__key"><span class="pj-chart__swatch" style="background:#F7941D"></span>${esc(legend[1])}</span>
+          <span class="pj-chart__key"><span class="pj-chart__swatch" style="background:#F8C29A"></span>${esc(legend[0])}</span>
+          <span class="pj-chart__key"><span class="pj-chart__swatch" style="background:#F0781E"></span>${esc(legend[1])}</span>
         </div>
         <div class="pj-chart__plot">${CHARTS[s.chart]}</div>
         <div class="pj-chart__axis"><span></span><span>${esc(axis[0])}</span><span>${esc(axis[1])}</span><span></span></div>
@@ -86,7 +86,7 @@
       <div class="pj-results__main">
         <div class="pj-results__where">
           <div class="pj-results__label">${esc(s.label)}</div>
-          <div class="pj-results__place">${icon('pin', z.pin, '#F7941D')}${esc(s.location)}</div>
+          <div class="pj-results__place">${icon('pin', z.pin, '#F0781E')}${esc(s.location)}</div>
         </div>
         <div class="pj-bigstat">
           <div class="pj-bigstat__value">${esc(stat.value)}</div>
@@ -109,7 +109,7 @@
         ${c.tag ? `<div class="pj-package__tag">${esc(c.tag)}</div>` : ''}
         <div class="pj-package__title">${esc(c.title)}</div>
         <div class="pj-package__label">${esc(c.label)}</div>
-        <div class="pj-package__list">${(c.items || []).map((t) => `<div class="pj-package__item">${icon('check', z.check, c.dark ? '#F7941D' : '#0B53A5', 2.4)}<span>${esc(t)}</span></div>`).join('')}</div>
+        <div class="pj-package__list">${(c.items || []).map((t) => `<div class="pj-package__item">${icon('check', z.check, c.dark ? '#F0781E' : '#0B53A5', 2.4)}<span>${esc(t)}</span></div>`).join('')}</div>
         ${c.impact ? `<div class="pj-package__impact">${esc(c.impact)}</div>` : ''}
         ${c.foot ? `<div class="pj-package__foot">${esc(c.foot)}</div>` : ''}
       </div>`).join('')}</div>
