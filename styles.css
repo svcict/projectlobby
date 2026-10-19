@@ -114,9 +114,15 @@ img { -webkit-user-drag: none; user-select: none; }
   gap: 24px;
 }
 .bar--end { justify-content: flex-end; }
-/* Pillar and program pages: the bar is white, continuing the page above. */
-.bar--light { background: #FFFFFF; }
-.bar--light .btn-ghost { color: var(--blue); box-shadow: inset 0 0 0 2px rgba(3, 34, 177, 0.35); }
+/* Pillar and program pages: the bar continues the page above it, blue under
+   the 760px left panel and white under the content. */
+.bar--light { background: linear-gradient(to right, var(--blue) 760px, #FFFFFF 760px); }
+/* Tighter spacing so both buttons stay inside the blue, even for the longest
+   pillar names. */
+.bar--light { padding-left: 40px; }
+.bar--light .bar__side { gap: 12px; }
+.bar--light .btn-primary { padding: 0 36px; }
+.bar--light .btn-ghost { padding: 0 24px; }
 /* Our pillars: no bar colour of its own, the blue screen runs to the bottom. */
 .screen--programs .bar { background: transparent; }
 /* With one language the Home bar would be empty, so Home fills the screen. */
