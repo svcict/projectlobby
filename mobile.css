@@ -99,7 +99,7 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 64px;
+  height: var(--top-h, 64px);
   padding: 0 12px 0 8px;
   display: flex;
   align-items: center;
@@ -348,7 +348,7 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 /* Tabs, as on the kiosk. Sticky just below the 64px header. */
 .m-tabs {
   position: sticky;
-  top: 64px;
+  top: var(--top-h, 64px);
   z-index: 5;
   margin: -12px -20px -16px;
   padding: 12px 20px;
@@ -661,4 +661,40 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 @media (max-width: 340px) {
   .pj-stat { padding: 14px 12px; }
   .pj-stat__value { font-size: 22px; }
+}
+
+/* ---------- Wider and shorter screens ---------- */
+
+/* Tablets and landscape phones 720px and wider: a wider sheet, two-column
+   cards and lists, a wider home photo, and a type size that suits the width. */
+@media (min-width: 720px) {
+  .sheet { max-width: 720px; }
+  .m-slides { aspect-ratio: 16 / 10; }
+  .m-tagline__title { font-size: 30px; }
+  .m-tagline__line { font-size: 17px; }
+  .m-hero--wide { aspect-ratio: 16 / 9; }
+  .view--programs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 20px; }
+  .view--programs > .m-head, .view--programs > .m-support { grid-column: 1 / -1; }
+  .m-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .m-projects > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .m-text, .m-band__body, .m-head .m-text { font-size: 17px; max-width: 62ch; }
+  .pj-pillars__items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+  .pj-stat__value { font-size: 40px; }
+}
+@media (min-width: 1000px) {
+  .sheet { max-width: 880px; }
+}
+
+/* Landscape phones: the home screen sits side by side, and the sticky header
+   is shorter, so more of the screen is content. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root { --top-h: 52px; }
+  .sheet { max-width: 880px; }
+  .view--home { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-rows: auto auto; column-gap: 24px; row-gap: 16px; align-content: center; align-items: center; padding: 16px 24px; }
+  .view--home > .m-logo { grid-column: 1; grid-row: 1; height: 96px; }
+  .view--home > .m-cta { grid-column: 1; grid-row: 2; }
+  .view--home > .m-slides { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: 4 / 3; }
+  .m-tagline__title { font-size: 22px; }
+  .m-tagline__line { font-size: 14px; }
+  .m-hero--wide { aspect-ratio: 16 / 9; max-height: 60vh; }
 }

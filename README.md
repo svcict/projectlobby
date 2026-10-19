@@ -12,6 +12,7 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 - The same content in a single column for phones
 - Each screen has its own address, so the phone's back button works: `#pillars`, `#arts`, `#leadership`, `#bigbets`, `#community`, and `#program/<id>` (e.g. `#program/museum`). Older `#programs` and `#project/<id>` links still work
 - Phones that open `index.html` are sent here automatically
+- Tablets and landscape phones (720px and wider) get a wider sheet with two-column pillar cards and program lists; landscape phones also get a side-by-side home screen and a shorter header
 
 **Language:** English only. There is no language switch and no translated text.
 
