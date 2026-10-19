@@ -1,690 +1,198 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Tulay Foundation Kiosk</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayala Foundation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/welcome.webp">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
-<style>
-/* Layout: touch kiosk: portrait column (1080 x 1920) and, for the 65-inch TV, a landscape split layout (1920 x 1080). Welcome, then three program cards, then one scrolling program screen:
-   hero in the program's colour, projects (Arts and Culture) or impact numbers, and ways to take part.
-   Idea: the foundation's name (tulay, a bridge) becomes the way each program is explained.
-   Palette: three colours only. Blue #0054A6, orange #F7931E, white. Orange marks the action; blue and white carry everything else. */
-:root {
-  color-scheme: light;
-  --white: #ffffff;
-  --blue: #0054a6;
-  --orange: #f7931e;
-  /* roles */
-  --paper: var(--white);
-  --ink: var(--blue);
-  --ink-soft: var(--blue);
-  --sun: var(--orange);
-  --sun-ink: var(--blue);
-  --on-field: var(--white);
-  --pc: var(--blue);
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="viewport">
+<div class="stage" id="stage">
 
-  --font: "Familjen Grotesk", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --step-small: clamp(16px, 2vw, 22px);
-  --step-body: clamp(18px, 2.8vw, 30px);
-  --step-lead: clamp(22px, 3.3vw, 36px);
-  --step-head: clamp(40px, 7.4vw, 80px);
-  --step-display: clamp(56px, 13vw, 140px);
-  --m: clamp(16px, 4.4vw, 48px);
-  --touch: 76px;
-  --svh: 1svh; /* one hundredth of the screen height; reduced when the page is zoomed for a big screen, see the end of this sheet */
+  <!-- Arts and Culture (base layer) -->
+  <div class="screen screen--arts" data-screen="program">
+    <aside class="panel">
+      <div class="panel__media"><div class="slot" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div></div>
+      <div class="panel__text">
+        <div class="eyebrow">Ayala Foundation</div>
+        <h1 class="arts-title" data-t="title"></h1>
+        <p class="arts-body" data-t="body"></p>
+      </div>
+    </aside>
 
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { background: var(--paper); }
-body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: var(--step-body); line-height: 1.35; -webkit-font-smoothing: antialiased; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-button { font: inherit; color: inherit; background: none; border: 0; border-radius: 0; cursor: pointer; text-align: left; }
-img { display: block; max-width: 100%; }
-:focus-visible { outline: 5px solid var(--ink); outline-offset: 3px; }
-[tabindex="-1"]:focus { outline: none; } /* the heading takes focus after a screen change; it is not a control */
-.skip { position: fixed; top: 8px; left: 8px; z-index: 30; transform: translateY(-300%); background: var(--white); color: var(--blue); border: 4px solid var(--blue); min-height: var(--touch); padding: 0 24px; font-weight: 700; font-size: var(--step-body); }
-.skip:focus { transform: none; }
-.welcome :focus-visible, .dock :focus-visible, .idle :focus-visible { outline-color: var(--on-field); } /* the ink outline vanishes on ink surfaces */
-/* the parts the browser draws still belong to the design */
-::selection { background: var(--blue); color: var(--white); }
-html { scrollbar-width: thin; scrollbar-color: var(--blue) var(--white); }
-[hidden] { display: none !important; }
-.kiosk { max-width: 1080px; margin: 0 auto; min-height: calc(100 * var(--svh)); position: relative; overflow-x: clip; background: var(--paper); }
-.num { font-variant-numeric: tabular-nums; }
+    <main class="arts-main">
+      <section class="section">
+        <h2 class="h2" data-t="partOf"></h2>
+        <div class="join">
+          <div class="info">
+            <div class="info__title" data-t="give"></div>
+            <div class="info__body" data-t="giveBody"></div>
+          </div>
+          <div class="info">
+            <div class="info__title" data-t="partner"></div>
+            <div class="info__body" data-t="partnerBody"></div>
+          </div>
+          <div class="take">
+            <div class="take__qr"><div class="slot slot--contain" data-src="assets/temp-qr.png" data-ph="QR code"></div></div>
+            <div class="take__text">
+              <div class="take__title" data-t="take"></div>
+              <div class="take__body" data-t="takeBody"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--touch); padding: 0 clamp(28px, 5vw, 56px); background: var(--white); color: var(--blue); border-bottom: 12px solid var(--orange); font-weight: 700; font-size: var(--step-lead); }
-.btn { text-align: center; line-height: 1.15; padding-block: 12px; overflow-wrap: anywhere; }
-.btn:active { transform: scale(.97); }
-.btn.quiet { background: var(--white); color: var(--blue); border: 4px solid var(--blue); }
-.btn.on-field { background: transparent; color: var(--white); border: 4px solid var(--white); }
-/* press feedback, shared: every touch target answers within a frame and settles fast */
-.btn, .mini, .proj { transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease; }
+      <section class="section">
+        <h2 class="h2" data-t="projects"></h2>
+        <div class="projects">
+          <button class="u press project" data-action="museum">
+            <span class="project__text">
+              <span class="project__name">Ayala Museum</span>
+              <span class="project__sub" data-t="tap"></span>
+            </span>
+            <span class="project__go" data-icon="chevron-navy-24"></span>
+          </button>
+          <button class="u press project">
+            <span class="project__text">
+              <span class="project__name">Filipinas Heritage Library</span>
+              <span class="project__sub" data-t="tap"></span>
+            </span>
+            <span class="project__go" data-icon="chevron-navy-24"></span>
+          </button>
+        </div>
+      </section>
 
-/* welcome */
-.welcome { min-height: calc(100 * var(--svh)); display: grid; grid-template-rows: minmax(calc(30 * var(--svh)), 1fr) auto auto; background: var(--ink); color: var(--on-field); cursor: pointer; }
-.welcome-pic { position: relative; overflow: hidden; background: var(--ink); }
-/* photographs keep their subject in frame when cropped to a slot */
-img[src$="arts.webp"] { object-position: 8% 12%; } /* keep the brush and the mural in a wide crop */
-img[src$="community.webp"] { object-position: 64% 50%; }
-/* attract loop: while nobody touches the screen, the picture hands over to each program in turn */
-.slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 0s linear 600ms; } /* the outgoing slide stays opaque until the new one has faded in over it, so the blue behind never shows through */
-.slide.on { opacity: 1; z-index: 1; transition: opacity 600ms var(--ease-out); }
-/* a program slide is a picture at its natural 4:3 over a colour field, so a small photo is never stretched across the whole panel */
-.slide[data-p] { display: flex; flex-direction: column; background: var(--pc); }
-.slide figcaption { padding-bottom: calc(var(--touch) + var(--m) * 1.8); } /* room for the button that sits over the bottom of the panel */
-.slide[data-p] img { position: static; width: 100%; height: auto; aspect-ratio: 4 / 3; flex: 0 1 auto; min-height: 0; object-fit: cover; animation: none; }
-.slide figcaption { flex: 1 0 auto; align-content: center; background: var(--pc); color: var(--on-field); padding: var(--m) var(--m) calc(var(--touch) + var(--m) * 1.8); display: grid; gap: 8px; transform: translateY(16px); transition: transform 600ms var(--ease-out) 150ms; }
-.slide.on figcaption { transform: none; }
-.slide figcaption b, .slide figcaption h1 { font-size: var(--step-head); line-height: .95; font-weight: 700; letter-spacing: -.01em; }
-.slide figcaption span { font-size: var(--step-body); line-height: 1.3; }
-@keyframes fill { from { transform: scaleX(0); } to { transform: none; } }
-/* the name sits in the sky as a wordmark, not as a label above the headline */
-.welcome .org { position: absolute; z-index: 1; top: calc(var(--m) / 2 + 8px); left: var(--m); padding: 8px 16px; background: var(--ink); font-size: var(--step-lead); font-weight: 700; color: var(--on-field); }
-.about-t { font-size: var(--step-body); line-height: 1.4; max-width: 46ch; white-space: pre-line; }
-.asof { font-size: var(--step-body); color: var(--ink-soft); margin-top: -8px; }
-.slide figcaption .stat { display: grid; font-size: var(--step-lead); line-height: 1.15; margin-top: 14px; }
-.slide figcaption .stat strong { font-size: clamp(44px, 10vw, 112px); line-height: 1; padding-bottom: 6px; font-weight: 700; letter-spacing: -.02em; }
+      <section class="section section--fill">
+        <h2 class="h2" data-t="more"></h2>
+        <div class="tiles">
+          <button class="u press tile">
+            <div class="tile__media"><div class="slot" data-src="assets/temp-leadership.png" data-ph="Leadership illustration"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p1"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+          <button class="u press tile">
+            <div class="tile__media"><div class="slot" data-src="assets/temp-bigbets.png" data-ph="Big Bets illustration"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p2"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+          <button class="u press tile">
+            <div class="tile__media"><div class="slot" data-src="assets/temp-community.png" data-ph="Community photo"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p3"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+        </div>
+      </section>
+    </main>
 
-/* billboard */
-.w-links { display: flex; justify-content: center; gap: 48px; padding: 0 var(--m) calc(var(--m) / 2); background: var(--ink); }
-.w-links .txt { min-height: 64px; padding: 0 12px; color: var(--on-field); font-weight: 700; font-size: 26px; text-decoration: underline 4px var(--orange); text-underline-offset: 8px; }
-.about { padding: var(--m); display: grid; gap: 28px; align-content: center; flex: 1 1 auto; }
-.about h1 { font-size: var(--step-head); line-height: .95; font-weight: 700; }
-.about-p { font-size: var(--step-lead); line-height: 1.4; max-width: 52ch; }
-#about:not([hidden]) { display: flex; flex-direction: column; min-height: calc(100 * var(--svh)); }
-#about .dock { margin-top: auto; }
-.cta { position: absolute; z-index: 3; left: var(--m); bottom: var(--m); }
+    <nav class="bar">
+      <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      <button class="u press btn-primary" data-action="all-programs"><span data-icon="grid"></span><span data-t="allPrograms"></span></button>
+      <div class="lang" data-lang-switch></div>
+    </nav>
+  </div>
 
-#welcome { grid-template-rows: minmax(0, 1fr) auto; }
-#welcome .w-links { padding-top: 24px; padding-bottom: var(--m); }
+  <!-- Ayala Museum -->
+  <div class="screen screen--museum" data-screen="museum">
+    <aside class="panel">
+      <div class="panel__media"><div class="slot" data-src="assets/temp-museum.png" data-ph="Ayala Museum photo"></div></div>
+      <div class="panel__text">
+        <div class="eyebrow" data-t="p0"></div>
+        <h1 class="museum-title">Ayala Museum</h1>
+      </div>
+    </aside>
+    <main class="museum-main">
+      <p class="museum-lead" data-t="musLead"></p>
+      <p class="museum-body" data-t="musBody"></p>
+      <div class="stats">
+        <div class="stat"><div class="stat__num">92,833</div><div class="stat__label" data-t="stat1"></div></div>
+        <div class="stat"><div class="stat__num">96%</div><div class="stat__label" data-t="stat2"></div></div>
+      </div>
+      <div class="support">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="flex:none"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" stroke="#0B53A5" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        <div class="support__text">
+          <div class="support__title" data-t="support"></div>
+          <div class="support__body" data-t="supportBody"></div>
+        </div>
+      </div>
+    </main>
+    <nav class="bar">
+      <div class="bar__side">
+        <button class="u press btn-ghost" data-action="back-to-arts"><span data-icon="back"></span><span data-t="p0"></span></button>
+        <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      </div>
+      <button class="u press btn-primary" data-action="all-programs"><span data-icon="grid"></span><span data-t="allPrograms"></span></button>
+      <div class="bar__side bar__side--end"><div class="lang" data-lang-switch></div></div>
+    </nav>
+  </div>
 
-/* coverflow: the programs fan out in an arc, the chosen one in front. The stage takes whatever height is left; the cards size to it. */
-#attract { display: grid; grid-template-rows: minmax(0, 1fr) auto auto auto; justify-items: center; row-gap: clamp(8px, calc(1.6 * var(--svh)), 18px); padding: var(--m); background: var(--ink); }
-#stage { position: relative; width: 100%; min-height: 0; container-type: size; perspective: 1500px; perspective-origin: 50% 42%; --cw: min(calc(80cqh * 4 / 3), 46cqw); }
-#stage::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 2%; height: 9%; background: radial-gradient(ellipse at center, rgba(0,20,70,.55), rgba(0,20,70,0) 70%); pointer-events: none; z-index: 0; }
-#stage .slide { --o: 0; --a: 0; --z: 1; inset: auto; left: 50%; top: 46%; width: var(--cw); height: calc(var(--cw) * .75); display: block; background: var(--pc); border: 0; z-index: var(--z);
-  opacity: 1; backface-visibility: hidden; will-change: transform, opacity; transform-origin: 50% 50%;
-  transform: translate(-50%, -50%) translateX(calc(var(--o) * 80%)) translateZ(calc(var(--a) * -220px)) rotateY(calc(var(--o) * -42deg)) scale(calc(1 - var(--a) * .06));
-  box-shadow: 0 22px 44px rgba(0,18,64,.45);
-  transition: transform 520ms var(--ease-out), opacity 520ms var(--ease-out); cursor: pointer; }
-#stage .slide::after { content: ""; position: absolute; inset: 0; background: rgba(0,48,140,.24); opacity: var(--a); z-index: 1; transition: opacity 520ms var(--ease-out); pointer-events: none; }
-#stage .slide::before { content: ""; position: absolute; inset: 0; border: 6px solid var(--white); z-index: 2; pointer-events: none; }
-#stage .slide.hide { opacity: 0; pointer-events: none; transform: translate(-50%, -50%) translateZ(-420px) scale(.7); }
-#stage .slide img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; min-height: 0; }
-#stage .slide figcaption { display: none; }
-#attract { touch-action: pan-y; user-select: none; -webkit-user-select: none; }
-#attract img { -webkit-user-drag: none; pointer-events: none; }
-.dots { display: flex; gap: 14px; pointer-events: none; }
-.dots i { width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--on-field); transition: background-color 180ms ease, border-color 180ms ease; }
-.dots i.on { background: var(--orange); border-color: var(--orange); }
-.cf-cap { text-align: center; display: grid; gap: 6px; max-width: 100%; pointer-events: none; }
-.cf-cap b { font-size: clamp(28px, calc(6 * var(--svh)), 64px); line-height: 1; font-weight: 700; }
-.cf-cap span { font-size: var(--step-body); line-height: 1.25; }
-#attract .cta { position: static; }
-@media (prefers-reduced-motion: reduce) { #stage .slide { transition: opacity 200ms ease; } }
-
-/* top bar */
-.bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: var(--m); padding-bottom: 0; flex-wrap: wrap; }
-.wordmark { font-size: var(--step-lead); font-weight: 700; }
-
-/* programs */
-.projs { display: grid; gap: 10px; }
-.projs-h { font-size: var(--step-body); font-weight: 700; }
-.proj { background: var(--white); color: var(--blue); border: 4px solid var(--blue); border-bottom: 10px solid var(--orange); min-height: var(--touch); padding: 8px 24px; display: flex; align-items: center; font-size: var(--step-lead); font-weight: 700; line-height: 1.1; }
-.proj:active { transform: scale(.98); }
-
-/* detail hero */
-.hero { background: var(--pc); color: var(--on-field); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); margin-top: var(--m); }
-.hero-copy { padding: var(--m); display: flex; flex-direction: column; justify-content: flex-end; gap: 20px; }
-.hero h1 { font-size: clamp(40px, 6.6vw, 74px); line-height: .95; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
-.hero p { font-size: var(--step-lead); line-height: 1.3; max-width: 24ch; text-wrap: balance; }
-#detail[data-p="arts"] .hero p { font-size: var(--step-body); line-height: 1.35; max-width: 40ch; text-wrap: pretty; }
-.hero:not(:has(.hero-pic:not([hidden]))) { grid-template-columns: 1fr; }
-.hero-pic { position: relative; min-height: clamp(220px, calc(32 * var(--svh)), 480px); background: var(--ink); }
-.hero-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-
-.sec { padding: var(--m); display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(16px, 2.4vw, 28px); }
-.sec > * { min-width: 0; }
-.sec h2 { font-size: clamp(32px, 5.2vw, 56px); line-height: .95; font-weight: 700; color: var(--pc); }
-.sec .lede { font-size: var(--step-body); color: var(--ink-soft); max-width: 36ch; }
-
-/* impact */
-.impact.two { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 28px; }
-.fig small { font-size: var(--step-body); display: block; margin-top: 8px; font-weight: 700; }
-.impact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 20px); }
-.fig { background: var(--pc); color: var(--on-field); padding: clamp(16px, 2.6vw, 28px); display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: clamp(170px, 22vw, 260px); }
-.fig b { max-width: 100%; font-size: clamp(34px, 6.6vw, 72px); line-height: 1; font-weight: 700; letter-spacing: -.02em; }
-.fig span { font-size: var(--step-body); line-height: 1.3; overflow-wrap: break-word; }
-
-/* support */
-
-/* navigation lives at the bottom of the screen, within reach from a wheelchair or a short stance */
-#project:not([hidden]) { min-height: calc(100 * var(--svh)); display: flex; flex-direction: column; }
-#project .dock { margin-top: auto; }
-.btn.back { border: 4px solid var(--blue); border-bottom-width: 12px; border-bottom-color: var(--orange); }
-.dock { position: sticky; bottom: 0; z-index: 5; background: var(--ink); padding: 16px var(--m); display: flex; gap: 12px; }
-.dock .btn { flex: 1 1 0; min-width: 0; padding: 12px; text-align: center; }
-.idle { position: fixed; z-index: 20; left: var(--m); right: var(--m); bottom: 140px; max-width: 984px; margin: 0 auto; background: var(--ink); color: var(--on-field); padding: clamp(16px, 2.6vw, 28px); display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; font-size: var(--step-body); line-height: 1.3; font-weight: 600; animation: rise 300ms var(--ease-out) both; }
-.idle b { font-variant-numeric: tabular-nums; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.path { padding: clamp(18px, 3vw, 34px); display: grid; gap: 10px; align-content: start; font-size: var(--step-body); line-height: 1.3; }
-.path b { font-size: var(--step-lead); line-height: 1.1; }
-.path.give { background: var(--pc); color: var(--on-field); }
-.path.partner { background: var(--white); color: var(--blue); border: 4px solid var(--blue); }
-.path.take { grid-column: 1 / -1; background: var(--white); color: var(--blue); border: 4px solid var(--blue); grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(16px, 3vw, 32px); }
-.qr { width: clamp(110px, 16vw, 170px); aspect-ratio: 1; background: var(--white); border: 8px solid var(--blue); display: grid; place-items: center; text-align: center; font-weight: 700; font-size: var(--step-body); letter-spacing: .04em; }
-.more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.mini { background: var(--pc); color: var(--on-field); display: grid; grid-template-rows: auto 1fr; }
-.mini:active { transform: scale(.98); }
-.mini img { width: 100%; height: clamp(140px, 22vw, 260px); object-fit: cover; }
-.mini span { padding: clamp(14px, 2.4vw, 26px); font-size: var(--step-lead); font-weight: 700; line-height: 1.1; display: flex; align-items: center; min-height: clamp(84px, 11vw, 120px); }
-
-/* one orchestrated moment: each screen assembles when it opens */
-.enter .stag { animation: rise 280ms var(--ease-out) both; animation-delay: calc(min(var(--i, 0), 4) * 60ms); }
-.fig.pop { animation: fade 240ms ease-out both; animation-delay: calc(var(--i, 0) * 60ms); } /* the count-up is the motion here, so the block only fades */
-@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
-/* reduced motion: fewer and gentler. Keep the fades that explain order, drop the travel and the drift. */
-::view-transition-group(hero-pic) { animation-duration: 300ms; animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }
-::view-transition-old(root), ::view-transition-new(root) { animation-duration: 200ms; }
-@media (prefers-reduced-motion: reduce) {
-  .slide figcaption { transform: none; transition: none; }
-  .slide.on { transition-duration: 200ms; }
-  .enter .stag, .fig.pop, .idle { animation-name: fade; animation-duration: 200ms; }
-}
-@media (min-aspect-ratio: 5/4) and (max-height: 500px) { /* a phone held sideways */
-  :root { --touch: 48px; --m: 14px; }
-  #attract .dots, .cf-cap span { display: none; }
-  .cf-cap b { font-size: 24px; }
-  .w-links .txt { min-height: 48px; font-size: 18px; }
-  #welcome .w-links, .welcome .w-links { padding: 0 var(--m) 4px; }
-  .welcome .cta { min-height: 48px; }
-}
-@media (max-height: 640px) {
-  .slide figcaption span, .slide figcaption .stat { display: none; }
-  .slide figcaption b, .slide figcaption h1 { font-size: var(--step-lead); line-height: 1.1; }
-}
-@media (max-width: 360px) {
-  .dock { padding: 12px 8px; gap: 6px; }
-  .dock .btn { font-size: 15px; padding: 8px 2px; }
-}
-@media (max-width: 640px) {
-  #stage { --cw: min(calc(84cqh * 4 / 3), 62cqw); }
-  .hero h1 { font-size: clamp(30px, 9.4vw, 44px); overflow-wrap: break-word; }
-  .slide[data-p] img { min-height: 100px; aspect-ratio: 2 / 1; }
-  .dock { gap: 8px; }
-  .dock .btn { font-size: 19px; padding: 8px 4px; overflow-wrap: normal; }
-  .more { grid-template-columns: minmax(0, 1fr); }
-  .w-links { gap: 20px; padding-bottom: 12px; }
-  .w-links .txt { font-size: 19px; padding: 0 10px; }
-  .welcome { grid-template-rows: minmax(calc(56 * var(--svh)), 1fr) auto auto; }
-  .paths { grid-template-columns: minmax(0, 1fr); }
-  .path.take { grid-template-columns: minmax(0, 1fr); }
-  h1, h2, .fig b { overflow-wrap: anywhere; }
-  .impact, .impact.two { grid-template-columns: minmax(0, 1fr); }
-  .impact.two { margin-top: 20px; }
-  .fig small { font-size: 18px; margin-top: 4px; }
-  .fig { flex-direction: row; align-items: center; min-height: 0; gap: 18px; padding: 16px 18px; }
-  .fig b { font-size: 40px; flex: 0 0 auto; min-width: 0; }
-  .fig span { font-size: 18px; }
-  .btn { font-size: max(19px, var(--step-lead)); }
-  .hero { grid-template-columns: 1fr; }
-  .hero-pic { order: -1; }
-}
-@media (max-width: 340px) {
-  .dock { gap: 6px; padding-inline: 8px; }
-  .dock .btn { font-size: 16px; padding-inline: 2px; }
-}
-
-/* landscape: a 65-inch touch TV on a floor stand. 4K is shown at 200% scaling, so this layout is 1920 x 1080 CSS px.
-   Each screen splits in two instead of stacking in a tall column, and the buttons stay in the bottom band. */
-@media (min-width: 560px) and (min-aspect-ratio: 5/4) {
-  :root { --m: clamp(32px, calc(5.2 * var(--svh)), 56px); }
-  .kiosk { max-width: none; }
-  .dock { justify-content: center; padding-inline: var(--m); }
-  .dock .btn { flex: 0 1 380px; }
-
-  /* welcome: the picture on the left, the words and the button on the right */
-
-  /* programs: a coverflow that turns through the programs */
-  .welcome { height: calc(100 * var(--svh)); }
-  .welcome .org { display: none; } /* the name sits over the text column here, so the headline carries it */
-  .slide[data-p] { flex-direction: row; }
-  .slide[data-p] img { aspect-ratio: auto; height: 100%; width: auto; flex: 1 1 0; min-width: 0; }
-  .slide figcaption { order: -1; flex: 0 0 42%; padding: clamp(56px, calc(9 * var(--svh)), 96px) var(--m) calc(var(--touch) + var(--m) * 2); gap: clamp(6px, calc(1.3 * var(--svh)), 14px); }
-  .slide figcaption b, .slide figcaption h1 { font-size: clamp(36px, min(5vw, calc(9 * var(--svh))), 96px); }
-  .slide figcaption .stat strong { font-size: clamp(34px, min(4.6vw, calc(8 * var(--svh))), 88px); }
-  .slide figcaption .stat { margin-top: clamp(4px, calc(1.3 * var(--svh)), 14px); }
-
-  /* programs: a title row, then the four programs side by side */
-
-  /* program and project pages: the picture and title stay on the left while the right side scrolls */
-  #detail:not([hidden]), #project:not([hidden]) { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 7fr); grid-template-rows: repeat(28, auto) minmax(0, 1fr) auto; align-items: start; min-height: calc(100 * var(--svh)); }
-  #detail > *, #project > * { grid-column: 2; }
-  #detail > .hero, #project > .hero { grid-column: 1; grid-row: 1 / 30; position: sticky; top: 0; height: calc(calc(100 * var(--svh)) - 108px); margin: 0; display: flex; flex-direction: column; }
-  #detail > .dock, #project > .dock { grid-column: 1 / -1; grid-row: 30; margin-top: 0; }
-  .hero-pic { order: -1; flex: 1 1 0; min-height: 200px; }
-  .hero-copy { flex: 0 0 auto; padding: 40px var(--m); gap: 16px; }
-  .hero:not(:has(.hero-pic:not([hidden]))) .hero-copy { flex: 1 1 auto; justify-content: flex-end; }
-  .hero h1 { font-size: clamp(48px, 4.6vw, 88px); }
-  .hero p { max-width: 36ch; }
-  #detail[data-p="arts"] .hero p { max-width: 46ch; }
-  .sec { padding: 32px var(--m); }
-  #detail > .bar, #project > .bar { padding-bottom: 0; }
-  .about-t { font-size: 26px; max-width: 64ch; }
-  .impact.two { margin-top: 12px; }
-  .fig { min-height: 0; gap: 12px; padding: 24px; }
-  .fig b { font-size: clamp(48px, 4vw, 72px); }
-  .fig span, .fig small { font-size: 24px; }
-  .projs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .proj { min-height: 120px; }
-  .mini img { height: clamp(120px, 11vw, 200px); }
-  .mini span { min-height: 80px; }
-
-  /* short screens: there is no room to pin the whole title block, so it scrolls with the page */
-  @media (max-height: 880px) {
-    #detail > .hero, #project > .hero { position: static; height: auto; min-height: calc(100 * var(--svh) - 108px); }
-    .hero-pic { flex: 0 0 auto; height: clamp(120px, calc(28 * var(--svh)), 260px); min-height: 0; }
-    .hero-copy { padding: 24px var(--m); }
-  }
-}
-
-/* a 4K TV that is not set to 200% display scaling: zoom the whole page so everything keeps its intended physical size.
-   Recommended: set the display scaling to 200% instead, then this block does nothing. Heights are divided by the zoom so screens still fill the TV exactly. */
-@media (min-width: 3200px) and (min-aspect-ratio: 5/4) { html { zoom: 2; } :root { --svh: calc(1svh / 2); } }
-@media (min-width: 2200px) and (max-width: 3199px) and (min-aspect-ratio: 5/4) { html { zoom: 1.3333; } :root { --svh: calc(1svh / 1.3333); } }
-</style>
-
-<button class="skip" type="button" id="skip" data-k="k.skip">Skip to the buttons</button>
-
-<main class="kiosk" id="kiosk">
-  <section class="welcome" id="welcome" aria-label="Welcome">
-    <div class="welcome-pic" id="home-pic">
-      <figure class="slide on" data-p="brand"><img src="img/welcome.webp" width="1600" height="800" fetchpriority="high" alt="Volunteers and staff at a packing table, taking red emergency bags out of cardboard boxes."><figcaption><h1 id="w-h">Tulay Foundation</h1><span data-k="w.line">Choose a program to learn more.</span></figcaption></figure>
-      <button class="btn go cta" id="home-go" type="button" data-k="w.go">Touch to explore</button>
+  <!-- Home -->
+  <div class="screen screen--home" data-screen="home">
+    <section class="home-intro" data-action="explore-start">
+      <div class="home-logo-wrap">
+        <h1 class="home-logo"><span class="sr-only">Ayala Foundation</span><div class="slot slot--contain" data-src="assets/logo.webp" data-ph="Ayala Foundation logo"></div></h1>
+      </div>
+      <button class="u press touch" data-action="explore-start">
+        <span class="touch__label" data-t="touch"></span>
+        <span class="touch__go" data-icon="chevron-orange-30"></span>
+      </button>
+    </section>
+    <div class="home-photos" data-action="explore-start">
+      <div class="slide"><div class="slot" data-src="assets/home-arts.webp" data-ph="Arts and Culture photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/temp-leadership.png" data-ph="Leadership Development photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/temp-bigbets.png" data-ph="Big Bets photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/home-community.webp" data-ph="Community Development photo"></div></div>
+      <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
     </div>
-    <div class="w-links"><button class="txt" type="button" data-act="about" data-k="k.about">About us</button><button class="txt" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button></div>
-  </section>
+    <nav class="bar bar--end">
+      <div class="lang" data-lang-switch></div>
+    </nav>
+  </div>
 
-  <section class="welcome" id="progs" hidden aria-labelledby="pr-h">
-    <h1 class="sr" id="pr-h" data-k="p.h">Our programs</h1>
-    <div class="welcome-pic" id="attract" role="group" aria-roledescription="carousel" aria-label="Our programs">
-      <p class="org">Tulay Foundation</p>
-      <div class="cf-stage" id="stage"></div>
-      <span class="dots" id="dots" aria-hidden="true"></span>
-      <div class="cf-cap"><b id="cf-name"></b><span id="cf-line"></span></div>
-      <button class="btn go cta" id="w-go" type="button">Touch to explore</button>
-    </div>
-    <div class="w-links"><button class="txt" type="button" data-act="about" data-k="k.about">About us</button><button class="txt" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button></div>
-  </section>
+  <!-- Our programs -->
+  <div class="screen screen--programs" data-screen="programs">
+    <section class="programs">
+      <div class="programs__head">
+        <div class="accent"></div>
+        <h1 class="programs__title" data-t="allTitle"></h1>
+      </div>
+      <div class="track" id="track">
+        <div class="card" data-card="0"><div class="slot" data-src="assets/temp-arts.png" data-ph="Arts and Culture image"></div></div>
+        <div class="card" data-card="1"><div class="slot" data-src="assets/temp-leadership.png" data-ph="Leadership Development image"></div></div>
+        <div class="card" data-card="2"><div class="slot" data-src="assets/temp-bigbets.png" data-ph="Big Bets image"></div></div>
+        <div class="card" data-card="3"><div class="slot" data-src="assets/temp-community.png" data-ph="Community Development image"></div></div>
+        <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous program"><span data-icon="back-blue-32"></span></button>
+        <button class="u arrow arrow--next" data-action="next" aria-label="Next program"><span data-icon="chevron-blue-32"></span></button>
+      </div>
+      <div class="programs__copy" id="programsCopy">
+        <h2 class="programs__name" id="curName"></h2>
+        <p class="programs__desc" id="curDesc"></p>
+      </div>
+      <div class="programs__cta">
+        <button class="u press explore" data-action="explore"><span id="exploreLabel"></span><span data-icon="chevron-navy-26"></span></button>
+      </div>
+    </section>
+    <nav class="bar">
+      <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      <button class="u press btn-ghost" data-action="about"><span data-icon="info"></span><span data-t="about"></span></button>
+      <div class="lang" data-lang-switch></div>
+    </nav>
+  </div>
 
-  <section id="about" hidden aria-labelledby="about-h">
-    <div class="bar stag" style="--i:0"><span class="wordmark">Tulay Foundation</span></div>
-    <div class="about stag" style="--i:1"><h1 id="about-h" data-k="k.about">About us</h1>
-      <p class="about-p" data-k="w.sub">We believe in contributing to the nation’s development goals by adapting to the evolving needs of stakeholders so we can remain relevant and responsive. Through our programs, we affirm our commitment to aligning, giving focus, and making an impact in the lives of people in our conglomerate, communities, and country.</p></div>
-    <nav class="dock" aria-label="Kiosk buttons"><button class="btn" type="button" data-act="progs" data-k="k.all">All programs</button><button class="btn on-field" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button><button class="btn on-field" type="button" data-act="welcome" data-k="k.start">Start over</button></nav>
-  </section>
-  <section id="detail" hidden data-p="arts" aria-labelledby="d-name">
-    <div class="bar stag" style="--i:0"><span class="wordmark">Tulay Foundation</span></div>
-    <div class="hero stag" style="--i:1">
-      <div class="hero-copy"><h1 id="d-name"></h1><p id="d-tag"></p></div>
-      <div class="hero-pic"><img id="d-img" src="img/arts.webp" width="1200" height="900" alt=""></div>
-    </div>
-
-    <div class="sec stag" id="about-sec" style="--i:2" hidden>
-      <p class="about-t" id="about-t"></p>
-    </div>
-
-    <div class="sec stag" id="projects-sec" style="--i:2" hidden>
-      <h2 data-k="c.projects">Projects</h2>
-      <div class="projs" id="projs"></div>
-    </div>
-
-    <div class="sec stag" style="--i:3" id="impact-sec">
-      <h2 data-k="d.chg">What it has changed</h2>
-      <p class="asof" data-k="d.asof">Figures as of 2025</p>
-      <div class="impact" id="impact"></div>
-    </div>
-
-    <div class="sec stag" style="--i:5">
-      <h2 data-k="d.part">Be part of it</h2>
-      <div class="paths">
-        <div class="path give"><b data-k="d.give">Give</b><p id="give-t"></p></div>
-        <div class="path partner"><b data-k="d.pb">Partner with us</b><p data-k="d.pp">Ask the front desk to connect you with the partnerships team.</p></div>
-        <div class="path take"><div class="qr" role="img" aria-label="Sample QR code placeholder"><span>SAMPLE<br>QR</span></div><div><b data-k="d.tb">Take this with you</b><p data-k="d.tp">Scan to keep reading on your phone. This screen collects nothing about you.</p></div></div>
+  <!-- "Still there?" warning, above every screen -->
+  <div class="idle" id="idle" data-idle-modal aria-hidden="true">
+    <div class="idle__box" role="dialog" aria-modal="true" aria-labelledby="idleTitle">
+      <div class="idle__title" id="idleTitle" data-t="still"></div>
+      <div class="idle__body"><span data-t="stillBody"></span> <strong id="idleCount">15</strong></div>
+      <div class="idle__actions">
+        <button class="u press idle__btn" data-action="start-over" data-t="startOver"></button>
+        <button class="u press idle__btn idle__btn--primary" data-action="keep-going" data-t="keep"></button>
       </div>
     </div>
+  </div>
 
-    <div class="sec stag" style="--i:6">
-      <h2 data-k="d.more">More programs</h2>
-      <div class="more" id="more"></div>
-    </div>
-    <nav class="dock" aria-label="Kiosk buttons"><button class="btn" type="button" data-act="progs" data-k="k.all">All programs</button><button class="btn on-field" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button><button class="btn on-field" type="button" data-act="welcome" data-k="k.start">Start over</button></nav>
-  </section>
-  <section id="project" hidden data-p="arts" aria-labelledby="pj-name">
-    <div class="bar stag" style="--i:0"><span class="wordmark">Tulay Foundation</span></div>
-    <div class="hero stag" style="--i:1">
-      <div class="hero-copy"><h1 id="pj-name"></h1><p id="pj-prog"></p></div>
-      <div class="hero-pic" id="pj-pic" hidden><img id="pj-img" loading="lazy" src="img/museum.webp" width="1600" height="1120" alt=""></div>
-    </div>
-    <div class="sec stag" style="--i:2">
-      <p class="about-t" id="pj-t" data-k="pj.tbd">Project description to come.</p>
-      <div class="impact two" id="pj-stats" hidden></div>
-    </div>
-    <div class="sec stag" style="--i:3"><div class="path give"><b id="pj-gb"></b><p id="pj-gt"></p></div></div>
-    <div class="sec stag" style="--i:4"><button class="btn back" type="button" data-act="back" id="pj-back"></button></div>
-    <nav class="dock" aria-label="Kiosk buttons"><button class="btn" type="button" data-act="progs" data-k="k.all">All programs</button><button class="btn on-field" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button><button class="btn on-field" type="button" data-act="welcome" data-k="k.start">Start over</button></nav>
-  </section>
-</main>
-<div class="idle" id="idle" role="alert" hidden>
-  <p><span class="sr" data-k="i.sr">Still there? This screen is about to start over.</span><span aria-hidden="true"><span data-k="i.a">Still there? Starting over in</span> <b id="idle-n">20</b> <span data-k="i.b">seconds.</span></span></p>
-  <button class="btn" type="button" data-act="stay" data-k="i.stay">I’m still here</button>
 </div>
-
-<script>
-(function () {
-  var IDLE_MS = 60000;
-  var PROGRAMS = [
-    { id: 'arts', name: "Arts and Culture", line: "Keeping heritage alive and giving artists a stage.", img: 'arts.webp', projects: [{ id: 'museum', name: "Ayala Museum", img: 'museum.webp', about: 'As one of the leading private museums in the country, the Ayala Museum makes Philippine history, art, and culture accessible to the public through engaging exhibitions and exciting programs. It is home to the country’s first Digital Gallery, an immersive touchscreen experience that allows guests to digitally explore objects from the museum and library collections. It is also home to the Crossroads of Civilizations permanent exhibition featuring Philippine pre-colonial treasures, as well as the one-of-its-kind Diorama Experience of Philippine History. Celebrating its 50th year in 2024, Ayala Museum takes an omnichannel approach, using both traditional and nontraditional platforms to present our country’s rich heritage for the enjoyment of people from all generations.', stats: [{ v: 92833, l: "visitors in 2023" }, { v: 96, s: "%", l: "Arts and Culture Division satisfaction rating from guests and program attendees", n: "Young, Mid, and Late Adults" }] }, { id: 'library', name: "Filipinas Heritage Library" }],
-      tag: "Platforms that spotlight history, contemporary and fine art.",
-      about: "We provide platforms that spotlight history, contemporary and fine art forms in state-of-the-art museum and library venues. By curating physical and digital collections that celebrate the joy and wonder of Philippine arts and culture, we hope to contribute to conversations about evolving Filipino identities and agency throughout history.",
-      stages: [
-        { n: "Discover", t: "Local artists and craft makers are found through open calls and cultural groups." },
-        { n: "Create", t: "Makers get studio time, materials and a mentor to develop new work." },
-        { n: "Show", t: "Their work is shown in exhibitions, markets and community festivals." },
-        { n: "Pass on", t: "Artists teach what they know to the next generation." }
-      ],
-      impact: [{ v: 1200, l: "artists supported" },{ v: 85, l: "exhibitions and festivals" },{ v: 24, l: "heritage crafts documented" }],
-      gifts: [{ a: 500, t: "art materials for 5 young artists" },{ a: 1000, t: "a month of studio space for 3 makers" },{ a: 5000, t: "a community exhibition from start to finish" }] },
-    { id: 'leadership', name: "Leadership Development", line: "Young people learn to lead projects in their own barangay.", img: 'leadership.webp',
-      tag: "Training young leaders to serve their own communities.",
-      stages: [
-        { n: "Apply", t: "Young people aged 17 to 24 apply with a plan for a problem in their barangay." },
-        { n: "Train", t: "Six months of training in teamwork, public speaking and project planning." },
-        { n: "Lead", t: "Each fellow runs a small project with a mentor and a budget of 30,000 pesos." },
-        { n: "Share", t: "Fellows present their results and help train the next group." }
-      ],
-      impact: [{ v: 960, l: "fellows trained" },{ v: 1300, l: "community projects completed" },{ v: 78, s: '%', l: "still volunteering after 3 years" }],
-      gifts: [{ a: 500, t: "training materials for 3 fellows" },{ a: 1000, t: "a month of mentoring for one fellow’s project" },{ a: 5000, t: "the full training for 2 fellows" }] },
-    { id: 'bigbets', name: "Big Bets", line: "Early childhood and digital education, to tackle the learning crisis.", img: 'bigbets.webp',
-      tag: "A focused bet on how the youngest learners learn.",
-      about: "In the face of the learning crisis in the Philippines, we are making a big bet in education. We are sharpening our focus on two programs to support students in their early years: Early Grades and Digital Education. These are strategic entry points where targeted, high-impact interventions can unlock meaningful, scalable and sustainable solutions aimed at improving learning outcomes, especially for the most underserved learners.\n\nOur Big Bets on Early Childhood and Digital Education take on the learning crisis. A volunteerism platform opens meaningful action to employees and partners, and helps communities prepare for and respond to disasters.",
-      stages: [
-        { n: "Start early", t: "Quality care and learning for children in their first years." },
-        { n: "Equip", t: "Teachers and caregivers get training and learning materials." },
-        { n: "Connect", t: "Schools get devices, connectivity and digital lessons." },
-        { n: "Measure", t: "Reading and numeracy results are tracked so the bets can improve." }
-      ],
-      impact: [{ v: 320, l: "early childhood centres" },{ v: 14000, l: "learners reached" },{ v: 150, l: "schools online" }],
-      gifts: [{ a: 500, t: "learning kits for 5 toddlers" },{ a: 1000, t: "training for 10 teachers" },{ a: 5000, t: "a digital classroom for one school" }] },
-    { id: 'community', name: "Community Development", line: "Water, livelihood and safe homes, built with residents.", img: 'community.webp',
-      tag: "Working with barangays on water, livelihood and safe homes.",
-      stages: [
-        { n: "Listen", t: "Residents pick their top three priorities in a village assembly." },
-        { n: "Plan", t: "A team drafts the plan and budget, and the community helps fund it." },
-        { n: "Build", t: "Residents work alongside our engineers on water points and shelters." },
-        { n: "Sustain", t: "A local committee takes over upkeep, with training and a repair fund." }
-      ],
-      impact: [{ v: 112, l: "barangays served" },{ v: 38000, l: "people with safer water" },{ v: 640, l: "homes repaired" }],
-      gifts: [{ a: 500, t: "pipes for one household’s water line" },{ a: 1000, t: "roof repairs for one home" },{ a: 5000, t: "a shared water tap for 20 families" }] }
-  ];
-
-  /* Filipino copy: a first draft for a native-speaker review before any public use */
-  var lang = 'en';
-  var FIL = {"w.h": "Mga Programa", "w.sub": "Naniniwala kaming makatutulong kami sa mga layunin ng bansa sa pag-unlad sa pamamagitan ng pag-angkop sa nagbabagong pangangailangan ng mga stakeholder, upang manatili kaming makabuluhan at tumutugon. Sa pamamagitan ng aming mga programa, pinagtitibay namin ang aming pangako sa pag-aayon, pagbibigay-tuon, at paglikha ng epekto sa buhay ng mga tao sa aming conglomerate, mga komunidad, at bansa.", "w.go": "Pindutin para tuklasin", "lang": "English", "p.h": "Aming mga programa", "p.c": "<b>Pumili ng isa</b> para matuto pa.", "c.projects": "Mga Proyekto", "pj.tbd": "Paparating ang paglalarawan ng proyekto.", "d.chg": "Ano ang nabago nito", "d.asof": "Mga datos hanggang 2025", "d.part": "Maging bahagi nito", "d.give": "Magbigay", "d.pb": "Makipagtulungan sa amin", "d.pp": "Hilingin sa front desk na ikonekta kayo sa partnerships team.", "d.tb": "Dalhin ito sa inyo", "d.tp": "I-scan para ipagpatuloy ang pagbabasa sa inyong telepono. Walang kinokolektang impormasyon tungkol sa inyo ang screen na ito.", "d.more": "Iba pang programa", "k.start": "Magsimula muli", "k.about": "Tungkol sa amin", "k.skip": "Lumaktaw sa mga pindutan", "k.all": "Lahat ng programa", "i.sr": "Nandiyan pa ba kayo? Magsisimula muli ang screen na ito.", "i.a": "Nandiyan pa ba kayo? Magsisimula muli sa loob ng", "i.b": "segundo.", "i.stay": "Nandito pa ako"};
-  var FILP = {"arts": {"projects": [{"id": "museum", "name": "Ayala Museum", "img": "museum.webp", "about": 'Bilang isa sa mga nangungunang pribadong museo sa bansa, ginagawang abot-kamay ng Ayala Museum sa publiko ang kasaysayan, sining at kultura ng Pilipinas sa pamamagitan ng mga kawili-wiling eksibisyon at programa. Dito matatagpuan ang kauna-unahang Digital Gallery ng bansa, isang immersive na karanasang pahawak-screen na nagbibigay-daan sa mga bisitang tuklasin nang digital ang mga bagay mula sa mga koleksyon ng museo at aklatan. Narito rin ang permanenteng eksibisyong Crossroads of Civilizations na nagtatampok ng mga yamang pre-kolonyal ng Pilipinas, at ang natatanging Diorama Experience of Philippine History. Ipinagdiriwang ang ika-50 taon nito noong 2024, gumagamit ang Ayala Museum ng omnichannel na pamamaraan, sa tradisyonal at hindi-tradisyonal na plataporma, upang maipakita ang mayamang pamana ng ating bansa para sa kasiyahan ng mga tao sa lahat ng henerasyon.', "stats": ["bisita noong 2023", "satisfaction rating ng Arts and Culture Division mula sa mga bisita at dumalo sa programa"]}, {"id": "library", "name": "Filipinas Heritage Library"}], "name": "Sining at Kultura", "line": "Pinananatiling buhay ang pamana at binibigyan ng entablado ang mga alagad ng sining.", "tag": "Mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining.", "about": "Nagbibigay kami ng mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining sa mga makabagong museo at aklatan. Sa pagtitipon ng mga pisikal at digital na koleksyon na nagdiriwang sa saya at kababalaghan ng sining at kulturang Pilipino, umaasa kaming makapag-ambag sa mga usapan tungkol sa nagbabagong pagkakakilanlan at kakayahang kumilos ng mga Pilipino sa buong kasaysayan.", "stages": [{"n": "Tuklasin", "t": "Natutuklasan ang mga lokal na artista at manlilikha ng sining-kamay sa pamamagitan ng bukas na tawag at mga grupong pangkultura."}, {"n": "Lumikha", "t": "Nakatatanggap ang mga manlilikha ng oras sa studio, materyales at mentor para sa bagong obra."}, {"n": "Itanghal", "t": "Itinatanghal ang kanilang gawa sa mga eksibisyon, palengke at pista ng komunidad."}, {"n": "Ipasa", "t": "Itinuturo ng mga artista ang kanilang alam sa susunod na henerasyon."}], "impact": ["artistang sinuportahan", "eksibisyon at pista", "sining-kamay na naitala"], "gifts": ["mga gamit sa sining para sa 5 batang artista", "isang buwan ng studio para sa 3 manlilikha", "isang buong eksibisyon ng komunidad mula simula hanggang katapusan"]}, "leadership": {"name": "Pagpapaunlad ng Pamumuno", "line": "Natututong manguna ang kabataan sa mga proyekto sa sarili nilang barangay.", "tag": "Sinasanay ang mga batang lider na maglingkod sa sarili nilang komunidad.", "stages": [{"n": "Aplay", "t": "Nag-aaplay ang mga kabataang 17 hanggang 24 taong gulang na may planong lutasin ang isang problema sa kanilang barangay."}, {"n": "Sanay", "t": "Anim na buwang pagsasanay sa teamwork, public speaking at pagpaplano ng proyekto."}, {"n": "Manguna", "t": "Bawat fellow ay nagpapatakbo ng maliit na proyekto kasama ang isang mentor at badyet na 30,000 piso."}, {"n": "Ibahagi", "t": "Ibinabahagi ng mga fellow ang kanilang resulta at tumutulong magsanay sa susunod na grupo."}], "impact": ["fellow na nasanay", "proyektong pangkomunidad na natapos", "ang nagboboluntaryo pa rin pagkalipas ng 3 taon"], "gifts": ["mga gamit sa pagsasanay para sa 3 fellow", "isang buwang mentoring para sa proyekto ng isang fellow", "ang buong pagsasanay ng 2 fellow"]}, "bigbets": {"name": "Malalaking Taya", "line": "Maagang edukasyon at digital na edukasyon para harapin ang krisis sa pagkatuto.", "tag": "Isang nakatutok na taya sa kung paano natututo ang pinakabatang mag-aaral.", "about": "Sa harap ng krisis sa pagkatuto sa Pilipinas, nagtataya kami nang malaki sa edukasyon. Pinatatalas namin ang aming pokus sa dalawang programa para suportahan ang mga mag-aaral sa kanilang unang mga taon: ang Early Grades at ang Digital Education. Ito ang mga estratehikong pasukan kung saan makapagbubukas ng makabuluhan, napapalawak at napapanatiling solusyon ang mga tiyak at mataas-ang-epektong interbensyon, lalo na para sa mga pinakakapos na mag-aaral.\n\nHinaharap ng aming Malalaking Taya sa Maagang Edukasyon at Digital na Edukasyon ang krisis sa pagkatuto. Binubuksan ng aming platform sa boluntaryismo ang makabuluhang pagkilos para sa mga empleyado at kasosyo, at tinutulungan ang mga komunidad na maghanda at tumugon sa mga sakuna.", "stages": [{"n": "Simulan", "t": "Dekalidad na pangangalaga at pagkatuto para sa mga bata sa kanilang unang mga taon."}, {"n": "Kagamitan", "t": "Nasasanay ang mga guro at tagapag-alaga at nabibigyan ng kagamitan sa pagkatuto."}, {"n": "Ikonekta", "t": "Nabibigyan ang mga paaralan ng device, koneksyon at digital na aralin."}, {"n": "Sukatin", "t": "Sinusubaybayan ang resulta sa pagbasa at numeracy para humusay ang mga taya."}], "impact": ["sentro para sa maagang edukasyon", "mag-aaral na naabot", "paaralang may koneksyon online"], "gifts": ["mga learning kit para sa 5 paslit", "pagsasanay para sa 10 guro", "isang digital classroom para sa isang paaralan"]}, "community": {"name": "Pagpapaunlad ng Komunidad", "line": "Tubig, kabuhayan at ligtas na tahanan, itinatayo kasama ang mga residente.", "tag": "Katuwang ang mga barangay sa tubig, kabuhayan at ligtas na tahanan.", "stages": [{"n": "Makinig", "t": "Pinipili ng mga residente ang kanilang tatlong pangunahing prayoridad sa pagpupulong ng nayon."}, {"n": "Magplano", "t": "Bumubuo ang isang pangkat ng plano at badyet, at tumutulong ang komunidad sa pagpopondo."}, {"n": "Magtayo", "t": "Nagtatrabaho ang mga residente kasama ng aming mga inhinyero sa mga water point at tirahan."}, {"n": "Magpatuloy", "t": "Ang lokal na komite na ang bahala sa pagpapanatili, may pagsasanay at pondo para sa pagkukumpuni."}], "impact": ["barangay na nasilbihan", "tao na may mas ligtas na tubig", "tahanang naayos"], "gifts": ["tubo para sa linya ng tubig ng isang sambahayan", "pagkukumpuni ng bubong ng isang bahay", "pinagsasaluhang gripo para sa 20 pamilya"]}};
-  var EN = {};
-  var S = { p: null, proj: null };
-  var $ = function (id) { return document.getElementById(id); };
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fmt = function (n) { return n.toLocaleString('en-US'); };
-  function tr(p) {
-    if (lang !== 'fil') return p;
-    var f = FILP[p.id];
-    return { id: p.id, img: p.img, projects: f.projects, name: f.name, line: f.line, tag: f.tag, about: f.about,
-      stages: f.stages, impact: p.impact.map(function (x, i) { return { v: x.v, s: x.s, l: f.impact[i] }; }),
-      gifts: p.gifts.map(function (g, i) { return { a: g.a, t: f.gifts[i] }; }) };
-  }
-  var cur = function () { return tr(PROGRAMS.filter(function (p) { return p.id === S.p; })[0]); };
-
-
-  /* attract loop on the welcome screen: each program in turn, slowly */
-  var slideK = 0;
-    function capHtml(p) { return '<b>' + p.name + '</b><span>' + p.line + '</span>' + statHtml(p); }
-  function slideHtml(p) {
-    var img = '<img src="img/' + p.img + '" width="1200" height="900" alt="">';
-    return '<figure class="slide" data-p="' + p.id + '" aria-hidden="true">' + img + '<figcaption>' + capHtml(p) + '</figcaption></figure>';
-  }
-  $('stage').insertAdjacentHTML('beforeend', PROGRAMS.map(function (p) { return slideHtml(tr(p)); }).join(''));
-  var slides = [].slice.call(document.querySelectorAll('#attract .slide'));
-  slides.forEach(function (el) { el.setAttribute('role', 'button'); el.removeAttribute('aria-hidden'); el.setAttribute('aria-label', tr(PROGRAMS.filter(function (q) { return q.id === el.dataset.p; })[0]).name); });
-  /* keyboard: Enter or Space acts on the focused card, the left and right arrow keys turn the carousel */
-  $('attract').addEventListener('keydown', function (e) {
-    var ix = slides.indexOf(e.target);
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); var n = (slideK + (e.key === 'ArrowRight' ? 1 : -1) + slides.length) % slides.length; showSlide(n); slides[n].focus(); }
-    else if ((e.key === 'Enter' || e.key === ' ') && ix > -1) { e.preventDefault(); if (ix === slideK) ctaGo(); else { showSlide(ix); slides[ix].focus(); } }
-  });
-  $('dots').innerHTML = slides.map(function () { return '<i></i>'; }).join('');
-  /* swipe the big picture: left for the next program, right for the previous one */
-  var sx = 0, sy = 0, swipedAt = 0;
-  $('attract').addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; });
-  $('attract').addEventListener('pointerup', function (e) {
-    var dx = e.clientX - sx, dy = e.clientY - sy;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) { swipedAt = Date.now(); showSlide((slideK + (dx < 0 ? 1 : -1) + slides.length) % slides.length); }
-  });
-  function showSlide(i) {
-    slideK = i;
-    [].forEach.call(document.querySelectorAll('#dots i'), function (d, n) { d.classList.toggle('on', n === i); });
-    slides.forEach(function (el, n) {
-      var o = ((n - i + 2 + slides.length * 2) % slides.length) - 2; /* -2 is the card waiting behind */
-      el.style.setProperty('--o', Math.max(-1, Math.min(1, o))); el.style.setProperty('--a', Math.abs(o) > 1 ? 1 : Math.abs(o)); el.style.setProperty('--z', o === 0 ? 3 : Math.abs(o) === 1 ? 2 : 1);
-      el.classList.toggle('hide', Math.abs(o) > 1); el.classList.toggle('on', n === i); el.tabIndex = Math.abs(o) > 1 ? -1 : 0; if (n === i) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current');
-    });
-    updateCta();
-  }
-  function updateCta() {
-    var k = slides[slideK].dataset.p, b = $('w-go'), fil = lang === 'fil';
-    var p = tr(PROGRAMS.filter(function (q) { return q.id === k; })[0]); $('cf-name').textContent = p.name; $('cf-line').textContent = p.line; b.textContent = fil ? FIL['c.open'] : 'Explore'; b.setAttribute('aria-label', b.textContent + ' ' + p.name);
-  }
-  function ctaGo() { openProgram(slides[slideK].dataset.p, false, document.querySelector('#attract .slide.on img')); }
-  /* the billboard turns slowly (3.5 s, soft crossfade). A touch or key press holds it still; it resumes after 30 quiet seconds.
-     Keyboard focus on a control also holds it, so nobody loses the slide they are reading. */
-  var ROT_MS = 3500, HOLD_MS = 30000, rot = null, rotWait = null;
-  function turn() {
-    var a = document.activeElement;
-    if (a && a.id !== 'pr-h' && a.id !== 'w-h' && a !== document.body && $('progs').contains(a) && a.matches(':focus-visible')) return;
-    showSlide((slideK + 1) % slides.length);
-  }
-  function stopAttract() { clearInterval(rot); clearTimeout(rotWait); rot = rotWait = null; }
-  function startAttract() { stopAttract(); showSlide(0); if (!reduce) rot = setInterval(turn, ROT_MS); } /* reduced motion: the slide holds still until touched */
-  function holdAttract() { if ($('progs').hidden) return; stopAttract(); if (!reduce) rotWait = setTimeout(function () { rot = setInterval(turn, ROT_MS); }, HOLD_MS); }
-  showSlide(0);
-  /* keyboard and switch users get time: the loop holds while anything on the welcome screen has focus */
-
-  /* impact counters and gift picker */
-  function renderImpact(animate) {
-    var p = cur();
-    $('impact').innerHTML = p.impact.map(function (f, i) {
-      return '<div class="fig' + (animate ? ' pop' : '') + '" style="--i:' + i + '"><b class="num" data-v="' + f.v + '" data-s="' + (f.s || '') + '">' + fmt(animate && !reduce ? 0 : f.v) + (f.s || '') + '</b><span>' + f.l + '</span></div>';
-    }).join('');
-    if (animate && !reduce) countUp('#impact b');
-  }
-  function countUp(sel) {
-    /* one counter after another, 60ms apart, matching the boxes' own entrance; ease-out so the last digits settle slowly */
-    var els = [].slice.call(document.querySelectorAll(sel || '#impact b')), t0 = null, DUR = 900, GAP = 60;
-    function step(ts) {
-      if (t0 === null) t0 = ts;
-      var live = false;
-      els.forEach(function (el, i) {
-        var k = Math.min(1, Math.max(0, (ts - t0 - i * GAP) / DUR)), e = 1 - Math.pow(1 - k, 4);
-        el.textContent = fmt(Math.round(+el.dataset.v * e)) + el.dataset.s;
-        if (k < 1) live = true;
-      });
-      if (live) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  /* the lead figure on a slide: a program with a real project uses that project's first figure instead of the program sample */
-  function statHtml(p) {
-    var f = p.impact[0], l = f.l, j = p.projects && p.projects[0];
-    if (j && j.stats) {
-      var raw = PROGRAMS.filter(function (q) { return q.id === p.id; })[0].projects[0].stats[0];
-      f = raw; l = lang === 'fil' ? j.stats[0] : raw.l;
-    }
-    return '<small class="stat"><strong>' + fmt(f.v) + (f.s || '') + '</strong> ' + l + '</small>';
-  }
-  var EASE_OUT = 'cubic-bezier(0.23, 1, 0.32, 1)';
-
-  /* a missing picture leaves the colour block, not a broken-image icon */
-  document.addEventListener('error', function (e) { if (e.target && e.target.tagName === 'IMG') e.target.style.visibility = 'hidden'; }, true);
-
-  /* everything on the program screen that carries words, so a language change can repaint it in place */
-  function paintDetail() {
-    var p = cur();
-    $('d-name').textContent = p.name; $('d-tag').textContent = p.id === 'arts' ? p.about : p.tag; /* Arts: the About text replaces the tagline in the hero */
-    $('projects-sec').hidden = !p.projects;
-    $('impact-sec').hidden = !!p.projects; /* projects carry their own figures */
-    $('projs').innerHTML = (p.projects || []).map(function (j) { return '<button class="proj" type="button" data-proj="' + j.id + '">' + j.name + '</button>'; }).join('');
-    $('about-sec').hidden = !p.about || p.id === 'arts'; $('about-t').textContent = p.about || '';
-    $('more').innerHTML = PROGRAMS.filter(function (q) { return q.id !== S.p; }).map(function (q) {
-      q = tr(q);
-      return '<button class="mini" type="button" data-p="' + q.id + '" data-open="' + q.id + '"><img src="img/' + q.img + '" width="1200" height="900" loading="lazy" decoding="async" alt=""><span>' + q.name + '</span></button>';
-    }).join('');
-    $('give-t').textContent = lang === 'fil'
-      ? 'Para suportahan ang ' + p.name + ', pakilapitan ang aming front desk team.'
-      : 'To support ' + p.name + ', please see our front desk team.';
-    renderImpact(false);
-  }
-
-  function openProject(id) {
-    var p = tr(PROGRAMS.filter(function (q) { return q.id === 'arts'; })[0]);
-    S.proj = id; S.p = 'arts';
-    paintProject(true);
-    show('project');
-  }
-  function paintProject(animate) {
-    var p = tr(PROGRAMS.filter(function (q) { return q.id === 'arts'; })[0]);
-    var j = p.projects.filter(function (x) { return x.id === S.proj; })[0];
-    $('pj-name').textContent = j.name; $('pj-prog').textContent = p.name;
-    $('pj-back').innerHTML = '<span aria-hidden="true">← </span>'; $('pj-back').appendChild(document.createTextNode((lang === 'fil' ? 'Bumalik sa ' : 'Back to ') + p.name));
-    var fil = lang === 'fil';
-    $('pj-gb').textContent = fil ? 'Suportahan ang proyektong ito' : 'Support this project';
-    $('pj-gt').textContent = fil ? 'Para suportahan ang ' + j.name + ', pakilapitan ang aming front desk team.' : 'To support ' + j.name + ', please see our front desk team.';
-    $('pj-pic').hidden = !j.img; if (j.img) { $('pj-img').style.visibility = ''; $('pj-img').src = 'img/' + j.img; $('pj-img').alt = fil ? 'Isang bisita sa harap ng malapad na touch-screen na pader sa lobby ng museo, habang may taong dumaraan.' : 'A visitor at a wide touch-screen wall in a museum lobby while another person walks past.'; }
-    var has = !!j.about, t = $('pj-t'), st = $('pj-stats');
-    if (has) { t.removeAttribute('data-k'); t.textContent = j.about; } else { t.setAttribute('data-k', 'pj.tbd'); t.textContent = lang === 'fil' ? FIL['pj.tbd'] : EN['pj.tbd']; }
-    st.hidden = !j.stats;
-    if (j.stats) {
-      var raw = PROGRAMS.filter(function (q) { return q.id === 'arts'; })[0].projects.filter(function (x) { return x.id === j.id; })[0].stats;
-      st.innerHTML = raw.map(function (f, i) {
-        return '<div class="fig pop" style="--i:' + i + '"><b class="num" data-v="' + f.v + '" data-s="' + (f.s || '') + '">' + fmt(animate && !reduce ? 0 : f.v) + (f.s || '') + '</b><span>' + (lang === 'fil' ? j.stats[i] : f.l) + (f.n ? '<small>' + f.n + '</small>' : '') + '</span></div>';
-      }).join('');
-      if (animate && !reduce) countUp('#pj-stats b');
-    }
-  }
-
-  /* the picture you touched travels into the program page (View Transitions; skipped when unsupported or for reduced motion) */
-  function morph(src, update) {
-    if (!document.startViewTransition || reduce || !src) { update(); return; }
-    src.style.viewTransitionName = 'hero-pic';
-    var t = document.startViewTransition(function () { src.style.viewTransitionName = ''; $('d-img').style.viewTransitionName = 'hero-pic'; update(); });
-    t.finished.then(function () { $('d-img').style.viewTransitionName = ''; }, function () { $('d-img').style.viewTransitionName = ''; });
-  }
-  function openProgram(id, instant, src) {
-    function go() {
-      S.p = id;
-      var p = cur();
-      $('detail').setAttribute('data-p', id);
-      $('d-img').src = 'img/' + p.img;
-      paintDetail(false);
-      show('detail', instant);
-      watchImpact();
-    }
-    if (instant) go(); else morph(src, go);
-  }
-  var io = null;
-  function watchImpact() {
-    if (io) io.disconnect();
-    if (!('IntersectionObserver' in window)) { renderImpact(false); return; }
-    io = new IntersectionObserver(function (es) {
-      if (es[0].isIntersecting) { renderImpact(true); io.disconnect(); }
-    }, { threshold: 0.4 });
-    io.observe($('impact-sec'));
-  }
-
-  /* screens and the idle reset */
-  /* Filipino and English: one switch, repainted in place so nothing on screen jumps or restarts */
-  var KEYED = [].slice.call(document.querySelectorAll('[data-k]'));
-  KEYED.forEach(function (el) { EN[el.dataset.k] = el.innerHTML; });
-  FIL['c.open'] = 'Tuklasin'; FIL['w.line'] = 'Pumili ng programa para matuto pa.';
-  function applyLang() {
-    var fil = lang === 'fil';
-    document.documentElement.lang = fil ? 'fil' : 'en';
-    KEYED.forEach(function (el) { el.innerHTML = fil ? FIL[el.dataset.k] : EN[el.dataset.k]; });
-    [].forEach.call(document.querySelectorAll('[data-act="lang"]'), function (b) { b.setAttribute('lang', fil ? 'en' : 'fil'); });
-    slides.forEach(function (el) {
-      var p = tr(PROGRAMS.filter(function (q) { return q.id === el.dataset.p; })[0]);
-      el.querySelector('figcaption').innerHTML = capHtml(p);
-      el.setAttribute('aria-label', p.name);
-    });
-    updateCta();
-    [].forEach.call(document.querySelectorAll('.dock'), function (d) { d.setAttribute('aria-label', fil ? 'Mga pindutan ng kiosk' : 'Kiosk buttons'); });
-    if (S.p && !$('detail').hidden) paintDetail();
-    if (S.proj && !$('project').hidden) paintProject();
-  }
-
-  var idle;
-  function show(name, instant) {
-    ['welcome', 'progs', 'about', 'detail', 'project'].forEach(function (n) { $(n).hidden = n !== name; });
-    var el = $(name); if (instant) el.classList.remove('enter'); else { el.classList.add('enter'); setTimeout(function () { el.classList.remove('enter'); }, 2000); }
-    if (name === 'progs') startAttract(); else stopAttract();
-    window.scrollTo(0, 0);
-    /* move focus to the new screen's heading so keyboard, switch and screen-reader users start at the top of what changed */
-    var h = el.querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
-  }
-  var WARN_S = 20, idleTick = null;
-  function hideWarn() { clearInterval(idleTick); idleTick = null; $('idle').hidden = true; }
-  function reset() { hideWarn(); S.p = null; if (lang !== 'en') { lang = 'en'; applyLang(); } show('welcome'); }
-  /* after a quiet minute, ask first: twenty seconds to say "still here" before the kiosk starts over */
-  function poke() {
-    clearTimeout(idle); hideWarn();
-    idle = setTimeout(function () {
-      if (!$('welcome').hidden) return;
-      var n = WARN_S; $('idle-n').textContent = n; $('idle').hidden = false;
-      idleTick = setInterval(function () { n--; if (n <= 0) reset(); else $('idle-n').textContent = n; }, 1000);
-    }, IDLE_MS - WARN_S * 1000);
-  }
-  ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
-    window.addEventListener(ev, function (e) { holdAttract(); if (e.target && e.target.closest && e.target.closest('#idle')) return; poke(); }, { passive: true });
-  });
-
-  $('skip').addEventListener('click', function () {
-    var scr = ['welcome', 'progs', 'about', 'detail', 'project'].filter(function (n) { return !$(n).hidden; })[0];
-    var t = scr === 'welcome' ? $('home-go') : scr === 'progs' ? $('w-go') : $(scr).querySelector('.dock .btn');
-    if (t) t.focus();
-  });
-  document.addEventListener('click', function (e) {
-    var t = e.target;
-    var el = t.closest && t.closest('button, .welcome');
-    if (!el) return;
-    if (Date.now() - swipedAt < 400) return; /* the tail of a swipe is not a tap */
-    var sl = t.closest && t.closest('#attract .slide'); if (sl) { var ix = slides.indexOf(sl); if (ix === slideK) ctaGo(); else showSlide(ix); poke(); return; }
-    if (el.dataset.act === 'stay') { poke(); return; }
-    if (el.dataset.act === 'lang') { lang = lang === 'en' ? 'fil' : 'en'; applyLang(); poke(); return; }
-    if (el.classList.contains('welcome') || el.id === 'w-go' || el.id === 'home-go') { if (t.closest('.w-links')) return; if (el.id === 'welcome' || el.id === 'home-go') show('progs'); else ctaGo(); poke(); return; }
-    if (el.dataset.open) { openProgram(el.dataset.open, false, el.querySelector('img')); return; }
-    if (el.dataset.proj) { openProject(el.dataset.proj); return; }
-    var act = el.dataset.act;
-    if (act === 'welcome') reset();
-    else if (act === 'progs') show('progs');
-    else if (act === 'about') show('about');
-    else if (act === 'back') openProgram('arts', true); /* a back step snaps; only a forward step assembles */
-  });
-})();
-</script>
-
-</body></html>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
