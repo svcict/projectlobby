@@ -195,7 +195,7 @@
         `<div class="eyebrow">${PV.esc(progName)}</div>
         <h1 class="pj-title">${PV.esc(p.title)}</h1>
         ${c.lead ? `<p class="pj-lead">${PV.esc(c.lead)}</p>` : ''}
-        ${(c.body || []).map((b) => `<p class="pj-body">${PV.esc(b)}</p>`).join('')}`;
+        ${PV.body(c.body, 'pj-body')}`;
       // Tighten a long intro if it would squeeze the hero below 240px.
       const intro = $('#pjIntro');
       intro.classList.remove('is-dense');

@@ -1,13 +1,17 @@
 // Programs for the kiosk and the phone page. Both read this file.
 // Each program belongs to a pillar: 'arts' | 'leadership' | 'bigbets' | 'community'.
 // Add a program: give it a pillar, a title, a hero image, and en/fil content.
+// body: intro paragraphs; an entry that is a list of strings shows as bullets.
 // Entries without en/fil show in their pillar's list but don't open yet.
 // Tab order: impact first, then how the program works, then specifics or the
 // ask (packages) last.
 // Section types (each becomes a tab on the kiosk): 'features' | 'results' | 'stats' | 'packages' | 'list' | 'about'.
-//   features: heading, sub and/or highlight, and items with an icon, title and body.
+//   features: heading, sub (one paragraph or a list) and/or highlight, and items
+//     with an icon, title and body.
 //     Four or more items sit in two columns on the kiosk.
 //   features may end with a note: a plain line under the items.
+//   packages: cards with title, optional tag, price, label, items, impact and
+//     foot (dark: true for the blue card); optional note under the cards.
 //   stats: figures with an icon, value and label; optional label, location, sub
 //     and a quote ({ text, by }). Three or four figures use a compact 2×2 layout,
 //     five or six use three columns. Or groups: [{ label, stats }], each group
@@ -404,9 +408,12 @@ window.KIOSK_PROGRAMS = {
       "ph": "CENTEX Digital Education photo"
     },
     "en": {
-      "lead": "We are making a big bet on digital education focused on differentiated instruction.",
+      "lead": "We are making a big bet on differentiated instruction through digital education.",
       "body": [
-        "As our contribution to addressing the learning crisis in the Philippines, we are sharpening our focus to support students in Grades 4–6, recognizing this as a critical, last window of opportunity to help learners catch up before they transition to higher levels of education.",
+        "As our contribution to addressing the learning crisis in the Philippines, we are sharpening our focus to support students in grades 4–6.",
+        [
+          "last chance to catch up"
+        ],
         "Through Digital Education and Teacher Training programs, these targeted, high-impact interventions aim to unlock meaningful, scalable, and sustainable solutions to improving learning outcomes."
       ],
       "sections": [
@@ -423,8 +430,8 @@ window.KIOSK_PROGRAMS = {
           "callout": "With Digital Education, compelling results show students doubled their math scores in just ~12 weeks.",
           "chart": "centexDE",
           "legend": [
-            "Pre mathematics score (%)",
-            "Post mathematics score (%)"
+            "Pre Mathematics Score (%)",
+            "Post Mathematics Score (%)"
           ],
           "axis": [
             "Control",
@@ -441,17 +448,17 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "title": "Teacher and School Leader Training",
-              "body": "Continuous teacher development program combining online modules, in-person coaching, and Professional Learning Communities (PLCs)."
+              "body": "Comprehensive teacher development program combining online modules, in-person coaching, and Professional Learning Communities (PLCs)."
             },
             {
               "icon": "lap",
               "title": "Digital Lab and Learning Resources",
-              "body": "Equipped with digital infrastructure and devices, teachers create learning experiences meant to address individual needs of the students using real-time assessment data from adaptive technology such as Khan Academy."
+              "body": "Equipped with digital infrastructure and devices, teachers create learning experiences meant to address individual needs of the students using real time assessment data from Khan Academy."
             },
             {
               "icon": "users",
               "title": "Community and Parent Engagement",
-              "body": "Each teacher engages parents, community members, and peers to extend learning beyond the classroom."
+              "body": "Each teacher engages parents, community members, and peers to sustain learning beyond the classroom using a whole-school approach."
             }
           ]
         },
@@ -461,28 +468,36 @@ window.KIOSK_PROGRAMS = {
           "heading": "Digital Education & Teacher Training packages",
           "cards": [
             {
-              "title": "Intensive Educator Training*",
+              "title": "Intensive Educator Training",
+              "price": "₱440,000",
               "label": "Inclusions",
               "items": [
-                "8–16 hours of Khan Platform Training",
-                "40 hours of Teacher Training and Parental/Community Engagement",
-                "8 hours of School Leaders Training"
+                "36 Hours of Khan Platform Training",
+                "80 Hours of Teacher Training and Parental/Community Engagement",
+                "54 Hours of School Leaders Training"
               ],
-              "impact": "Program will impact ~1,000 students across Grades 4–6 for two years.",
-              "foot": "*Assumes a minimum of 10 schools for Professional Learning Communities."
+              "impact": "Program will impact ~1,000 students across Grades 4–6 for two years"
             },
             {
               "tag": "Add-on",
               "title": "Digital Lab",
+              "price": "₱615,000",
               "label": "Inclusions",
               "items": [
-                "40 student tablets",
-                "3 teacher laptops",
+                "50 student tablets",
+                "6 teacher laptops",
                 "2 years internet connectivity"
               ],
               "dark": true
+            },
+            {
+              "tag": "Add-on",
+              "title": "AI-Enabled Catch-Up Sessions",
+              "price": "₱250,000",
+              "dark": true
             }
-          ]
+          ],
+          "note": "*exclusive of VAT"
         }
       ],
       "contact": {
@@ -501,9 +516,12 @@ window.KIOSK_PROGRAMS = {
       }
     },
     "fil": {
-      "lead": "Malaki ang taya namin sa digital na edukasyon na nakatuon sa differentiated instruction.",
+      "lead": "Malaki ang taya namin sa differentiated instruction sa pamamagitan ng digital education.",
       "body": [
-        "Bilang ambag sa pagtugon sa krisis sa pagkatuto sa Pilipinas, mas tinututukan namin ang mga mag-aaral sa Grade 4–6, dahil ito ang kritikal at huling pagkakataon upang makahabol sila bago tumuntong sa mas mataas na antas ng edukasyon.",
+        "Bilang ambag sa pagtugon sa krisis sa pagkatuto sa Pilipinas, pinatatalas namin ang aming pokus sa pagsuporta sa mga mag-aaral sa grade 4–6.",
+        [
+          "huling pagkakataong makahabol"
+        ],
         "Sa pamamagitan ng Digital Education at Teacher Training, layunin ng mga nakatuon at mabisang interbensyong ito na makabuo ng makabuluhan, napapalawak, at pangmatagalang solusyon para sa mas mahusay na pagkatuto."
       ],
       "sections": [
@@ -520,8 +538,8 @@ window.KIOSK_PROGRAMS = {
           "callout": "Sa Digital Education, dumoble ang iskor ng mga mag-aaral sa math sa loob lamang ng ~12 linggo.",
           "chart": "centexDE",
           "legend": [
-            "Iskor sa math bago (%)",
-            "Iskor sa math pagkatapos (%)"
+            "Pre Mathematics Score (%)",
+            "Post Mathematics Score (%)"
           ],
           "axis": [
             "Control",
@@ -538,17 +556,17 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "title": "Pagsasanay ng Guro at School Leader",
-              "body": "Tuloy-tuloy na programa para sa mga guro na pinagsasama ang online modules, personal na coaching, at Professional Learning Communities (PLCs)."
+              "body": "Komprehensibong programa sa pagpapaunlad ng guro na pinagsasama ang online modules, in-person coaching, at Professional Learning Communities (PLCs)."
             },
             {
               "icon": "lap",
               "title": "Digital Lab at Learning Resources",
-              "body": "Gamit ang digital na imprastraktura at mga device, bumubuo ang mga guro ng aralin na tumutugon sa pangangailangan ng bawat mag-aaral gamit ang real-time na assessment data mula sa adaptive technology tulad ng Khan Academy."
+              "body": "Gamit ang digital na imprastraktura at mga device, lumilikha ang mga guro ng karanasan sa pagkatuto na tumutugon sa indibidwal na pangangailangan ng mga mag-aaral gamit ang real time assessment data mula sa Khan Academy."
             },
             {
               "icon": "users",
               "title": "Pakikilahok ng Komunidad at Magulang",
-              "body": "Hinihikayat ng bawat guro ang mga magulang, komunidad, at kapwa guro na palawigin ang pagkatuto lampas sa silid-aralan."
+              "body": "Nakikipag-ugnayan ang bawat guro sa mga magulang, miyembro ng komunidad, at kapwa guro upang mapanatili ang pagkatuto lampas sa silid-aralan sa pamamagitan ng whole-school approach."
             }
           ]
         },
@@ -558,28 +576,36 @@ window.KIOSK_PROGRAMS = {
           "heading": "Mga package ng Digital Education at Teacher Training",
           "cards": [
             {
-              "title": "Intensive Educator Training*",
+              "title": "Intensive Educator Training",
+              "price": "₱440,000",
               "label": "Kasama",
               "items": [
-                "8–16 oras ng Khan Platform Training",
-                "40 oras ng Teacher Training at Pakikilahok ng Magulang/Komunidad",
-                "8 oras ng School Leaders Training"
+                "36 oras ng Khan Platform Training",
+                "80 oras ng Teacher Training at Pakikilahok ng Magulang/Komunidad",
+                "54 oras ng School Leaders Training"
               ],
-              "impact": "Aabot ang programa sa ~1,000 mag-aaral sa Grade 4–6 sa loob ng dalawang taon.",
-              "foot": "*Ipinapalagay na may hindi bababa sa 10 paaralan para sa Professional Learning Communities."
+              "impact": "Aabot ang programa sa ~1,000 mag-aaral sa Grade 4–6 sa loob ng dalawang taon"
             },
             {
               "tag": "Add-on",
               "title": "Digital Lab",
+              "price": "₱615,000",
               "label": "Kasama",
               "items": [
-                "40 tablet para sa mag-aaral",
-                "3 laptop para sa guro",
+                "50 tablet para sa mag-aaral",
+                "6 laptop para sa guro",
                 "2 taong internet connection"
               ],
               "dark": true
+            },
+            {
+              "tag": "Add-on",
+              "title": "AI-Enabled Catch-Up Sessions",
+              "price": "₱250,000",
+              "dark": true
             }
-          ]
+          ],
+          "note": "*hindi kasama ang VAT"
         }
       ],
       "contact": {
@@ -600,7 +626,7 @@ window.KIOSK_PROGRAMS = {
   },
   "centexEG": {
     "pillar": "bigbets",
-    "title": "CENTEX Early Grades",
+    "title": "CENTEX Early Grades Program",
     "hero": {
       "id": "centex-eg-hero",
       "src": "",
@@ -646,7 +672,10 @@ window.KIOSK_PROGRAMS = {
           "tab": "Our approach",
           "type": "features",
           "heading": "Building strong foundations for learning",
-          "sub": "Improving instructional quality, strengthening home-school collaboration, and aligning early grade systems to support long-term academic success.",
+          "sub": [
+            "Improving instructional quality, strengthening home-school collaboration, and aligning early grade systems to support long-term academic success.",
+            "The program invests in key areas to strengthen early learning and school readiness:"
+          ],
           "items": [
             {
               "icon": "pres",
@@ -666,24 +695,7 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "hand",
               "title": "Alignment with Community Efforts",
-              "body": "Partnering with Local Government Units, DepEd/MBHTE, Municipal and City Social Welfare Development Offices, and Higher Education Institutions to promote coordination, community ownership, and long-term sustainability."
-            }
-          ]
-        },
-        {
-          "tab": "Package",
-          "type": "packages",
-          "heading": "Learning Resource & Teacher Training Package",
-          "cards": [
-            {
-              "title": "Starts at ₱640,000",
-              "label": "Inclusions",
-              "items": [
-                "Learning Resource Kits for all students",
-                "32 Hours of Teacher and Child Development Worker Training, including mentoring and Professional Learning Communities"
-              ],
-              "impact": "Program will impact ~1,050 students from Child Development Centers and Kindergarten per school over three years.",
-              "foot": "*Assumes a minimum of 30 schools for Professional Learning Communities."
+              "body": "Partnering with LGUs, DepEd/MBHTE, MSWD/CSWD, and Higher Education Institutions (HEIs)—to promote coordination, community ownership, and long-term sustainability."
             }
           ]
         }
@@ -743,7 +755,10 @@ window.KIOSK_PROGRAMS = {
           "tab": "Aming paraan",
           "type": "features",
           "heading": "Pagbuo ng matibay na pundasyon sa pagkatuto",
-          "sub": "Pagpapahusay sa kalidad ng pagtuturo, pagpapatibay sa ugnayan ng tahanan at paaralan, at pag-aayon ng mga sistema sa maagang baitang para sa pangmatagalang tagumpay sa pag-aaral.",
+          "sub": [
+            "Pagpapahusay sa kalidad ng pagtuturo, pagpapatibay sa ugnayan ng tahanan at paaralan, at pag-aayon ng mga sistema sa maagang baitang para sa pangmatagalang tagumpay sa pag-aaral.",
+            "Namumuhunan ang programa sa mahahalagang larangan upang palakasin ang maagang pagkatuto at kahandaan sa paaralan:"
+          ],
           "items": [
             {
               "icon": "pres",
@@ -763,24 +778,7 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "hand",
               "title": "Pakikiisa sa Pagsisikap ng Komunidad",
-              "body": "Pakikipagtulungan sa mga Local Government Unit, DepEd/MBHTE, Municipal at City Social Welfare Development Office, at mga Higher Education Institution para sa koordinasyon, pagmamay-ari ng komunidad, at pangmatagalang pagpapatuloy."
-            }
-          ]
-        },
-        {
-          "tab": "Package",
-          "type": "packages",
-          "heading": "Package ng Learning Resource at Teacher Training",
-          "cards": [
-            {
-              "title": "Simula ₱640,000",
-              "label": "Kasama",
-              "items": [
-                "Learning Resource Kit para sa lahat ng mag-aaral",
-                "32 oras ng Teacher at Child Development Worker Training, kasama ang mentoring at Professional Learning Communities"
-              ],
-              "impact": "Aabot ang programa sa ~1,050 mag-aaral mula sa mga Child Development Center at Kindergarten bawat paaralan sa loob ng tatlong taon.",
-              "foot": "*Ipinapalagay na may hindi bababa sa 30 paaralan para sa Professional Learning Communities."
+              "body": "Pakikipagtulungan sa mga LGU, DepEd/MBHTE, MSWD/CSWD, at Higher Education Institutions (HEIs)—upang isulong ang koordinasyon, pagmamay-ari ng komunidad, at pangmatagalang pagpapatuloy."
             }
           ]
         }

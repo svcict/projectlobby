@@ -147,7 +147,7 @@
       `<div class="m-eyebrow">${PV.esc(progName)}</div>
       <h1 class="m-title m-title--project">${PV.esc(p.title)}</h1>
       ${c.lead ? `<p class="m-band__lead">${PV.esc(c.lead)}</p>` : ''}`;
-    $('#pjBody').innerHTML = (c.body || []).map((b) => `<p class="m-text">${PV.esc(b)}</p>`).join('');
+    $('#pjBody').innerHTML = PV.body(c.body, 'm-text');
     const secs = c.sections || [];
     const tabs = $('#pjTabs');
     tabs.hidden = secs.length < 2;

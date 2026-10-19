@@ -416,6 +416,7 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-h2 { margin: 0; font-size: 24px; line-height: 1.15; font-weight: 800; color: var(--blue); }
 
 .pj-pillars { display: flex; flex-direction: column; }
+.pj-sub + .pj-sub { margin-top: -4px; }
 .pj-sub { margin: 8px 0 12px; font-size: 16px; line-height: 1.5; }
 .pj-pillar {
   display: grid;
@@ -582,6 +583,8 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   font-weight: 700;
 }
 .pj-package__title { font-size: 22px; line-height: 1.15; font-weight: 800; color: var(--blue); }
+.pj-package__price { margin-top: -4px; font-size: 22px; line-height: 1.15; font-weight: 800; color: var(--orange); }
+.pj-packages__note { margin: 0; font-size: 14px; color: var(--ink-soft); text-align: right; }
 .pj-package__label { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
 .pj-package--dark .pj-package__title, .pj-package--dark .pj-package__label { color: #FFFFFF; }
 .pj-package__list { display: flex; flex-direction: column; gap: 12px; }
@@ -633,3 +636,4 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   .pj-contact:not(:has(.pj-contact__title)) .pj-contact__icon { display: flex; }
 }
 .pj-contact__link { font-size: 16px; font-weight: 600; min-height: 44px; display: flex; align-items: center; overflow-wrap: anywhere; }
+.pj-bullets { margin: 0; padding-left: 1.2em; }

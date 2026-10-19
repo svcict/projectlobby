@@ -370,6 +370,8 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-title { margin: 0; font-size: 68px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; text-wrap: balance; }
 .pj-lead { margin: 0; font-size: 28px; line-height: 1.3; font-weight: 600; text-wrap: pretty; }
 .pj-body { margin: 0; font-size: 21px; line-height: 1.45; text-wrap: pretty; }
+.pj-bullets { padding-left: 1.2em; }
+.pj-bullets li + li { margin-top: 4px; }
 /* Long intros (set in app.js) tighten so the hero photo keeps some height. */
 .panel__text.is-dense { gap: 12px; padding-top: 32px; padding-bottom: 36px; }
 .panel__text.is-dense .pj-lead { font-size: 24px; }
@@ -434,6 +436,7 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-h2 { margin: 0; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: -0.01em; color: var(--blue); }
 
 .pj-pillars { display: flex; flex-direction: column; }
+.pj-sub + .pj-sub { margin-top: -8px; }
 .pj-sub { margin: 12px 0 18px; max-width: 980px; font-size: 24px; line-height: 1.4; color: var(--ink); text-wrap: pretty; }
 .pj-pillar {
   display: grid;
@@ -623,6 +626,10 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-packages { display: flex; flex-direction: column; gap: 22px; }
 .pj-packages__grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 20px; align-items: start; }
 .pj-packages__grid > :only-child { grid-column: 1 / -1; }
+/* Three cards: the main package on the left, the two add-ons stacked beside it. */
+.pj-packages__grid > :first-child:nth-last-child(3) { grid-row: span 2; }
+.pj-package__price { margin-top: -6px; font-size: 34px; line-height: 1.1; font-weight: 800; color: var(--orange); }
+.pj-packages__note { margin: -8px 0 0; font-size: 19px; color: var(--ink-soft); text-align: right; }
 .pj-package {
   border-radius: 4px;
   padding: 32px 36px;

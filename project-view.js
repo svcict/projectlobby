@@ -51,7 +51,7 @@
     const items = s.items || [];
     return `<div class="pj-pillars${items.length > 3 ? ' pj-pillars--grid' : ''}">
       ${s.heading ? `<h2 class="pj-h2">${esc(s.heading)}</h2>` : ''}
-      ${s.sub ? `<p class="pj-sub">${esc(s.sub)}</p>` : ''}
+      ${[].concat(s.sub || []).map((t) => `<p class="pj-sub">${esc(t)}</p>`).join('')}
       ${s.highlight ? `<div class="pj-highlight pj-highlight--lead">${esc(s.highlight)}</div>` : ''}
       <div class="pj-pillars__items">${items.map((it) => `<div class="pj-pillar">
         <div class="pj-pillar__icon">${icon(it.icon, z.pillar, '#041F3F')}</div>
@@ -114,11 +114,13 @@
       <div class="pj-packages__grid">${(s.cards || []).map((c) => `<div class="pj-package${c.dark ? ' pj-package--dark' : ''}">
         ${c.tag ? `<div class="pj-package__tag">${esc(c.tag)}</div>` : ''}
         <div class="pj-package__title">${esc(c.title)}</div>
-        <div class="pj-package__label">${esc(c.label)}</div>
-        <div class="pj-package__list">${(c.items || []).map((t) => `<div class="pj-package__item">${icon('check', z.check, c.dark ? '#F0781E' : '#0322B1', 2.4)}<span>${esc(t)}</span></div>`).join('')}</div>
+        ${c.price ? `<div class="pj-package__price">${esc(c.price)}</div>` : ''}
+        ${c.label ? `<div class="pj-package__label">${esc(c.label)}</div>` : ''}
+        ${c.items ? `<div class="pj-package__list">${c.items.map((t) => `<div class="pj-package__item">${icon('check', z.check, c.dark ? '#F0781E' : '#0322B1', 2.4)}<span>${esc(t)}</span></div>`).join('')}</div>` : ''}
         ${c.impact ? `<div class="pj-package__impact">${esc(c.impact)}</div>` : ''}
         ${c.foot ? `<div class="pj-package__foot">${esc(c.foot)}</div>` : ''}
       </div>`).join('')}</div>
+      ${s.note ? `<p class="pj-packages__note">${esc(s.note)}</p>` : ''}
     </div>`;
   }
 
@@ -160,6 +162,13 @@
     // Content for a project in a language, falling back to English.
     content(project, lang) { return (project && (project[lang] || project.en)) || null; },
     section(s, variant) { return (RENDER[s.type] || (() => ''))(s, SIZES[variant]); },
+    // Intro paragraphs; an entry that is a list of strings becomes bullets.
+    body(paras, cls) {
+      return (paras || []).map((b) => Array.isArray(b)
+        ? `<ul class="${cls} pj-bullets">${b.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
+        : `<p class="${cls}">${esc(b)}</p>`).join('');
+    },
+
     // Kiosk shows contact lines as text (nothing to tap on a TV); the phone links them.
     contact(c, variant) {
       if (!c) return '';
