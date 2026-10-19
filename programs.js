@@ -1,5 +1,7 @@
 // Programs for the kiosk and the phone page. Both read this file.
-// Each program belongs to a pillar: 'arts' | 'leadership' | 'bigbets' | 'community'.
+// Each program belongs to a pillar: 'arts' | 'leadership' | 'bigbets' | 'community',
+// or 'support' (Corporate Citizenship and Volunteerism, opened from the
+// "Supported by" strip on the pillars screen rather than a pillar page).
 // Add a program: give it a pillar, a title, a hero image, and en/fil content.
 // body: intro paragraphs; an entry that is a list of strings shows as bullets.
 // Entries without en/fil show in their pillar's list but don't open yet.
@@ -9,7 +11,8 @@
 //   features: heading, sub (one paragraph or a list) and/or highlight, and items
 //     with an icon, title and body.
 //     Four or more items sit in two columns on the kiosk.
-//   features may end with a note: a plain line under the items.
+//   features may end with a note: a plain line under the items, or
+//     { text, link, href } (the link is tappable on the phone).
 //   packages: cards with title, optional tag, price, label, items, impact and
 //     foot (dark: true for the blue card); optional note under the cards.
 //   stats: figures with an icon, value and label; optional label, location, sub
@@ -1625,6 +1628,185 @@ window.KIOSK_PROGRAMS = {
               "body": "Pagsasagawa ng census at baselining ng 367 pamilya at pagbibigay-daan sa participatory planning tungo sa pangmatagalang pamamahala sa sarili at pagpapatuloy."
             }
           ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
+  },
+  "ccv": {
+    "pillar": "support",
+    "title": "Corporate Citizenship and Volunteerism",
+    "hero": {
+      "id": "ccv-hero",
+      "src": "",
+      "ph": "Corporate Citizenship and Volunteerism photo"
+    },
+    "en": {
+      "lead": "Mobilizing people, partnerships, and purpose for nation-building",
+      "body": [
+        "The Philippines faces recurring disasters, persistent malnutrition, education access gaps, and economic instability—challenges that require coordinated, sustained action across sectors.",
+        "Located in one of the most disaster-prone countries in the world, Filipino communities regularly face climate-related shocks that disrupt livelihoods and deepen vulnerability. Malnutrition, learning disruptions, and financial insecurity continue to affect millions of Filipino families, especially during and in the aftermath of disasters.",
+        "Addressing these complex challenges requires more than funding—it requires mobilizing people, skills, and networks at scale."
+      ],
+      "sections": [
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "label": "Our impact in 2025",
+          "sub": "Through its national disaster response efforts, Ayala Foundation provides rapid relief within the first 48–72 hours of calamities, while supporting early recovery and preparedness initiatives. By integrating skills-based volunteerism and working alongside local governments, the program strengthens community resilience beyond immediate response.",
+          "stats": [
+            {
+              "icon": "heart",
+              "value": "32,751",
+              "label": "families assisted with care packs, shelter kits, and go bags"
+            },
+            {
+              "icon": "pin",
+              "value": "20",
+              "label": "Disaster Response Deployment Locations across the Philippines"
+            },
+            {
+              "icon": "hand",
+              "value": "183,563",
+              "label": "hours rendered by volunteers from the Ayala Group and partners"
+            },
+            {
+              "icon": "briefcase",
+              "value": "5,224",
+              "label": "skills-based hours rendered by Ayala volunteers"
+            }
+          ]
+        },
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Turning volunteerism into impact",
+          "sub": "Ayala Foundation's Corporate Citizenship & Volunteerism platform mobilizes employees, partners, and communities through structured, high-impact engagement.",
+          "items": [
+            {
+              "icon": "sun",
+              "title": "Disaster Response & Resiliency",
+              "body": "Mobilizing volunteers for immediate relief and long-term preparedness in vulnerable communities."
+            },
+            {
+              "icon": "book",
+              "title": "Education & Literacy",
+              "body": "Supporting underserved schools through Balik Eskwela and expanding access to reading through mobile libraries and Open Book initiatives."
+            },
+            {
+              "icon": "stethoscope",
+              "title": "Health, Nutrition & Financial Inclusion",
+              "body": "Providing supplemental feeding and nutrition education through the Hapag Movement, alongside financial literacy workshops in partnership with BPI and GCash."
+            },
+            {
+              "icon": "users",
+              "title": "Employee Engagement & Corporate Citizenship",
+              "body": "Strengthening a culture of volunteerism that enhances employee purpose, skills, and commitment across the Ayala Group."
+            }
+          ],
+          "note": {
+            "text": "Join the Ayala Foundation Volunteer Portal to turn your time and talent into meaningful impact:",
+            "link": "volunteer.ayalafoundation.org",
+            "href": "https://volunteer.ayalafoundation.org"
+          }
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Pinakikilos ang mga tao, pakikipagtulungan, at layunin para sa pagbuo ng bansa",
+      "body": [
+        "Paulit-ulit na sakuna, patuloy na malnutrisyon, kakulangan sa access sa edukasyon, at kawalang-katatagan sa ekonomiya ang hinaharap ng Pilipinas—mga hamong nangangailangan ng magkakaugnay at tuloy-tuloy na pagkilos ng iba't ibang sektor.",
+        "Bilang isa sa mga bansang pinakamadalas tamaan ng sakuna sa mundo, regular na nakararanas ang mga komunidad ng Pilipino ng mga pagkabigla dulot ng klima na gumugulo sa kabuhayan at nagpapalalim ng kahinaan. Patuloy na naaapektuhan ng malnutrisyon, pagkaantala ng pag-aaral, at kawalang-katiyakan sa pananalapi ang milyun-milyong pamilyang Pilipino, lalo na habang at pagkatapos ng sakuna.",
+        "Ang pagtugon sa masasalimuot na hamong ito ay nangangailangan ng higit pa sa pondo—kailangan ang pagpapakilos ng mga tao, kasanayan, at network sa malawakang antas."
+      ],
+      "sections": [
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "label": "Aming epekto noong 2025",
+          "sub": "Sa pamamagitan ng pambansang pagtugon sa sakuna, naghahatid ang Ayala Foundation ng mabilis na tulong sa unang 48–72 oras ng kalamidad, habang sinusuportahan ang maagang pagbangon at paghahanda. Sa pagsasama ng skills-based volunteerism at pakikipagtulungan sa mga lokal na pamahalaan, pinalalakas ng programa ang katatagan ng komunidad lampas sa agarang pagtugon.",
+          "stats": [
+            {
+              "icon": "heart",
+              "value": "32,751",
+              "label": "pamilyang natulungan sa pamamagitan ng care pack, shelter kit, at go bag"
+            },
+            {
+              "icon": "pin",
+              "value": "20",
+              "label": "lokasyon ng Disaster Response Deployment sa buong Pilipinas"
+            },
+            {
+              "icon": "hand",
+              "value": "183,563",
+              "label": "oras na inilaan ng mga volunteer mula sa Ayala Group at mga katuwang"
+            },
+            {
+              "icon": "briefcase",
+              "value": "5,224",
+              "label": "skills-based na oras na inilaan ng mga Ayala volunteer"
+            }
+          ]
+        },
+        {
+          "tab": "Aming paraan",
+          "type": "features",
+          "heading": "Ginagawang epekto ang volunteerism",
+          "sub": "Pinakikilos ng Corporate Citizenship & Volunteerism platform ng Ayala Foundation ang mga empleyado, katuwang, at komunidad sa pamamagitan ng nakaayos at mabisang pakikilahok.",
+          "items": [
+            {
+              "icon": "sun",
+              "title": "Disaster Response & Resiliency",
+              "body": "Pagpapakilos ng mga volunteer para sa agarang tulong at pangmatagalang paghahanda sa mga bulnerableng komunidad."
+            },
+            {
+              "icon": "book",
+              "title": "Education & Literacy",
+              "body": "Pagsuporta sa mga paaralang kulang sa serbisyo sa pamamagitan ng Balik Eskwela at pagpapalawak ng access sa pagbabasa sa pamamagitan ng mobile library at Open Book."
+            },
+            {
+              "icon": "stethoscope",
+              "title": "Health, Nutrition & Financial Inclusion",
+              "body": "Pagbibigay ng supplemental feeding at nutrition education sa pamamagitan ng Hapag Movement, kasama ang financial literacy workshop katuwang ang BPI at GCash."
+            },
+            {
+              "icon": "users",
+              "title": "Employee Engagement & Corporate Citizenship",
+              "body": "Pagpapatibay ng kultura ng volunteerism na nagpapalalim sa layunin, kasanayan, at dedikasyon ng mga empleyado sa buong Ayala Group."
+            }
+          ],
+          "note": {
+            "text": "Sumali sa Ayala Foundation Volunteer Portal upang gawing makabuluhang epekto ang iyong oras at talento:",
+            "link": "volunteer.ayalafoundation.org",
+            "href": "https://volunteer.ayalafoundation.org"
+          }
         }
       ],
       "contact": {

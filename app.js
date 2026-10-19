@@ -8,7 +8,7 @@
   const COPY = window.COPY;
   const PROJECTS = window.KIOSK_PROGRAMS || {};
   const PV = window.ProjectView;
-  const PROGRAM_NAMES = (t) => ({ arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3 });
+  const PROGRAM_NAMES = (t) => ({ arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3, support: t.pSupport });
 
   const DESIGN_W = 1920, DESIGN_H = 1080;
   const PROGRAM_COUNT = 4;
@@ -150,6 +150,9 @@
 
     const name = t['p' + state.txtIdx];
     $('#curName').textContent = name;
+    const bet = PROGRAM_PAGES[state.txtIdx] === 'bigbets';
+    $('#curTag').textContent = bet ? t.tagBet : t.tagPillar;
+    $('#curTag').classList.toggle('programs__tag--bet', bet);
     $('#curDesc').textContent = t['d' + state.txtIdx];
     $('#exploreLabel').textContent = t.learnMore;
     copyEl.classList.toggle('is-out', state.txtOut);
@@ -201,6 +204,8 @@
       intro.classList.remove('is-dense');
       if ($('.screen--project .panel__media').offsetHeight < 240) intro.classList.add('is-dense');
       $('#pjBackLabel').textContent = progName;
+      // Corporate Citizenship has no pillar page to go back to; All pillars covers it.
+      $('[data-action="project-back"]').hidden = p.pillar === 'support';
       const tabs = $('#pjTabs');
       tabs.hidden = secs.length < 2;
       tabs.setAttribute('aria-label', p.title);

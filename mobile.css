@@ -643,3 +643,12 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 /* Short phones: a squarer, then wider, photo keeps Explore our pillars on the first screen. */
 @media (max-height: 780px) { .m-slides { aspect-ratio: 1 / 1; } }
 @media (max-height: 700px) { .m-slides { aspect-ratio: 4 / 3; } }
+/* Strategic pillar (orange) or Big bet (blue) above each pillar card's name. */
+.m-tag { align-self: flex-start; padding: 3px 9px; border-radius: 4px; background: var(--orange); color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.m-tag--bet { background: var(--blue); }
+/* Supported by: dashed like the diagram's supporting layer, under the cards. */
+.m-support { padding: 16px 16px 16px 18px; display: flex; align-items: center; gap: 12px; border: 2px dashed rgba(3, 34, 177, 0.45); border-radius: 8px; color: var(--ink); text-decoration: none; }
+.m-support__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.m-support__label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+.m-support__name { font-size: 18px; font-weight: 800; line-height: 1.2; color: var(--blue); }
+.m-support__line { font-size: 14px; line-height: 1.45; }

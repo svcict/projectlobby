@@ -27,8 +27,8 @@
 
   // Icon sizes per variant, from the two designs.
   const SIZES = {
-    kiosk: { pillar: 30, stat: 34, contact: 30, check: 24, pin: 34 },
-    mobile: { pillar: 22, stat: 20, contact: 20, check: 20, pin: 24 }
+    kiosk: { pillar: 30, stat: 34, contact: 30, check: 24, pin: 34, links: false },
+    mobile: { pillar: 22, stat: 20, contact: 20, check: 20, pin: 24, links: true }
   };
 
   // Charts named by a results section's `chart` field.
@@ -57,7 +57,7 @@
         <div class="pj-pillar__icon">${icon(it.icon, z.pillar, '#041F3F')}</div>
         <div class="pj-pillar__text"><div class="pj-pillar__title">${esc(it.title)}</div><div class="pj-pillar__body">${esc(it.body)}</div></div>
       </div>`).join('')}</div>
-      ${s.note ? `<p class="pj-note">${esc(s.note)}</p>` : ''}
+      ${s.note ? `<p class="pj-note">${typeof s.note === 'string' ? esc(s.note) : `${esc(s.note.text)} ${z.links ? `<a href="${esc(s.note.href)}" target="_blank" rel="noopener">${esc(s.note.link)}</a>` : `<span>${esc(s.note.link)}</span>`}`}</p>` : ''}
     </div>`;
   }
 

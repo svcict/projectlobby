@@ -16,7 +16,7 @@
   } catch (_) {}
 </script>
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261019070801">
+<link rel="stylesheet" href="styles.css?v=20261019071106">
 </head>
 <body>
 <div class="viewport">
@@ -162,6 +162,7 @@
         <button class="u arrow arrow--next" data-action="next" aria-label="Next pillar"><span data-icon="chevron-blue-32"></span></button>
       </div>
       <div class="programs__copy" id="programsCopy">
+        <span class="programs__tag" id="curTag"></span>
         <h2 class="programs__name" id="curName"></h2>
         <p class="programs__desc" id="curDesc"></p>
       </div>
@@ -174,6 +175,12 @@
         <button class="u press btn-ghost" data-action="start-over"><span data-icon="home"></span><span data-t="home"></span></button>
         <button class="u press btn-ghost" data-action="about"><span data-icon="info"></span><span data-t="about"></span></button>
       </div>
+      <!-- Corporate Citizenship and Volunteerism supports every pillar, so it sits under them rather than in the row. -->
+      <button class="u press support" data-action="open-project" data-project="ccv">
+        <span class="support__label" data-t="supportedBy"></span>
+        <span class="support__text"><span class="support__name" data-t="ccvName"></span><span class="support__line" data-t="ccvLine"></span></span>
+        <span class="support__go" data-icon="chevron-blue-32"></span>
+      </button>
       <div class="lang" data-lang-switch></div>
     </nav>
   </div>
@@ -193,9 +200,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=20261019070801"></script>
-<script src="programs.js?v=20261019070801"></script>
-<script src="project-view.js?v=20261019070801"></script>
-<script src="app.js?v=20261019070801"></script>
+<script src="copy.js?v=20261019071106"></script>
+<script src="programs.js?v=20261019071106"></script>
+<script src="project-view.js?v=20261019071106"></script>
+<script src="app.js?v=20261019071106"></script>
 </body>
 </html>

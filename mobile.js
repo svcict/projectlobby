@@ -25,7 +25,9 @@
   Object.keys(PROJECTS).forEach((id) => {
     const p = PROJECTS[id];
     if (!p.en) return;
-    ROUTES['program/' + id] = ROUTES['project/' + id] = { view: 'project', project: id, prog: p.pillar, parent: p.pillar };
+    // Corporate Citizenship (pillar 'support') is opened from the pillars screen.
+    const parent = p.pillar === 'support' ? 'pillars' : p.pillar;
+    ROUTES['program/' + id] = ROUTES['project/' + id] = { view: 'project', project: id, prog: p.pillar, parent };
   });
 
   const check = (color) => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M20 6 9 17l-5-5"/></svg>`;
@@ -142,7 +144,7 @@
     if (!p) return;
     projectKey = key;
     const c = PV.content(p, state.lang) || {};
-    const progName = { arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3 }[p.pillar] || '';
+    const progName = { arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3, support: t.pSupport }[p.pillar] || '';
     $('#pjIntro').innerHTML =
       `<div class="m-eyebrow">${PV.esc(progName)}</div>
       <h1 class="m-title m-title--project">${PV.esc(p.title)}</h1>
