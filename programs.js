@@ -1179,5 +1179,204 @@ window.KIOSK_PROGRAMS = {
         ]
       }
     }
+  },
+  "iraya": {
+    "pillar": "community",
+    "title": "Iraya Mangyan Development Program",
+    "hero": {
+      "id": "iraya-hero",
+      "src": "assets/iraya-hero.jpg",
+      "ph": "Iraya Mangyan Development Program photo"
+    },
+    "en": {
+      "lead": "Advancing inclusive growth while preserving indigenous heritage in Puerto Galera",
+      "body": [
+        "Puerto Galera, a first-class municipality with 9,944 households, has a poverty incidence of 18%, comparable to the provincial rate. While known as a thriving tourism destination, basic service gaps remain: 6% of households lack electricity, 38% have no internet access, and 17% lack access to safe drinking water.",
+        "Among the most vulnerable are the 367 Iraya-Mangyan families living in the foothills of Mt. Talipanan. Despite residing in a semi-urban and economically active municipality, Iraya-Mangyan households earn an average of ₱13,000 per month—barely above the poverty threshold and far below the lower middle-income benchmark. Limited access to stable livelihood, education, healthcare, and civic services continues to constrain upward mobility."
+      ],
+      "sections": [
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "label": "Our impact",
+          "location": "Puerto Galera, Oriental Mindoro",
+          "stats": [
+            {
+              "icon": "briefcase",
+              "value": "50%",
+              "label": "increase in average monthly household income of Iraya Mangyan beneficiaries"
+            },
+            {
+              "icon": "pres",
+              "value": "343",
+              "label": "Students graduated or moved up to the next grade level"
+            },
+            {
+              "icon": "stethoscope",
+              "value": "975",
+              "label": "Iraya Mangyan beneficiaries availed of medical services"
+            }
+          ]
+        },
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Building a self-reliant community ecosystem",
+          "sub": "Improving access to income, education, and healthcare through coordinated, culturally grounded interventions.",
+          "items": [
+            {
+              "icon": "heart",
+              "title": "Fulfill basic needs",
+              "body": "Improving quality of nutrition, health, education, WASH, electricity, connectivity"
+            },
+            {
+              "icon": "briefcase",
+              "title": "Boost economic & community vitality",
+              "body": "Financial inclusion and livelihood programs, local museums and libraries"
+            },
+            {
+              "icon": "users",
+              "title": "Increase social capital",
+              "body": "Participation in community organizations, leadership and resilience programs"
+            }
+          ]
+        },
+        {
+          "tab": "Programs",
+          "type": "features",
+          "items": [
+            {
+              "icon": "briefcase",
+              "title": "Sustainable Livelihood Development",
+              "body": "Strengthening community enterprises through organizational development, skills training, and expanded market access for indigenous products to increase stable household incomes."
+            },
+            {
+              "icon": "pres",
+              "title": "Access to Education",
+              "body": "Strengthening community enterprises through organizational development, skills training, and expanded market access for indigenous products to increase stable household incomes."
+            },
+            {
+              "icon": "stethoscope",
+              "title": "Health Access and Well-being",
+              "body": "Providing daycare services, scholarships from secondary to graduate level, and supplemental feeding to improve retention and increase Iraya-Mangyan graduates."
+            },
+            {
+              "icon": "users",
+              "title": "Community Organization and Planning",
+              "body": "Conducting census and baselining of 367 families and enabling participatory planning toward long-term self-management and sustainability."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Isinusulong ang inklusibong pag-unlad habang pinangangalagaan ang katutubong pamana sa Puerto Galera",
+      "body": [
+        "Ang Puerto Galera, isang first-class na munisipalidad na may 9,944 na sambahayan, ay may poverty incidence na 18%, katulad ng antas sa lalawigan. Bagama't kilala bilang masiglang destinasyon ng turismo, may kakulangan pa rin sa batayang serbisyo: 6% ng mga sambahayan ang walang kuryente, 38% ang walang internet, at 17% ang walang access sa ligtas na inuming tubig.",
+        "Kabilang sa pinakabulnerable ang 367 pamilyang Iraya-Mangyan na naninirahan sa paanan ng Bundok Talipanan. Sa kabila ng paninirahan sa isang semi-urban at masiglang munisipalidad, ₱13,000 kada buwan ang karaniwang kita ng mga sambahayang Iraya-Mangyan—bahagya lamang na lampas sa poverty threshold at malayo sa lower middle-income benchmark. Patuloy na nililimitahan ng kakulangan sa matatag na kabuhayan, edukasyon, kalusugan, at serbisyong sibiko ang kanilang pag-angat."
+      ],
+      "sections": [
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "label": "Aming epekto",
+          "location": "Puerto Galera, Oriental Mindoro",
+          "stats": [
+            {
+              "icon": "briefcase",
+              "value": "50%",
+              "label": "pagtaas sa karaniwang buwanang kita ng sambahayan ng mga benepisyaryong Iraya Mangyan"
+            },
+            {
+              "icon": "pres",
+              "value": "343",
+              "label": "mag-aaral ang nakapagtapos o umakyat sa susunod na baitang"
+            },
+            {
+              "icon": "stethoscope",
+              "value": "975",
+              "label": "benepisyaryong Iraya Mangyan ang nakatanggap ng serbisyong medikal"
+            }
+          ]
+        },
+        {
+          "tab": "Aming paraan",
+          "type": "features",
+          "heading": "Pagbuo ng isang ecosystem ng komunidad na nakatatayo sa sariling paa",
+          "sub": "Pagpapalawak ng access sa kita, edukasyon, at kalusugan sa pamamagitan ng magkakaugnay at nakaugat-sa-kulturang interbensyon.",
+          "items": [
+            {
+              "icon": "heart",
+              "title": "Pagtugon sa mga pangunahing pangangailangan",
+              "body": "Pagpapabuti sa kalidad ng nutrisyon, kalusugan, edukasyon, WASH, kuryente, at koneksyon."
+            },
+            {
+              "icon": "briefcase",
+              "title": "Pagpapasigla sa ekonomiya at komunidad",
+              "body": "Financial inclusion at mga programang pangkabuhayan, mga lokal na museo at aklatan."
+            },
+            {
+              "icon": "users",
+              "title": "Pagpapalakas ng social capital",
+              "body": "Pakikilahok sa mga organisasyon ng komunidad, at mga programa sa pamumuno at katatagan."
+            }
+          ]
+        },
+        {
+          "tab": "Mga programa",
+          "type": "features",
+          "items": [
+            {
+              "icon": "briefcase",
+              "title": "Sustainable Livelihood Development",
+              "body": "Pagpapalakas sa mga community enterprise sa pamamagitan ng pagpapaunlad ng organisasyon, pagsasanay sa kasanayan, at mas malawak na merkado para sa mga katutubong produkto upang tumaas ang matatag na kita ng sambahayan."
+            },
+            {
+              "icon": "pres",
+              "title": "Access to Education",
+              "body": "Pagpapalakas sa mga community enterprise sa pamamagitan ng pagpapaunlad ng organisasyon, pagsasanay sa kasanayan, at mas malawak na merkado para sa mga katutubong produkto upang tumaas ang matatag na kita ng sambahayan."
+            },
+            {
+              "icon": "stethoscope",
+              "title": "Health Access and Well-being",
+              "body": "Pagbibigay ng daycare, scholarship mula sekondarya hanggang graduate level, at supplemental feeding upang mapanatili sa paaralan at madagdagan ang mga nagtatapos na Iraya-Mangyan."
+            },
+            {
+              "icon": "users",
+              "title": "Community Organization and Planning",
+              "body": "Pagsasagawa ng census at baselining ng 367 pamilya at pagbibigay-daan sa participatory planning tungo sa pangmatagalang pamamahala sa sarili at pagpapatuloy."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
   }
 };
