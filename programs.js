@@ -14,7 +14,8 @@
 //   about: heading, highlight, a logo ({ src, alt }) and body paragraphs beside it.
 //   Headings are optional. A quote's text can hold several paragraphs separated
 //   by a blank line, and may have a photo.
-// Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun.
+// Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun,
+// lightbulb, eye, map, pin.
 window.KIOSK_PROGRAMS = {
   "museum": {
     "pillar": "arts",
@@ -1161,6 +1162,259 @@ window.KIOSK_PROGRAMS = {
           "body": [
             "Ang U-GO ay isang pandaigdigang nonprofit na nakatuon sa pagpapalawak ng access sa mas mataas na edukasyon para sa mga ambisyoso at may potensyal na kabataang babae mula sa mga komunidad na mababa ang kita.",
             "Kasalukuyang tumatakbo sa siyam na bansa, nakikipagtulungan ang U-GO sa mga mapagkakatiwalaang lokal na institusyon upang maghatid ng scholarship at suporta sa buong paglalakbay ng iskolar sa unibersidad. Sa Pilipinas, ang Ayala Foundation ang nag-iisang implementing partner ng U-GO, na tumutulong sa paghahatid ng scholarship at pakikilahok ng mga mag-aaral sa buong bansa."
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
+  },
+  "ayl": {
+    "pillar": "leadership",
+    "title": "Ayala Young Leaders (AYL)",
+    "hero": {
+      "id": "ayl-hero",
+      "src": "assets/ayl-hero.jpg",
+      "ph": "Ayala Young Leaders photo"
+    },
+    "en": {
+      "lead": "Developing steward leaders for nation-building",
+      "body": [
+        "As the Philippines navigates economic disparity, environmental challenges, and social inequality, the country's future depends on a new generation of capable and principled leaders.",
+        "While Filipino youth represent a powerful demographic advantage, many young leaders lack the mindset, exposure, and support systems needed to create sustained impact in their communities and institutions.",
+        "Investing early in leadership formation strengthens not only individual potential, but the country's long-term capacity for inclusive and responsible growth."
+      ],
+      "sections": [
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "label": "28 years of leadership development",
+          "stats": [
+            {
+              "icon": "users",
+              "value": "1,987",
+              "label": "Total number of Ayala Young Leaders alumni nationwide"
+            },
+            {
+              "icon": "pin",
+              "value": "22",
+              "label": "Active alumni chapters across the Philippines"
+            },
+            {
+              "icon": "pres",
+              "value": "31",
+              "label": "Student participants from 24 universities nationwide in the 2026 cohort"
+            },
+            {
+              "icon": "map",
+              "value": "9",
+              "label": "Regions represented nationwide in the 2026 cohort"
+            },
+            {
+              "icon": "book",
+              "value": "5",
+              "label": "Discipline clusters in the 2026 cohort"
+            }
+          ]
+        },
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Creating pathways for steward leadership",
+          "sub": "AYL develops steward leaders through a structured framework that strengthens identity, expands imagination, deepens insight, builds interdependence, drives intervention, and sustains impact.",
+          "items": [
+            {
+              "icon": "heart",
+              "title": "Identity",
+              "body": "Anchors leaders in self-awareness, values, and purpose, shaping how they show up and make decisions"
+            },
+            {
+              "icon": "lightbulb",
+              "title": "Imagination",
+              "body": "Expands what is possible by reframing challenges and envisioning better collective futures grounded in reality"
+            },
+            {
+              "icon": "eye",
+              "title": "Insight",
+              "body": "Equips leaders to understand complex challenges through evidence-based analysis and an appreciation of both technical and adaptive dimensions"
+            },
+            {
+              "icon": "users",
+              "title": "Interdependence",
+              "body": "The ability to cultivate relationships, navigate power dynamics, build coalitions, and leverage collective intelligence"
+            },
+            {
+              "icon": "hand",
+              "title": "Intervention",
+              "body": "The unifying capacity that translates insight, imagination, and interdependence into action"
+            },
+            {
+              "icon": "sun",
+              "title": "Impact",
+              "body": "The sustained social, economic, and environmental value leaders seek to create for communities, institutions, and society"
+            }
+          ]
+        },
+        {
+          "tab": "The journey",
+          "type": "features",
+          "heading": "The AYL leadership journey",
+          "sub": "A structured pathway that transforms high-potential student leaders into lifelong stewards of change.",
+          "items": [
+            {
+              "icon": "pres",
+              "title": "Leadership Formation",
+              "body": "An immersive leadership experience for outstanding college students, grounded in stewardship, national realities, and community action."
+            },
+            {
+              "icon": "briefcase",
+              "title": "Guided Leadership Practice",
+              "body": "Delegates apply learning through mentorship, project implementation, and collaborative community initiatives."
+            },
+            {
+              "icon": "hand",
+              "title": "Leadership in Action",
+              "body": "Equipping delegates to initiate and implement meaningful projects in their campuses and communities translating learning into sustainable practice."
+            },
+            {
+              "icon": "users",
+              "title": "ATLAS Network",
+              "body": "Sustaining impact through the ATLAS network, where alumni across programs collaborate, mentor, and drive initiatives nationwide."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Hinuhubog ang mga lider-katiwala para sa pagbuo ng bansa",
+      "body": [
+        "Habang hinaharap ng Pilipinas ang agwat sa ekonomiya, mga hamong pangkalikasan, at hindi pagkakapantay-pantay sa lipunan, nakasalalay ang kinabukasan ng bansa sa bagong henerasyon ng mahuhusay at may prinsipyong lider.",
+        "Bagama't malaking bentahe ang dami ng kabataang Pilipino, maraming batang lider ang kulang sa pananaw, karanasan, at suportang kailangan upang makalikha ng pangmatagalang epekto sa kanilang komunidad at institusyon.",
+        "Ang maagang pamumuhunan sa paghubog ng pamumuno ay nagpapalakas hindi lamang sa potensyal ng indibidwal, kundi pati sa pangmatagalang kakayahan ng bansa para sa inklusibo at responsableng pag-unlad."
+      ],
+      "sections": [
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "label": "28 taon ng pagpapaunlad ng pamumuno",
+          "stats": [
+            {
+              "icon": "users",
+              "value": "1,987",
+              "label": "kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa"
+            },
+            {
+              "icon": "pin",
+              "value": "22",
+              "label": "aktibong alumni chapter sa buong Pilipinas"
+            },
+            {
+              "icon": "pres",
+              "value": "31",
+              "label": "kalahok na mag-aaral mula sa 24 na unibersidad sa buong bansa sa 2026 cohort"
+            },
+            {
+              "icon": "map",
+              "value": "9",
+              "label": "rehiyong kinakatawan sa 2026 cohort"
+            },
+            {
+              "icon": "book",
+              "value": "5",
+              "label": "discipline cluster sa 2026 cohort"
+            }
+          ]
+        },
+        {
+          "tab": "Aming paraan",
+          "type": "features",
+          "heading": "Paglikha ng daan para sa pamumunong katiwala",
+          "sub": "Hinuhubog ng AYL ang mga lider-katiwala sa pamamagitan ng isang nakaayos na balangkas na nagpapatibay ng pagkakakilanlan, nagpapalawak ng imahinasyon, nagpapalalim ng pag-unawa, bumubuo ng pagtutulungan, nagtutulak ng pagkilos, at nagpapanatili ng epekto.",
+          "items": [
+            {
+              "icon": "heart",
+              "title": "Identity",
+              "body": "Iniuugat ang mga lider sa kamalayan sa sarili, pagpapahalaga, at layunin, na humuhubog sa kanilang pagkilos at pagpapasya."
+            },
+            {
+              "icon": "lightbulb",
+              "title": "Imagination",
+              "body": "Pinalalawak ang maaaring mangyari sa pamamagitan ng muling pagtingin sa mga hamon at pag-iisip ng mas mabuting sama-samang kinabukasan na nakaugat sa realidad."
+            },
+            {
+              "icon": "eye",
+              "title": "Insight",
+              "body": "Inihahanda ang mga lider na unawain ang masasalimuot na hamon sa pamamagitan ng pagsusuring batay sa ebidensya at pagpapahalaga sa teknikal at adaptibong aspeto nito."
+            },
+            {
+              "icon": "users",
+              "title": "Interdependence",
+              "body": "Ang kakayahang bumuo ng ugnayan, harapin ang dinamika ng kapangyarihan, bumuo ng koalisyon, at gamitin ang sama-samang talino."
+            },
+            {
+              "icon": "hand",
+              "title": "Intervention",
+              "body": "Ang nagbubuklod na kakayahang isalin sa pagkilos ang pag-unawa, imahinasyon, at pagtutulungan."
+            },
+            {
+              "icon": "sun",
+              "title": "Impact",
+              "body": "Ang pangmatagalang halagang panlipunan, pang-ekonomiya, at pangkalikasan na nais likhain ng mga lider para sa komunidad, institusyon, at lipunan."
+            }
+          ]
+        },
+        {
+          "tab": "Paglalakbay",
+          "type": "features",
+          "heading": "Ang paglalakbay sa pamumuno ng AYL",
+          "sub": "Isang nakaayos na landas na humuhubog sa mga mag-aaral na lider na may mataas na potensyal upang maging panghabambuhay na katiwala ng pagbabago.",
+          "items": [
+            {
+              "icon": "pres",
+              "title": "Leadership Formation",
+              "body": "Isang malalim na karanasan sa pamumuno para sa mahuhusay na mag-aaral sa kolehiyo, nakaugat sa pagiging katiwala, realidad ng bansa, at pagkilos sa komunidad."
+            },
+            {
+              "icon": "briefcase",
+              "title": "Guided Leadership Practice",
+              "body": "Isinasabuhay ng mga delegado ang natutunan sa pamamagitan ng mentorship, pagpapatupad ng proyekto, at sama-samang inisyatiba sa komunidad."
+            },
+            {
+              "icon": "hand",
+              "title": "Leadership in Action",
+              "body": "Inihahanda ang mga delegado na magsimula at magpatupad ng makabuluhang proyekto sa kanilang kampus at komunidad, na isinasalin ang natutunan sa pangmatagalang gawain."
+            },
+            {
+              "icon": "users",
+              "title": "ATLAS Network",
+              "body": "Pinananatili ang epekto sa pamamagitan ng ATLAS network, kung saan nagtutulungan, nagme-mentor, at nagpapasimula ng mga inisyatiba ang mga alumni ng iba't ibang programa sa buong bansa."
+            }
           ]
         }
       ],
