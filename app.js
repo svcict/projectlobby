@@ -228,7 +228,7 @@
   }
 
   function setState(patch) {
-    const prevScreen = state.screen, prevProg = state.prog;
+    const prevScreen = state.screen, prevProg = state.prog, prevTab = state.projTab;
     Object.assign(state, patch);
     render();
     if (state.screen === 'program') {
@@ -237,6 +237,10 @@
       const fromProject = prevScreen === 'project';
       if ((prevScreen !== 'program' && !fromProject) || (prevScreen === 'program' && state.prog !== prevProg)) enterProgram();
     }
+    // Opening a program from its pillar page steps deeper, so it rises in;
+    // switching tabs brings the new section's items in one after another.
+    if (state.screen === 'project' && prevScreen !== 'project') enterProject();
+    else if (state.screen === 'project' && 'projTab' in patch && state.projTab !== prevTab) enterTab();
     if (state.screen !== prevScreen) bump();
   }
 
@@ -247,14 +251,33 @@
 
   // Program page content rises 12px and fades in, 30ms apart, done in
   // under 300ms. Taps work throughout.
-  const programParts = $$('.screen--program .panel__text, .screen--program .program-main > .section');
-  function enterProgram() {
-    const from = reducedMotion() ? { opacity: 0 } : { opacity: 0, transform: 'translateY(12px)' };
-    const to = reducedMotion() ? { opacity: 1 } : { opacity: 1, transform: 'translateY(0)' };
-    programParts.forEach((el, i) => {
-      el.animate([from, to], { duration: 200, delay: i * 30, easing: EASE_OUT, fill: 'backwards' });
-    });
+  // Reduced motion keeps the fade and drops the movement.
+  function rise(els, { distance = 12, duration = 200, stagger = 30, delay = 0 } = {}) {
+    const move = !reducedMotion();
+    const from = move ? { opacity: 0, transform: `translateY(${distance}px)` } : { opacity: 0 };
+    const to = move ? { opacity: 1, transform: 'translateY(0)' } : { opacity: 1 };
+    els.forEach((el, i) => el.animate([from, to], { duration, delay: delay + i * stagger, easing: EASE_OUT, fill: 'backwards' }));
   }
+
+  const programParts = $$('.screen--program .panel__text, .screen--program .program-main > .section');
+  function enterProgram() { rise(programParts); }
+
+  // Program page: intro, tabs, first section and contact, 30ms apart.
+  function enterProject() {
+    rise([$('#pjIntro'), $('#pjTabs'), $('#pjPanels .pj-panel.is-on'), $('#pjContact')].filter((el) => el && !el.hidden));
+  }
+
+  // The items of the section just opened (figures, features, cards, list
+  // rows), 30ms apart, capped so the last one lands well under 300ms.
+  function enterTab() {
+    const panel = $('#pjPanels .pj-panel.is-on');
+    if (!panel) return;
+    const items = $$('.pj-stat, .pj-pillar, .pj-package, .pj-list__items li, .pj-bigstat, .pj-chart, .pj-quote, .pj-about__row', panel).slice(0, 6);
+    rise(items, { distance: 8, duration: 180 });
+  }
+
+  // Home: the main button rises in once when the kiosk starts, then stays put.
+  rise([$('.touch')], { distance: 8, duration: 240, delay: 150 });
 
   // Critically damped spring (no bounce) sampled into a CSS linear() easing.
   (() => {
