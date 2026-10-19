@@ -47,6 +47,10 @@
   $$('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; });
 
   // One language: no switch (see window.LANGUAGES in copy.js).
+  // iOS only shows :active (the press scale on cards and buttons) when the
+  // page listens for touches, so listen and do nothing.
+  document.addEventListener('touchstart', () => {}, { passive: true });
+
   const oneLang = (window.LANGUAGES || ['en', 'fil']).length < 2;
   $('.lang').hidden = oneLang;
 
