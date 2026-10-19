@@ -204,7 +204,7 @@
       const tabs = $('#pjTabs');
       tabs.hidden = secs.length < 2;
       tabs.setAttribute('aria-label', p.title);
-      tabs.innerHTML = `<div class="tabs__pill" style="width:calc((100% - 12px) / ${Math.max(1, secs.length)})"></div>` +
+      tabs.innerHTML = `<div class="tabs__pill" aria-hidden="true" style="width:calc((100% - 12px) / ${Math.max(1, secs.length)})"></div>` +
         secs.map((s, i) => `<button class="u tabs__tab" role="tab" data-pj-tab="${i}">${PV.esc(s.tab)}</button>`).join('');
       $('#pjPanels').innerHTML = secs.map((s) => `<section class="pj-panel" role="tabpanel">${PV.section(s, 'kiosk')}</section>`).join('');
       const contact = $('#pjContact');
@@ -213,7 +213,11 @@
     }
     const pill = $('#pjTabs .tabs__pill');
     if (pill) pill.style.transform = `translateX(${state.projTab * 100}%)`;
-    $$('#pjTabs [data-pj-tab]').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.pjTab === state.projTab)));
+    $$('#pjTabs [data-pj-tab]').forEach((el) => {
+      const on = +el.dataset.pjTab === state.projTab;
+      el.setAttribute('aria-selected', String(on));
+      el.tabIndex = on ? 0 : -1;
+    });
     $$('#pjPanels .pj-panel').forEach((el, i) => {
       el.classList.toggle('is-on', i === state.projTab);
       el.setAttribute('aria-hidden', String(i !== state.projTab));
@@ -357,6 +361,19 @@
     if (tab) { setState({ projTab: +tab.dataset.pjTab }); return; }
     const el = e.target.closest('[data-action]');
     if (el && ACTIONS[el.dataset.action]) ACTIONS[el.dataset.action](el);
+  });
+
+  // Tabs from the keyboard: Left/Right move to the neighbouring tab, Home and
+  // End to the first and last, and focus follows the selection.
+  stage.addEventListener('keydown', (e) => {
+    const tab = e.target.closest('[data-pj-tab]');
+    if (!tab) return;
+    const n = $$('#pjTabs [data-pj-tab]').length;
+    const i = { ArrowRight: state.projTab + 1, ArrowLeft: state.projTab - 1, Home: 0, End: n - 1 }[e.key];
+    if (i === undefined) return;
+    e.preventDefault();
+    setState({ projTab: (i + n) % n });
+    $(`#pjTabs [data-pj-tab="${state.projTab}"]`).focus();
   });
 
   // ---------- Carousel drag ----------

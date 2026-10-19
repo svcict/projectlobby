@@ -148,7 +148,7 @@
     const tabs = $('#pjTabs');
     tabs.hidden = secs.length < 2;
     $('.m-tabs__bar', tabs).setAttribute('aria-label', p.title);
-    $('.m-tabs__bar', tabs).innerHTML = `<div class="m-tabs__pill" style="width:calc((100% - 8px) / ${Math.max(1, secs.length)})"></div>` +
+    $('.m-tabs__bar', tabs).innerHTML = '<div class="m-tabs__pill" aria-hidden="true"></div>' +
       secs.map((s, i) => `<button class="u m-tabs__tab" role="tab" data-pj-tab="${i}">${PV.esc(s.tab)}</button>`).join('');
     $('#pjSections').innerHTML = secs.map((s) => `<div class="m-section" role="tabpanel">${PV.section(s, 'mobile')}</div>`).join('');
     const contact = $('#pjContact');
@@ -158,11 +158,52 @@
   }
 
   function showTab() {
-    const pill = $('#pjTabs .m-tabs__pill');
-    if (pill) pill.style.transform = `translateX(${state.tab * 100}%)`;
-    $$('#pjTabs [data-pj-tab]').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.pjTab === state.tab)));
+    $$('#pjTabs [data-pj-tab]').forEach((el) => {
+      const on = +el.dataset.pjTab === state.tab;
+      el.setAttribute('aria-selected', String(on));
+      el.tabIndex = on ? 0 : -1;
+    });
     $$('#pjSections .m-section').forEach((el, i) => { el.hidden = i !== state.tab; });
+    placePill();
   }
+
+  // Tabs are as wide as their labels, so the pill takes the selected tab's
+  // measured position and width.
+  function placePill() {
+    fitTabs();
+    const pill = $('#pjTabs .m-tabs__pill');
+    const tab = $(`#pjTabs [data-pj-tab="${state.tab}"]`);
+    if (!pill || !tab || !tab.offsetWidth) return;
+    pill.style.width = tab.offsetWidth + 'px';
+    pill.style.transform = `translateX(${tab.offsetLeft - pill.offsetLeft}px)`;
+  }
+  // Labels stay on one line; if the tabs don't fit, only the widest wraps
+  // (then the next widest, until they fit).
+  function fitTabs() {
+    const bar = $('#pjTabs .m-tabs__bar');
+    if (!bar || !bar.clientWidth) return;
+    const tabs = $$('[data-pj-tab]', bar);
+    tabs.forEach((el) => el.classList.add('is-nowrap'));
+    for (const el of tabs.slice().sort((x, y) => y.offsetWidth - x.offsetWidth)) {
+      if (bar.scrollWidth <= bar.clientWidth) break;
+      el.classList.remove('is-nowrap');
+    }
+  }
+  window.addEventListener('resize', placePill);
+  if (document.fonts) document.fonts.ready.then(placePill);
+
+  // Tabs from the keyboard: Left/Right move to the neighbouring tab, Home and
+  // End to the first and last, and focus follows the selection.
+  document.addEventListener('keydown', (e) => {
+    const tab = e.target.closest && e.target.closest('[data-pj-tab]');
+    if (!tab) return;
+    const n = $$('#pjTabs [data-pj-tab]').length;
+    const i = { ArrowRight: state.tab + 1, ArrowLeft: state.tab - 1, Home: 0, End: n - 1 }[e.key];
+    if (i === undefined) return;
+    e.preventDefault();
+    $(`#pjTabs [data-pj-tab="${(i + n) % n}"]`).click();
+    $(`#pjTabs [data-pj-tab="${state.tab}"]`).focus();
+  });
 
   // Switching tabs: show the new section, fade it in, and if the reader had
   // scrolled down past the tabs, bring the start of the section into view.
