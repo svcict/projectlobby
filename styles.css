@@ -856,7 +856,8 @@ img { -webkit-user-drag: none; user-select: none; }
   top: 0;
   height: 100%;
   aspect-ratio: 16 / 10;
-  transition: transform 380ms var(--ease-in-out), opacity 380ms var(--ease-in-out);
+  /* Arrow and tap moves: 300ms, landing with the pillar name and description. */
+  transition: transform 300ms var(--ease-in-out), opacity 300ms var(--ease-in-out);
 }
 .track.is-dragging .card { transition: none; }
 /* After a swipe, cards settle on a critically damped spring (set in app.js). */
