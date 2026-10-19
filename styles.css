@@ -814,10 +814,11 @@ img { -webkit-user-drag: none; user-select: none; }
   color: var(--blue);
   overflow: hidden;
 }
-/* Title on the left; the general pillar description fills the space beside it. */
-.programs__head { padding: 0 72px; display: flex; align-items: flex-end; gap: 80px; }
+/* Title on the left; the general pillar description reads on from it, set
+   off by a hairline and kept to a comfortable measure (about 75 characters). */
+.programs__head { padding: 0 72px; display: flex; align-items: flex-start; gap: 56px; }
 .programs__heading { flex: none; display: flex; flex-direction: column; gap: 14px; }
-.programs__intro { margin: 0 0 -4px auto; max-width: 1180px; font-size: 21px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+.programs__intro { margin: 22px 0 0; padding-left: 56px; border-left: 1px solid rgba(3, 34, 177, 0.2); max-width: 74ch; font-size: 23px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
 .accent { width: 72px; height: 8px; background: var(--orange); }
 .programs__title { margin: 0; font-size: 60px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
 
