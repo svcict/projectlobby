@@ -212,10 +212,25 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 /* ---------- Home ---------- */
 
 .view--home { padding: 28px 20px 32px; gap: 20px; }
-.m-logo { height: 84px; position: relative; }
-.m-tagline { margin-top: -4px; display: flex; flex-direction: column; gap: 8px; text-align: center; }
-.m-tagline__title { margin: 0; font-size: 26px; line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; color: var(--blue); text-wrap: balance; }
-.m-tagline__line { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink); text-wrap: balance; }
+.m-logo { height: 120px; position: relative; }
+/* Over the bottom of the photo, white on a navy fade so it reads on every
+   photo, as on the lobby screen. The pillar name and dots sit at the top. */
+.m-tagline {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 120px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: linear-gradient(to top, rgba(4, 31, 63, 0.88) 0%, rgba(4, 31, 63, 0.55) 50%, rgba(4, 31, 63, 0) 100%);
+  color: #FFFFFF;
+  pointer-events: none;
+}
+.m-tagline__title { margin: 0; font-size: 24px; line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+.m-tagline__line { margin: 0; font-size: 15px; line-height: 1.5; text-wrap: pretty; }
 .m-slides {
   position: relative;
   display: block;
@@ -242,9 +257,10 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 }
 .m-slides__foot {
   position: absolute;
+  z-index: 3;
   left: 16px;
   right: 16px;
-  bottom: 16px;
+  top: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -640,9 +656,8 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 }
 .pj-contact__link { font-size: 16px; font-weight: 600; min-height: 44px; display: flex; align-items: center; overflow-wrap: anywhere; }
 .pj-bullets { margin: 0; padding-left: 1.2em; }
-/* Short phones: a squarer, then wider, photo keeps Explore our pillars on the first screen. */
-@media (max-height: 780px) { .m-slides { aspect-ratio: 1 / 1; } }
-@media (max-height: 700px) { .m-slides { aspect-ratio: 4 / 3; } }
+/* Short phones: a squarer photo keeps Explore our pillars on the first screen. */
+@media (max-height: 700px) { .m-slides { aspect-ratio: 1 / 1; } }
 /* Strategic pillar (orange) or Big bet (blue) above each pillar card's name. */
 .m-tag { align-self: flex-start; padding: 3px 9px; border-radius: 4px; background: var(--orange); color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .m-tag--bet { background: var(--blue); }
