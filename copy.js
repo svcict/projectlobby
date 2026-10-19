@@ -9,7 +9,7 @@ window.COPY = {
   en: {
     title: 'Arts and Culture',
     body: 'We provide platforms that spotlight history, contemporary and fine art forms in state-of-the-art museum and library venues. By curating physical and digital collections that celebrate the joy and wonder of Philippine arts and culture, we hope to contribute to conversations about evolving Filipino identities and agency throughout history.',
-    projects: 'Programs', partOf: 'Be part of it', more: 'More pillars',
+    projects: 'Programs', partOf: 'Partner with us', more: 'More pillars',
     partner: 'Partner with us',
     take: 'Take this with you', takeBody: 'Scan to open this page on your phone.',
     startOver: 'Start over', allPrograms: 'All pillars', tap: 'Tap to explore',
@@ -23,7 +23,7 @@ window.COPY = {
   fil: {
     title: 'Sining at Kultura',
     body: 'Nagbibigay kami ng mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining sa mga makabagong museo at aklatan. Sa pag-curate ng pisikal at digital na koleksyon na nagdiriwang sa sining at kultura ng Pilipinas, layunin naming makapag-ambag sa usapan tungkol sa umuusbong na pagkakakilanlan at kakayahan ng Pilipino sa kasaysayan.',
-    projects: 'Mga Programa', partOf: 'Makibahagi', more: 'Iba pang haligi',
+    projects: 'Mga Programa', partOf: 'Makipagtulungan sa amin', more: 'Iba pang haligi',
     partner: 'Makipagtulungan sa amin',
     take: 'Dalhin mo ito', takeBody: 'I-scan para buksan ang pahinang ito sa iyong telepono.',
     startOver: 'Magsimula muli', allPrograms: 'Lahat ng haligi', tap: 'Pindutin para tuklasin',
