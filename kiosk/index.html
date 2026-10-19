@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayala Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="viewport">
+<div class="stage" id="stage">
+
+  <!-- Arts and Culture (base layer) -->
+  <div class="screen screen--arts" data-screen="program">
+    <aside class="panel">
+      <div class="panel__media"><div class="slot" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div></div>
+      <div class="panel__text">
+        <div class="eyebrow">Ayala Foundation</div>
+        <h1 class="arts-title" data-t="title"></h1>
+        <p class="arts-body" data-t="body"></p>
+      </div>
+    </aside>
+
+    <main class="arts-main">
+      <section class="section">
+        <h2 class="h2" data-t="partOf"></h2>
+        <div class="join">
+          <div class="info">
+            <div class="info__title" data-t="give"></div>
+            <div class="info__body" data-t="giveBody"></div>
+          </div>
+          <div class="info">
+            <div class="info__title" data-t="partner"></div>
+            <div class="info__body" data-t="partnerBody"></div>
+          </div>
+          <div class="take">
+            <div class="take__qr"><div class="slot slot--contain" data-src="assets/temp-qr.png" data-ph="QR code"></div></div>
+            <div class="take__text">
+              <div class="take__title" data-t="take"></div>
+              <div class="take__body" data-t="takeBody"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="h2" data-t="projects"></h2>
+        <div class="projects">
+          <button class="u press project" data-action="museum">
+            <span class="project__text">
+              <span class="project__name">Ayala Museum</span>
+              <span class="project__sub" data-t="tap"></span>
+            </span>
+            <span class="project__go" data-icon="chevron-navy-24"></span>
+          </button>
+          <button class="u press project">
+            <span class="project__text">
+              <span class="project__name">Filipinas Heritage Library</span>
+              <span class="project__sub" data-t="tap"></span>
+            </span>
+            <span class="project__go" data-icon="chevron-navy-24"></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section section--fill">
+        <h2 class="h2" data-t="more"></h2>
+        <div class="tiles">
+          <button class="u press tile">
+            <div class="tile__media"><div class="slot" data-src="assets/temp-leadership.png" data-ph="Leadership illustration"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p1"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+          <button class="u press tile">
+            <div class="tile__media"><div class="slot" data-src="assets/temp-bigbets.png" data-ph="Big Bets illustration"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p2"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+          <button class="u press tile">
+            <div class="tile__media"><div class="slot" data-src="assets/temp-community.png" data-ph="Community photo"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p3"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bar">
+      <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      <button class="u press btn-primary" data-action="all-programs"><span data-icon="grid"></span><span data-t="allPrograms"></span></button>
+      <div class="lang" data-lang-switch></div>
+    </nav>
+  </div>
+
+  <!-- Ayala Museum -->
+  <div class="screen screen--museum" data-screen="museum">
+    <aside class="panel">
+      <div class="panel__media"><div class="slot" data-src="assets/temp-museum.png" data-ph="Ayala Museum photo"></div></div>
+      <div class="panel__text">
+        <div class="eyebrow" data-t="p0"></div>
+        <h1 class="museum-title">Ayala Museum</h1>
+      </div>
+    </aside>
+    <main class="museum-main">
+      <p class="museum-lead" data-t="musLead"></p>
+      <p class="museum-body" data-t="musBody"></p>
+      <div class="stats">
+        <div class="stat"><div class="stat__num">92,833</div><div class="stat__label" data-t="stat1"></div></div>
+        <div class="stat"><div class="stat__num">96%</div><div class="stat__label" data-t="stat2"></div></div>
+      </div>
+      <div class="support">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="flex:none"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" stroke="#0B53A5" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        <div class="support__text">
+          <div class="support__title" data-t="support"></div>
+          <div class="support__body" data-t="supportBody"></div>
+        </div>
+      </div>
+    </main>
+    <nav class="bar">
+      <div class="bar__side">
+        <button class="u press btn-ghost" data-action="back-to-arts"><span data-icon="back"></span><span data-t="p0"></span></button>
+        <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      </div>
+      <button class="u press btn-primary" data-action="all-programs"><span data-icon="grid"></span><span data-t="allPrograms"></span></button>
+      <div class="bar__side bar__side--end"><div class="lang" data-lang-switch></div></div>
+    </nav>
+  </div>
+
+  <!-- Home -->
+  <div class="screen screen--home" data-screen="home">
+    <section class="home-intro" data-action="explore-start">
+      <div class="home-logo-wrap">
+        <h1 class="home-logo"><span class="sr-only">Ayala Foundation</span><div class="slot slot--contain" data-src="assets/logo.webp" data-ph="Ayala Foundation logo"></div></h1>
+      </div>
+      <button class="u press touch" data-action="explore-start">
+        <span class="touch__label" data-t="touch"></span>
+        <span class="touch__go" data-icon="chevron-orange-30"></span>
+      </button>
+    </section>
+    <div class="home-photos" data-action="explore-start">
+      <div class="slide"><div class="slot" data-src="assets/home-arts.webp" data-ph="Arts and Culture photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/temp-leadership.png" data-ph="Leadership Development photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/temp-bigbets.png" data-ph="Big Bets photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/home-community.webp" data-ph="Community Development photo"></div></div>
+      <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    </div>
+    <nav class="bar bar--end">
+      <div class="lang" data-lang-switch></div>
+    </nav>
+  </div>
+
+  <!-- Our programs -->
+  <div class="screen screen--programs" data-screen="programs">
+    <section class="programs">
+      <div class="programs__head">
+        <div class="accent"></div>
+        <h1 class="programs__title" data-t="allTitle"></h1>
+      </div>
+      <div class="track" id="track">
+        <div class="card" data-card="0"><div class="slot" data-src="assets/temp-arts.png" data-ph="Arts and Culture image"></div></div>
+        <div class="card" data-card="1"><div class="slot" data-src="assets/temp-leadership.png" data-ph="Leadership Development image"></div></div>
+        <div class="card" data-card="2"><div class="slot" data-src="assets/temp-bigbets.png" data-ph="Big Bets image"></div></div>
+        <div class="card" data-card="3"><div class="slot" data-src="assets/temp-community.png" data-ph="Community Development image"></div></div>
+        <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous program"><span data-icon="back-blue-32"></span></button>
+        <button class="u arrow arrow--next" data-action="next" aria-label="Next program"><span data-icon="chevron-blue-32"></span></button>
+      </div>
+      <div class="programs__copy" id="programsCopy">
+        <h2 class="programs__name" id="curName"></h2>
+        <p class="programs__desc" id="curDesc"></p>
+      </div>
+      <div class="programs__cta">
+        <button class="u press explore" data-action="explore"><span id="exploreLabel"></span><span data-icon="chevron-navy-26"></span></button>
+      </div>
+    </section>
+    <nav class="bar">
+      <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      <button class="u press btn-ghost" data-action="about"><span data-icon="info"></span><span data-t="about"></span></button>
+      <div class="lang" data-lang-switch></div>
+    </nav>
+  </div>
+
+  <!-- "Still there?" warning, above every screen -->
+  <div class="idle" id="idle" data-idle-modal aria-hidden="true">
+    <div class="idle__box" role="dialog" aria-modal="true" aria-labelledby="idleTitle">
+      <div class="idle__title" id="idleTitle" data-t="still"></div>
+      <div class="idle__body"><span data-t="stillBody"></span> <strong id="idleCount">15</strong></div>
+      <div class="idle__actions">
+        <button class="u press idle__btn" data-action="start-over" data-t="startOver"></button>
+        <button class="u press idle__btn idle__btn--primary" data-action="keep-going" data-t="keep"></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
