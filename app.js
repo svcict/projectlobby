@@ -497,6 +497,13 @@
   }
   window.addEventListener('pointerdown', bump);
 
+  // For kiosk.js: true when nobody has touched the screen for idleMs and it is
+  // sitting on Home (no warning, no thank-you card), so a reload is safe.
+  let lastTouch = Date.now();
+  window.addEventListener('pointerdown', () => { lastTouch = Date.now(); }, true);
+  window.lobbyIsIdleHome = (idleMs) => state.screen === 'home' && !state.warn &&
+    !farewell.classList.contains('is-on') && Date.now() - lastTouch >= idleMs;
+
   // ---------- Home photo rotation ----------
 
   setInterval(() => {

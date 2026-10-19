@@ -41,6 +41,10 @@ html, body {
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  /* Kiosk touch: no pinch or double-tap zoom, no pull-to-refresh, no long-press callout. */
+  touch-action: pan-x pan-y;
+  overscroll-behavior: none;
+  -webkit-touch-callout: none;
 }
 *, *::before, *::after { box-sizing: border-box; }
 img { -webkit-user-drag: none; user-select: none; }

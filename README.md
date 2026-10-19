@@ -43,6 +43,12 @@ Schibsted Grotesk (SIL Open Font License) is stored in `assets/fonts/`, so the k
 
 The pages load their scripts and styles with a version tag (`app.js?v=…`) so browsers fetch fresh copies after an update instead of a cached older one. When you change any `.js` or `.css` file, change the `?v=` number in both `index.html` and `mobile.html` (any new number works, e.g. the date and time).
 
+## Kiosk reliability (`kiosk.js`, `sw.js`)
+
+- **New releases:** every 5 minutes the kiosk re-reads `index.html`. If its `?v=` numbers changed it reloads, but only from the idle Home screen (30 seconds with no touch, no warning, no thank-you card showing), so a visitor is never interrupted. Changing the `?v=` numbers is what publishes an update to a running kiosk. It also reloads once a day to start clean.
+- **Offline start:** `sw.js` keeps a copy of every file the kiosk loads. With the internet up it always gets the latest files; with it down (or slower than 4 seconds) it uses the kept copy, so a kiosk that reboots offline still starts. The kiosk needs to have been online once. If you add a new core file, add it to `CORE` in `sw.js`. Only the kiosk registers it, not the phone page.
+- **Touch guards:** no pinch or double-tap zoom, no long-press menu, no pull-to-refresh (`kiosk.js`, plus `touch-action` in `styles.css`). The phone page keeps normal zoom.
+
 ## Run
 
 Serve the folder and open it in a full-screen kiosk browser, for example:
