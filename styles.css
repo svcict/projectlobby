@@ -128,6 +128,10 @@ img { -webkit-user-drag: none; user-select: none; }
 /* With one language the Home bar would be empty, so Home fills the screen. */
 .is-one-lang .screen--home { grid-template-rows: minmax(0, 1fr); }
 .is-one-lang .screen--home .bar { display: none; }
+/* With the switch hidden the bar's white half is empty, so pillar and
+   program content runs down to end level with the buttons in the blue half. */
+.is-one-lang .program-main,
+.is-one-lang .pj-main { grid-row: 1 / -1; padding-bottom: 20px; position: relative; z-index: 1; }
 .bar__side { flex: 1; display: flex; gap: 16px; }
 .bar__side--end { justify-content: flex-end; }
 
@@ -427,6 +431,7 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-pillars--grid .pj-pillar__icon { width: 56px; height: 56px; }
 .pj-pillars--grid .pj-pillar__title { font-size: 24px; }
 .pj-pillars--grid .pj-pillar__body { font-size: 18px; line-height: 1.4; }
+.pj-note { margin: 0; padding-top: 22px; border-top: 1px solid rgba(3, 34, 177, 0.15); font-size: 22px; line-height: 1.45; font-weight: 600; color: var(--blue); text-wrap: pretty; }
 
 .pj-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .pj-stat {
@@ -516,6 +521,16 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-results__side { gap: 16px; }
 .pj-results__where { display: flex; flex-direction: column; gap: 8px; }
 .pj-results__label { font-size: 22px; font-weight: 600; color: var(--ink-soft); }
+/* Grouped figures: each group's label leads its own row of figures, with
+   more space between groups than inside them. */
+.pj-statgroups { display: flex; flex-direction: column; gap: 36px; }
+.pj-statgroups .pj-statblock { gap: 16px; }
+.pj-statgroups .pj-results__label { font-size: 26px; font-weight: 700; color: var(--blue); }
+.pj-statgroups .pj-stats { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.pj-statgroups .pj-stat { display: flex; align-items: stretch; padding: 24px 28px; gap: 10px; }
+.pj-statgroups .pj-stat__icon { width: 56px; height: 56px; }
+.pj-statgroups .pj-stat__value { margin-top: 4px; font-size: 64px; }
+.pj-statgroups .pj-stat__label { font-size: 21px; }
 .pj-results__place { display: flex; align-items: center; gap: 12px; font-size: 34px; font-weight: 800; color: var(--blue); }
 .pj-bigstat {
   background: var(--blue);

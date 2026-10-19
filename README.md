@@ -67,7 +67,7 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 | Spot | Files | Upload size | Notes |
 |---|---|---|---|
 | Home logo | `logo.webp` | SVG, or 1440×600 PNG | Fits a 716×300 box uncropped; transparent background |
-| Home rotating photos | `home-arts.webp`, `leadership-home.jpg`, `bigbets-home.jpg`, `home-community.webp` | 2400×2200 | Sides or top may crop; keep faces and subject centred |
+| Home rotating photos | the pillar's `*-card.jpg` (for now) | 1600×1000 | Same photos as the cards; sides may crop. The older `home-*` / `*-home*` files are kept but unused |
 | Pillar cards | `*-card.jpg` | 1600×1000 (16:10) | Largest images; use the best you have |
 | Pillar banners | the pillar's `*-card.jpg` | 1600×1000 | Same photo as the card |
 | Program heroes | set in `programs.js` (`hero.src`) | 1600×1200 | Fills the kiosk's left column above the text; 16:10 on phones |

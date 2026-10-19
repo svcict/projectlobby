@@ -57,10 +57,13 @@
         <div class="pj-pillar__icon">${icon(it.icon, z.pillar, '#041F3F')}</div>
         <div class="pj-pillar__text"><div class="pj-pillar__title">${esc(it.title)}</div><div class="pj-pillar__body">${esc(it.body)}</div></div>
       </div>`).join('')}</div>
+      ${s.note ? `<p class="pj-note">${esc(s.note)}</p>` : ''}
     </div>`;
   }
 
   function stats(s, z) {
+    // Labelled groups of figures, each with its own grid.
+    if (s.groups) return `<div class="pj-statgroups">${s.groups.map((g) => stats(g, z)).join('')}</div>`;
     const list = s.stats || [];
     const where = s.label || s.location ? `<div class="pj-results__where">
         ${s.label ? `<div class="pj-results__label">${esc(s.label)}</div>` : ''}

@@ -404,6 +404,7 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-pillar__text { display: flex; flex-direction: column; gap: 4px; }
 .pj-pillar__title { font-size: 18px; font-weight: 700; line-height: 1.25; color: var(--blue); }
 .pj-pillar__body { font-size: 15px; line-height: 1.5; }
+.pj-note { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; font-weight: 600; color: var(--blue); }
 
 .pj-stats { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 .pj-stat {
@@ -428,6 +429,8 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-stat__value { font-size: 32px; line-height: 1; font-weight: 800; }
 .pj-stat__label { font-size: 14px; line-height: 1.4; }
 .pj-statblock { display: flex; flex-direction: column; gap: 14px; }
+/* An odd last figure spans the row instead of leaving an empty slot. */
+.pj-stats > .pj-stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .pj-quote { margin: 0; background: var(--tint); border-radius: 6px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
 .pj-quote blockquote { margin: 0; font-size: 15px; line-height: 1.55; font-style: italic; }
 .pj-quote blockquote p { margin: 0; }
@@ -471,6 +474,8 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-results, .pj-results__main, .pj-results__side { display: flex; flex-direction: column; gap: 14px; }
 .pj-results__where { display: flex; flex-direction: column; gap: 6px; }
 .pj-results__label { font-size: 15px; font-weight: 600; color: var(--ink-soft); }
+.pj-statgroups { display: flex; flex-direction: column; gap: 28px; }
+.pj-statgroups .pj-results__label { font-size: 17px; font-weight: 700; color: var(--blue); }
 .pj-results__place { display: flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 800; color: var(--blue); }
 .pj-bigstat {
   background: var(--blue);
@@ -577,6 +582,12 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 }
 .pj-contact__title { grid-column: 2; font-size: 19px; font-weight: 700; color: var(--blue); }
 .pj-contact__lines { grid-column: 1 / -1; display: flex; flex-direction: column; }
-/* No title (pillar pages): the links sit beside the icon instead of under it. */
-.pj-contact:not(:has(.pj-contact__title)) .pj-contact__lines { grid-column: 2; }
+/* No title (pillar pages): the links sit beside the icon when the email fits
+   on one line there; on narrower phones the icon steps aside so it never breaks. */
+.pj-contact:not(:has(.pj-contact__title)) { container-type: inline-size; }
+.pj-contact:not(:has(.pj-contact__title)) .pj-contact__icon { display: none; }
+@container (min-width: 340px) {
+  .pj-contact:not(:has(.pj-contact__title)) .pj-contact__lines { grid-column: 2; }
+  .pj-contact:not(:has(.pj-contact__title)) .pj-contact__icon { display: flex; }
+}
 .pj-contact__link { font-size: 16px; font-weight: 600; min-height: 44px; display: flex; align-items: center; overflow-wrap: anywhere; }

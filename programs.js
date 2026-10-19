@@ -7,9 +7,11 @@
 // Section types (each becomes a tab on the kiosk): 'features' | 'results' | 'stats' | 'packages' | 'list' | 'about'.
 //   features: heading, sub and/or highlight, and items with an icon, title and body.
 //     Four or more items sit in two columns on the kiosk.
+//   features may end with a note: a plain line under the items.
 //   stats: figures with an icon, value and label; optional label, location, sub
 //     and a quote ({ text, by }). Three or four figures use a compact 2×2 layout,
-//     five or six use three columns.
+//     five or six use three columns. Or groups: [{ label, stats }], each group
+//     with its own label and figures.
 //   list: heading, sub, intro and a list of plain-text items.
 //   about: heading, highlight, a logo ({ src, alt }) and body paragraphs beside it.
 //   Headings are optional. A quote's text can hold several paragraphs separated
@@ -1200,32 +1202,41 @@ window.KIOSK_PROGRAMS = {
         {
           "tab": "Our impact",
           "type": "stats",
-          "label": "28 years of leadership development",
-          "stats": [
+          "groups": [
             {
-              "icon": "users",
-              "value": "1,987",
-              "label": "Total number of Ayala Young Leaders alumni nationwide"
+              "label": "28 years of leadership development",
+              "stats": [
+                {
+                  "icon": "users",
+                  "value": "1,987",
+                  "label": "Total number of Ayala Young Leaders alumni nationwide"
+                },
+                {
+                  "icon": "pin",
+                  "value": "22",
+                  "label": "Active alumni chapters across the Philippines"
+                }
+              ]
             },
             {
-              "icon": "pin",
-              "value": "22",
-              "label": "Active alumni chapters across the Philippines"
-            },
-            {
-              "icon": "pres",
-              "value": "31",
-              "label": "Student participants from 24 universities nationwide in the 2026 cohort"
-            },
-            {
-              "icon": "map",
-              "value": "9",
-              "label": "Regions represented nationwide in the 2026 cohort"
-            },
-            {
-              "icon": "book",
-              "value": "5",
-              "label": "Discipline clusters in the 2026 cohort"
+              "label": "The 2026 cohort",
+              "stats": [
+                {
+                  "icon": "pres",
+                  "value": "31",
+                  "label": "student participants from 24 universities nationwide"
+                },
+                {
+                  "icon": "map",
+                  "value": "9",
+                  "label": "regions represented nationwide"
+                },
+                {
+                  "icon": "book",
+                  "value": "5",
+                  "label": "Discipline clusters"
+                }
+              ]
             }
           ]
         },
@@ -1268,7 +1279,7 @@ window.KIOSK_PROGRAMS = {
           ]
         },
         {
-          "tab": "The journey",
+          "tab": "Leadership journey",
           "type": "features",
           "heading": "The AYL leadership journey",
           "sub": "A structured pathway that transforms high-potential student leaders into lifelong stewards of change.",
@@ -1287,13 +1298,9 @@ window.KIOSK_PROGRAMS = {
               "icon": "hand",
               "title": "Leadership in Action",
               "body": "Equipping delegates to initiate and implement meaningful projects in their campuses and communities translating learning into sustainable practice."
-            },
-            {
-              "icon": "users",
-              "title": "ATLAS Network",
-              "body": "Sustaining impact through the ATLAS network, where alumni across programs collaborate, mentor, and drive initiatives nationwide."
             }
-          ]
+          ],
+          "note": "Sustaining impact through the ATLAS network, where alumni across programs collaborate, mentor, and drive initiatives nationwide."
         }
       ],
       "contact": {
@@ -1322,32 +1329,41 @@ window.KIOSK_PROGRAMS = {
         {
           "tab": "Aming epekto",
           "type": "stats",
-          "label": "28 taon ng pagpapaunlad ng pamumuno",
-          "stats": [
+          "groups": [
             {
-              "icon": "users",
-              "value": "1,987",
-              "label": "kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa"
+              "label": "28 taon ng pagpapaunlad ng pamumuno",
+              "stats": [
+                {
+                  "icon": "users",
+                  "value": "1,987",
+                  "label": "kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa"
+                },
+                {
+                  "icon": "pin",
+                  "value": "22",
+                  "label": "aktibong alumni chapter sa buong Pilipinas"
+                }
+              ]
             },
             {
-              "icon": "pin",
-              "value": "22",
-              "label": "aktibong alumni chapter sa buong Pilipinas"
-            },
-            {
-              "icon": "pres",
-              "value": "31",
-              "label": "kalahok na mag-aaral mula sa 24 na unibersidad sa buong bansa sa 2026 cohort"
-            },
-            {
-              "icon": "map",
-              "value": "9",
-              "label": "rehiyong kinakatawan sa 2026 cohort"
-            },
-            {
-              "icon": "book",
-              "value": "5",
-              "label": "discipline cluster sa 2026 cohort"
+              "label": "Ang 2026 cohort",
+              "stats": [
+                {
+                  "icon": "pres",
+                  "value": "31",
+                  "label": "kalahok na mag-aaral mula sa 24 na unibersidad sa buong bansa"
+                },
+                {
+                  "icon": "map",
+                  "value": "9",
+                  "label": "rehiyong kinakatawan sa buong bansa"
+                },
+                {
+                  "icon": "book",
+                  "value": "5",
+                  "label": "discipline cluster"
+                }
+              ]
             }
           ]
         },
@@ -1390,7 +1406,7 @@ window.KIOSK_PROGRAMS = {
           ]
         },
         {
-          "tab": "Paglalakbay",
+          "tab": "Paglalakbay sa pamumuno",
           "type": "features",
           "heading": "Ang paglalakbay sa pamumuno ng AYL",
           "sub": "Isang nakaayos na landas na humuhubog sa mga mag-aaral na lider na may mataas na potensyal upang maging panghabambuhay na katiwala ng pagbabago.",
@@ -1409,13 +1425,9 @@ window.KIOSK_PROGRAMS = {
               "icon": "hand",
               "title": "Leadership in Action",
               "body": "Inihahanda ang mga delegado na magsimula at magpatupad ng makabuluhang proyekto sa kanilang kampus at komunidad, na isinasalin ang natutunan sa pangmatagalang gawain."
-            },
-            {
-              "icon": "users",
-              "title": "ATLAS Network",
-              "body": "Pinananatili ang epekto sa pamamagitan ng ATLAS network, kung saan nagtutulungan, nagme-mentor, at nagpapasimula ng mga inisyatiba ang mga alumni ng iba't ibang programa sa buong bansa."
             }
-          ]
+          ],
+          "note": "Pinananatili ang epekto sa pamamagitan ng ATLAS network, kung saan nagtutulungan, nagme-mentor, at nagpapasimula ng mga inisyatiba ang mga alumni ng iba't ibang programa sa buong bansa."
         }
       ],
       "contact": {
