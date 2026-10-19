@@ -23,7 +23,7 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 
 ## Pillars and programs
 
-The four carousel cards are **pillars**, in the order of the foundation's pillar diagram: Community Development, Arts and Culture, Leadership Development (the strategic pillars), then Education (the big bet). Each pillar has a page listing its **programs** (Ayala Museum, Filipinas Heritage Library, U-GO Scholar Grant Program, Ayala Young Leaders, CENTEX Digital Education, CENTEX Early Grades Program, El Nido, Iraya Mangyan Development Program). Pillar page text is in `copy.js`. Each card is labelled Strategic pillar or Big bet. Corporate Citizenship and Volunteerism (`ccv`, pillar `support` in `programs.js`) supports all of them: it opens from the dashed "Supported by" strip on the pillars screen, and on the phone at `#program/ccv`. It has no hero photo yet.
+The four carousel cards are **pillars**, in the order of the foundation's pillar diagram: Community Development, Arts and Culture, Leadership Development (the strategic pillars), then Education (the big bet). Each pillar has a page listing its **programs** (Ayala Museum, Filipinas Heritage Library, U-GO Scholar Grant Program, Ayala Young Leaders, Atletang Ayala, CENTEX Digital Education, CENTEX Early Grades Program, El Nido, Iraya Mangyan Development Program). Pillar page text is in `copy.js`. Each card is labelled Strategic pillar or Big bet. Corporate Citizenship and Volunteerism (`ccv`, pillar `support` in `programs.js`) supports all of them: it opens from the dashed "Supported by" strip on the pillars screen, and on the phone at `#program/ccv`. It has no hero photo yet.
 
 All program pages use one layout, filled from `programs.js`. To add or edit a program, change `programs.js` only:
 
@@ -80,4 +80,4 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 
 Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text so it can switch language.
 
-The Filipinas Heritage Library, El Nido, U-GO, Ayala Young Leaders and Iraya Mangyan heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. CENTEX Early Grades has no hero photo yet and shows a labelled placeholder. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.
+The Filipinas Heritage Library, El Nido, U-GO, Ayala Young Leaders and Iraya Mangyan heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. CENTEX Early Grades, Atletang Ayala and Corporate Citizenship and Volunteerism have no hero photo yet and show a labelled placeholder. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.

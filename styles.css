@@ -609,6 +609,8 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-statgroups .pj-stat__icon { width: 56px; height: 56px; }
 .pj-statgroups .pj-stat__value { margin-top: 4px; font-size: 64px; }
 .pj-statgroups .pj-stat__label { font-size: 21px; }
+/* Grouped figures sit in one row each, in order; the full-width last-figure rule doesn't apply. */
+.pj-statgroups .pj-stats > .pj-stat:last-child:nth-child(3) { grid-column: auto; }
 .pj-results__place { display: flex; align-items: center; gap: 12px; font-size: 34px; font-weight: 800; color: var(--blue); }
 .pj-bigstat {
   background: var(--blue);

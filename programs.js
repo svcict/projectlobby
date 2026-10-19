@@ -24,7 +24,7 @@
 //   Headings are optional. A quote's text can hold several paragraphs separated
 //   by a blank line, and may have a photo.
 // Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun,
-// lightbulb, eye, map, pin.
+// lightbulb, eye, map, pin, medal, trending.
 window.KIOSK_PROGRAMS = {
   "museum": {
     "pillar": "arts",
@@ -1429,6 +1429,203 @@ window.KIOSK_PROGRAMS = {
             }
           ],
           "note": "Pinananatili ang epekto sa pamamagitan ng ATLAS network, kung saan nagtutulungan, nagme-mentor, at nagpapasimula ng mga inisyatiba ang mga alumni ng iba't ibang programa sa buong bansa."
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
+  },
+  "atletang": {
+    "pillar": "leadership",
+    "title": "Atletang Ayala",
+    "hero": {
+      "id": "atletang-hero",
+      "src": "",
+      "ph": "Atletang Ayala photo"
+    },
+    "en": {
+      "lead": "Empowering Filipino athletes to pursue Olympic qualification while building long-term professional careers.",
+      "body": [
+        "Qualifying for the Olympics requires sustained, world-class support—yet many Filipino national athletes lack consistent access to the resources needed to train, compete, and qualify at the highest level.",
+        "Elite preparation demands long-term investment in international exposure, medical and recovery services, and financial stability. Without structured and uninterrupted support, athletes face barriers that limit both performance and progression.",
+        "Beyond competition, national athletes represent a powerful pipeline of future leaders in Philippine sports and society. Enabling them to thrive today strengthens leadership across sectors tomorrow."
+      ],
+      "sections": [
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "groups": [
+            {
+              "label": "Our impact",
+              "stats": [
+                {
+                  "icon": "users",
+                  "value": "27",
+                  "label": "National Athletes supported through two batches since 2022"
+                },
+                {
+                  "icon": "trending",
+                  "value": "10",
+                  "label": "athletes moved up 2025 world rankings"
+                }
+              ]
+            },
+            {
+              "label": "SEA Games 2025 performance",
+              "sub": "Delivering a total of 17 medals, Atletang Ayala accounted for 7.42% of the Philippine's total medal haul of 229",
+              "stats": [
+                {
+                  "icon": "medal",
+                  "value": "2",
+                  "label": "Gold"
+                },
+                {
+                  "icon": "medal",
+                  "value": "5",
+                  "label": "Silver"
+                },
+                {
+                  "icon": "medal",
+                  "value": "10",
+                  "label": "Bronze"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Creating pathways to global competition and leadership",
+          "sub": "Supports Filipino national athletes by helping bridge gaps in access to international competition, elite preparation, and athlete well-being through sustained and thoughtful support. We aim to enable athletes to pursue excellence on the global stage while developing the skills, values, and perspective to lead and contribute beyond sport.",
+          "items": [
+            {
+              "icon": "briefcase",
+              "title": "Employment & Professional Pathways",
+              "body": "Providing full-salaried roles, flexible work arrangements, and continuing education to support long-term professional growth beyond sport."
+            },
+            {
+              "icon": "heart",
+              "title": "World-Class Training & Performance Support",
+              "body": "Supporting international training and competitions, elite facility access, and providing specialized athlete health and wellness support."
+            },
+            {
+              "icon": "map",
+              "title": "International Competition Exposure",
+              "body": "Supplementing national athlete calendars by supporting additional international competition opportunities."
+            },
+            {
+              "icon": "users",
+              "title": "Diversity & Inclusion in Sport",
+              "body": "Expanding access for women athletes, para-athletes, and competitors in historically under-resourced sports to level the playing field in elite competition."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Binibigyang-kakayahan ang mga atletang Pilipino na makapag-qualify sa Olympics habang bumubuo ng pangmatagalang propesyonal na karera.",
+      "body": [
+        "Ang pag-qualify sa Olympics ay nangangailangan ng tuloy-tuloy at pandaigdigang antas ng suporta—ngunit maraming pambansang atletang Pilipino ang kulang sa pare-parehong access sa mga yamang kailangan upang magsanay, makipagkompetensya, at makapag-qualify sa pinakamataas na antas.",
+        "Ang elite na paghahanda ay nangangailangan ng pangmatagalang pamumuhunan sa pandaigdigang karanasan, serbisyong medikal at pagbawi, at katatagang pinansyal. Kung walang nakaayos at walang patid na suporta, humaharap ang mga atleta sa mga hadlang na naglilimita sa kanilang performance at pag-unlad.",
+        "Higit sa kompetisyon, ang mga pambansang atleta ay makapangyarihang pipeline ng mga susunod na lider sa palakasan at lipunan ng Pilipinas. Ang pagtulong sa kanilang umunlad ngayon ay nagpapalakas ng pamumuno sa iba't ibang sektor bukas."
+      ],
+      "sections": [
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "groups": [
+            {
+              "label": "Aming epekto",
+              "stats": [
+                {
+                  "icon": "users",
+                  "value": "27",
+                  "label": "Pambansang Atleta na sinuportahan sa dalawang batch mula 2022"
+                },
+                {
+                  "icon": "trending",
+                  "value": "10",
+                  "label": "atleta ang umakyat sa 2025 world rankings"
+                }
+              ]
+            },
+            {
+              "label": "Performance sa SEA Games 2025",
+              "sub": "Sa kabuuang 17 medalyang naiuwi, ang Atletang Ayala ay nag-ambag ng 7.42% ng kabuuang 229 medalya ng Pilipinas",
+              "stats": [
+                {
+                  "icon": "medal",
+                  "value": "2",
+                  "label": "Ginto"
+                },
+                {
+                  "icon": "medal",
+                  "value": "5",
+                  "label": "Pilak"
+                },
+                {
+                  "icon": "medal",
+                  "value": "10",
+                  "label": "Tanso"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tab": "Aming paraan",
+          "type": "features",
+          "heading": "Paglikha ng landas tungo sa pandaigdigang kompetisyon at pamumuno",
+          "sub": "Sinusuportahan ang mga pambansang atletang Pilipino sa pamamagitan ng pagtulong na punan ang mga agwat sa access sa pandaigdigang kompetisyon, elite na paghahanda, at kapakanan ng atleta sa tuloy-tuloy at maalalahaning suporta. Layunin naming matulungan ang mga atleta na magtagumpay sa pandaigdigang entablado habang hinuhubog ang kasanayan, pagpapahalaga, at pananaw upang manguna at mag-ambag lampas sa palakasan.",
+          "items": [
+            {
+              "icon": "briefcase",
+              "title": "Employment & Professional Pathways",
+              "body": "Pagbibigay ng full-salaried na trabaho, flexible na kaayusan sa trabaho, at tuloy-tuloy na edukasyon upang suportahan ang pangmatagalang propesyonal na paglago lampas sa palakasan."
+            },
+            {
+              "icon": "heart",
+              "title": "World-Class Training & Performance Support",
+              "body": "Pagsuporta sa pandaigdigang pagsasanay at kompetisyon, access sa elite na pasilidad, at espesyalisadong suporta sa kalusugan at kapakanan ng atleta."
+            },
+            {
+              "icon": "map",
+              "title": "International Competition Exposure",
+              "body": "Pagdaragdag sa kalendaryo ng pambansang atleta sa pamamagitan ng pagsuporta sa karagdagang pandaigdigang kompetisyon."
+            },
+            {
+              "icon": "users",
+              "title": "Diversity & Inclusion in Sport",
+              "body": "Pagpapalawak ng access para sa mga babaeng atleta, para-athlete, at mga kalahok sa mga isport na kulang sa suporta, upang pantayin ang laban sa elite na kompetisyon."
+            }
+          ]
         }
       ],
       "contact": {
