@@ -59,6 +59,11 @@ git config core.hooksPath .githooks
 - **Offline start:** `sw.js` keeps a copy of every file the kiosk loads. With the internet up it always gets the latest files; with it down (or slower than 4 seconds) it uses the kept copy, so a kiosk that reboots offline still starts. The kiosk needs to have been online once. If you add a new core file, add it to `CORE` in `sw.js`. Only the kiosk registers it, not the phone page.
 - **Touch guards:** no pinch or double-tap zoom, no long-press menu, no pull-to-refresh (`kiosk.js`, plus `touch-action` in `styles.css`). The phone page keeps normal zoom.
 
+## Link preview, icons and visitor counts
+
+- Both pages carry a title, description and preview card (`assets/link-preview.jpg`, 1200×630) so a shared link shows the logo and a photo in Messenger, Viber and the like. The tab icon is `assets/favicon.ico`, `icon-32.png` and `icon-180.png` (home-screen icon). Chat apps cache previews, so a changed card can take a while to show.
+- `analytics.js` counts visits to the phone page with GoatCounter: no cookies and no personal data. It does nothing until you put your site code in `CODE` at the top of the file. It records each screen opened and, separately, each visit that starts from the lobby QR code. The lobby screen is not counted.
+
 ## Run
 
 Serve the folder and open it in a full-screen kiosk browser, for example:
