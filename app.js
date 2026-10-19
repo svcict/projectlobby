@@ -140,7 +140,7 @@
     const name = t['p' + state.txtIdx];
     $('#curName').textContent = name;
     $('#curDesc').textContent = t['d' + state.txtIdx];
-    $('#exploreLabel').textContent = t.explore + ' ' + name;
+    $('#exploreLabel').textContent = t.learnMore;
     copyEl.classList.toggle('is-out', state.txtOut);
 
     idleEl.classList.toggle('is-open', state.warn);
