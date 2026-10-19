@@ -960,11 +960,12 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "title": "Access to Education",
-              "body": "Providing daycare services, scholarships from secondary to graduate level, and supplemental feeding to improve retention and increase Iraya-Mangyan graduates."
+              "body": "Strengthening community enterprises through organizational development, skills training, and expanded market access for indigenous products to increase stable household incomes."
             },
             {
               "icon": "stethoscope",
-              "title": "Health Access and Well-being"
+              "title": "Health Access and Well-being",
+              "body": "Providing daycare services, scholarships from secondary to graduate level, and supplemental feeding to improve retention and increase Iraya-Mangyan graduates."
             },
             {
               "icon": "users",
