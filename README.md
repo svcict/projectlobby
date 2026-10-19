@@ -21,14 +21,14 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 
 ## Projects
 
-All project pages (Ayala Museum, CENTEX Digital Education, CENTEX Early Grades, El Nido, and future ones) use one layout, filled from `projects.js`. To add or edit a project, change `projects.js` only:
+All project pages (Ayala Museum, Filipinas Heritage Library, CENTEX Digital Education, CENTEX Early Grades, El Nido, and future ones) use one layout, filled from `projects.js`. To add or edit a project, change `projects.js` only:
 
 - `program` puts it in that program's project list, in file order
 - `title`, an optional `hero` image, and `en` / `fil` content: `lead`, `body` paragraphs, `sections`, and an optional `contact`
-- Each section becomes a tab on the kiosk and a stacked block on the phone. Types: `pillars`, `stats`, `results`, `packages` (examples are in the file)
-- A project with no `en` / `fil` content is listed but can't be opened yet (Filipinas Heritage Library)
+- Each section becomes a tab on the kiosk and a stacked block on the phone. Types: `pillars`, `stats`, `results`, `packages`, `list` (examples are in the file)
+- A project with no `en` / `fil` content is listed but can't be opened yet
 
-The kiosk adapts to longer content: four or more pillars sit in two columns, three or four stats use a compact 2×2 layout, and a long intro uses smaller text so the hero photo keeps some height. Keep each tab to roughly the length of the current ones.
+The kiosk adapts to longer content: four or more pillars sit in two columns, three or four stats use a compact 2×2 layout, five or six use three columns, and a long intro uses smaller text so the hero photo keeps some height. Keep each tab to roughly the length of the current ones.
 
 ## Publishing updates
 
@@ -70,4 +70,4 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 
 Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text so it can switch language.
 
-CENTEX Early Grades and El Nido have no hero photo yet and show a labelled placeholder: add the image to `assets/` and set the project's `hero.src` in `projects.js`.
+The Filipinas Heritage Library and El Nido heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. CENTEX Early Grades has no hero photo yet and shows a labelled placeholder. To set one, add the image to `assets/` and point the project's `hero.src` in `projects.js` at it.

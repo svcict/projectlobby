@@ -386,6 +386,28 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-statblock { display: flex; flex-direction: column; gap: 14px; }
 .pj-statblock__sub { margin: 0; font-size: 15px; line-height: 1.5; }
 
+.pj-list { display: flex; flex-direction: column; }
+.pj-list__intro { margin: 0 0 10px; font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--blue); }
+.pj-list__items { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.pj-list__items li {
+  position: relative;
+  padding: 12px 14px 12px 32px;
+  background: var(--tint);
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.pj-list__items li::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 19px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--orange);
+}
+
 /* Results read top to bottom on a phone. */
 .pj-results, .pj-results__main, .pj-results__side { display: flex; flex-direction: column; gap: 14px; }
 .pj-results__where { display: flex; flex-direction: column; gap: 6px; }

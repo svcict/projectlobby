@@ -1,9 +1,10 @@
 // Project pages for the kiosk and mobile app. Both files read this.
 // Add a project: give it a program ('arts' | 'leadership' | 'bigbets' | 'community'), a title,
 // a hero image, and en/fil content. Entries without en/fil show in the list but don't open yet.
-// Section types (each becomes a tab on the kiosk): 'pillars' | 'results' | 'stats' | 'packages'.
+// Section types (each becomes a tab on the kiosk): 'pillars' | 'results' | 'stats' | 'packages' | 'list'.
+// A 'list' section has a heading, sub, intro and a list of plain-text items.
 // A 'stats' section may also have a label, a location and a short sub shown above the figures;
-// three or four figures use a compact 2×2 layout.
+// three or four figures use a compact 2×2 layout, five or six use three columns.
 // Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun.
 window.KIOSK_PROJECTS = {
   "museum": {
@@ -15,115 +16,167 @@ window.KIOSK_PROJECTS = {
       "ph": "Ayala Museum photo"
     },
     "en": {
-      "lead": "One of the country's leading private museums, making Philippine history, art and culture accessible to everyone.",
+      "lead": "Inspiring pride in Filipino heritage through art, history, and culture.",
       "body": [
-        "Celebrating its 50th year in 2024, the museum uses both traditional and new platforms to share our rich heritage with people of all generations."
+        "Culture, history, and identity shape how a nation sees itself and moves forward.",
+        "Ayala Museum invites Filipinos to explore the richness of our heritage through thoughtfully curated exhibitions, immersive experiences, and dynamic public engagement. By presenting Philippine art, history, and culture in ways that are both inspiring and accessible, the museum helps deepen appreciation of who we are as a people.",
+        "At a time when narratives shape perspectives, Ayala Museum creates space to reflect on our past, celebrate Filipino creativity, and imagine our collective future. In doing so, it nurtures pride, curiosity, and a stronger sense of shared identity that enriches national life."
       ],
       "sections": [
         {
-          "tab": "What's inside",
+          "tab": "What we do",
           "type": "pillars",
-          "heading": "Explore the museum",
-          "sub": "Three experiences that bring Philippine history, art and culture to life.",
+          "heading": "Bringing Philippine heritage to life",
+          "sub": "Ayala Museum combines scholarship, design, and public engagement to make art and history accessible, meaningful, and transformative.",
           "items": [
             {
-              "icon": "lap",
-              "title": "Digital Gallery",
-              "body": "The country's first Digital Gallery, an immersive touchscreen experience for exploring objects from the museum and library collections."
-            },
-            {
               "icon": "gem",
-              "title": "Crossroads of Civilizations",
-              "body": "A permanent exhibition of Philippine pre-colonial treasures."
+              "title": "Curation & Collection Stewardship",
+              "body": "Preserving and presenting fine arts, archaeological artifacts, ethnographic materials, numismatics, and historical archives."
             },
             {
               "icon": "image",
-              "title": "Diorama Experience of Philippine History",
-              "body": "A one-of-a-kind journey through Philippine history, told in dioramas."
+              "title": "Immersive Exhibitions",
+              "body": "Constantly adapting to changing cultural landscapes through innovative exhibition design and interactive onsite displays."
+            },
+            {
+              "icon": "pres",
+              "title": "Education & Public Programs",
+              "body": "Offering guided tours, lectures, workshops, and digital content that deepen cultural literacy. The museum's Discovery Tours public school program gives hundreds of underprivileged students in Grades 4–6 access to the museum's galleries, with hands-on learning activities and learning kits to take home."
+            },
+            {
+              "icon": "users",
+              "title": "Access and Community Outreach",
+              "body": "Expanding reach through school partnerships, traveling exhibitions, public access initiatives, and inclusive programming."
             }
           ]
         },
         {
-          "tab": "Impact",
+          "tab": "Our impact",
           "type": "stats",
           "stats": [
             {
               "icon": "users",
               "value": "92,833",
-              "label": "visitors in 2023"
+              "label": "total visitors in 2025"
             },
             {
-              "icon": "smile",
-              "value": "96%",
-              "label": "satisfaction rating from guests and program attendees, from young to late adults"
+              "icon": "image",
+              "value": "7,000",
+              "label": "sqm museum facility spread across six floors"
+            },
+            {
+              "icon": "gem",
+              "value": "8",
+              "label": "dedicated exhibition spaces for Philippine art, history and culture"
+            },
+            {
+              "icon": "book",
+              "value": "9,700+",
+              "label": "objects in the museum collection"
+            },
+            {
+              "icon": "lap",
+              "value": "1st",
+              "label": "museum in Southeast Asia to be listed on the Bloomberg Connects platform"
             }
           ]
         }
       ],
       "contact": {
-        "icon": "heart",
-        "title": "Support this project",
+        "icon": "hand",
+        "title": "Partner with us",
         "lines": [
           {
-            "text": "giving@ayalafoundation.org",
-            "href": "mailto:giving@ayalafoundation.org"
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
           }
         ]
       }
     },
     "fil": {
-      "lead": "Isa sa mga nangungunang pribadong museo sa bansa, na naglalapit sa lahat ng kasaysayan, sining at kultura ng Pilipinas.",
+      "lead": "Pinupukaw ang pagmamalaki sa pamanang Pilipino sa pamamagitan ng sining, kasaysayan, at kultura.",
       "body": [
-        "Sa pagdiriwang ng ika-50 taon nito noong 2024, gumagamit ang museo ng tradisyonal at bagong plataporma upang ibahagi ang ating mayamang pamana sa lahat ng henerasyon."
+        "Hinuhubog ng kultura, kasaysayan, at pagkakakilanlan kung paano tinitingnan ng isang bansa ang sarili nito at kung paano ito sumusulong.",
+        "Inaanyayahan ng Ayala Museum ang mga Pilipino na tuklasin ang yaman ng ating pamana sa pamamagitan ng maingat na inihandang mga eksibisyon, nakaka-engganyong karanasan, at masiglang pakikipag-ugnayan sa publiko. Sa paglalahad ng sining, kasaysayan, at kultura ng Pilipinas sa paraang nakapagbibigay-inspirasyon at abot-kaya, tinutulungan ng museo na palalimin ang pagpapahalaga sa kung sino tayo bilang isang bayan.",
+        "Sa panahong hinuhubog ng mga salaysay ang ating pananaw, lumilikha ang Ayala Museum ng espasyo upang pagnilayan ang ating nakaraan, ipagdiwang ang pagkamalikhain ng Pilipino, at isipin ang ating sama-samang hinaharap. Sa ganitong paraan, pinalalago nito ang pagmamalaki, pagkamausisa, at mas matibay na pagkakakilanlang pinagsasaluhan na nagpapayaman sa buhay ng bansa."
       ],
       "sections": [
         {
-          "tab": "Ano ang makikita",
+          "tab": "Aming ginagawa",
           "type": "pillars",
-          "heading": "Tuklasin ang museo",
-          "sub": "Tatlong karanasan na nagbibigay-buhay sa kasaysayan, sining at kultura ng Pilipinas.",
+          "heading": "Pagbibigay-buhay sa pamanang Pilipino",
+          "sub": "Pinagsasama ng Ayala Museum ang iskolarsip, disenyo, at pakikipag-ugnayan sa publiko upang gawing abot-kaya, makabuluhan, at makapagpabago ang sining at kasaysayan.",
           "items": [
             {
-              "icon": "lap",
-              "title": "Digital Gallery",
-              "body": "Ang kauna-unahang Digital Gallery ng bansa, isang touchscreen na karanasan para tuklasin ang mga bagay mula sa koleksyon ng museo at aklatan."
-            },
-            {
               "icon": "gem",
-              "title": "Crossroads of Civilizations",
-              "body": "Isang permanenteng eksibisyon ng mga kayamanang pre-kolonyal ng Pilipinas."
+              "title": "Curation & Collection Stewardship",
+              "body": "Pangangalaga at paglalahad ng fine arts, mga artifact na arkeolohikal, mga materyales na etnograpiko, numismatics, at mga arkibong pangkasaysayan."
             },
             {
               "icon": "image",
-              "title": "Diorama Experience of Philippine History",
-              "body": "Isang natatanging paglalakbay sa kasaysayan ng Pilipinas sa pamamagitan ng mga diorama."
+              "title": "Immersive Exhibitions",
+              "body": "Patuloy na umaangkop sa nagbabagong kultura sa pamamagitan ng makabagong disenyo ng eksibisyon at mga interactive na display sa museo."
+            },
+            {
+              "icon": "pres",
+              "title": "Education & Public Programs",
+              "body": "Nag-aalok ng guided tour, lektyur, workshop, at digital na nilalaman na nagpapalalim sa literasiyang pangkultura. Sa Discovery Tours public school program ng museo, daan-daang kapus-palad na mag-aaral sa Grade 4–6 ang nakapapasok sa mga gallery, kasama ang mga aktibidad sa pagkatuto at learning kit na maiuuwi nila."
+            },
+            {
+              "icon": "users",
+              "title": "Access and Community Outreach",
+              "body": "Pinalalawak ang abot sa pamamagitan ng pakikipagtulungan sa mga paaralan, mga naglalakbay na eksibisyon, mga inisyatiba para sa access ng publiko, at inklusibong programa."
             }
           ]
         },
         {
-          "tab": "Epekto",
+          "tab": "Aming epekto",
           "type": "stats",
           "stats": [
             {
               "icon": "users",
               "value": "92,833",
-              "label": "bisita noong 2023"
+              "label": "kabuuang bisita noong 2025"
             },
             {
-              "icon": "smile",
-              "value": "96%",
-              "label": "satisfaction rating mula sa mga bisita at dumalo sa programa, mula kabataan hanggang nakatatanda"
+              "icon": "image",
+              "value": "7,000",
+              "label": "sqm na pasilidad ng museo sa anim na palapag"
+            },
+            {
+              "icon": "gem",
+              "value": "8",
+              "label": "nakalaang espasyo para sa eksibisyon ng sining, kasaysayan at kultura ng Pilipinas"
+            },
+            {
+              "icon": "book",
+              "value": "9,700+",
+              "label": "bagay sa koleksyon ng museo"
+            },
+            {
+              "icon": "lap",
+              "value": "1st",
+              "label": "museo sa Timog-Silangang Asya na nakalista sa Bloomberg Connects platform"
             }
           ]
         }
       ],
       "contact": {
-        "icon": "heart",
-        "title": "Suportahan ang proyektong ito",
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
         "lines": [
           {
-            "text": "giving@ayalafoundation.org",
-            "href": "mailto:giving@ayalafoundation.org"
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
           }
         ]
       }
@@ -131,7 +184,208 @@ window.KIOSK_PROJECTS = {
   },
   "fhl": {
     "program": "arts",
-    "title": "Filipinas Heritage Library"
+    "title": "Filipinas Heritage Library",
+    "hero": {
+      "id": "fhl-hero",
+      "src": "assets/fhl-hero.jpg",
+      "ph": "Filipinas Heritage Library photo"
+    },
+    "en": {
+      "lead": "Preserving Philippine memory. Expanding access to cultural knowledge.",
+      "body": [
+        "Philippine heritage materials are rare, fragile, and at risk of deterioration, yet access to credible cultural and historical resources remains limited.",
+        "Many Filipiniana publications were produced in small print runs and are vulnerable to tropical climate conditions. At the same time, limited access to physical and digital heritage libraries contributes to declining literacy and the spread of misinformation about Philippine history and culture.",
+        "Preserving and digitizing these materials ensures that future generations can access reliable, evidence-based resources that deepen understanding of Filipino identity."
+      ],
+      "sections": [
+        {
+          "tab": "Our collections",
+          "type": "list",
+          "heading": "Creating access to Philippine memory",
+          "sub": "As a memory keeper and advocate of Philippine history and culture, FHL bridges preservation, research, and public engagement, bringing the Filipino story to life.",
+          "intro": "FHL houses rare and contemporary materials on Philippine art, history, and culture, including:",
+          "items": [
+            "The Roderick Hall Collection (World War II materials)",
+            "The Himig Collection (vintage to modern music recordings)",
+            "The Retrato Photo Archive (vintage photographs)",
+            "The Elpidio R. Quirino Presidential Papers",
+            "The Manuel L. Quezon Family Collection",
+            "Books, periodicals, maps, and multimedia collections"
+          ]
+        },
+        {
+          "tab": "What we do",
+          "type": "pillars",
+          "heading": "Bringing the Filipino story to life",
+          "sub": "Four ways FHL preserves Philippine heritage and opens it up to everyone.",
+          "items": [
+            {
+              "icon": "book",
+              "title": "Collection Management & Preservation",
+              "body": "Nurturing Filipino stories in print, audio, and visual forms, honoring traditional media alongside emerging Filipiniana from new media and pop culture."
+            },
+            {
+              "icon": "lap",
+              "title": "Digitization & Online Access",
+              "body": "Converting fragile analog materials into digital formats and making them available through electronic platforms to expand global access."
+            },
+            {
+              "icon": "users",
+              "title": "Library & Research Services",
+              "body": "Providing onsite space and expert reference support for students, educators, and scholars."
+            },
+            {
+              "icon": "pres",
+              "title": "Curation & Public Programming",
+              "body": "Activating collections through lectures, performances, podcasts, playlists, and digital engagement that deepen appreciation for Philippine culture."
+            }
+          ]
+        },
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "stats": [
+            {
+              "icon": "users",
+              "value": "3,896",
+              "label": "total visitors in 2025"
+            },
+            {
+              "icon": "book",
+              "value": "106,140",
+              "label": "heritage materials in various formats, preserved for continued access"
+            },
+            {
+              "icon": "lap",
+              "value": "67,784",
+              "label": "digitized materials accessible electronically"
+            },
+            {
+              "icon": "gem",
+              "value": "1st",
+              "label": "library in Southeast Asia to be listed on the Bloomberg Connects platform"
+            },
+            {
+              "icon": "pres",
+              "value": "316",
+              "label": "total attendance across three Roderick Hall memorial lectures"
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Pinangangalagaan ang alaala ng Pilipinas. Pinalalawak ang access sa kaalamang pangkultura.",
+      "body": [
+        "Bihira, marupok, at nanganganib masira ang mga materyales ng pamanang Pilipino, ngunit limitado pa rin ang access sa mapagkakatiwalaang sangguniang pangkultura at pangkasaysayan.",
+        "Maraming publikasyong Filipiniana ang inilimbag sa kakaunting kopya at madaling masira sa klimang tropikal. Kasabay nito, ang limitadong access sa pisikal at digital na aklatan ng pamana ay nag-aambag sa pagbaba ng literasiya at sa paglaganap ng maling impormasyon tungkol sa kasaysayan at kultura ng Pilipinas.",
+        "Ang pangangalaga at pag-digitize sa mga materyales na ito ay tumitiyak na magkakaroon ang mga susunod na henerasyon ng maaasahan at batay-sa-ebidensyang sanggunian na nagpapalalim sa pag-unawa sa pagkakakilanlang Pilipino."
+      ],
+      "sections": [
+        {
+          "tab": "Mga koleksyon",
+          "type": "list",
+          "heading": "Pagbubukas ng access sa alaala ng Pilipinas",
+          "sub": "Bilang tagapag-ingat ng alaala at tagapagtaguyod ng kasaysayan at kultura ng Pilipinas, pinag-uugnay ng FHL ang pangangalaga, pananaliksik, at pakikipag-ugnayan sa publiko upang bigyang-buhay ang kuwentong Pilipino.",
+          "intro": "Nasa FHL ang mga bihira at kontemporaryong materyales tungkol sa sining, kasaysayan, at kultura ng Pilipinas, kabilang ang:",
+          "items": [
+            "Ang Roderick Hall Collection (mga materyales mula sa Ikalawang Digmaang Pandaigdig)",
+            "Ang Himig Collection (mga rekording ng musika, mula vintage hanggang moderno)",
+            "Ang Retrato Photo Archive (mga lumang larawan)",
+            "Ang Elpidio R. Quirino Presidential Papers",
+            "Ang Manuel L. Quezon Family Collection",
+            "Mga aklat, peryodiko, mapa, at multimedia na koleksyon"
+          ]
+        },
+        {
+          "tab": "Aming ginagawa",
+          "type": "pillars",
+          "heading": "Pagbibigay-buhay sa kuwentong Pilipino",
+          "sub": "Apat na paraan ng FHL sa pangangalaga sa pamanang Pilipino at sa pagbubukas nito para sa lahat.",
+          "items": [
+            {
+              "icon": "book",
+              "title": "Collection Management & Preservation",
+              "body": "Pag-aalaga sa mga kuwentong Pilipino sa limbag, audio, at biswal na anyo, na pinahahalagahan ang tradisyonal na media kasabay ng umuusbong na Filipiniana mula sa bagong media at pop culture."
+            },
+            {
+              "icon": "lap",
+              "title": "Digitization & Online Access",
+              "body": "Pag-convert ng mga marupok na analog na materyales sa digital na anyo at paglalagay nito sa mga electronic platform upang mapalawak ang access sa buong mundo."
+            },
+            {
+              "icon": "users",
+              "title": "Library & Research Services",
+              "body": "Pagbibigay ng espasyo at dalubhasang suporta sa sanggunian para sa mga mag-aaral, guro, at iskolar."
+            },
+            {
+              "icon": "pres",
+              "title": "Curation & Public Programming",
+              "body": "Pagbibigay-buhay sa mga koleksyon sa pamamagitan ng mga lektyur, pagtatanghal, podcast, playlist, at digital na pakikipag-ugnayan na nagpapalalim sa pagpapahalaga sa kultura ng Pilipinas."
+            }
+          ]
+        },
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "stats": [
+            {
+              "icon": "users",
+              "value": "3,896",
+              "label": "kabuuang bisita noong 2025"
+            },
+            {
+              "icon": "book",
+              "value": "106,140",
+              "label": "materyales ng pamana sa iba't ibang anyo, pinangangalagaan para sa patuloy na access"
+            },
+            {
+              "icon": "lap",
+              "value": "67,784",
+              "label": "digitized na materyales na maa-access sa electronic na paraan"
+            },
+            {
+              "icon": "gem",
+              "value": "1st",
+              "label": "aklatan sa Timog-Silangang Asya na nakalista sa Bloomberg Connects platform"
+            },
+            {
+              "icon": "pres",
+              "value": "316",
+              "label": "kabuuang dumalo sa tatlong Roderick Hall memorial lecture"
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
   },
   "centexDE": {
     "program": "bigbets",
@@ -546,7 +800,7 @@ window.KIOSK_PROJECTS = {
     "title": "El Nido, Palawan",
     "hero": {
       "id": "elnido-hero",
-      "src": "",
+      "src": "assets/elnido-hero.jpg",
       "ph": "El Nido, Palawan photo"
     },
     "en": {

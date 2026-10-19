@@ -441,6 +441,42 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-stats--compact .pj-stat__icon { width: 64px; height: 64px; }
 .pj-stats--compact .pj-stat__value { margin-top: 0; font-size: 72px; }
 .pj-stats--compact .pj-stat__label { grid-column: 1 / -1; font-size: 23px; }
+/* Five or six figures: three columns, icon above a smaller value. */
+.pj-stats--many { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pj-stats--many .pj-stat { padding: 24px 28px; gap: 10px; }
+.pj-stats--many .pj-stat__icon { width: 56px; height: 56px; }
+.pj-stats--many .pj-stat__value { margin-top: 4px; font-size: 56px; }
+.pj-stats--many .pj-stat__label { font-size: 21px; }
+
+.pj-list { display: flex; flex-direction: column; }
+.pj-list__intro { margin: 0 0 16px; font-size: 22px; font-weight: 600; line-height: 1.4; color: var(--blue); text-wrap: pretty; }
+.pj-list__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 32px;
+}
+.pj-list__items li {
+  position: relative;
+  padding: 18px 20px 18px 44px;
+  background: var(--tint);
+  border-radius: 4px;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.pj-list__items li::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 29px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--orange);
+}
 
 .pj-results { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; }
 .pj-results__main, .pj-results__side { display: flex; flex-direction: column; min-height: 0; }
@@ -710,7 +746,8 @@ img { -webkit-user-drag: none; user-select: none; }
 }
 .programs__copy.is-out { opacity: 0; filter: blur(2px); transform: translateY(6px); }
 .programs__name { margin: 0; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
-.programs__desc { margin: 0; max-width: 1100px; font-size: 30px; line-height: 1.35; text-wrap: balance; }
+.programs__desc { margin: 0; max-width: 1100px; font-size: 30px; line-height: 1.35; text-wrap: balance; min-height: 2.7em; }
+/* min-height reserves two lines so the cards keep one size from program to program. */
 .programs__cta { flex: none; margin-top: 32px; display: flex; justify-content: center; }
 .explore {
   height: 88px;

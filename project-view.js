@@ -61,7 +61,7 @@
         ${s.location ? `<div class="pj-results__place">${icon('pin', z.pin, '#F7941D')}${esc(s.location)}</div>` : ''}
       </div>` : '';
     const sub = s.sub ? `<p class="pj-statblock__sub">${esc(s.sub)}</p>` : '';
-    return `<div class="pj-statblock">${where}${sub}<div class="pj-stats${list.length > 2 ? ' pj-stats--compact' : ''}">${list.map((st) => `<div class="pj-stat">
+    return `<div class="pj-statblock">${where}${sub}<div class="pj-stats${list.length > 4 ? ' pj-stats--many' : list.length > 2 ? ' pj-stats--compact' : ''}">${list.map((st) => `<div class="pj-stat">
       <div class="pj-stat__icon">${icon(st.icon, z.stat, '#041F3F')}</div>
       <div class="pj-stat__value">${esc(st.value)}</div>
       <div class="pj-stat__label">${esc(st.label)}</div>
@@ -113,7 +113,16 @@
     </div>`;
   }
 
-  const RENDER = { pillars, stats, results, packages };
+  function list(s) {
+    return `<div class="pj-list">
+      <h2 class="pj-h2">${esc(s.heading)}</h2>
+      ${s.sub ? `<p class="pj-sub">${esc(s.sub)}</p>` : ''}
+      ${s.intro ? `<p class="pj-list__intro">${esc(s.intro)}</p>` : ''}
+      <ul class="pj-list__items">${(s.items || []).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+    </div>`;
+  }
+
+  const RENDER = { pillars, stats, results, packages, list };
 
   window.ProjectView = {
     esc,
