@@ -334,6 +334,50 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .m-title--project { font-size: 36px; line-height: 1.02; }
 .m-content--project { padding-top: 24px; gap: 36px; }
 .m-sections { display: flex; flex-direction: column; gap: 36px; }
+
+/* Tabs, as on the kiosk. Sticky just below the 64px header. */
+.m-tabs {
+  position: sticky;
+  top: 64px;
+  z-index: 5;
+  margin: -12px -20px -16px;
+  padding: 12px 20px;
+  background: #FFFFFF;
+}
+.m-tabs__bar {
+  position: relative;
+  min-height: 52px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  padding: 4px;
+  border-radius: 6px;
+  background: var(--tint);
+}
+.m-tabs__pill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 4px;
+  background: var(--blue);
+  transition: transform 240ms var(--ease-in-out);
+}
+.m-tabs__tab {
+  position: relative;
+  min-height: 44px;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--blue);
+  transition: color 200ms ease;
+}
+.m-tabs__tab[aria-selected="true"] { color: #FFFFFF; }
 .m-section { display: flex; flex-direction: column; gap: 14px; }
 .m-projects { display: flex; flex-direction: column; gap: 12px; }
 

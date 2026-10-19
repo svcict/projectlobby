@@ -27,7 +27,7 @@ All program pages use one layout, filled from `programs.js`. To add or edit a pr
 
 - `pillar` puts it in that pillar's program list, in file order
 - `title`, an optional `hero` image, and `en` / `fil` content: `lead`, `body` paragraphs, `sections`, and an optional `contact`
-- Each section becomes a tab on the kiosk and a stacked block on the phone. Types: `features`, `stats`, `results`, `packages`, `list` (examples and notes are at the top of the file)
+- Each section becomes a tab, on both the kiosk and the phone (where the tabs stick under the header). Types: `features`, `stats`, `results`, `packages`, `list` (examples and notes are at the top of the file)
 - A program with no `en` / `fil` content is listed but can't be opened yet
 
 The kiosk adapts to longer content: four or more features sit in two columns, three or four stats use a compact 2×2 layout, five or six use three columns, and a long intro uses smaller text so the hero photo keeps some height. Keep each tab to roughly the length of the current ones.

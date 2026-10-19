@@ -40,7 +40,7 @@
 
   const slides = $$('.m-slide');
   const dots = $$('.m-dot');
-  const state = { lang: 'en', route: '', slide: 0 };
+  const state = { lang: 'en', route: '', slide: 0, tab: 0 };
 
   // ---------- One-time setup ----------
 
@@ -114,13 +114,14 @@
     }).join('');
   }
 
-  // The same sections as the kiosk's tabs, stacked one after another.
+  // The same sections and tabs as the kiosk, one section showing at a time.
   let projectKey = '';
   function renderProject(t, id) {
     $$('[data-hero-project]').forEach((el) => { el.hidden = el.dataset.heroProject !== id; });
     const p = PROJECTS[id];
     const key = id + '|' + state.lang;
-    if (!p || key === projectKey) return;
+    if (p && key === projectKey) { showTab(); return; }
+    if (!p) return;
     projectKey = key;
     const c = PV.content(p, state.lang) || {};
     const progName = { arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3 }[p.pillar] || '';
@@ -129,17 +130,48 @@
       <h1 class="m-title m-title--project">${PV.esc(p.title)}</h1>
       ${c.lead ? `<p class="m-band__lead">${PV.esc(c.lead)}</p>` : ''}`;
     $('#pjBody').innerHTML = (c.body || []).map((b) => `<p class="m-text">${PV.esc(b)}</p>`).join('');
-    $('#pjSections').innerHTML = (c.sections || []).map((s) => `<div class="m-section">${PV.section(s, 'mobile')}</div>`).join('');
+    const secs = c.sections || [];
+    const tabs = $('#pjTabs');
+    tabs.hidden = secs.length < 2;
+    $('.m-tabs__bar', tabs).setAttribute('aria-label', p.title);
+    $('.m-tabs__bar', tabs).innerHTML = `<div class="m-tabs__pill" style="width:calc((100% - 8px) / ${Math.max(1, secs.length)})"></div>` +
+      secs.map((s, i) => `<button class="u m-tabs__tab" role="tab" data-pj-tab="${i}">${PV.esc(s.tab)}</button>`).join('');
+    $('#pjSections').innerHTML = secs.map((s) => `<div class="m-section" role="tabpanel">${PV.section(s, 'mobile')}</div>`).join('');
     const contact = $('#pjContact');
     contact.hidden = !c.contact;
     contact.innerHTML = PV.contact(c.contact, 'mobile');
+    showTab();
   }
+
+  function showTab() {
+    const pill = $('#pjTabs .m-tabs__pill');
+    if (pill) pill.style.transform = `translateX(${state.tab * 100}%)`;
+    $$('#pjTabs [data-pj-tab]').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.pjTab === state.tab)));
+    $$('#pjSections .m-section').forEach((el, i) => { el.hidden = i !== state.tab; });
+  }
+
+  // Switching tabs: show the new section, fade it in, and if the reader had
+  // scrolled down past the tabs, bring the start of the section into view.
+  document.addEventListener('click', (e) => {
+    const tab = e.target.closest('[data-pj-tab]');
+    if (!tab || +tab.dataset.pjTab === state.tab) return;
+    state.tab = +tab.dataset.pjTab;
+    showTab();
+    const sec = $$('#pjSections .m-section')[state.tab];
+    if (sec) sec.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: 'ease' });
+    const bar = $('#pjTabs');
+    const below = $('.top').offsetHeight + bar.offsetHeight;
+    if (sec && sec.getBoundingClientRect().top < below) {
+      window.scrollTo(0, window.scrollY + sec.getBoundingClientRect().top - below);
+    }
+  });
 
   // ---------- Navigation ----------
 
   function onRoute() {
     const key = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
     state.route = key in ROUTES ? key : '';
+    state.tab = 0;
     render();
     window.scrollTo(0, 0);
   }
