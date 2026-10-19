@@ -16,7 +16,7 @@
   } catch (_) {}
 </script>
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261019080154">
+<link rel="stylesheet" href="styles.css?v=20261019081531">
 </head>
 <body>
 <div class="viewport">
@@ -139,6 +139,8 @@
         <h2 class="home-tagline__title" data-t="homeTitle"></h2>
         <p class="home-tagline__line" data-t="homeLine"></p>
       </div>
+      <!-- One real figure per pillar, changing with the photo (filled from copy.js). -->
+      <div class="home-stats" id="homeStats" aria-live="off"></div>
       <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
     </div>
     <nav class="bar bar--end">
@@ -189,12 +191,18 @@
   </div>
 
   <!-- "Still there?" warning, above every screen -->
+  <!-- Shown for two seconds when a visit ends, before Home returns. -->
+  <div class="farewell" id="farewell" aria-hidden="true">
+    <div class="farewell__logo"><div class="slot slot--contain" data-src="assets/logo.webp" data-ph="Ayala Foundation logo"></div></div>
+    <div class="farewell__text" data-t="thanks"></div>
+  </div>
+
   <div class="idle" id="idle" data-idle-modal aria-hidden="true">
     <div class="idle__box" role="dialog" aria-modal="true" aria-labelledby="idleTitle">
       <div class="idle__title" id="idleTitle" data-t="still"></div>
       <div class="idle__body"><span data-t="stillBody"></span> <strong id="idleCount">15</strong></div>
       <div class="idle__actions">
-        <button class="u press idle__btn" data-action="start-over" data-t="startOver"></button>
+        <button class="u press idle__btn" data-action="end-visit" data-t="startOver"></button>
         <button class="u press idle__btn idle__btn--primary" data-action="keep-going" data-t="keep"></button>
       </div>
       <div class="idle__bar" id="idleBar"></div>
@@ -203,9 +211,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=20261019080154"></script>
-<script src="programs.js?v=20261019080154"></script>
-<script src="project-view.js?v=20261019080154"></script>
-<script src="app.js?v=20261019080154"></script>
+<script src="copy.js?v=20261019081531"></script>
+<script src="programs.js?v=20261019081531"></script>
+<script src="project-view.js?v=20261019081531"></script>
+<script src="app.js?v=20261019081531"></script>
 </body>
 </html>

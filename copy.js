@@ -14,7 +14,15 @@ window.COPY = {
     startOver: 'Start over', allPrograms: 'All pillars', tap: 'Tap to explore',
     p1: 'Leadership Development', p2: 'Education', p3: 'Community Development', p0: 'Arts and Culture', homeTitle: 'Building thriving communities toward shared prosperity', homeLine: 'We envision communities where people are productive, creative, self-reliant, and proud to be Filipino.', touch: 'Touch to explore', touchHint: 'Or tap anywhere on the screen to begin.', about: 'About us', home: 'Home', tagPillar: 'Strategic pillar', tagBet: 'Big Bets', supportedBy: 'Supported by', ccvName: 'Corporate Citizenship & Volunteerism', ccvLine: 'Enabling an active and purpose-driven workforce with volunteer opportunities to do good', pSupport: 'Supporting our pillars', featured: 'Featured', visit: 'Visiting today? Please check in at the front desk.', still: 'Still there?', stillBody: 'This screen will start over for the next visitor in', keep: 'Keep exploring', allTitle: 'Our pillars', pillarsIntro: 'We believe in contributing to the nation’s development goals by adapting to the evolving needs of stakeholders so we can remain relevant and responsive. Through our programs, we affirm our commitment to aligning, giving focus, and making an impact in the lives of people in our conglomerate, communities, and country.', hint: 'Swipe or tap a card', learnMore: 'Learn more',
     d0: 'We provide platforms that spotlight history, contemporary, and fine art forms in state-of-the-art museum and library venues. By curating physical and digital collections that celebrate the joy and wonder of Philippine arts and culture, we hope to contribute to conversations about evolving Filipino identities and agency throughout history.', d1: 'We aspire for Filipinos to emerge as world-class leaders who elevate standards within their chosen fields and inspire future generations.', d2: 'Bridging the learning gap through competent and confident teachers supporting students at grade-level.', d3: 'We support families as they raise themselves from poverty to the middle class. To achieve this goal, we work with partners to take systemic approaches to fulfilling basic needs—enhancing nutrition, health, education, WASH (water, sanitation, and hygiene), electrification, and connectivity within our target communities.',
-    mobileCta: 'Explore our pillars'
+thanks: 'Thank you for visiting', fromLobby: 'Saved from the Ayala Foundation lobby',
+    // One real figure per pillar, shown on the home photos (slide order).
+    homeStats: [
+      { value: '98%', label: 'advancement rate (employment, further studies or entrepreneurial activity)', source: 'El Nido, Palawan' },
+      { value: '92,833', label: 'Total visitors in 2025', source: 'Ayala Museum' },
+      { value: '1,987', label: 'Total number of Ayala Young Leaders alumni nationwide', source: 'Ayala Young Leaders' },
+      { value: '13.8', label: 'percentage points by which 9 treatment schools outperformed control schools', source: 'CENTEX Digital Education' }
+    ],
+        mobileCta: 'Explore our pillars'
   },
   fil: {
     title: 'Sining at Kultura',
@@ -24,7 +32,14 @@ window.COPY = {
     startOver: 'Magsimula muli', allPrograms: 'Lahat ng haligi', tap: 'Pindutin para tuklasin',
     p1: 'Pagpapaunlad ng Pamumuno', p2: 'Edukasyon', p3: 'Pagpapaunlad ng Komunidad', p0: 'Sining at Kultura', homeTitle: 'Bumubuo ng masisiglang komunidad tungo sa sama-samang kasaganaan', homeLine: 'Hangad namin ang mga komunidad kung saan ang mga tao ay produktibo, malikhain, may sariling kakayahan, at ipinagmamalaki ang pagiging Pilipino.', touch: 'Pindutin para tuklasin', touchHint: 'O pindutin kahit saan sa screen para magsimula.', about: 'Tungkol sa amin', home: 'Simula', tagPillar: 'Pangunahing haligi', tagBet: 'Big Bets', supportedBy: 'Sinusuportahan ng', ccvName: 'Corporate Citizenship & Volunteerism', ccvLine: 'Pinasisigla ang aktibo at may layuning workforce sa pamamagitan ng mga pagkakataong mag-volunteer para sa kabutihan', pSupport: 'Sumusuporta sa aming mga haligi', featured: 'Tampok', visit: 'Bibisita ngayon? Mag-check in po sa front desk.', still: 'Nandiyan ka pa ba?', stillBody: 'Magsisimula muli ang screen para sa susunod na bisita sa loob ng', keep: 'Magpatuloy', allTitle: 'Aming mga haligi', pillarsIntro: 'Naniniwala kaming makapag-ambag sa mga layunin ng bansa para sa kaunlaran sa pamamagitan ng pag-angkop sa nagbabagong pangangailangan ng mga stakeholder upang manatiling makabuluhan at tumutugon. Sa aming mga programa, pinagtitibay namin ang aming pangako na umayon, magtuon, at magkaroon ng epekto sa buhay ng mga tao sa aming conglomerate, mga komunidad, at bansa.', hint: 'I-swipe o pindutin ang card', learnMore: 'Alamin pa',
     d0: 'Nagbibigay kami ng mga plataporma na nagtatampok sa kasaysayan, kontemporaryo, at pinong sining sa mga makabagong museo at aklatan. Sa pag-curate ng pisikal at digital na koleksyon na nagdiriwang sa sining at kultura ng Pilipinas, layunin naming makapag-ambag sa usapan tungkol sa umuusbong na pagkakakilanlan at kakayahan ng Pilipino sa kasaysayan.', d1: 'Hangad naming umusbong ang mga Pilipino bilang mga lider na pandaigdigan ang husay, na nagpapataas ng pamantayan sa kanilang larangan at nagbibigay-inspirasyon sa susunod na henerasyon.', d2: 'Pinaliliit ang agwat sa pagkatuto sa pamamagitan ng mahuhusay at may kumpiyansang guro na tumutulong sa mga mag-aaral na makaabot sa antas ng kanilang baitang.', d3: 'Sinusuportahan namin ang mga pamilya habang iniaangat nila ang kanilang sarili mula sa kahirapan tungo sa gitnang uri. Para rito, nakikipagtulungan kami sa mga katuwang sa sistematikong pagtugon sa mga pangunahing pangangailangan—pagpapabuti ng nutrisyon, kalusugan, edukasyon, WASH (tubig, sanitasyon, at kalinisan), kuryente, at koneksyon sa aming mga komunidad.',
-    mobileCta: 'Tuklasin ang aming mga haligi'
+thanks: 'Salamat sa pagbisita', fromLobby: 'Na-save mula sa lobby ng Ayala Foundation',
+    homeStats: [
+      { value: '98%', label: 'advancement rate (trabaho, karagdagang pag-aaral o pagnenegosyo)', source: 'El Nido, Palawan' },
+      { value: '92,833', label: 'kabuuang bisita noong 2025', source: 'Ayala Museum' },
+      { value: '1,987', label: 'kabuuang bilang ng Ayala Young Leaders alumni sa buong bansa', source: 'Ayala Young Leaders' },
+      { value: '13.8', label: 'percentage points na inilamang ng 9 treatment school sa mga control school', source: 'CENTEX Digital Education' }
+    ],
+        mobileCta: 'Tuklasin ang aming mga haligi'
   }
 };
 

@@ -807,6 +807,52 @@ img { -webkit-user-drag: none; user-select: none; }
   transition: opacity 1200ms ease, transform 9000ms linear;
 }
 .dots { position: absolute; z-index: 3; right: 40px; bottom: 40px; display: flex; gap: 10px; }
+/* One real figure per pillar, top-left of the photo, changing with it. */
+.home-stats { position: absolute; z-index: 3; top: 56px; left: 64px; width: 460px; pointer-events: none; }
+.home-stat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  box-shadow: 0 12px 32px rgba(4, 31, 63, 0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
+}
+.home-stat.is-on { opacity: 1; transform: none; transition-delay: 300ms; }
+.home-stat__value { font-size: 64px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; color: var(--blue); }
+.home-stat__label { font-size: 22px; line-height: 1.35; color: var(--ink); text-wrap: pretty; }
+.home-stat__source { margin-top: 4px; font-size: 17px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Thank you: a white card over everything for two seconds as a visit ends. */
+.farewell {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  background: #FFFFFF;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-out);
+}
+.farewell.is-on { opacity: 1; pointer-events: auto; transition-duration: 200ms; }
+.farewell__logo { position: relative; width: 560px; height: 220px; }
+.farewell__text { font-size: 72px; font-weight: 800; letter-spacing: -0.02em; color: var(--blue); transform: translateY(8px); transition: transform 400ms var(--ease-out); }
+.farewell.is-on .farewell__text { transform: none; }
+
+/* Learn more: the pillar photo morphs into the pillar page photo. */
+::view-transition-group(pillar-photo) { animation-duration: 300ms; animation-timing-function: var(--ease-in-out); }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 200ms; }
 .dot { width: 40px; height: 6px; border-radius: 3px; background: #FFFFFF; opacity: 0.4; transition: opacity 300ms ease; }
 .dot.is-on { opacity: 1; }
 

@@ -667,3 +667,28 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .m-support__label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
 .m-support__name { font-size: 18px; font-weight: 800; line-height: 1.2; color: var(--blue); }
 .m-support__line { font-size: 14px; line-height: 1.45; }
+/* "Saved from the Ayala Foundation lobby": a small confirmation at the bottom
+   of the sheet, rising in once after a QR scan. */
+.m-saved {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: min(calc(100% - 32px), 448px);
+  padding: 10px 8px 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  background: var(--navy);
+  color: #FFFFFF;
+  box-shadow: 0 12px 32px rgba(4, 31, 63, 0.3);
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
+}
+.m-saved.is-on { opacity: 1; transform: translate(-50%, 0); }
+.m-saved__icon { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; }
+.m-saved__text { flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; }
+.m-saved__close { flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.8); }
+@media (prefers-reduced-motion: reduce) { .m-saved, .m-saved.is-on { transform: translate(-50%, 0); } }

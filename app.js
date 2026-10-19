@@ -144,6 +144,11 @@
     renderProject(t);
 
     slides.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
+    if (homeStatsKey !== state.lang) {
+      homeStatsKey = state.lang;
+      $('#homeStats').innerHTML = (t.homeStats || []).map((s) => `<div class="home-stat"><div class="home-stat__value">${PV.esc(s.value)}</div><div class="home-stat__label">${PV.esc(s.label)}</div><div class="home-stat__source">${PV.esc(s.source)}</div></div>`).join('');
+    }
+    $$('#homeStats .home-stat').forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
     dots.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
 
     renderCards();
@@ -329,6 +334,7 @@
 
   // ---------- Navigation ----------
 
+  let homeStatsKey;
   let txtTimer;
   function openList(i) {
     clearTimeout(txtTimer);
@@ -359,12 +365,46 @@
     setState({ screen: 'home', lang: 'en', warn: false });
   }
 
+  // A visit ends (the warning ran out, or Start over): thank the visitor for
+  // two seconds while Home returns underneath. A tap dismisses it early.
+  const farewell = $('#farewell');
+  let farewellTimer;
+  function endVisit() {
+    goHome();
+    farewell.classList.add('is-on');
+    farewell.setAttribute('aria-hidden', 'false');
+    clearTimeout(farewellTimer);
+    farewellTimer = setTimeout(hideFarewell, 2000);
+  }
+  function hideFarewell() {
+    clearTimeout(farewellTimer);
+    farewell.classList.remove('is-on');
+    farewell.setAttribute('aria-hidden', 'true');
+  }
+  farewell.addEventListener('pointerdown', hideFarewell);
+
+  // Learn more: the pillar's photo carries over into the pillar page's photo
+  // (a view transition where the browser supports it; otherwise the usual cut).
+  function openPillar(prog) {
+    const card = cards[state.idx] && cards[state.idx].querySelector('.card__face');
+    const hero = $(`[data-hero="${prog}"]`);
+    if (!document.startViewTransition || reducedMotion() || !card || !hero) { setState({ screen: 'program', prog }); return; }
+    card.style.viewTransitionName = 'pillar-photo';
+    const vt = document.startViewTransition(() => {
+      card.style.viewTransitionName = '';
+      hero.style.viewTransitionName = 'pillar-photo';
+      setState({ screen: 'program', prog });
+    });
+    vt.finished.finally(() => { hero.style.viewTransitionName = ''; });
+  }
+
   // Opening "Our programs" from home always starts on the middle card.
   const startExplore = () => openList(Math.floor((PROGRAM_COUNT - 1) / 2));
 
   const ACTIONS = {
     'explore-start': startExplore,
     'start-over': goHome,
+    'end-visit': endVisit,
     'all-programs': () => openList(0),
     'open-prog': (el) => setState({ screen: 'program', prog: el.dataset.prog }),
     'open-project': (el) => setState({ screen: 'project', project: el.dataset.project, projTab: 0 }),
@@ -373,7 +413,7 @@
     'next': () => go(state.idx + 1),
     'explore': () => {
       const prog = PROGRAM_PAGES[state.idx];
-      if (prog) setState({ screen: 'program', prog });
+      if (prog) openPillar(prog);
     },
     'keep-going': () => bump(),
     'about': () => {}
@@ -469,7 +509,7 @@
       startIdleBar();
       tickTimer = setInterval(() => {
         const c = state.count - 1;
-        if (c <= 0) goHome(); else setState({ count: c });
+        if (c <= 0) endVisit(); else setState({ count: c });
       }, 1000);
     }, IDLE_MS);
   }

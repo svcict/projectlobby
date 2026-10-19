@@ -254,6 +254,18 @@
   }
   window.addEventListener('hashchange', onRoute);
 
+  // Arrived from a lobby QR code: say so once, then drop ?from=lobby so a
+  // reload or a shared link doesn't repeat it. Hides itself after 6 seconds.
+  if (new URLSearchParams(location.search).get('from') === 'lobby') {
+    const note = $('#fromLobby');
+    history.replaceState(null, '', location.pathname + location.hash);
+    note.hidden = false;
+    requestAnimationFrame(() => note.classList.add('is-on'));
+    const close = () => { note.classList.remove('is-on'); setTimeout(() => { note.hidden = true; }, 240); };
+    const timer = setTimeout(close, 6000);
+    $('#fromLobbyClose').addEventListener('click', () => { clearTimeout(timer); close(); });
+  }
+
   $('#back').addEventListener('click', () => {
     const route = ROUTES[state.route] || ROUTES[''];
     location.hash = route.parent || '';

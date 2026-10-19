@@ -57,12 +57,12 @@ The stage scales to fit the display and stretches to fill the full width and hei
 
 Each pillar page's "Take this with you" code opens the phone page on that pillar:
 
-- `assets/qr-arts.png` → https://svcict.github.io/projectlobby/mobile.html#arts
-- `assets/qr-bigbets.png` → https://svcict.github.io/projectlobby/mobile.html#bigbets
-- `assets/qr-leadership.png` → https://svcict.github.io/projectlobby/mobile.html#leadership
-- `assets/qr-community.png` → https://svcict.github.io/projectlobby/mobile.html#community
+- `assets/qr-arts.png` → https://svcict.github.io/projectlobby/mobile.html?from=lobby#arts
+- `assets/qr-bigbets.png` → https://svcict.github.io/projectlobby/mobile.html?from=lobby#bigbets
+- `assets/qr-leadership.png` → https://svcict.github.io/projectlobby/mobile.html?from=lobby#leadership
+- `assets/qr-community.png` → https://svcict.github.io/projectlobby/mobile.html?from=lobby#community
 
-If the site moves to another address, regenerate the codes for the new address.
+`?from=lobby` makes the phone page show "Saved from the Ayala Foundation lobby" once. If the site moves to another address, regenerate the codes for the new address.
 
 ## Images
 
