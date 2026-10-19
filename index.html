@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ayala Foundation</title>
+<script>
+  // Phones get the phone page (the QR codes link there directly too).
+  try { if (window.top === window && Math.min(window.innerWidth, window.innerHeight) < 600) location.replace('mobile.html' + location.hash); } catch (_) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -13,31 +17,37 @@
 <div class="viewport">
 <div class="stage" id="stage">
 
-  <!-- Arts and Culture (base layer) -->
-  <div class="screen screen--arts" data-screen="program">
+  <!-- Program page (base layer): Arts and Culture or Big Bets -->
+  <div class="screen screen--program" data-screen="program">
     <aside class="panel">
-      <div class="panel__media"><div class="slot" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div></div>
+      <div class="panel__media">
+        <div class="hero-layer" data-hero="arts"><div class="slot" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div></div>
+        <div class="hero-layer" data-hero="bigbets"><div class="slot" data-src="assets/bigbets-banner.jpg" data-ph="Big Bets hero photo"></div></div>
+      </div>
       <div class="panel__text">
         <div class="eyebrow">Ayala Foundation</div>
-        <h1 class="arts-title" data-t="title"></h1>
-        <p class="arts-body" data-t="body"></p>
+        <h1 class="program-title" data-pg="title"></h1>
+        <p class="program-body" data-pg="body"></p>
       </div>
     </aside>
 
-    <main class="arts-main">
+    <main class="program-main">
       <section class="section">
         <h2 class="h2" data-t="partOf"></h2>
         <div class="join">
           <div class="info">
             <div class="info__title" data-t="give"></div>
-            <div class="info__body" data-t="giveBody"></div>
+            <div class="info__body" data-pg="giveBody"></div>
           </div>
           <div class="info">
             <div class="info__title" data-t="partner"></div>
             <div class="info__body" data-t="partnerBody"></div>
           </div>
           <div class="take">
-            <div class="take__qr"><div class="slot slot--contain" data-src="assets/placeholders/qr.svg" data-ph="QR code"></div></div>
+            <div class="take__qr">
+              <div class="slot slot--contain" data-for-prog="arts" data-src="assets/qr-arts.png" data-ph="QR code"></div>
+              <div class="slot slot--contain" data-for-prog="bigbets" data-src="assets/qr-bigbets.png" data-ph="QR code"></div>
+            </div>
             <div class="take__text">
               <div class="take__title" data-t="take"></div>
               <div class="take__body" data-t="takeBody"></div>
@@ -48,7 +58,7 @@
 
       <section class="section">
         <h2 class="h2" data-t="projects"></h2>
-        <div class="projects">
+        <div class="projects" data-for-prog="arts">
           <button class="u press project" data-action="museum">
             <span class="project__text">
               <span class="project__name">Ayala Museum</span>
@@ -64,21 +74,42 @@
             <span class="project__go" data-icon="chevron-navy-24"></span>
           </button>
         </div>
+        <div class="projects" data-for-prog="bigbets">
+          <button class="u press project" data-action="centex-de">
+            <span class="project__text">
+              <span class="project__name">CENTEX Digital Education</span>
+              <span class="project__sub" data-t="tap"></span>
+            </span>
+            <span class="project__go" data-icon="chevron-navy-24"></span>
+          </button>
+          <button class="u press project">
+            <span class="project__text">
+              <span class="project__name">CENTEX Early Grades</span>
+              <span class="project__sub" data-t="tap"></span>
+            </span>
+            <span class="project__go" data-icon="chevron-navy-24"></span>
+          </button>
+        </div>
       </section>
 
+      <!-- The tile for the program on screen is hidden, leaving three. -->
       <section class="section section--fill">
         <h2 class="h2" data-t="more"></h2>
         <div class="tiles">
-          <button class="u press tile">
-            <div class="tile__media"><div class="slot" data-src="assets/placeholders/tile-leadership.svg" data-ph="Leadership illustration"></div></div>
+          <button class="u press tile" data-tile="arts" data-action="open-prog" data-prog="arts">
+            <div class="tile__media"><div class="slot" data-src="assets/arts-tile.jpg" data-ph="Arts and Culture image"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p0"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
+          <button class="u press tile" data-tile="leadership">
+            <div class="tile__media"><div class="slot" data-src="assets/leadership-tile.jpg" data-ph="Leadership illustration"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p1"></span><span data-icon="chevron-white-22"></span></div>
           </button>
-          <button class="u press tile">
-            <div class="tile__media"><div class="slot" data-src="assets/placeholders/tile-bigbets.svg" data-ph="Big Bets illustration"></div></div>
+          <button class="u press tile" data-tile="bigbets" data-action="open-prog" data-prog="bigbets">
+            <div class="tile__media"><div class="slot" data-src="assets/bigbets-tile.jpg" data-ph="Big Bets illustration"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p2"></span><span data-icon="chevron-white-22"></span></div>
           </button>
-          <button class="u press tile">
-            <div class="tile__media"><div class="slot" data-src="assets/placeholders/tile-community.svg" data-ph="Community photo"></div></div>
+          <button class="u press tile" data-tile="community">
+            <div class="tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p3"></span><span data-icon="chevron-white-22"></span></div>
           </button>
         </div>
@@ -95,7 +126,7 @@
   <!-- Ayala Museum -->
   <div class="screen screen--museum" data-screen="museum">
     <aside class="panel">
-      <div class="panel__media"><div class="slot" data-src="assets/placeholders/museum.svg" data-ph="Ayala Museum photo"></div></div>
+      <div class="panel__media"><div class="slot" data-src="assets/museum-panel.jpg" data-ph="Ayala Museum photo"></div></div>
       <div class="panel__text">
         <div class="eyebrow" data-t="p0"></div>
         <h1 class="museum-title">Ayala Museum</h1>
@@ -105,20 +136,138 @@
       <p class="museum-lead" data-t="musLead"></p>
       <p class="museum-body" data-t="musBody"></p>
       <div class="stats">
-        <div class="stat"><div class="stat__num">92,833</div><div class="stat__label" data-t="stat1"></div></div>
-        <div class="stat"><div class="stat__num">96%</div><div class="stat__label" data-t="stat2"></div></div>
+        <div class="stat">
+          <div class="stat__badge"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="stat__num">92,833</div>
+          <div class="stat__label" data-t="stat1"></div>
+        </div>
+        <div class="stat">
+          <div class="stat__badge"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg></div>
+          <div class="stat__num">96%</div>
+          <div class="stat__label" data-t="stat2"></div>
+        </div>
       </div>
-      <div class="support">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="flex:none"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" stroke="#0B53A5" stroke-width="2.2" stroke-linejoin="round"/></svg>
-        <div class="support__text">
-          <div class="support__title" data-t="support"></div>
-          <div class="support__body" data-t="supportBody"></div>
+      <div class="contact">
+        <div class="contact__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B53A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+        <div class="contact__text">
+          <div class="contact__title" data-t="support"></div>
+          <div class="contact__body" data-t="supportBody"></div>
         </div>
       </div>
     </main>
     <nav class="bar">
       <div class="bar__side">
-        <button class="u press btn-ghost" data-action="back-to-arts"><span data-icon="back"></span><span data-t="p0"></span></button>
+        <button class="u press btn-ghost" data-action="open-prog" data-prog="arts"><span data-icon="back"></span><span data-t="p0"></span></button>
+        <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
+      </div>
+      <button class="u press btn-primary" data-action="all-programs"><span data-icon="grid"></span><span data-t="allPrograms"></span></button>
+      <div class="bar__side bar__side--end"><div class="lang" data-lang-switch></div></div>
+    </nav>
+  </div>
+
+  <!-- CENTEX Digital Education -->
+  <div class="screen screen--de" data-screen="centexDE">
+    <aside class="panel">
+      <div class="panel__media"><div class="slot" data-src="assets/centex-de-banner.jpg" data-ph="CENTEX Digital Education photo"></div></div>
+      <div class="panel__text">
+        <div class="eyebrow" data-t="p2"></div>
+        <h1 class="de-title">CENTEX Digital Education</h1>
+        <p class="de-lead" data-t="deLead"></p>
+        <p class="de-body" data-t="deBody1"></p>
+        <p class="de-body" data-t="deBody2"></p>
+      </div>
+    </aside>
+    <main class="de-main">
+      <div class="tabs" role="tablist" aria-label="CENTEX Digital Education">
+        <div class="tabs__pill" id="dePill"></div>
+        <button class="u tabs__tab" role="tab" data-de-tab="0" data-t="deTab0"></button>
+        <button class="u tabs__tab" role="tab" data-de-tab="1" data-t="deTab1"></button>
+        <button class="u tabs__tab" role="tab" data-de-tab="2" data-t="deTab2"></button>
+      </div>
+      <div class="de-panels">
+
+        <section class="de-panel de-panel--approach" role="tabpanel" data-de-panel="0">
+          <h2 class="de-h2" data-t="deCommTitle"></h2>
+          <p class="de-sub" data-t="deCommSub"></p>
+          <div class="pillar">
+            <div class="pillar__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg></div>
+            <div class="pillar__text"><div class="pillar__title" data-t="deP1t"></div><div class="pillar__body" data-t="deP1b"></div></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg></div>
+            <div class="pillar__text"><div class="pillar__title" data-t="deP2t"></div><div class="pillar__body" data-t="deP2b"></div></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#041F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="pillar__text"><div class="pillar__title" data-t="deP3t"></div><div class="pillar__body" data-t="deP3b"></div></div>
+          </div>
+        </section>
+
+        <section class="de-panel de-panel--results" role="tabpanel" data-de-panel="1">
+          <div class="results__left">
+            <div class="results__where">
+              <div class="results__label" data-t="deResLabel"></div>
+              <div class="results__place"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#F7941D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>San Marcelino, Zambales</div>
+            </div>
+            <div class="results__stat">
+              <div class="results__num">78%</div>
+              <div class="results__statText" data-t="deStat"></div>
+              <div class="results__note" data-t="deStatNote"></div>
+            </div>
+            <p class="results__doubled" data-t="deDoubled"></p>
+          </div>
+          <div class="results__right">
+            <div class="chart">
+              <div class="chart__legend">
+                <span class="chart__key"><span class="chart__swatch" style="background:#FFD29E"></span><span data-t="dePre"></span></span>
+                <span class="chart__key"><span class="chart__swatch" style="background:#F7941D"></span><span data-t="dePost"></span></span>
+              </div>
+              <div class="chart__plot"><svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet" font-family="Schibsted Grotesk, sans-serif" role="img" aria-label="Box plot of pre and post mathematics scores for control and treatment schools"><line x1="60" x2="500" y1="290" y2="290" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="296" text-anchor="end" font-size="17" fill="#3D5A80">0</text><line x1="60" x2="500" y1="230" y2="230" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="236" text-anchor="end" font-size="17" fill="#3D5A80">20</text><line x1="60" x2="500" y1="170" y2="170" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="176" text-anchor="end" font-size="17" fill="#3D5A80">40</text><line x1="60" x2="500" y1="110" y2="110" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="116" text-anchor="end" font-size="17" fill="#3D5A80">60</text><line x1="60" x2="500" y1="50" y2="50" stroke="rgba(11,83,165,0.15)" stroke-width="1.5"/><text x="48" y="56" text-anchor="end" font-size="17" fill="#3D5A80">80</text><line x1="130" x2="130" y1="164" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="164" y2="164" stroke="#3D5A80" stroke-width="2"/><line x1="116" x2="144" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="98" y="197" width="64" height="42" rx="3" fill="#FFD29E"/><line x1="98" x2="162" y1="218" y2="218" stroke="#041F3F" stroke-width="3"/><line x1="210" x2="210" y1="80" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="80" y2="80" stroke="#3D5A80" stroke-width="2"/><line x1="196" x2="224" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="178" y="131" width="64" height="84" rx="3" fill="#F7941D"/><line x1="178" x2="242" y1="170" y2="170" stroke="#041F3F" stroke-width="3"/><line x1="350" x2="350" y1="137" y2="290" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="137" y2="137" stroke="#3D5A80" stroke-width="2"/><line x1="336" x2="364" y1="290" y2="290" stroke="#3D5A80" stroke-width="2"/><rect x="318" y="191" width="64" height="45" rx="3" fill="#FFD29E"/><line x1="318" x2="382" y1="209" y2="209" stroke="#041F3F" stroke-width="3"/><circle cx="350" cy="122" r="4" fill="#3D5A80"/><circle cx="350" cy="116" r="4" fill="#3D5A80"/><circle cx="350" cy="104" r="4" fill="#3D5A80"/><line x1="430" x2="430" y1="38" y2="245" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="38" y2="38" stroke="#3D5A80" stroke-width="2"/><line x1="416" x2="444" y1="245" y2="245" stroke="#3D5A80" stroke-width="2"/><rect x="398" y="95" width="64" height="69" rx="3" fill="#F7941D"/><line x1="398" x2="462" y1="125" y2="125" stroke="#041F3F" stroke-width="3"/><circle cx="430" cy="254" r="4" fill="#3D5A80"/><circle cx="430" cy="290" r="4" fill="#3D5A80"/></svg></div>
+              <div class="chart__groups"><span></span><span data-t="deControl"></span><span data-t="deTreatment"></span><span></span></div>
+            </div>
+            <div class="results__callout" data-t="deOutperf"></div>
+          </div>
+        </section>
+
+        <section class="de-panel de-panel--packages" role="tabpanel" data-de-panel="2">
+          <h2 class="de-h2" data-t="dePkgTitle"></h2>
+          <div class="packages">
+            <div class="package">
+              <div class="package__title" data-t="deIetTitle"></div>
+              <div class="package__label" data-t="deInclusions"></div>
+              <div class="package__list">
+                <div class="package__item"><span data-icon="check-blue"></span><span data-t="deIet1"></span></div>
+                <div class="package__item"><span data-icon="check-blue"></span><span data-t="deIet2"></span></div>
+                <div class="package__item"><span data-icon="check-blue"></span><span data-t="deIet3"></span></div>
+              </div>
+              <div class="package__impact" data-t="deImpact"></div>
+              <div class="package__foot" data-t="deFoot"></div>
+            </div>
+            <div class="package package--addon">
+              <div class="package__badge" data-t="deAddon"></div>
+              <div class="package__title" data-t="deLab"></div>
+              <div class="package__label" data-t="deInclusions"></div>
+              <div class="package__list">
+                <div class="package__item"><span data-icon="check-orange"></span><span data-t="deLab1"></span></div>
+                <div class="package__item"><span data-icon="check-orange"></span><span data-t="deLab2"></span></div>
+                <div class="package__item"><span data-icon="check-orange"></span><span data-t="deLab3"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <div class="contact">
+        <div class="contact__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B53A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+        <div class="contact__text">
+          <div class="contact__title" data-t="dePartner"></div>
+          <div class="contact__body contact__body--row"><span>partnerships@ayalafoundation.org</span><span>www.ayalafoundation.org</span></div>
+        </div>
+      </div>
+    </main>
+    <nav class="bar">
+      <div class="bar__side">
+        <button class="u press btn-ghost" data-action="open-prog" data-prog="bigbets"><span data-icon="back"></span><span data-t="p2"></span></button>
         <button class="u press btn-ghost" data-action="start-over"><span data-icon="restart"></span><span data-t="startOver"></span></button>
       </div>
       <button class="u press btn-primary" data-action="all-programs"><span data-icon="grid"></span><span data-t="allPrograms"></span></button>
@@ -139,8 +288,8 @@
     </section>
     <div class="home-photos" data-action="explore-start">
       <div class="slide"><div class="slot" data-src="assets/home-arts.webp" data-ph="Arts and Culture photo"></div></div>
-      <div class="slide"><div class="slot" data-src="assets/placeholders/home-leadership.svg" data-ph="Leadership Development photo"></div></div>
-      <div class="slide"><div class="slot" data-src="assets/placeholders/home-bigbets.svg" data-ph="Big Bets photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/leadership-home.jpg" data-ph="Leadership Development photo"></div></div>
+      <div class="slide"><div class="slot" data-src="assets/bigbets-home.jpg" data-ph="Big Bets photo"></div></div>
       <div class="slide"><div class="slot" data-src="assets/home-community.webp" data-ph="Community Development photo"></div></div>
       <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
     </div>
@@ -157,10 +306,10 @@
         <h1 class="programs__title" data-t="allTitle"></h1>
       </div>
       <div class="track" id="track">
-        <div class="card" data-card="0"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-arts.svg" data-ph="Arts and Culture image"></div></div></div>
-        <div class="card" data-card="1"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-leadership.svg" data-ph="Leadership Development image"></div></div></div>
-        <div class="card" data-card="2"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-bigbets.svg" data-ph="Big Bets image"></div></div></div>
-        <div class="card" data-card="3"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-community.svg" data-ph="Community Development image"></div></div></div>
+        <div class="card" data-card="0"><div class="card__face"><div class="slot" data-src="assets/arts-card.jpg" data-ph="Arts and Culture image"></div></div></div>
+        <div class="card" data-card="1"><div class="card__face"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development image"></div></div></div>
+        <div class="card" data-card="2"><div class="card__face"><div class="slot" data-src="assets/bigbets-card.jpg" data-ph="Big Bets image"></div></div></div>
+        <div class="card" data-card="3"><div class="card__face"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development image"></div></div></div>
         <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous program"><span data-icon="back-blue-32"></span></button>
         <button class="u arrow arrow--next" data-action="next" aria-label="Next program"><span data-icon="chevron-blue-32"></span></button>
       </div>
@@ -194,6 +343,7 @@
 
 </div>
 </div>
+<script src="copy.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-<defs><pattern id="d" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="24" height="48" fill="#FFFFFF" fill-opacity="0.035"/></pattern></defs>
-<rect width="1600" height="1000" fill="#0B53A5"/><rect width="1600" height="1000" fill="url(#d)"/>
-<g fill="none" stroke="#F7941D" stroke-width="7.8" stroke-linejoin="round" stroke-linecap="round"><rect x="735.0" y="338.0" width="130.0" height="104.0" rx="10.4"/><circle cx="774.0" cy="371.3" r="11.7"/><path d="M745.4 429.5 L787.0 395.2 L813.0 412.9 L832.5 400.4 L854.6 423.3"/></g>
-<text x="800" y="573" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="85" font-weight="800" fill="#FFFFFF">Leadership Development</text>
-<text x="800" y="658" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="50" font-weight="600" fill="#F7941D">Program card · 1600×1000 (16:10)</text>
-</svg>

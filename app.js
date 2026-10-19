@@ -1,53 +1,12 @@
 (() => {
   'use strict';
 
-  const COPY = {
-    en: {
-      title: 'Arts and Culture',
-      body: 'We provide platforms that spotlight history, contemporary and fine art forms in state-of-the-art museum and library venues. By curating physical and digital collections that celebrate the joy and wonder of Philippine arts and culture, we hope to contribute to conversations about evolving Filipino identities and agency throughout history.',
-      projects: 'Projects', partOf: 'Be part of it', more: 'More programs',
-      give: 'Give', giveBody: 'To support Arts and Culture, please see our front desk team.',
-      partner: 'Partner with us', partnerBody: 'Ask the front desk to connect you with our partnerships team.',
-      take: 'Take this with you', takeBody: 'Scan to open this page on your phone.',
-      startOver: 'Start over', allPrograms: 'All programs', tap: 'Tap to explore',
-      p0: 'Arts and Culture', p1: 'Leadership Development', p2: 'Big Bets', p3: 'Community Development',
-      touch: 'Touch to explore', about: 'About us',
-      still: 'Still there?', stillBody: 'This screen will start over for the next visitor in', keep: 'Keep exploring',
-      musLead: 'One of the country\'s leading private museums, making Philippine history, art and culture accessible to everyone.',
-      musBody: 'Ayala Museum is home to the country\'s first Digital Gallery, an immersive touchscreen experience for exploring objects from the museum and library collections. It also houses Crossroads of Civilizations, a permanent exhibition of Philippine pre-colonial treasures, and the one-of-a-kind Diorama Experience of Philippine History. Celebrating its 50th year in 2024, the museum uses both traditional and new platforms to share our rich heritage with people of all generations.',
-      stat1: 'visitors in 2023', stat2: 'satisfaction rating from guests and program attendees, from young to late adults',
-      support: 'Support this project', supportBody: 'To support Ayala Museum, please see our front desk team.',
-      allTitle: 'Our programs', explore: 'Explore',
-      d0: 'Museums and libraries that celebrate Philippine arts, culture and history.',
-      d1: 'Young people learn to lead projects in their own barangay.',
-      d2: 'Bold, long-term ideas that tackle some of the country\'s toughest problems.',
-      d3: 'Working side by side with communities to build lasting livelihoods.'
-    },
-    fil: {
-      title: 'Sining at Kultura',
-      body: 'Nagbibigay kami ng mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining sa mga makabagong museo at aklatan. Sa pag-curate ng pisikal at digital na koleksyon na nagdiriwang sa sining at kultura ng Pilipinas, layunin naming makapag-ambag sa usapan tungkol sa umuusbong na pagkakakilanlan at kakayahan ng Pilipino sa kasaysayan.',
-      projects: 'Mga Proyekto', partOf: 'Makibahagi', more: 'Iba pang programa',
-      give: 'Magbigay', giveBody: 'Upang suportahan ang Sining at Kultura, lumapit sa aming front desk.',
-      partner: 'Makipagtulungan', partnerBody: 'Hilingin sa front desk na ikonekta ka sa aming partnerships team.',
-      take: 'Dalhin mo ito', takeBody: 'I-scan para buksan ang pahinang ito sa iyong telepono.',
-      startOver: 'Magsimula muli', allPrograms: 'Lahat ng programa', tap: 'Pindutin para tuklasin',
-      p0: 'Sining at Kultura', p1: 'Pagpapaunlad ng Pamumuno', p2: 'Big Bets', p3: 'Pagpapaunlad ng Komunidad',
-      touch: 'Pindutin para tuklasin', about: 'Tungkol sa amin',
-      still: 'Nandiyan ka pa ba?', stillBody: 'Magsisimula muli ang screen para sa susunod na bisita sa loob ng', keep: 'Magpatuloy',
-      musLead: 'Isa sa mga nangungunang pribadong museo sa bansa, na naglalapit sa lahat ng kasaysayan, sining at kultura ng Pilipinas.',
-      musBody: 'Narito ang kauna-unahang Digital Gallery ng bansa, isang touchscreen na karanasan para tuklasin ang mga bagay mula sa koleksyon ng museo at aklatan. Narito rin ang Crossroads of Civilizations, isang permanenteng eksibisyon ng mga kayamanang pre-kolonyal ng Pilipinas, at ang natatanging Diorama Experience of Philippine History. Sa pagdiriwang ng ika-50 taon nito noong 2024, gumagamit ang museo ng tradisyonal at bagong plataporma upang ibahagi ang ating mayamang pamana sa lahat ng henerasyon.',
-      stat1: 'bisita noong 2023', stat2: 'satisfaction rating mula sa mga bisita at dumalo sa programa, mula kabataan hanggang nakatatanda',
-      support: 'Suportahan ang proyektong ito', supportBody: 'Upang suportahan ang Ayala Museum, lumapit sa aming front desk.',
-      allTitle: 'Aming mga programa', explore: 'Tuklasin ang',
-      d0: 'Mga museo at aklatan na nagdiriwang sa sining, kultura at kasaysayan ng Pilipinas.',
-      d1: 'Natututo ang kabataan na mamuno ng mga proyekto sa sarili nilang barangay.',
-      d2: 'Matatapang at pangmatagalang ideya para sa ilan sa pinakamabibigat na problema ng bansa.',
-      d3: 'Kasama ang mga komunidad sa pagbuo ng pangmatagalang kabuhayan.'
-    }
-  };
+  const COPY = window.COPY;
 
   const DESIGN_W = 1920, DESIGN_H = 1080;
   const PROGRAM_COUNT = 4;
+  // Carousel card index → program page it opens (null: no page yet).
+  const PROGRAM_PAGES = ['arts', null, 'bigbets', null];
   const SLIDE_MS = 7000;
   const IDLE_MS = 75000;
   const WARN_SECONDS = 15;
@@ -55,6 +14,7 @@
   const ICONS = (() => {
     const chevron = (size, color) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" style="flex:none;display:block"><path d="M9 5l7 7-7 7" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
     const back = (size, color) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M15 5l-7 7 7 7" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    const check = (color) => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M20 6 9 17l-5-5"/></svg>`;
     return {
       'chevron-navy-24': chevron(24, '#041F3F'),
       'chevron-navy-26': chevron(26, '#041F3F'),
@@ -65,7 +25,9 @@
       'back-blue-32': back(32, '#0B53A5'),
       'restart': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       'grid': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><rect x="3" y="3" width="7" height="7" rx="1" fill="#041F3F"/><rect x="14" y="3" width="7" height="7" rx="1" fill="#041F3F"/><rect x="3" y="14" width="7" height="7" rx="1" fill="#041F3F"/><rect x="14" y="14" width="7" height="7" rx="1" fill="#041F3F"/></svg>',
-      'info': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><circle cx="12" cy="12" r="9.5" stroke="#FFFFFF" stroke-width="2.5"/><path d="M12 11v6M12 7.5v.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/></svg>'
+      'info': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><circle cx="12" cy="12" r="9.5" stroke="#FFFFFF" stroke-width="2.5"/><path d="M12 11v6M12 7.5v.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/></svg>',
+      'check-blue': check('#0B53A5'),
+      'check-orange': check('#F7941D')
     };
   })();
 
@@ -81,7 +43,7 @@
   const idleEl = $('#idle');
 
   const state = {
-    lang: 'en', screen: 'home', slide: 0,
+    lang: 'en', screen: 'home', prog: 'arts', deTab: 0, slide: 0,
     warn: false, count: WARN_SECONDS,
     idx: 0, txtIdx: 0, txtOut: false, dragX: 0, dragging: false
   };
@@ -141,10 +103,29 @@
     $$('[data-set-lang]').forEach((el) => el.setAttribute('aria-checked', String(el.dataset.setLang === state.lang)));
 
     $$('[data-screen]').forEach((el) => {
-      // The Arts and Culture screen is the base layer and always stays painted.
+      // The program page is the base layer and always stays painted.
       const on = el.dataset.screen === state.screen || el.dataset.screen === 'program';
       el.classList.toggle('is-active', on);
       el.setAttribute('aria-hidden', String(el.dataset.screen !== state.screen));
+    });
+
+    // Program page: Arts and Culture or Big Bets.
+    const bb = state.prog === 'bigbets';
+    const pg = bb
+      ? { title: t.p2, body: t.bbBody, giveBody: t.bbGive }
+      : { title: t.title, body: t.body, giveBody: t.giveBody };
+    $$('[data-pg]').forEach((el) => { el.textContent = pg[el.dataset.pg]; });
+    $$('[data-hero]').forEach((el) => el.classList.toggle('is-on', el.dataset.hero === state.prog));
+    $$('[data-for-prog]').forEach((el) => { el.hidden = el.dataset.forProg !== state.prog; });
+    $$('[data-tile]').forEach((el) => { el.hidden = el.dataset.tile === state.prog; });
+
+    // CENTEX Digital Education tabs.
+    $('#dePill').style.transform = `translateX(${state.deTab * 100}%)`;
+    $$('[data-de-tab]').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.deTab === state.deTab)));
+    $$('[data-de-panel]').forEach((el) => {
+      const on = +el.dataset.dePanel === state.deTab;
+      el.classList.toggle('is-on', on);
+      el.setAttribute('aria-hidden', String(!on));
     });
 
     slides.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
@@ -178,14 +159,16 @@
   }
 
   function setState(patch) {
-    const prevScreen = state.screen;
+    const prevScreen = state.screen, prevProg = state.prog;
     Object.assign(state, patch);
     render();
-    if (state.screen !== prevScreen) {
-      // Coming back from the museum is a step out, so only animate going in.
-      if (state.screen === 'program' && prevScreen !== 'museum') enterArts();
-      bump();
+    if (state.screen === 'program') {
+      // Going back from a project screen is a step out, so only animate
+      // when arriving from elsewhere or switching program.
+      const fromProject = prevScreen === 'museum' || prevScreen === 'centexDE';
+      if ((prevScreen !== 'program' && !fromProject) || (prevScreen === 'program' && state.prog !== prevProg)) enterProgram();
     }
+    if (state.screen !== prevScreen) bump();
   }
 
   // ---------- Motion ----------
@@ -193,13 +176,13 @@
   const EASE_OUT = 'cubic-bezier(0.23, 1, 0.32, 1)';
   const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Arts and Culture content rises 12px and fades in, 30ms apart, done in
+  // Program page content rises 12px and fades in, 30ms apart, done in
   // under 300ms. Taps work throughout.
-  const artsParts = $$('.screen--arts .panel__text, .screen--arts .arts-main > .section');
-  function enterArts() {
+  const programParts = $$('.screen--program .panel__text, .screen--program .program-main > .section');
+  function enterProgram() {
     const from = reducedMotion() ? { opacity: 0 } : { opacity: 0, transform: 'translateY(12px)' };
     const to = reducedMotion() ? { opacity: 1 } : { opacity: 1, transform: 'translateY(0)' };
-    artsParts.forEach((el, i) => {
+    programParts.forEach((el, i) => {
       el.animate([from, to], { duration: 200, delay: i * 30, easing: EASE_OUT, fill: 'backwards' });
     });
   }
@@ -258,12 +241,16 @@
     'explore-start': startExplore,
     'start-over': goHome,
     'all-programs': () => openList(0),
+    'open-prog': (el) => setState({ screen: 'program', prog: el.dataset.prog }),
     'museum': () => setState({ screen: 'museum' }),
-    'back-to-arts': () => setState({ screen: 'program' }),
+    'centex-de': () => setState({ screen: 'centexDE', deTab: 0 }),
     'prev': () => go(state.idx - 1),
     'next': () => go(state.idx + 1),
-    // Only Arts and Culture has its own screen so far.
-    'explore': () => { if (state.idx === 0) setState({ screen: 'program' }); },
+    // Only Arts and Culture and Big Bets have their own pages so far.
+    'explore': () => {
+      const prog = PROGRAM_PAGES[state.idx];
+      if (prog) setState({ screen: 'program', prog });
+    },
     'keep-going': () => bump(),
     'about': () => {}
   };
@@ -271,8 +258,10 @@
   stage.addEventListener('click', (e) => {
     const langBtn = e.target.closest('[data-set-lang]');
     if (langBtn) { setState({ lang: langBtn.dataset.setLang }); return; }
+    const tab = e.target.closest('[data-de-tab]');
+    if (tab) { setState({ deTab: +tab.dataset.deTab }); return; }
     const el = e.target.closest('[data-action]');
-    if (el && ACTIONS[el.dataset.action]) ACTIONS[el.dataset.action]();
+    if (el && ACTIONS[el.dataset.action]) ACTIONS[el.dataset.action](el);
   });
 
   // ---------- Carousel drag ----------

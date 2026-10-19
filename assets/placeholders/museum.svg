@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1280" viewBox="0 0 1520 1280">
-<defs><pattern id="d" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="24" height="48" fill="#FFFFFF" fill-opacity="0.035"/></pattern></defs>
-<rect width="1520" height="1280" fill="#0B53A5"/><rect width="1520" height="1280" fill="url(#d)"/>
-<g fill="none" stroke="#F7941D" stroke-width="8.5" stroke-linejoin="round" stroke-linecap="round"><rect x="689.3" y="427.8" width="141.4" height="113.2" rx="11.3"/><circle cx="731.7" cy="464.0" r="12.7"/><path d="M700.6 527.4 L745.9 490.1 L774.1 509.3 L795.4 495.7 L819.4 520.6"/></g>
-<text x="760" y="684" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#FFFFFF">Ayala Museum</text>
-<text x="760" y="776" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="54" font-weight="600" fill="#F7941D">Museum photo · 1520×1280</text>
-<text x="760" y="848" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="39" fill="#FFFFFF" fill-opacity="0.8">Main subject in the middle</text>
-</svg>

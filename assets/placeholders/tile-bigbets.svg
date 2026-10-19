@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
-<defs><pattern id="d" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="24" height="48" fill="#FFFFFF" fill-opacity="0.035"/></pattern></defs>
-<rect width="800" height="450" fill="#0B53A5"/><rect width="800" height="450" fill="url(#d)"/>
-<g fill="none" stroke="#F7941D" stroke-width="5.4" stroke-linejoin="round" stroke-linecap="round"><rect x="354.7" y="112.0" width="90.7" height="72.5" rx="7.3"/><circle cx="381.9" cy="135.2" r="8.2"/><path d="M361.9 175.8 L390.9 151.9 L409.1 164.2 L422.7 155.5 L438.1 171.5"/></g>
-<text x="400" y="276" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="59" font-weight="800" fill="#FFFFFF">Big Bets</text>
-<text x="400" y="335" text-anchor="middle" font-family="'Schibsted Grotesk', Arial, Helvetica, sans-serif" font-size="35" font-weight="600" fill="#F7941D">Tile · 800×450 (16:9)</text>
-</svg>
