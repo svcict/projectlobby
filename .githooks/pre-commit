@@ -1,0 +1,5 @@
+#!/bin/sh
+# Stamps the ?v= versions on index.html and mobile.html before every commit,
+# so a release can't go out with stale ones.
+# One-time setup in a clone:  git config core.hooksPath .githooks
+node tools/stamp.js >/dev/null && git add index.html mobile.html

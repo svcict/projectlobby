@@ -129,7 +129,7 @@
     slides.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
     if (!homeStatsBuilt) {
       homeStatsBuilt = true;
-      $('#homeStats').innerHTML = (t.homeStats || []).map((s) => `<div class="home-stat"><div class="home-stat__value">${PV.esc(s.value)}</div><div class="home-stat__label">${PV.esc(s.label)}</div><div class="home-stat__source">${PV.esc(s.source)}</div></div>`).join('');
+      $('#homeStats').innerHTML = PROGRAM_PAGES.map(homeFigure).filter(Boolean).map((s) => `<div class="home-stat"><div class="home-stat__value">${PV.esc(s.value)}</div><div class="home-stat__label">${PV.esc(s.label)}</div><div class="home-stat__source">${PV.esc(s.source)}</div></div>`).join('');
     }
     $$('#homeStats .home-stat').forEach((el, i) => { el.classList.toggle('is-on', i === state.slide); el.setAttribute('aria-hidden', String(i !== state.slide)); });
     dots.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
@@ -318,6 +318,22 @@
   // ---------- Navigation ----------
 
   let homeStatsBuilt = false;
+
+  // The figure shown over a pillar's home photo is read from its program pages
+  // (programs.js): a stats figure marked home, or a results section's
+  // homeFigure. The program's title is the source line.
+  function homeFigure(pillar) {
+    for (const id of Object.keys(PROJECTS)) {
+      const p = PROJECTS[id];
+      if (p.pillar !== pillar || !p.en) continue;
+      for (const sec of p.en.sections || []) {
+        const figures = [].concat(sec.stats || [], ...(sec.groups || []).map((g) => g.stats));
+        const hit = figures.find((f) => f.home) || sec.homeFigure;
+        if (hit) return { value: hit.value, label: hit.label, source: p.title };
+      }
+    }
+    return null;
+  }
   let txtTimer;
   function openList(i) {
     clearTimeout(txtTimer);

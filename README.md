@@ -24,7 +24,7 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 
 ## Pillars and programs
 
-The four carousel cards are **pillars**, in the order of the foundation's pillar diagram: Community Development, Arts and Culture, Leadership Development (the strategic pillars), then Education (the big bet). Each pillar has a page listing its **programs** (Ayala Museum, Filipinas Heritage Library, U-GO Scholar Grant Program, Ayala Young Leaders, Atletang Ayala, CENTEX Digital Education, CENTEX Early Grades Program, El Nido, Iraya Mangyan Development Program). Pillar page text is in `copy.js`. Each card is labelled Strategic pillar or Big bet. Corporate Citizenship and Volunteerism (`ccv`, pillar `support` in `programs.js`) supports all of them: it opens from the dashed "Supported by" strip on the pillars screen, and on the phone at `#program/ccv`. It has no hero photo yet.
+The four carousel cards are **pillars**, in the order of the foundation's pillar diagram: Community Development, Arts and Culture, Leadership Development (the strategic pillars), then Education (the big bet). Each pillar has a page listing its **programs** (Ayala Museum, Filipinas Heritage Library, U-GO Scholar Grant Program, Ayala Young Leaders, Atletang Ayala, CENTEX Digital Education, CENTEX Early Grades Program, El Nido, Puerto Galera). Pillar page text is in `copy.js`. Each card is labelled Strategic pillar or Big bet. Corporate Citizenship and Volunteerism (`ccv`, pillar `support` in `programs.js`) supports all of them: it opens from the dashed "Supported by" strip on the pillars screen, and on the phone at `#program/ccv`. It has no hero photo yet.
 
 All program pages use one layout, filled from `programs.js`. To add or edit a program, change `programs.js` only:
 
@@ -41,11 +41,21 @@ Schibsted Grotesk (SIL Open Font License) is stored in `assets/fonts/`, so the k
 
 ## Publishing updates
 
-The pages load their scripts and styles with a version tag (`app.js?v=…`) so browsers fetch fresh copies after an update instead of a cached older one. When you change any `.js` or `.css` file, change the `?v=` number in both `index.html` and `mobile.html` (any new number works, e.g. the date and time).
+Scripts and stylesheets are loaded with a version (`app.js?v=…`) so browsers fetch fresh copies after an update instead of a cached older one. You never set it by hand: `node tools/stamp.js` stamps each file with a fingerprint of its contents, and the git hook in `.githooks` runs it on every commit. In a fresh clone, turn the hook on once:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+(Editing files directly on GitHub skips the hook; run `node tools/stamp.js` afterwards, or `node tools/check.js` will tell you.) The lobby kiosk also notices a changed file by itself, stamped or not (see below).
+
+## Checking a release
+
+`node tools/check.js` opens the whole site in a real browser and checks it: the stamps, program content (one home figure per pillar, missing photos, repeated or empty text), every pillar and every program tab on the kiosk (fit, errors, failed downloads), the phone page at 320, 390 and 768px wide (every screen and tab, sideways scrolling, tap targets, the back arrow), the offline start, the idle reload rules, and unused photos. FAIL means fix before publishing; WARN means look at it. It needs Playwright (`npm i -D playwright`, then `npx playwright install chromium`).
 
 ## Kiosk reliability (`kiosk.js`, `sw.js`)
 
-- **New releases:** every 5 minutes the kiosk re-reads `index.html`. If its `?v=` numbers changed it reloads, but only from the idle Home screen (30 seconds with no touch, no warning, no thank-you card showing), so a visitor is never interrupted. Changing the `?v=` numbers is what publishes an update to a running kiosk. It also reloads once a day to start clean.
+- **New releases:** every 5 minutes the kiosk checks `index.html`, and every script and stylesheet, for a change (the `?v=` stamps, or the file's own ETag or Last-Modified). If anything changed it reloads, but only from the idle Home screen (30 seconds with no touch, no warning, no thank-you card showing), so a visitor is never interrupted. It also reloads once a day to start clean.
 - **Offline start:** `sw.js` keeps a copy of every file the kiosk loads. With the internet up it always gets the latest files; with it down (or slower than 4 seconds) it uses the kept copy, so a kiosk that reboots offline still starts. The kiosk needs to have been online once. If you add a new core file, add it to `CORE` in `sw.js`. Only the kiosk registers it, not the phone page.
 - **Touch guards:** no pinch or double-tap zoom, no long-press menu, no pull-to-refresh (`kiosk.js`, plus `touch-action` in `styles.css`). The phone page keeps normal zoom.
 
@@ -78,7 +88,7 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 | Spot | Files | Upload size | Notes |
 |---|---|---|---|
 | Home logo | `logo.webp` | SVG, or 1440×600 PNG | Fits a 716×300 box uncropped; transparent background |
-| Home rotating photos | the pillar's `*-card.jpg` (for now) | 1600×1000 | Same photos as the cards; sides may crop. The older `home-*` / `*-home*` files are kept but unused |
+| Home rotating photos | the pillar's `*-card.jpg` (for now) | 1600×1000 | Same photos as the cards; sides may crop |
 | Pillar cards | `*-card.jpg` | 1600×1000 (16:10) | Largest images; use the best you have |
 | Pillar banners | the pillar's `*-card.jpg` | 1600×1000 | Same photo as the card |
 | Program heroes | set in `programs.js` (`hero.src`) | 1600×1200 | Fills the kiosk's left column above the text; 16:10 on phones |
@@ -87,4 +97,4 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 
 Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text.
 
-The Filipinas Heritage Library, El Nido, U-GO, Ayala Young Leaders and Iraya Mangyan heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. Every program now has a hero photo. A hero can set `pos` (CSS object-position) in `programs.js` to keep faces in frame when it is cropped. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.
+The Filipinas Heritage Library and U-GO heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. Every program has a hero photo. A hero can set `pos` (CSS object-position) in `programs.js` to keep faces in frame when it is cropped. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.

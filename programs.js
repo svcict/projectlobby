@@ -20,6 +20,10 @@
 //     and a quote ({ text, by }). Three or four figures use a compact 2×2 layout,
 //     five or six use three columns. Or groups: [{ label, stats }], each group
 //     with its own label and figures.
+//   Home screen: one figure per pillar is shown over the home photos. Mark a stats
+//     figure with "home": true (or give a results section a homeFigure: { value,
+//     label }) and it is read from here, with the program's title as its source,
+//     so a number is only ever edited in one place. One per pillar.
 //   list: heading, sub, intro and a list of plain-text items.
 //   about: heading, highlight, a logo ({ src, alt }) and body paragraphs beside it.
 //   Headings are optional. A quote's text can hold several paragraphs separated
@@ -50,7 +54,8 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "users",
               "value": "92,833",
-              "label": "Total visitors in 2025"
+              "label": "Total visitors in 2025",
+              "home": true
             },
             {
               "icon": "image",
@@ -263,7 +268,11 @@ window.KIOSK_PROGRAMS = {
             "Control",
             "Treatment"
           ],
-          "highlight": "9 treatment schools outperformed control schools by 13.8 percentage points"
+          "highlight": "9 treatment schools outperformed control schools by 13.8 percentage points",
+          "homeFigure": {
+            "value": "13.8",
+            "label": "percentage points by which 9 treatment schools outperformed control schools"
+          }
         },
         {
           "tab": "Our approach",
@@ -465,7 +474,8 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "value": "98%",
-              "label": "advancement rate (employment, further studies or entrepreneurial activity)"
+              "label": "advancement rate (employment, further studies or entrepreneurial activity)",
+              "home": true
             },
             {
               "icon": "stethoscope",
@@ -662,7 +672,8 @@ window.KIOSK_PROGRAMS = {
                 {
                   "icon": "users",
                   "value": "2,018",
-                  "label": "Total number of Ayala Young Leaders alumni nationwide"
+                  "label": "Total number of Ayala Young Leaders alumni nationwide",
+                  "home": true
                 },
                 {
                   "icon": "pin",
@@ -877,11 +888,12 @@ window.KIOSK_PROGRAMS = {
   },
   "iraya": {
     "pillar": "community",
-    "title": "Iraya Mangyan Development Program",
+    "title": "Puerto Galera, Oriental Mindoro",
     "hero": {
       "id": "iraya-hero",
       "src": "assets/iraya-hero.jpg",
-      "ph": "Iraya Mangyan Development Program photo"
+      "pos": "50% 20%",
+      "ph": "Puerto Galera, Oriental Mindoro photo"
     },
     "en": {
       "lead": "Advancing inclusive growth while preserving indigenous heritage in Puerto Galera",
