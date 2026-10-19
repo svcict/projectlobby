@@ -1,4 +1,10 @@
 // English and Filipino copy shared by the kiosk (index.html) and the phone page (mobile.html).
+
+// Languages offered on screen. With one language the English/Filipino switch is
+// hidden. Filipino text stays in this file and programs.js: add 'fil' back to
+// turn the switch on again.
+window.LANGUAGES = ['en'];
+
 window.COPY = {
   en: {
     title: 'Arts and Culture',

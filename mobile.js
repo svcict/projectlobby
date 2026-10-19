@@ -46,6 +46,9 @@
 
   $$('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; });
 
+  // One language: no switch (see window.LANGUAGES in copy.js).
+  $('.lang').hidden = (window.LANGUAGES || ['en', 'fil']).length < 2;
+
   // Project heroes stay stacked; only the current one shows.
   $('#pjHeroes').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].hero).map((id) => {
     const h = PROJECTS[id].hero;

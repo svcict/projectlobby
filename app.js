@@ -30,7 +30,7 @@
       'chevron-blue-32': chevron(32, '#0322B1'),
       'back': back(28, '#FFFFFF'),
       'back-blue-32': back(32, '#0322B1'),
-      'grid': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><rect x="3" y="3" width="7" height="7" rx="1" fill="#041F3F"/><rect x="14" y="3" width="7" height="7" rx="1" fill="#041F3F"/><rect x="3" y="14" width="7" height="7" rx="1" fill="#041F3F"/><rect x="14" y="14" width="7" height="7" rx="1" fill="#041F3F"/></svg>',
+      'grid': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><rect x="3" y="3" width="7" height="7" rx="1" fill="#FFFFFF"/><rect x="14" y="3" width="7" height="7" rx="1" fill="#FFFFFF"/><rect x="3" y="14" width="7" height="7" rx="1" fill="#FFFFFF"/><rect x="14" y="14" width="7" height="7" rx="1" fill="#FFFFFF"/></svg>',
       'info': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block"><circle cx="12" cy="12" r="9.5" stroke="#FFFFFF" stroke-width="2.5"/><path d="M12 11v6M12 7.5v.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/></svg>',
       'check-blue': check('#0322B1'),
       'check-orange': check('#F0781E')
@@ -58,7 +58,10 @@
 
   $$('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; el.style.display = 'flex'; el.style.flex = 'none'; });
 
+  // One language: no switch (see window.LANGUAGES in copy.js).
+  const MULTI_LANG = (window.LANGUAGES || ['en', 'fil']).length > 1;
   $$('[data-lang-switch]').forEach((el) => {
+    el.hidden = !MULTI_LANG;
     el.setAttribute('role', 'radiogroup');
     el.setAttribute('aria-label', 'Language');
     el.innerHTML =

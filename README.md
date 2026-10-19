@@ -13,6 +13,8 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 - Each screen has its own address, so the phone's back button works: `#pillars`, `#arts`, `#leadership`, `#bigbets`, `#community`, and `#program/<id>` (e.g. `#program/museum`). Older `#programs` and `#project/<id>` links still work
 - Phones that open `index.html` are sent here automatically
 
+**Language:** English only for now. The English/Filipino switch is hidden on both pages, but the Filipino text is still in `copy.js` and `programs.js`. To turn the switch back on, change `window.LANGUAGES = ['en']` to `['en', 'fil']` in `copy.js`.
+
 **Shared**
 
 - `copy.js`: English and Filipino interface text (buttons, headings, pillar pages)
