@@ -556,6 +556,12 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-stats--many .pj-stat__icon { width: 56px; height: 56px; }
 .pj-stats--many .pj-stat__value { margin-top: 4px; font-size: 56px; }
 .pj-stats--many .pj-stat__label { font-size: 21px; }
+/* Last row fills the width: a third figure in the 2x2 spans both columns;
+   with five, the bottom two share the row (six-column grid, 2+2+2 / 3+3). */
+.pj-stats--compact > .pj-stat:last-child:nth-child(3) { grid-column: 1 / -1; }
+.pj-stats--many:has(> .pj-stat:nth-child(5):last-child) { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.pj-stats--many:has(> .pj-stat:nth-child(5):last-child) > .pj-stat { grid-column: span 2; }
+.pj-stats--many:has(> .pj-stat:nth-child(5):last-child) > .pj-stat:nth-child(n+4) { grid-column: span 3; }
 
 .pj-list { display: flex; flex-direction: column; }
 .pj-list__intro { margin: 0 0 16px; font-size: 22px; font-weight: 600; line-height: 1.4; color: var(--blue); text-wrap: pretty; }
