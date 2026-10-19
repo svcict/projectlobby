@@ -2,6 +2,8 @@
 // Each program belongs to a pillar: 'arts' | 'leadership' | 'bigbets' | 'community'.
 // Add a program: give it a pillar, a title, a hero image, and en/fil content.
 // Entries without en/fil show in their pillar's list but don't open yet.
+// Tab order: impact first, then how the program works, then specifics or the
+// ask (packages) last.
 // Section types (each becomes a tab on the kiosk): 'features' | 'results' | 'stats' | 'packages' | 'list' | 'about'.
 //   features: heading, sub and/or highlight, and items with an icon, title and body.
 //     Four or more items sit in two columns on the kiosk.
@@ -30,34 +32,6 @@ window.KIOSK_PROGRAMS = {
         "At a time when narratives shape perspectives, Ayala Museum creates space to reflect on our past, celebrate Filipino creativity, and imagine our collective future. In doing so, it nurtures pride, curiosity, and a stronger sense of shared identity that enriches national life."
       ],
       "sections": [
-        {
-          "tab": "What we do",
-          "type": "features",
-          "heading": "Bringing Philippine heritage to life",
-          "sub": "Ayala Museum combines scholarship, design, and public engagement to make art and history accessible, meaningful, and transformative.",
-          "items": [
-            {
-              "icon": "gem",
-              "title": "Curation & Collection Stewardship",
-              "body": "Preserving and presenting fine arts, archaeological artifacts, ethnographic materials, numismatics, and historical archives."
-            },
-            {
-              "icon": "image",
-              "title": "Immersive Exhibitions",
-              "body": "Constantly adapting to changing cultural landscapes through innovative exhibition design and interactive onsite displays."
-            },
-            {
-              "icon": "pres",
-              "title": "Education & Public Programs",
-              "body": "Offering guided tours, lectures, workshops, and digital content that deepen cultural literacy. The museum's Discovery Tours public school program provides hundreds of underprivileged students grades 4–6 with access to the museum's galleries, including hands-on learning activities and learning kits for them to take home."
-            },
-            {
-              "icon": "users",
-              "title": "Access and Community Outreach",
-              "body": "Expanding reach through school partnerships, traveling exhibitions, public access initiatives, and inclusive programming."
-            }
-          ]
-        },
         {
           "tab": "Our impact",
           "type": "stats",
@@ -88,6 +62,34 @@ window.KIOSK_PROGRAMS = {
               "label": "Museum in Southeast Asia to be listed on the Bloomberg Connects platform"
             }
           ]
+        },
+        {
+          "tab": "What we do",
+          "type": "features",
+          "heading": "Bringing Philippine heritage to life",
+          "sub": "Ayala Museum combines scholarship, design, and public engagement to make art and history accessible, meaningful, and transformative.",
+          "items": [
+            {
+              "icon": "gem",
+              "title": "Curation & Collection Stewardship",
+              "body": "Preserving and presenting fine arts, archaeological artifacts, ethnographic materials, numismatics, and historical archives."
+            },
+            {
+              "icon": "image",
+              "title": "Immersive Exhibitions",
+              "body": "Constantly adapting to changing cultural landscapes through innovative exhibition design and interactive onsite displays."
+            },
+            {
+              "icon": "pres",
+              "title": "Education & Public Programs",
+              "body": "Offering guided tours, lectures, workshops, and digital content that deepen cultural literacy. The museum's Discovery Tours public school program provides hundreds of underprivileged students grades 4–6 with access to the museum's galleries, including hands-on learning activities and learning kits for them to take home."
+            },
+            {
+              "icon": "users",
+              "title": "Access and Community Outreach",
+              "body": "Expanding reach through school partnerships, traveling exhibitions, public access initiatives, and inclusive programming."
+            }
+          ]
         }
       ],
       "contact": {
@@ -113,34 +115,6 @@ window.KIOSK_PROGRAMS = {
         "Sa panahong hinuhubog ng mga salaysay ang ating pananaw, lumilikha ang Ayala Museum ng espasyo upang pagnilayan ang ating nakaraan, ipagdiwang ang pagkamalikhain ng Pilipino, at isipin ang ating sama-samang hinaharap. Sa ganitong paraan, pinalalago nito ang pagmamalaki, pagkamausisa, at mas matibay na pagkakakilanlang pinagsasaluhan na nagpapayaman sa buhay ng bansa."
       ],
       "sections": [
-        {
-          "tab": "Aming ginagawa",
-          "type": "features",
-          "heading": "Pagbibigay-buhay sa pamanang Pilipino",
-          "sub": "Pinagsasama ng Ayala Museum ang iskolarsip, disenyo, at pakikipag-ugnayan sa publiko upang gawing abot-kaya, makabuluhan, at makapagpabago ang sining at kasaysayan.",
-          "items": [
-            {
-              "icon": "gem",
-              "title": "Curation & Collection Stewardship",
-              "body": "Pangangalaga at paglalahad ng fine arts, mga artifact na arkeolohikal, mga materyales na etnograpiko, numismatics, at mga arkibong pangkasaysayan."
-            },
-            {
-              "icon": "image",
-              "title": "Immersive Exhibitions",
-              "body": "Patuloy na umaangkop sa nagbabagong kultura sa pamamagitan ng makabagong disenyo ng eksibisyon at mga interactive na display sa museo."
-            },
-            {
-              "icon": "pres",
-              "title": "Education & Public Programs",
-              "body": "Nag-aalok ng guided tour, lektyur, workshop, at digital na nilalaman na nagpapalalim sa literasiyang pangkultura. Sa Discovery Tours public school program ng museo, daan-daang kapus-palad na mag-aaral sa Grade 4–6 ang nakapapasok sa mga gallery, kasama ang mga aktibidad sa pagkatuto at learning kit na maiuuwi nila."
-            },
-            {
-              "icon": "users",
-              "title": "Access and Community Outreach",
-              "body": "Pinalalawak ang abot sa pamamagitan ng pakikipagtulungan sa mga paaralan, mga naglalakbay na eksibisyon, mga inisyatiba para sa access ng publiko, at inklusibong programa."
-            }
-          ]
-        },
         {
           "tab": "Aming epekto",
           "type": "stats",
@@ -169,6 +143,34 @@ window.KIOSK_PROGRAMS = {
               "icon": "lap",
               "value": "1st",
               "label": "museo sa Timog-Silangang Asya na nakalista sa Bloomberg Connects platform"
+            }
+          ]
+        },
+        {
+          "tab": "Aming ginagawa",
+          "type": "features",
+          "heading": "Pagbibigay-buhay sa pamanang Pilipino",
+          "sub": "Pinagsasama ng Ayala Museum ang iskolarsip, disenyo, at pakikipag-ugnayan sa publiko upang gawing abot-kaya, makabuluhan, at makapagpabago ang sining at kasaysayan.",
+          "items": [
+            {
+              "icon": "gem",
+              "title": "Curation & Collection Stewardship",
+              "body": "Pangangalaga at paglalahad ng fine arts, mga artifact na arkeolohikal, mga materyales na etnograpiko, numismatics, at mga arkibong pangkasaysayan."
+            },
+            {
+              "icon": "image",
+              "title": "Immersive Exhibitions",
+              "body": "Patuloy na umaangkop sa nagbabagong kultura sa pamamagitan ng makabagong disenyo ng eksibisyon at mga interactive na display sa museo."
+            },
+            {
+              "icon": "pres",
+              "title": "Education & Public Programs",
+              "body": "Nag-aalok ng guided tour, lektyur, workshop, at digital na nilalaman na nagpapalalim sa literasiyang pangkultura. Sa Discovery Tours public school program ng museo, daan-daang kapus-palad na mag-aaral sa Grade 4–6 ang nakapapasok sa mga gallery, kasama ang mga aktibidad sa pagkatuto at learning kit na maiuuwi nila."
+            },
+            {
+              "icon": "users",
+              "title": "Access and Community Outreach",
+              "body": "Pinalalawak ang abot sa pamamagitan ng pakikipagtulungan sa mga paaralan, mga naglalakbay na eksibisyon, mga inisyatiba para sa access ng publiko, at inklusibong programa."
             }
           ]
         }
@@ -206,47 +208,6 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
-          "tab": "Our collections",
-          "type": "list",
-          "heading": "Creating access to Philippine memory",
-          "sub": "As a memory keeper and advocate of Philippine history and culture, FHL bridges preservation, research, and public engagement—bringing the Filipino story to life.",
-          "intro": "FHL houses rare and contemporary materials on Philippine art, history, and culture, including:",
-          "items": [
-            "The Roderick Hall Collection (World War II materials)",
-            "The Himig Collection (vintage to modern music recordings)",
-            "The Retrato Photo Archive (vintage photographs)",
-            "The Elpidio R. Quirino Presidential Papers",
-            "The Manuel L. Quezon Family Collection",
-            "Books, periodicals, maps, and multimedia collections"
-          ]
-        },
-        {
-          "tab": "What we do",
-          "type": "features",
-          "items": [
-            {
-              "icon": "book",
-              "title": "Collection Management & Preservation",
-              "body": "Nurturing Filipino stories in print, audio, and visual forms, honoring traditional media alongside emerging Filipiniana from new media and pop culture."
-            },
-            {
-              "icon": "lap",
-              "title": "Digitization & Online Access",
-              "body": "Converting fragile analog materials into digital formats and making them available through electronic platforms to expand global access."
-            },
-            {
-              "icon": "users",
-              "title": "Library & Research Services",
-              "body": "Providing onsite space and expert reference support for students, educators, and scholars."
-            },
-            {
-              "icon": "pres",
-              "title": "Curation & Public Programming",
-              "body": "Activating collections through lectures, performances, podcasts, playlists, and digital engagement that deepen appreciation for Philippine culture."
-            }
-          ]
-        },
-        {
           "tab": "Our impact",
           "type": "stats",
           "stats": [
@@ -276,6 +237,47 @@ window.KIOSK_PROGRAMS = {
               "label": "Total attendance across three Roderick Hall memorial lectures"
             }
           ]
+        },
+        {
+          "tab": "What we do",
+          "type": "features",
+          "items": [
+            {
+              "icon": "book",
+              "title": "Collection Management & Preservation",
+              "body": "Nurturing Filipino stories in print, audio, and visual forms, honoring traditional media alongside emerging Filipiniana from new media and pop culture."
+            },
+            {
+              "icon": "lap",
+              "title": "Digitization & Online Access",
+              "body": "Converting fragile analog materials into digital formats and making them available through electronic platforms to expand global access."
+            },
+            {
+              "icon": "users",
+              "title": "Library & Research Services",
+              "body": "Providing onsite space and expert reference support for students, educators, and scholars."
+            },
+            {
+              "icon": "pres",
+              "title": "Curation & Public Programming",
+              "body": "Activating collections through lectures, performances, podcasts, playlists, and digital engagement that deepen appreciation for Philippine culture."
+            }
+          ]
+        },
+        {
+          "tab": "Our collections",
+          "type": "list",
+          "heading": "Creating access to Philippine memory",
+          "sub": "As a memory keeper and advocate of Philippine history and culture, FHL bridges preservation, research, and public engagement—bringing the Filipino story to life.",
+          "intro": "FHL houses rare and contemporary materials on Philippine art, history, and culture, including:",
+          "items": [
+            "The Roderick Hall Collection (World War II materials)",
+            "The Himig Collection (vintage to modern music recordings)",
+            "The Retrato Photo Archive (vintage photographs)",
+            "The Elpidio R. Quirino Presidential Papers",
+            "The Manuel L. Quezon Family Collection",
+            "Books, periodicals, maps, and multimedia collections"
+          ]
         }
       ],
       "contact": {
@@ -301,47 +303,6 @@ window.KIOSK_PROGRAMS = {
         "Ang pangangalaga at pag-digitize sa mga materyales na ito ay tumitiyak na magkakaroon ang mga susunod na henerasyon ng maaasahan at batay-sa-ebidensyang sanggunian na nagpapalalim sa pag-unawa sa pagkakakilanlang Pilipino."
       ],
       "sections": [
-        {
-          "tab": "Mga koleksyon",
-          "type": "list",
-          "heading": "Pagbubukas ng access sa alaala ng Pilipinas",
-          "sub": "Bilang tagapag-ingat ng alaala at tagapagtaguyod ng kasaysayan at kultura ng Pilipinas, pinag-uugnay ng FHL ang pangangalaga, pananaliksik, at pakikipag-ugnayan sa publiko upang bigyang-buhay ang kuwentong Pilipino.",
-          "intro": "Nasa FHL ang mga bihira at kontemporaryong materyales tungkol sa sining, kasaysayan, at kultura ng Pilipinas, kabilang ang:",
-          "items": [
-            "Ang Roderick Hall Collection (mga materyales mula sa Ikalawang Digmaang Pandaigdig)",
-            "Ang Himig Collection (mga rekording ng musika, mula vintage hanggang moderno)",
-            "Ang Retrato Photo Archive (mga lumang larawan)",
-            "Ang Elpidio R. Quirino Presidential Papers",
-            "Ang Manuel L. Quezon Family Collection",
-            "Mga aklat, peryodiko, mapa, at multimedia na koleksyon"
-          ]
-        },
-        {
-          "tab": "Aming ginagawa",
-          "type": "features",
-          "items": [
-            {
-              "icon": "book",
-              "title": "Collection Management & Preservation",
-              "body": "Pag-aalaga sa mga kuwentong Pilipino sa limbag, audio, at biswal na anyo, na pinahahalagahan ang tradisyonal na media kasabay ng umuusbong na Filipiniana mula sa bagong media at pop culture."
-            },
-            {
-              "icon": "lap",
-              "title": "Digitization & Online Access",
-              "body": "Pag-convert ng mga marupok na analog na materyales sa digital na anyo at paglalagay nito sa mga electronic platform upang mapalawak ang access sa buong mundo."
-            },
-            {
-              "icon": "users",
-              "title": "Library & Research Services",
-              "body": "Pagbibigay ng espasyo at dalubhasang suporta sa sanggunian para sa mga mag-aaral, guro, at iskolar."
-            },
-            {
-              "icon": "pres",
-              "title": "Curation & Public Programming",
-              "body": "Pagbibigay-buhay sa mga koleksyon sa pamamagitan ng mga lektyur, pagtatanghal, podcast, playlist, at digital na pakikipag-ugnayan na nagpapalalim sa pagpapahalaga sa kultura ng Pilipinas."
-            }
-          ]
-        },
         {
           "tab": "Aming epekto",
           "type": "stats",
@@ -371,6 +332,47 @@ window.KIOSK_PROGRAMS = {
               "value": "316",
               "label": "kabuuang dumalo sa tatlong Roderick Hall memorial lecture"
             }
+          ]
+        },
+        {
+          "tab": "Aming ginagawa",
+          "type": "features",
+          "items": [
+            {
+              "icon": "book",
+              "title": "Collection Management & Preservation",
+              "body": "Pag-aalaga sa mga kuwentong Pilipino sa limbag, audio, at biswal na anyo, na pinahahalagahan ang tradisyonal na media kasabay ng umuusbong na Filipiniana mula sa bagong media at pop culture."
+            },
+            {
+              "icon": "lap",
+              "title": "Digitization & Online Access",
+              "body": "Pag-convert ng mga marupok na analog na materyales sa digital na anyo at paglalagay nito sa mga electronic platform upang mapalawak ang access sa buong mundo."
+            },
+            {
+              "icon": "users",
+              "title": "Library & Research Services",
+              "body": "Pagbibigay ng espasyo at dalubhasang suporta sa sanggunian para sa mga mag-aaral, guro, at iskolar."
+            },
+            {
+              "icon": "pres",
+              "title": "Curation & Public Programming",
+              "body": "Pagbibigay-buhay sa mga koleksyon sa pamamagitan ng mga lektyur, pagtatanghal, podcast, playlist, at digital na pakikipag-ugnayan na nagpapalalim sa pagpapahalaga sa kultura ng Pilipinas."
+            }
+          ]
+        },
+        {
+          "tab": "Mga koleksyon",
+          "type": "list",
+          "heading": "Pagbubukas ng access sa alaala ng Pilipinas",
+          "sub": "Bilang tagapag-ingat ng alaala at tagapagtaguyod ng kasaysayan at kultura ng Pilipinas, pinag-uugnay ng FHL ang pangangalaga, pananaliksik, at pakikipag-ugnayan sa publiko upang bigyang-buhay ang kuwentong Pilipino.",
+          "intro": "Nasa FHL ang mga bihira at kontemporaryong materyales tungkol sa sining, kasaysayan, at kultura ng Pilipinas, kabilang ang:",
+          "items": [
+            "Ang Roderick Hall Collection (mga materyales mula sa Ikalawang Digmaang Pandaigdig)",
+            "Ang Himig Collection (mga rekording ng musika, mula vintage hanggang moderno)",
+            "Ang Retrato Photo Archive (mga lumang larawan)",
+            "Ang Elpidio R. Quirino Presidential Papers",
+            "Ang Manuel L. Quezon Family Collection",
+            "Mga aklat, peryodiko, mapa, at multimedia na koleksyon"
           ]
         }
       ],
@@ -406,6 +408,28 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
+          "tab": "Pilot results",
+          "type": "results",
+          "label": "Results from our pilot",
+          "location": "San Marcelino, Zambales",
+          "stat": {
+            "value": "78%",
+            "text": "were struggling to meet grade-level competency in math",
+            "note": "Based on a local assessment"
+          },
+          "callout": "With Digital Education, compelling results show students doubled their math scores in just ~12 weeks.",
+          "chart": "centexDE",
+          "legend": [
+            "Pre mathematics score (%)",
+            "Post mathematics score (%)"
+          ],
+          "axis": [
+            "Control",
+            "Treatment"
+          ],
+          "highlight": "9 treatment schools outperformed control schools by 13.8 percentage points"
+        },
+        {
           "tab": "Our approach",
           "type": "features",
           "heading": "Creating a thriving learning community",
@@ -427,28 +451,6 @@ window.KIOSK_PROGRAMS = {
               "body": "Each teacher engages parents, community members, and peers to extend learning beyond the classroom."
             }
           ]
-        },
-        {
-          "tab": "Pilot results",
-          "type": "results",
-          "label": "Results from our pilot",
-          "location": "San Marcelino, Zambales",
-          "stat": {
-            "value": "78%",
-            "text": "were struggling to meet grade-level competency in math",
-            "note": "Based on a local assessment"
-          },
-          "callout": "With Digital Education, compelling results show students doubled their math scores in just ~12 weeks.",
-          "chart": "centexDE",
-          "legend": [
-            "Pre mathematics score (%)",
-            "Post mathematics score (%)"
-          ],
-          "axis": [
-            "Control",
-            "Treatment"
-          ],
-          "highlight": "9 treatment schools outperformed control schools by 13.8 percentage points"
         },
         {
           "tab": "Packages",
@@ -503,6 +505,28 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
+          "tab": "Resulta ng pilot",
+          "type": "results",
+          "label": "Resulta ng aming pilot",
+          "location": "San Marcelino, Zambales",
+          "stat": {
+            "value": "78%",
+            "text": "ang nahihirapang maabot ang inaasahang kakayahan sa math para sa kanilang baitang",
+            "note": "Batay sa lokal na assessment"
+          },
+          "callout": "Sa Digital Education, dumoble ang iskor ng mga mag-aaral sa math sa loob lamang ng ~12 linggo.",
+          "chart": "centexDE",
+          "legend": [
+            "Iskor sa math bago (%)",
+            "Iskor sa math pagkatapos (%)"
+          ],
+          "axis": [
+            "Control",
+            "Treatment"
+          ],
+          "highlight": "Nalampasan ng 9 na treatment school ang mga control school nang 13.8 percentage points"
+        },
+        {
           "tab": "Aming paraan",
           "type": "features",
           "heading": "Pagbuo ng masiglang komunidad ng pagkatuto",
@@ -524,28 +548,6 @@ window.KIOSK_PROGRAMS = {
               "body": "Hinihikayat ng bawat guro ang mga magulang, komunidad, at kapwa guro na palawigin ang pagkatuto lampas sa silid-aralan."
             }
           ]
-        },
-        {
-          "tab": "Resulta ng pilot",
-          "type": "results",
-          "label": "Resulta ng aming pilot",
-          "location": "San Marcelino, Zambales",
-          "stat": {
-            "value": "78%",
-            "text": "ang nahihirapang maabot ang inaasahang kakayahan sa math para sa kanilang baitang",
-            "note": "Batay sa lokal na assessment"
-          },
-          "callout": "Sa Digital Education, dumoble ang iskor ng mga mag-aaral sa math sa loob lamang ng ~12 linggo.",
-          "chart": "centexDE",
-          "legend": [
-            "Iskor sa math bago (%)",
-            "Iskor sa math pagkatapos (%)"
-          ],
-          "axis": [
-            "Control",
-            "Treatment"
-          ],
-          "highlight": "Nalampasan ng 9 na treatment school ang mga control school nang 13.8 percentage points"
         },
         {
           "tab": "Mga package",
@@ -610,34 +612,6 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
-          "tab": "Our approach",
-          "type": "features",
-          "heading": "Building strong foundations for learning",
-          "sub": "Improving instructional quality, strengthening home-school collaboration, and aligning early grade systems to support long-term academic success.",
-          "items": [
-            {
-              "icon": "pres",
-              "title": "Teacher and CDW Training",
-              "body": "Teacher training, mentoring, and professional learning communities that bring together Child Development Workers (CDWs) and Kindergarten teachers within the same barangays — ensuring consistent, high-quality instruction."
-            },
-            {
-              "icon": "book",
-              "title": "Learning Resources",
-              "body": "Access to resources to strengthen children's literacy, numeracy, and socio-emotional skills, while promoting student participation and learning engagement through hands-on play-based learning."
-            },
-            {
-              "icon": "heart",
-              "title": "Parent and Family Engagement",
-              "body": "Advocacy and parenting sessions that equip families to support learning at home and foster positive parent-child relationships."
-            },
-            {
-              "icon": "hand",
-              "title": "Alignment with Community Efforts",
-              "body": "Partnering with Local Government Units, DepEd/MBHTE, Municipal and City Social Welfare Development Offices, and Higher Education Institutions to promote coordination, community ownership, and long-term sustainability."
-            }
-          ]
-        },
-        {
           "tab": "Our impact",
           "type": "stats",
           "label": "Our impact",
@@ -662,6 +636,34 @@ window.KIOSK_PROGRAMS = {
               "icon": "pres",
               "value": "36",
               "label": "child development workers, kindergarten teachers, and school heads mentored"
+            }
+          ]
+        },
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Building strong foundations for learning",
+          "sub": "Improving instructional quality, strengthening home-school collaboration, and aligning early grade systems to support long-term academic success.",
+          "items": [
+            {
+              "icon": "pres",
+              "title": "Teacher and CDW Training",
+              "body": "Teacher training, mentoring, and professional learning communities that bring together Child Development Workers (CDWs) and Kindergarten teachers within the same barangays — ensuring consistent, high-quality instruction."
+            },
+            {
+              "icon": "book",
+              "title": "Learning Resources",
+              "body": "Access to resources to strengthen children's literacy, numeracy, and socio-emotional skills, while promoting student participation and learning engagement through hands-on play-based learning."
+            },
+            {
+              "icon": "heart",
+              "title": "Parent and Family Engagement",
+              "body": "Advocacy and parenting sessions that equip families to support learning at home and foster positive parent-child relationships."
+            },
+            {
+              "icon": "hand",
+              "title": "Alignment with Community Efforts",
+              "body": "Partnering with Local Government Units, DepEd/MBHTE, Municipal and City Social Welfare Development Offices, and Higher Education Institutions to promote coordination, community ownership, and long-term sustainability."
             }
           ]
         },
@@ -707,34 +709,6 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
-          "tab": "Aming paraan",
-          "type": "features",
-          "heading": "Pagbuo ng matibay na pundasyon sa pagkatuto",
-          "sub": "Pagpapahusay sa kalidad ng pagtuturo, pagpapatibay sa ugnayan ng tahanan at paaralan, at pag-aayon ng mga sistema sa maagang baitang para sa pangmatagalang tagumpay sa pag-aaral.",
-          "items": [
-            {
-              "icon": "pres",
-              "title": "Pagsasanay ng Guro at CDW",
-              "body": "Pagsasanay, mentoring, at professional learning communities na pinagsasama ang mga Child Development Worker (CDW) at mga guro sa Kindergarten sa iisang barangay, para sa tuloy-tuloy at de-kalidad na pagtuturo."
-            },
-            {
-              "icon": "book",
-              "title": "Mga Learning Resource",
-              "body": "Mga kagamitang nagpapalakas sa pagbasa, pagbilang, at socio-emotional na kakayahan ng mga bata, habang hinihikayat ang kanilang pakikilahok sa pamamagitan ng aktibong pagkatuto sa paglalaro."
-            },
-            {
-              "icon": "heart",
-              "title": "Pakikilahok ng Magulang at Pamilya",
-              "body": "Mga sesyon sa adbokasiya at pagpapamagulang na tumutulong sa mga pamilya na suportahan ang pagkatuto sa tahanan at palakasin ang mabuting ugnayan ng magulang at anak."
-            },
-            {
-              "icon": "hand",
-              "title": "Pakikiisa sa Pagsisikap ng Komunidad",
-              "body": "Pakikipagtulungan sa mga Local Government Unit, DepEd/MBHTE, Municipal at City Social Welfare Development Office, at mga Higher Education Institution para sa koordinasyon, pagmamay-ari ng komunidad, at pangmatagalang pagpapatuloy."
-            }
-          ]
-        },
-        {
           "tab": "Aming epekto",
           "type": "stats",
           "label": "Aming epekto",
@@ -759,6 +733,34 @@ window.KIOSK_PROGRAMS = {
               "icon": "pres",
               "value": "36",
               "label": "child development worker, guro sa kindergarten, at school head ang na-mentor"
+            }
+          ]
+        },
+        {
+          "tab": "Aming paraan",
+          "type": "features",
+          "heading": "Pagbuo ng matibay na pundasyon sa pagkatuto",
+          "sub": "Pagpapahusay sa kalidad ng pagtuturo, pagpapatibay sa ugnayan ng tahanan at paaralan, at pag-aayon ng mga sistema sa maagang baitang para sa pangmatagalang tagumpay sa pag-aaral.",
+          "items": [
+            {
+              "icon": "pres",
+              "title": "Pagsasanay ng Guro at CDW",
+              "body": "Pagsasanay, mentoring, at professional learning communities na pinagsasama ang mga Child Development Worker (CDW) at mga guro sa Kindergarten sa iisang barangay, para sa tuloy-tuloy at de-kalidad na pagtuturo."
+            },
+            {
+              "icon": "book",
+              "title": "Mga Learning Resource",
+              "body": "Mga kagamitang nagpapalakas sa pagbasa, pagbilang, at socio-emotional na kakayahan ng mga bata, habang hinihikayat ang kanilang pakikilahok sa pamamagitan ng aktibong pagkatuto sa paglalaro."
+            },
+            {
+              "icon": "heart",
+              "title": "Pakikilahok ng Magulang at Pamilya",
+              "body": "Mga sesyon sa adbokasiya at pagpapamagulang na tumutulong sa mga pamilya na suportahan ang pagkatuto sa tahanan at palakasin ang mabuting ugnayan ng magulang at anak."
+            },
+            {
+              "icon": "hand",
+              "title": "Pakikiisa sa Pagsisikap ng Komunidad",
+              "body": "Pakikipagtulungan sa mga Local Government Unit, DepEd/MBHTE, Municipal at City Social Welfare Development Office, at mga Higher Education Institution para sa koordinasyon, pagmamay-ari ng komunidad, at pangmatagalang pagpapatuloy."
             }
           ]
         },
@@ -812,6 +814,35 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
+          "tab": "Our impact",
+          "type": "stats",
+          "label": "Our impact",
+          "location": "El Nido, Palawan",
+          "sub": "The El Nido Community Development program leverages the support of Ayala Business Units involved since 2013, while actively expanding partnerships to advance its mission of poverty alleviation in El Nido communities.",
+          "stats": [
+            {
+              "icon": "briefcase",
+              "value": "16.78%",
+              "label": "increase in household monthly income of beneficiaries"
+            },
+            {
+              "icon": "pres",
+              "value": "98%",
+              "label": "advancement rate (employment, further studies or entrepreneurial activity)"
+            },
+            {
+              "icon": "stethoscope",
+              "value": "9,396",
+              "label": "first patient encounters and first patient consultations facilitated"
+            },
+            {
+              "icon": "sun",
+              "value": "1,620",
+              "label": "households provided with solar home systems"
+            }
+          ]
+        },
+        {
           "tab": "Our approach",
           "type": "features",
           "heading": "Creating a thriving community ecosystem",
@@ -859,35 +890,6 @@ window.KIOSK_PROGRAMS = {
               "body": "Providing solar home systems and community support centers to expand reliable, affordable electricity in underserved sitios."
             }
           ]
-        },
-        {
-          "tab": "Our impact",
-          "type": "stats",
-          "label": "Our impact",
-          "location": "El Nido, Palawan",
-          "sub": "The El Nido Community Development program leverages the support of Ayala Business Units involved since 2013, while actively expanding partnerships to advance its mission of poverty alleviation in El Nido communities.",
-          "stats": [
-            {
-              "icon": "briefcase",
-              "value": "16.78%",
-              "label": "increase in household monthly income of beneficiaries"
-            },
-            {
-              "icon": "pres",
-              "value": "98%",
-              "label": "advancement rate (employment, further studies or entrepreneurial activity)"
-            },
-            {
-              "icon": "stethoscope",
-              "value": "9,396",
-              "label": "first patient encounters and first patient consultations facilitated"
-            },
-            {
-              "icon": "sun",
-              "value": "1,620",
-              "label": "households provided with solar home systems"
-            }
-          ]
         }
       ],
       "contact": {
@@ -912,6 +914,35 @@ window.KIOSK_PROGRAMS = {
         "Sa pamamagitan ng aming pinagsama-samang paraan, layunin naming matulungan ang mga pamilya na magkaroon ng mas matatag at pangmatagalang kabuhayan pagsapit ng 2028."
       ],
       "sections": [
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "label": "Aming epekto",
+          "location": "El Nido, Palawan",
+          "sub": "Ginagamit ng El Nido Community Development program ang suporta ng mga Ayala Business Unit na kasangkot mula pa noong 2013, habang aktibong pinalalawak ang mga pakikipagtulungan upang isulong ang misyon nitong labanan ang kahirapan sa mga komunidad ng El Nido.",
+          "stats": [
+            {
+              "icon": "briefcase",
+              "value": "16.78%",
+              "label": "pagtaas sa buwanang kita ng sambahayan ng mga benepisyaryo"
+            },
+            {
+              "icon": "pres",
+              "value": "98%",
+              "label": "advancement rate (trabaho, karagdagang pag-aaral o pagnenegosyo)"
+            },
+            {
+              "icon": "stethoscope",
+              "value": "9,396",
+              "label": "unang patient encounter at unang konsultasyon na naisagawa"
+            },
+            {
+              "icon": "sun",
+              "value": "1,620",
+              "label": "sambahayang nabigyan ng solar home system"
+            }
+          ]
+        },
         {
           "tab": "Aming paraan",
           "type": "features",
@@ -960,35 +991,6 @@ window.KIOSK_PROGRAMS = {
               "body": "Pagbibigay ng solar home system at mga community support center upang mapalawak ang maaasahan at abot-kayang kuryente sa mga sitiong kulang sa serbisyo."
             }
           ]
-        },
-        {
-          "tab": "Aming epekto",
-          "type": "stats",
-          "label": "Aming epekto",
-          "location": "El Nido, Palawan",
-          "sub": "Ginagamit ng El Nido Community Development program ang suporta ng mga Ayala Business Unit na kasangkot mula pa noong 2013, habang aktibong pinalalawak ang mga pakikipagtulungan upang isulong ang misyon nitong labanan ang kahirapan sa mga komunidad ng El Nido.",
-          "stats": [
-            {
-              "icon": "briefcase",
-              "value": "16.78%",
-              "label": "pagtaas sa buwanang kita ng sambahayan ng mga benepisyaryo"
-            },
-            {
-              "icon": "pres",
-              "value": "98%",
-              "label": "advancement rate (trabaho, karagdagang pag-aaral o pagnenegosyo)"
-            },
-            {
-              "icon": "stethoscope",
-              "value": "9,396",
-              "label": "unang patient encounter at unang konsultasyon na naisagawa"
-            },
-            {
-              "icon": "sun",
-              "value": "1,620",
-              "label": "sambahayang nabigyan ng solar home system"
-            }
-          ]
         }
       ],
       "contact": {
@@ -1023,6 +1025,27 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
+          "tab": "Our impact",
+          "type": "stats",
+          "stats": [
+            {
+              "icon": "pres",
+              "value": "1,082",
+              "label": "U-GO scholarships awarded nationwide since 2023"
+            },
+            {
+              "icon": "smile",
+              "value": "98%",
+              "label": "Advancement rate among scholars"
+            }
+          ],
+          "quote": {
+            "text": "My dream is to finish college and become a teacher who can guide and inspire children, especially those from humble beginnings like mine. Every Saturday, my classmates and I teach kids in our village how to read, write, and count.\n\nSharing what I've learned brings me joy and purpose. I may have grown up in hardship, but I carry big dreams — to teach, guide, and uplift others through education.",
+            "by": "Daijane, 2025 U-GO Scholar",
+            "photo": "assets/ugo-daijane.jpg"
+          }
+        },
+        {
           "tab": "Our approach",
           "type": "features",
           "heading": "Creating pathways for women's leadership",
@@ -1044,27 +1067,6 @@ window.KIOSK_PROGRAMS = {
               "body": "Nurturing scholars into a growing pipeline of skilled professionals and leaders inspired to build better futures for their families and communities"
             }
           ]
-        },
-        {
-          "tab": "Our impact",
-          "type": "stats",
-          "stats": [
-            {
-              "icon": "pres",
-              "value": "1,082",
-              "label": "U-GO scholarships awarded nationwide since 2023"
-            },
-            {
-              "icon": "smile",
-              "value": "98%",
-              "label": "Advancement rate among scholars"
-            }
-          ],
-          "quote": {
-            "text": "My dream is to finish college and become a teacher who can guide and inspire children, especially those from humble beginnings like mine. Every Saturday, my classmates and I teach kids in our village how to read, write, and count.\n\nSharing what I've learned brings me joy and purpose. I may have grown up in hardship, but I carry big dreams — to teach, guide, and uplift others through education.",
-            "by": "Daijane, 2025 U-GO Scholar",
-            "photo": "assets/ugo-daijane.jpg"
-          }
         },
         {
           "tab": "About U-GO",
@@ -1104,6 +1106,27 @@ window.KIOSK_PROGRAMS = {
       ],
       "sections": [
         {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "stats": [
+            {
+              "icon": "pres",
+              "value": "1,082",
+              "label": "U-GO scholarship na naigawad sa buong bansa mula 2023"
+            },
+            {
+              "icon": "smile",
+              "value": "98%",
+              "label": "advancement rate ng mga iskolar"
+            }
+          ],
+          "quote": {
+            "text": "Pangarap kong makatapos ng kolehiyo at maging gurong gagabay at magbibigay-inspirasyon sa mga bata, lalo na sa mga nagmula sa payak na pamumuhay tulad ko. Tuwing Sabado, nagtuturo kami ng aking mga kaklase sa mga bata sa aming baryo kung paano bumasa, sumulat, at bumilang.\n\nAng pagbabahagi ng aking natutunan ay nagbibigay sa akin ng saya at layunin. Maaaring lumaki ako sa hirap, ngunit may dala akong malalaking pangarap — ang magturo, gumabay, at mag-angat ng iba sa pamamagitan ng edukasyon.",
+            "by": "Daijane, 2025 U-GO Scholar",
+            "photo": "assets/ugo-daijane.jpg"
+          }
+        },
+        {
           "tab": "Aming paraan",
           "type": "features",
           "heading": "Paglikha ng daan para sa pamumuno ng kababaihan",
@@ -1125,27 +1148,6 @@ window.KIOSK_PROGRAMS = {
               "body": "Hinuhubog ang mga iskolar upang maging bahagi ng lumalaking hanay ng mahuhusay na propesyonal at lider na naghahangad ng mas magandang kinabukasan para sa kanilang pamilya at komunidad."
             }
           ]
-        },
-        {
-          "tab": "Aming epekto",
-          "type": "stats",
-          "stats": [
-            {
-              "icon": "pres",
-              "value": "1,082",
-              "label": "U-GO scholarship na naigawad sa buong bansa mula 2023"
-            },
-            {
-              "icon": "smile",
-              "value": "98%",
-              "label": "advancement rate ng mga iskolar"
-            }
-          ],
-          "quote": {
-            "text": "Pangarap kong makatapos ng kolehiyo at maging gurong gagabay at magbibigay-inspirasyon sa mga bata, lalo na sa mga nagmula sa payak na pamumuhay tulad ko. Tuwing Sabado, nagtuturo kami ng aking mga kaklase sa mga bata sa aming baryo kung paano bumasa, sumulat, at bumilang.\n\nAng pagbabahagi ng aking natutunan ay nagbibigay sa akin ng saya at layunin. Maaaring lumaki ako sa hirap, ngunit may dala akong malalaking pangarap — ang magturo, gumabay, at mag-angat ng iba sa pamamagitan ng edukasyon.",
-            "by": "Daijane, 2025 U-GO Scholar",
-            "photo": "assets/ugo-daijane.jpg"
-          }
         },
         {
           "tab": "Tungkol sa U-GO",
