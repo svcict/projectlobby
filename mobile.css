@@ -577,4 +577,6 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 }
 .pj-contact__title { grid-column: 2; font-size: 19px; font-weight: 700; color: var(--blue); }
 .pj-contact__lines { grid-column: 1 / -1; display: flex; flex-direction: column; }
+/* No title (pillar pages): the links sit beside the icon instead of under it. */
+.pj-contact:not(:has(.pj-contact__title)) .pj-contact__lines { grid-column: 2; }
 .pj-contact__link { font-size: 16px; font-weight: 600; min-height: 44px; display: flex; align-items: center; overflow-wrap: anywhere; }

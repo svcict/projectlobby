@@ -248,7 +248,6 @@ img { -webkit-user-drag: none; user-select: none; }
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.25fr);
   gap: 20px;
-  min-height: 216px;
 }
 /* The partner strip spans the space the Give and Partner boxes used to. */
 .join__partner { padding: 28px 32px; }
