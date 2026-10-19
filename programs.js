@@ -1001,7 +1001,7 @@ window.KIOSK_PROGRAMS = {
     "hero": {
       "id": "zambales-hero",
       "src": "assets/zambales-hero.jpg",
-      "pos": "50% 50%",
+      "pos": "50% 36%",
       "ph": "San Marcelino, Zambales photo"
     },
     "en": {
