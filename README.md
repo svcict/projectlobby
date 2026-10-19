@@ -80,4 +80,4 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 
 Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text so it can switch language.
 
-The Filipinas Heritage Library, El Nido, U-GO, Ayala Young Leaders and Iraya Mangyan heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. CENTEX Early Grades, Atletang Ayala and Corporate Citizenship and Volunteerism have no hero photo yet and show a labelled placeholder. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.
+The Filipinas Heritage Library, El Nido, U-GO, Ayala Young Leaders and Iraya Mangyan heroes are small crops from their flyers and will look soft on a large TV; replace them with the original photos. Every program now has a hero photo. A hero can set `pos` (CSS object-position) in `programs.js` to keep faces in frame when it is cropped. To set one, add the image to `assets/` and point the program's `hero.src` in `programs.js` at it.

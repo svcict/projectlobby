@@ -3,6 +3,7 @@
 // or 'support' (Corporate Citizenship and Volunteerism, opened from the
 // "Supported by" strip on the pillars screen rather than a pillar page).
 // Add a program: give it a pillar, a title, a hero image, and en/fil content.
+// A hero can set pos (CSS object-position, e.g. '50% 12%') to keep faces in frame when the photo is cropped.
 // body: intro paragraphs; an entry that is a list of strings shows as bullets.
 // Entries without en/fil show in their pillar's list but don't open yet.
 // Tab order: impact first, then how the program works, then specifics or the
@@ -632,7 +633,7 @@ window.KIOSK_PROGRAMS = {
     "title": "CENTEX Early Grades Program",
     "hero": {
       "id": "centex-eg-hero",
-      "src": "",
+      "src": "assets/centex-eg-hero.jpg",
       "ph": "CENTEX Early Grades photo"
     },
     "en": {
@@ -1190,6 +1191,7 @@ window.KIOSK_PROGRAMS = {
     "hero": {
       "id": "ayl-hero",
       "src": "assets/ayl-hero.jpg",
+      "pos": "50% 12%",
       "ph": "Ayala Young Leaders photo"
     },
     "en": {
@@ -1848,7 +1850,8 @@ window.KIOSK_PROGRAMS = {
     "title": "Corporate Citizenship and Volunteerism",
     "hero": {
       "id": "ccv-hero",
-      "src": "",
+      "src": "assets/ccv-hero.jpg",
+      "pos": "50% 10%",
       "ph": "Corporate Citizenship and Volunteerism photo"
     },
     "en": {

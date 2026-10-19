@@ -87,6 +87,7 @@
       img.draggable = false;
       img.decoding = 'async';
       img.onerror = showPlaceholder;
+      if (slot.dataset.pos) img.style.objectPosition = slot.dataset.pos;
       img.src = slot.dataset.src;
       slot.appendChild(img);
     });
@@ -95,7 +96,7 @@
   // Project heroes are stacked once and crossfaded, like the program heroes.
   $('#pjHeroes').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].hero).map((id) => {
     const h = PROJECTS[id].hero;
-    return `<div class="hero-layer" data-hero-project="${PV.esc(id)}"><div class="slot" data-src="${PV.esc(h.src)}" data-ph="${PV.esc(h.ph)}"></div></div>`;
+    return `<div class="hero-layer" data-hero-project="${PV.esc(id)}"><div class="slot" data-src="${PV.esc(h.src)}" data-ph="${PV.esc(h.ph)}"${h.pos ? ` data-pos="${PV.esc(h.pos)}"` : ''}></div></div>`;
   }).join('');
   loadSlots(document);
 

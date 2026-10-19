@@ -59,7 +59,7 @@
   // Project heroes stay stacked; only the current one shows.
   $('#pjHeroes').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].hero).map((id) => {
     const h = PROJECTS[id].hero;
-    return `<div class="slot m-hero__layer" data-hero-project="${PV.esc(id)}" data-src="${PV.esc(h.src)}" data-ph="${PV.esc(h.ph)}"></div>`;
+    return `<div class="slot m-hero__layer" data-hero-project="${PV.esc(id)}" data-src="${PV.esc(h.src)}" data-ph="${PV.esc(h.ph)}"${h.pos ? ` data-pos="${PV.esc(h.pos)}"` : ''}></div>`;
   }).join('');
 
   $$('.slot').forEach((slot) => {
@@ -70,6 +70,7 @@
     if (!slot.dataset.src) { showPlaceholder(); return; }
     const img = new Image();
     img.alt = '';
+    if (slot.dataset.pos) img.style.objectPosition = slot.dataset.pos;
     img.decoding = 'async';
     img.onerror = showPlaceholder;
     // The home slides are stacked, so lazy loading would fetch them all at
