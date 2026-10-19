@@ -47,7 +47,8 @@
   $$('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; });
 
   // One language: no switch (see window.LANGUAGES in copy.js).
-  $('.lang').hidden = (window.LANGUAGES || ['en', 'fil']).length < 2;
+  const oneLang = (window.LANGUAGES || ['en', 'fil']).length < 2;
+  $('.lang').hidden = oneLang;
 
   // Project heroes stay stacked; only the current one shows.
   $('#pjHeroes').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].hero).map((id) => {
@@ -100,6 +101,8 @@
     renderProject(t, route.project);
 
     $('#back').hidden = route.view === 'home';
+    // Home has no back button or title, so with one language the bar is empty.
+    $('.top').hidden = route.view === 'home' && oneLang;
     $('#barTitle').textContent = {
       home: '', programs: t.allTitle, program: pg.title,
       project: route.project ? PROJECTS[route.project].title : ''
