@@ -47,7 +47,7 @@
   function features(s, z) {
     const items = s.items || [];
     return `<div class="pj-pillars${items.length > 3 ? ' pj-pillars--grid' : ''}">
-      <h2 class="pj-h2">${esc(s.heading)}</h2>
+      ${s.heading ? `<h2 class="pj-h2">${esc(s.heading)}</h2>` : ''}
       ${s.sub ? `<p class="pj-sub">${esc(s.sub)}</p>` : ''}
       ${s.highlight ? `<div class="pj-highlight pj-highlight--lead">${esc(s.highlight)}</div>` : ''}
       <div class="pj-pillars__items">${items.map((it) => `<div class="pj-pillar">
@@ -68,7 +68,7 @@
       <div class="pj-stat__icon">${icon(st.icon, z.stat, '#041F3F')}</div>
       <div class="pj-stat__value">${esc(st.value)}</div>
       <div class="pj-stat__label">${esc(st.label)}</div>
-    </div>`).join('')}</div>${s.quote ? `<figure class="pj-quote"><blockquote>${esc(s.quote.text)}</blockquote>${s.quote.by ? `<figcaption>${esc(s.quote.by)}</figcaption>` : ''}</figure>` : ''}</div>`;
+    </div>`).join('')}</div>${s.quote ? quote(s.quote) : ''}</div>`;
   }
 
   function results(s, z) {
@@ -118,14 +118,36 @@
 
   function list(s) {
     return `<div class="pj-list">
-      <h2 class="pj-h2">${esc(s.heading)}</h2>
+      ${s.heading ? `<h2 class="pj-h2">${esc(s.heading)}</h2>` : ''}
       ${s.sub ? `<p class="pj-sub">${esc(s.sub)}</p>` : ''}
       ${s.intro ? `<p class="pj-list__intro">${esc(s.intro)}</p>` : ''}
       <ul class="pj-list__items">${(s.items || []).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
     </div>`;
   }
 
-  const RENDER = { features, stats, results, packages, list };
+  // A quote's text may hold several paragraphs, separated by a blank line.
+  function quote(q) {
+    const paras = String(q.text || '').split(/\n\s*\n/).map((t) => `<p>${esc(t.trim())}</p>`).join('');
+    return `<figure class="pj-quote${q.photo ? ' pj-quote--photo' : ''}">
+      <blockquote>${paras}</blockquote>
+      ${q.photo || q.by ? `<figcaption>${q.photo ? `<img class="pj-quote__photo" src="${esc(q.photo)}" alt="">` : ''}${q.by ? `<span>${esc(q.by)}</span>` : ''}</figcaption>` : ''}
+    </figure>`;
+  }
+
+  // A partner's logo beside paragraphs about them, with an optional heading
+  // and highlight above.
+  function about(s) {
+    return `<div class="pj-about">
+      ${s.heading ? `<h2 class="pj-h2">${esc(s.heading)}</h2>` : ''}
+      ${s.highlight ? `<div class="pj-highlight pj-highlight--lead">${esc(s.highlight)}</div>` : ''}
+      <div class="pj-about__row">
+        ${s.logo ? `<img class="pj-about__logo" src="${esc(s.logo.src)}" alt="${esc(s.logo.alt || '')}">` : ''}
+        <div class="pj-about__text">${(s.body || []).map((t) => `<p>${esc(t)}</p>`).join('')}</div>
+      </div>
+    </div>`;
+  }
+
+  const RENDER = { features, stats, results, packages, list, about };
 
   window.ProjectView = {
     esc,

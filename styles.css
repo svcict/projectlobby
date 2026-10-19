@@ -114,6 +114,14 @@ img { -webkit-user-drag: none; user-select: none; }
   gap: 24px;
 }
 .bar--end { justify-content: flex-end; }
+/* Pillar and program pages: the bar is white, continuing the page above. */
+.bar--light { background: #FFFFFF; }
+.bar--light .btn-ghost { color: var(--blue); box-shadow: inset 0 0 0 2px rgba(3, 34, 177, 0.35); }
+/* Our pillars: no bar colour of its own, the blue screen runs to the bottom. */
+.screen--programs .bar { background: transparent; }
+/* With one language the Home bar would be empty, so Home fills the screen. */
+.is-one-lang .screen--home { grid-template-rows: minmax(0, 1fr); }
+.is-one-lang .screen--home .bar { display: none; }
 .bar__side { flex: 1; display: flex; gap: 16px; }
 .bar__side--end { justify-content: flex-end; }
 
@@ -429,11 +437,23 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-stat__value { margin-top: 8px; font-size: 96px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
 .pj-stat__label { font-size: 25px; line-height: 1.35; text-wrap: pretty; }
 .pj-statblock { display: flex; flex-direction: column; gap: 20px; }
+/* Figures followed by a quote: slightly tighter cards so both fit the panel. */
+.pj-statblock:has(.pj-quote) .pj-stat { padding: 28px 32px; gap: 10px; }
+.pj-statblock:has(.pj-quote) .pj-stat__value { font-size: 80px; }
 .pj-quote { margin: 0; background: var(--tint); border-radius: 4px; padding: 24px 32px; display: flex; flex-direction: column; gap: 10px; }
 .pj-quote blockquote { margin: 0; font-size: 20px; line-height: 1.4; font-style: italic; color: var(--ink); text-wrap: pretty; }
-.pj-quote blockquote::before { content: '\201C'; }
-.pj-quote blockquote::after { content: '\201D'; }
-.pj-quote figcaption { font-size: 19px; font-weight: 600; color: var(--blue); }
+.pj-quote blockquote p { margin: 0; }
+.pj-quote blockquote p + p { margin-top: 10px; }
+.pj-quote blockquote p:first-child::before { content: '\201C'; }
+.pj-quote blockquote p:last-child::after { content: '\201D'; }
+.pj-quote figcaption { display: flex; align-items: center; gap: 14px; font-size: 19px; font-weight: 600; color: var(--blue); }
+.pj-quote__photo { width: 56px; height: 56px; flex: none; border-radius: 12px; object-fit: cover; }
+
+.pj-about { display: flex; flex-direction: column; }
+.pj-about__row { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; align-items: center; margin-top: 8px; }
+.pj-about__logo { width: 100%; height: auto; display: block; }
+.pj-about__text { display: flex; flex-direction: column; gap: 18px; font-size: 22px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+.pj-about__text p { margin: 0; }
 .pj-highlight--lead { margin: 14px 0 18px; }
 .pj-statblock__sub { margin: -8px 0 0; max-width: 980px; font-size: 21px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
 /* Three or four figures: icon beside the value so two rows fit the panel. */

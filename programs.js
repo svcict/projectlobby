@@ -2,13 +2,16 @@
 // Each program belongs to a pillar: 'arts' | 'leadership' | 'bigbets' | 'community'.
 // Add a program: give it a pillar, a title, a hero image, and en/fil content.
 // Entries without en/fil show in their pillar's list but don't open yet.
-// Section types (each becomes a tab on the kiosk): 'features' | 'results' | 'stats' | 'packages' | 'list'.
+// Section types (each becomes a tab on the kiosk): 'features' | 'results' | 'stats' | 'packages' | 'list' | 'about'.
 //   features: heading, sub and/or highlight, and items with an icon, title and body.
 //     Four or more items sit in two columns on the kiosk.
 //   stats: figures with an icon, value and label; optional label, location, sub
 //     and a quote ({ text, by }). Three or four figures use a compact 2×2 layout,
 //     five or six use three columns.
 //   list: heading, sub, intro and a list of plain-text items.
+//   about: heading, highlight, a logo ({ src, alt }) and body paragraphs beside it.
+//   Headings are optional. A quote's text can hold several paragraphs separated
+//   by a blank line, and may have a photo.
 // Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun.
 window.KIOSK_PROGRAMS = {
   "museum": {
@@ -20,7 +23,7 @@ window.KIOSK_PROGRAMS = {
       "ph": "Ayala Museum photo"
     },
     "en": {
-      "lead": "Inspiring pride in Filipino heritage through art, history, and culture.",
+      "lead": "Inspiring pride in Filipino heritage through art, history, and culture",
       "body": [
         "Culture, history, and identity shape how a nation sees itself and moves forward.",
         "Ayala Museum invites Filipinos to explore the richness of our heritage through thoughtfully curated exhibitions, immersive experiences, and dynamic public engagement. By presenting Philippine art, history, and culture in ways that are both inspiring and accessible, the museum helps deepen appreciation of who we are as a people.",
@@ -46,7 +49,7 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "title": "Education & Public Programs",
-              "body": "Offering guided tours, lectures, workshops, and digital content that deepen cultural literacy. The museum's Discovery Tours public school program gives hundreds of underprivileged students in Grades 4–6 access to the museum's galleries, with hands-on learning activities and learning kits to take home."
+              "body": "Offering guided tours, lectures, workshops, and digital content that deepen cultural literacy. The museum's Discovery Tours public school program provides hundreds of underprivileged students grades 4–6 with access to the museum's galleries, including hands-on learning activities and learning kits for them to take home."
             },
             {
               "icon": "users",
@@ -62,7 +65,7 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "users",
               "value": "92,833",
-              "label": "total visitors in 2025"
+              "label": "Total visitors in 2025"
             },
             {
               "icon": "image",
@@ -77,12 +80,12 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "book",
               "value": "9,700+",
-              "label": "objects in the museum collection"
+              "label": "Objects in the museum collection"
             },
             {
               "icon": "lap",
               "value": "1st",
-              "label": "museum in Southeast Asia to be listed on the Bloomberg Connects platform"
+              "label": "Museum in Southeast Asia to be listed on the Bloomberg Connects platform"
             }
           ]
         }
@@ -206,7 +209,7 @@ window.KIOSK_PROGRAMS = {
           "tab": "Our collections",
           "type": "list",
           "heading": "Creating access to Philippine memory",
-          "sub": "As a memory keeper and advocate of Philippine history and culture, FHL bridges preservation, research, and public engagement, bringing the Filipino story to life.",
+          "sub": "As a memory keeper and advocate of Philippine history and culture, FHL bridges preservation, research, and public engagement—bringing the Filipino story to life.",
           "intro": "FHL houses rare and contemporary materials on Philippine art, history, and culture, including:",
           "items": [
             "The Roderick Hall Collection (World War II materials)",
@@ -220,8 +223,6 @@ window.KIOSK_PROGRAMS = {
         {
           "tab": "What we do",
           "type": "features",
-          "heading": "Bringing the Filipino story to life",
-          "sub": "Four ways FHL preserves Philippine heritage and opens it up to everyone.",
           "items": [
             {
               "icon": "book",
@@ -252,27 +253,27 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "users",
               "value": "3,896",
-              "label": "total visitors in 2025"
+              "label": "Total visitors in 2025"
             },
             {
               "icon": "book",
               "value": "106,140",
-              "label": "heritage materials in various formats, preserved for continued access"
+              "label": "Heritage materials in various formats, preserved for continued access"
             },
             {
               "icon": "lap",
               "value": "67,784",
-              "label": "digitized materials accessible electronically"
+              "label": "Digitized materials accessible electronically"
             },
             {
               "icon": "gem",
               "value": "1st",
-              "label": "library in Southeast Asia to be listed on the Bloomberg Connects platform"
+              "label": "Library in Southeast Asia to be listed on the Bloomberg Connects platform"
             },
             {
               "icon": "pres",
               "value": "316",
-              "label": "total attendance across three Roderick Hall memorial lectures"
+              "label": "Total attendance across three Roderick Hall memorial lectures"
             }
           ]
         }
@@ -318,8 +319,6 @@ window.KIOSK_PROGRAMS = {
         {
           "tab": "Aming ginagawa",
           "type": "features",
-          "heading": "Pagbibigay-buhay sa kuwentong Pilipino",
-          "sub": "Apat na paraan ng FHL sa pangangalaga sa pamanang Pilipino at sa pagbubukas nito para sa lahat.",
           "items": [
             {
               "icon": "book",
@@ -607,7 +606,7 @@ window.KIOSK_PROGRAMS = {
       "body": [
         "As our contribution to addressing the learning crisis in the Philippines, we are sharpening our focus to support students in their early years.",
         "Only 1 in 5 Filipino children are enrolled in early learning programs, and just 3 in 10 Grade 1 learners meet basic literacy and numeracy standards. Quality varies widely, with many Child Development Workers lacking specialized early childhood training and limited parental engagement, particularly among low-income families.",
-        "Through CENTEX Early Grades, these targeted, high-impact interventions aim to build strong foundations in literacy, numeracy, and socio-emotional development, unlocking meaningful and sustainable gains among children aged 3–5."
+        "Through CENTEX Early Grades, these targeted, high-impact interventions aim to build strong foundations in literacy, numeracy, and socio-emotional development—unlocking meaningful and sustainable gains among children aged 3-5."
       ],
       "sections": [
         {
@@ -619,7 +618,7 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "pres",
               "title": "Teacher and CDW Training",
-              "body": "Teacher training, mentoring, and professional learning communities that bring together Child Development Workers (CDWs) and Kindergarten teachers within the same barangays, ensuring consistent, high-quality instruction."
+              "body": "Teacher training, mentoring, and professional learning communities that bring together Child Development Workers (CDWs) and Kindergarten teachers within the same barangays — ensuring consistent, high-quality instruction."
             },
             {
               "icon": "book",
@@ -647,17 +646,17 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "users",
               "value": "715",
-              "label": "students have taken part in the program since September 2025"
+              "label": "Total number of students have taken part in the program since September 2025"
             },
             {
               "icon": "book",
               "value": "26",
-              "label": "Child Development Centers and elementary schools"
+              "label": "Child Development Centers and Elementary schools"
             },
             {
               "icon": "smile",
               "value": "13.2%",
-              "label": "average increase in consistent participation (at least 80% of school days attended)"
+              "label": "Average increase in consistent participation (at least 80% of school days attended)"
             },
             {
               "icon": "pres",
@@ -669,15 +668,14 @@ window.KIOSK_PROGRAMS = {
         {
           "tab": "Package",
           "type": "packages",
-          "heading": "Learning Resource & Teacher Training package",
+          "heading": "Learning Resource & Teacher Training Package",
           "cards": [
             {
-              "tag": "Starts at ₱640,000",
-              "title": "Learning Resource & Teacher Training",
+              "title": "Starts at ₱640,000",
               "label": "Inclusions",
               "items": [
                 "Learning Resource Kits for all students",
-                "32 hours of Teacher and Child Development Worker Training, including mentoring and Professional Learning Communities"
+                "32 Hours of Teacher and Child Development Worker Training, including mentoring and Professional Learning Communities"
               ],
               "impact": "Program will impact ~1,050 students from Child Development Centers and Kindergarten per school over three years.",
               "foot": "*Assumes a minimum of 30 schools for Professional Learning Communities."
@@ -770,8 +768,7 @@ window.KIOSK_PROGRAMS = {
           "heading": "Package ng Learning Resource at Teacher Training",
           "cards": [
             {
-              "tag": "Simula ₱640,000",
-              "title": "Learning Resource at Teacher Training",
+              "title": "Simula ₱640,000",
               "label": "Kasama",
               "items": [
                 "Learning Resource Kit para sa lahat ng mag-aaral",
@@ -823,25 +820,23 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "heart",
               "title": "Fulfill basic needs",
-              "body": "Improving quality of nutrition, health, education, WASH, electricity, and connectivity."
+              "body": "Improving quality of nutrition, health, education, WASH, electricity, connectivity"
             },
             {
               "icon": "briefcase",
-              "title": "Boost economic and community vitality",
-              "body": "Financial inclusion and livelihood programs, local museums and libraries."
+              "title": "Boost economic & community vitality",
+              "body": "Financial inclusion and livelihood programs, local museums and libraries"
             },
             {
               "icon": "users",
               "title": "Increase social capital",
-              "body": "Participation in community organizations, leadership and resilience programs."
+              "body": "Participation in community organizations, leadership and resilience programs"
             }
           ]
         },
         {
           "tab": "Programs",
           "type": "features",
-          "heading": "Our programs in El Nido",
-          "sub": "Four programs that work together to help families build stable sources of income.",
           "items": [
             {
               "icon": "briefcase",
@@ -943,8 +938,6 @@ window.KIOSK_PROGRAMS = {
         {
           "tab": "Mga programa",
           "type": "features",
-          "heading": "Ang aming mga programa sa El Nido",
-          "sub": "Apat na programang magkakasamang tumutulong sa mga pamilya na bumuo ng matatag na mapagkukunan ng kita.",
           "items": [
             {
               "icon": "briefcase",
@@ -1023,9 +1016,9 @@ window.KIOSK_PROGRAMS = {
       "ph": "U-GO Scholar Grant Program photo"
     },
     "en": {
-      "lead": "Unlocking opportunities for high-potential young women in financial need.",
+      "lead": "Unlocking opportunities for high-potential young women in financial need",
       "body": [
-        "For many young women, talent and ambition are often not enough to secure success. Women's labor force participation in the Philippines stands at 56%, significantly lower than men's at 76%, with 2.4 million women remaining in unpaid housework. The cost of lodging, transportation, food, and other essential schooling needs can put university out of reach, reinforcing inequality and limiting social mobility.",
+        "For many young women, talent and ambition are often not enough to secure success. Women's labor force participation in the Philippines stands at 56%, significantly lower than men's at 76%, with 2.4 million women remaining in unpaid housework. The cost of lodging, transportation, food, and other essential schooling needs can put university out of reach — reinforcing inequality and limiting social mobility.",
         "Educating women changes this trajectory. Yet with higher education attrition rates at nearly 40%, too many young Filipinas are unable to complete their degrees. When women finish their education, incomes rise, their children stay in school longer, and communities grow stronger."
       ],
       "sections": [
@@ -1033,22 +1026,22 @@ window.KIOSK_PROGRAMS = {
           "tab": "Our approach",
           "type": "features",
           "heading": "Creating pathways for women's leadership",
-          "sub": "Expanding access to higher education while nurturing leadership, resilience, and career readiness among young women.",
+          "sub": "Expanding access to higher education while nurturing leadership, resilience, and career readiness among young women",
           "items": [
             {
               "icon": "book",
               "title": "Access to Tertiary Education",
-              "body": "Through scholarship grants, financial assistance helps cover essential education-related costs, enabling scholars to focus on their studies."
+              "body": "Through scholarship grants, financial assistance helps cover essential education-related costs, enabling scholars to focus on their studies"
             },
             {
               "icon": "users",
               "title": "Student Support and Engagement",
-              "body": "Structured opportunities for skills-building, mentoring, and exposure to career pathways."
+              "body": "Structured opportunities for skills-building, mentoring, and exposure to career pathways"
             },
             {
               "icon": "heart",
               "title": "Purpose-Driven Impact",
-              "body": "Nurturing scholars into a growing pipeline of skilled professionals and leaders inspired to build better futures for their families and communities."
+              "body": "Nurturing scholars into a growing pipeline of skilled professionals and leaders inspired to build better futures for their families and communities"
             }
           ]
         },
@@ -1064,30 +1057,27 @@ window.KIOSK_PROGRAMS = {
             {
               "icon": "smile",
               "value": "98%",
-              "label": "advancement rate among scholars"
+              "label": "Advancement rate among scholars"
             }
           ],
           "quote": {
-            "text": "My dream is to finish college and become a teacher who can guide and inspire children, especially those from humble beginnings like mine. Every Saturday, my classmates and I teach kids in our village how to read, write, and count. Sharing what I've learned brings me joy and purpose. I may have grown up in hardship, but I carry big dreams: to teach, guide, and uplift others through education.",
-            "by": "Daijane, 2025 U-GO Scholar"
+            "text": "My dream is to finish college and become a teacher who can guide and inspire children, especially those from humble beginnings like mine. Every Saturday, my classmates and I teach kids in our village how to read, write, and count.\n\nSharing what I've learned brings me joy and purpose. I may have grown up in hardship, but I carry big dreams — to teach, guide, and uplift others through education.",
+            "by": "Daijane, 2025 U-GO Scholar",
+            "photo": "assets/ugo-daijane.jpg"
           }
         },
         {
           "tab": "About U-GO",
-          "type": "features",
+          "type": "about",
           "heading": "Help make opportunity as universal as talent",
-          "highlight": "Every peso you give goes twice as far with U-GO global donation matching.",
-          "items": [
-            {
-              "icon": "gem",
-              "title": "About U-GO",
-              "body": "U-GO is a global nonprofit dedicated to expanding access to higher education for ambitious and promising young women from low-income communities."
-            },
-            {
-              "icon": "hand",
-              "title": "U-GO and Ayala Foundation",
-              "body": "Operating across nine countries, U-GO partners with trusted local institutions to deliver scholarships and student support throughout a scholar's university journey. In the Philippines, Ayala Foundation is U-GO's sole implementing partner, supporting the delivery of scholarships and student engagement nationwide."
-            }
+          "highlight": "Every peso you give goes twice as far with U-GO global donation matching",
+          "logo": {
+            "src": "assets/ugo-logo.png",
+            "alt": "U-GO"
+          },
+          "body": [
+            "U-GO is a global nonprofit dedicated to expanding access to higher education for ambitious and promising young women from low-income communities.",
+            "Currently operating across nine countries, U-GO partners with trusted local institutions to deliver scholarships and student support throughout a scholar's university journey. In the Philippines, Ayala Foundation serves as U-GO's sole implementing partner, supporting the delivery of scholarships and student engagement nationwide."
           ]
         }
       ],
@@ -1152,26 +1142,23 @@ window.KIOSK_PROGRAMS = {
             }
           ],
           "quote": {
-            "text": "Pangarap kong makatapos ng kolehiyo at maging gurong gagabay at magbibigay-inspirasyon sa mga bata, lalo na sa mga nagmula sa payak na pamumuhay tulad ko. Tuwing Sabado, nagtuturo kami ng aking mga kaklase sa mga bata sa aming baryo kung paano bumasa, sumulat, at bumilang. Ang pagbabahagi ng aking natutunan ay nagbibigay sa akin ng saya at layunin. Maaaring lumaki ako sa hirap, ngunit may dala akong malalaking pangarap: ang magturo, gumabay, at mag-angat ng iba sa pamamagitan ng edukasyon.",
-            "by": "Daijane, 2025 U-GO Scholar"
+            "text": "Pangarap kong makatapos ng kolehiyo at maging gurong gagabay at magbibigay-inspirasyon sa mga bata, lalo na sa mga nagmula sa payak na pamumuhay tulad ko. Tuwing Sabado, nagtuturo kami ng aking mga kaklase sa mga bata sa aming baryo kung paano bumasa, sumulat, at bumilang.\n\nAng pagbabahagi ng aking natutunan ay nagbibigay sa akin ng saya at layunin. Maaaring lumaki ako sa hirap, ngunit may dala akong malalaking pangarap — ang magturo, gumabay, at mag-angat ng iba sa pamamagitan ng edukasyon.",
+            "by": "Daijane, 2025 U-GO Scholar",
+            "photo": "assets/ugo-daijane.jpg"
           }
         },
         {
           "tab": "Tungkol sa U-GO",
-          "type": "features",
+          "type": "about",
           "heading": "Gawing kasing-laganap ng talento ang oportunidad",
-          "highlight": "Dumodoble ang bawat pisong ibibigay mo sa pamamagitan ng U-GO global donation matching.",
-          "items": [
-            {
-              "icon": "gem",
-              "title": "Tungkol sa U-GO",
-              "body": "Ang U-GO ay isang pandaigdigang nonprofit na nakatuon sa pagpapalawak ng access sa mas mataas na edukasyon para sa mga ambisyoso at may potensyal na kabataang babae mula sa mga komunidad na mababa ang kita."
-            },
-            {
-              "icon": "hand",
-              "title": "Ang U-GO at Ayala Foundation",
-              "body": "Sa siyam na bansa, nakikipagtulungan ang U-GO sa mga mapagkakatiwalaang lokal na institusyon upang maghatid ng scholarship at suporta sa buong panahon ng pag-aaral ng iskolar sa unibersidad. Sa Pilipinas, ang Ayala Foundation ang nag-iisang implementing partner ng U-GO, na tumutulong sa paghahatid ng scholarship at pakikilahok ng mga mag-aaral sa buong bansa."
-            }
+          "highlight": "Dumodoble ang bawat pisong ibibigay mo sa pamamagitan ng U-GO global donation matching",
+          "logo": {
+            "src": "assets/ugo-logo.png",
+            "alt": "U-GO"
+          },
+          "body": [
+            "Ang U-GO ay isang pandaigdigang nonprofit na nakatuon sa pagpapalawak ng access sa mas mataas na edukasyon para sa mga ambisyoso at may potensyal na kabataang babae mula sa mga komunidad na mababa ang kita.",
+            "Kasalukuyang tumatakbo sa siyam na bansa, nakikipagtulungan ang U-GO sa mga mapagkakatiwalaang lokal na institusyon upang maghatid ng scholarship at suporta sa buong paglalakbay ng iskolar sa unibersidad. Sa Pilipinas, ang Ayala Foundation ang nag-iisang implementing partner ng U-GO, na tumutulong sa paghahatid ng scholarship at pakikilahok ng mga mag-aaral sa buong bansa."
           ]
         }
       ],

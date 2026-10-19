@@ -430,9 +430,18 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-statblock { display: flex; flex-direction: column; gap: 14px; }
 .pj-quote { margin: 0; background: var(--tint); border-radius: 6px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
 .pj-quote blockquote { margin: 0; font-size: 15px; line-height: 1.55; font-style: italic; }
-.pj-quote blockquote::before { content: '\201C'; }
-.pj-quote blockquote::after { content: '\201D'; }
-.pj-quote figcaption { font-size: 14px; font-weight: 600; color: var(--blue); }
+.pj-quote blockquote p { margin: 0; }
+.pj-quote blockquote p + p { margin-top: 8px; }
+.pj-quote blockquote p:first-child::before { content: '\201C'; }
+.pj-quote blockquote p:last-child::after { content: '\201D'; }
+.pj-quote figcaption { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--blue); }
+.pj-quote__photo { width: 44px; height: 44px; flex: none; border-radius: 10px; object-fit: cover; }
+
+.pj-about { display: flex; flex-direction: column; }
+.pj-about__row { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+.pj-about__logo { width: 140px; height: auto; display: block; }
+.pj-about__text { display: flex; flex-direction: column; gap: 12px; font-size: 15px; line-height: 1.55; }
+.pj-about__text p { margin: 0; }
 .pj-highlight--lead { margin: 10px 0 12px; }
 .pj-statblock__sub { margin: 0; font-size: 15px; line-height: 1.5; }
 
