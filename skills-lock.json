@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "web-design-guidelines": {
+      "source": "ehmo/platform-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web/SKILL.md",
+      "computedHash": "fc94f93418a39d2c224b450de96799f9481d779851c404c355d5d5d61302b3c9"
+    }
+  }
+}
