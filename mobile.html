@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ayala Foundation</title>
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="mobile.css?v=20261019071517">
+<link rel="stylesheet" href="mobile.css?v=20261019071821">
 </head>
 <body>
 <div class="page">
@@ -31,10 +31,10 @@
       <p class="m-tagline__line" data-t="homeLine"></p>
     </div>
     <a class="m-slides" href="#pillars">
-      <div class="m-slide"><div class="slot" data-priority data-src="assets/m/arts-card.webp" data-ph="Arts and Culture photo"></div></div>
+      <div class="m-slide"><div class="slot" data-priority data-src="assets/m/community-card.webp" data-ph="Community Development photo"></div></div>
+      <div class="m-slide"><div class="slot" data-defer data-src="assets/m/arts-card.webp" data-ph="Arts and Culture photo"></div></div>
       <div class="m-slide"><div class="slot" data-defer data-src="assets/m/leadership-card.webp" data-ph="Leadership Development photo"></div></div>
       <div class="m-slide"><div class="slot" data-defer data-src="assets/m/bigbets-card.webp" data-ph="Education photo"></div></div>
-      <div class="m-slide"><div class="slot" data-defer data-src="assets/m/community-card.webp" data-ph="Community Development photo"></div></div>
       <div class="m-slides__foot">
         <span class="m-slides__name" id="slideName"></span>
         <div class="m-dots"><div class="m-dot"></div><div class="m-dot"></div><div class="m-dot"></div><div class="m-dot"></div></div>
@@ -52,6 +52,13 @@
       <div class="m-accent"></div>
       <h1 class="m-h1" data-t="allTitle"></h1>
     </div>
+    <a class="u press m-card" href="#community">
+      <div class="m-card__media"><div class="slot" data-src="assets/m/community-card.webp" data-ph="Community Development image"></div></div>
+      <div class="m-card__body">
+        <div class="m-card__text"><span class="m-tag" data-t="tagPillar"></span><span class="m-card__name" data-t="p3"></span><span class="m-card__desc" data-t="d3"></span></div>
+        <span class="m-go" data-icon="go"></span>
+      </div>
+    </a>
     <a class="u press m-card" href="#arts">
       <div class="m-card__media"><div class="slot" data-src="assets/m/arts-card.webp" data-ph="Arts and Culture image"></div></div>
       <div class="m-card__body">
@@ -70,13 +77,6 @@
       <div class="m-card__media"><div class="slot" data-src="assets/m/bigbets-card.webp" data-ph="Education image"></div></div>
       <div class="m-card__body">
         <div class="m-card__text"><span class="m-tag m-tag--bet" data-t="tagBet"></span><span class="m-card__name" data-t="p2"></span><span class="m-card__desc" data-t="d2"></span></div>
-        <span class="m-go" data-icon="go"></span>
-      </div>
-    </a>
-    <a class="u press m-card" href="#community">
-      <div class="m-card__media"><div class="slot" data-src="assets/m/community-card.webp" data-ph="Community Development image"></div></div>
-      <div class="m-card__body">
-        <div class="m-card__text"><span class="m-tag" data-t="tagPillar"></span><span class="m-card__name" data-t="p3"></span><span class="m-card__desc" data-t="d3"></span></div>
         <span class="m-go" data-icon="go"></span>
       </div>
     </a>
@@ -125,6 +125,10 @@
         <h2 class="m-h2" data-t="more"></h2>
         <!-- The tile for the pillar on screen is hidden. -->
         <div class="m-tiles">
+          <a class="u press m-tile" href="#community" data-tile="community">
+            <div class="m-tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
+            <div class="m-tile__name" data-t="p3"></div>
+          </a>
           <a class="u press m-tile" href="#arts" data-tile="arts">
             <div class="m-tile__media"><div class="slot" data-src="assets/arts-tile.jpg" data-ph="Arts and Culture image"></div></div>
             <div class="m-tile__name" data-t="p0"></div>
@@ -136,10 +140,6 @@
           <a class="u press m-tile" href="#bigbets" data-tile="bigbets">
             <div class="m-tile__media"><div class="slot" data-src="assets/bigbets-tile.jpg" data-ph="Education illustration"></div></div>
             <div class="m-tile__name" data-t="p2"></div>
-          </a>
-          <a class="u press m-tile" href="#community" data-tile="community">
-            <div class="m-tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
-            <div class="m-tile__name" data-t="p3"></div>
           </a>
         </div>
       </div>
@@ -161,9 +161,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=20261019071517"></script>
-<script src="programs.js?v=20261019071517"></script>
-<script src="project-view.js?v=20261019071517"></script>
-<script src="mobile.js?v=20261019071517"></script>
+<script src="copy.js?v=20261019071821"></script>
+<script src="programs.js?v=20261019071821"></script>
+<script src="project-view.js?v=20261019071821"></script>
+<script src="mobile.js?v=20261019071821"></script>
 </body>
 </html>

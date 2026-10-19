@@ -13,7 +13,10 @@
   const DESIGN_W = 1920, DESIGN_H = 1080;
   const PROGRAM_COUNT = 4;
   // Carousel card index → the pillar page it opens.
-  const PROGRAM_PAGES = ['arts', 'leadership', 'bigbets', 'community'];
+  // Carousel order, as on the foundation's pillar diagram: the three strategic
+  // pillars, then the big bet. Copy keys stay p0-p3 / d0-d3 by pillar (COPY_KEY).
+  const PROGRAM_PAGES = ['community', 'arts', 'leadership', 'bigbets'];
+  const COPY_KEY = { arts: 0, leadership: 1, bigbets: 2, community: 3 };
   const SLIDE_MS = 7000;
   const IDLE_MS = 75000;
   const WARN_SECONDS = 15;
@@ -148,12 +151,12 @@
     $('.arrow--prev').disabled = state.idx === 0;
     $('.arrow--next').disabled = state.idx === PROGRAM_COUNT - 1;
 
-    const name = t['p' + state.txtIdx];
+    const name = t['p' + COPY_KEY[PROGRAM_PAGES[state.txtIdx]]];
     $('#curName').textContent = name;
     const bet = PROGRAM_PAGES[state.txtIdx] === 'bigbets';
     $('#curTag').textContent = bet ? t.tagBet : t.tagPillar;
     $('#curTag').classList.toggle('programs__tag--bet', bet);
-    $('#curDesc').textContent = t['d' + state.txtIdx];
+    $('#curDesc').textContent = t['d' + COPY_KEY[PROGRAM_PAGES[state.txtIdx]]];
     $('#exploreLabel').textContent = t.learnMore;
     copyEl.classList.toggle('is-out', state.txtOut);
 

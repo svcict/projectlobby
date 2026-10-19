@@ -16,7 +16,7 @@
   } catch (_) {}
 </script>
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261019071517">
+<link rel="stylesheet" href="styles.css?v=20261019071821">
 </head>
 <body>
 <div class="viewport">
@@ -73,6 +73,10 @@
       <section class="section section--fill">
         <h2 class="h2" data-t="more"></h2>
         <div class="tiles">
+          <button class="u press tile" data-tile="community" data-action="open-prog" data-prog="community">
+            <div class="tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
+            <div class="tile__label"><span class="tile__name" data-t="p3"></span><span data-icon="chevron-white-22"></span></div>
+          </button>
           <button class="u press tile" data-tile="arts" data-action="open-prog" data-prog="arts">
             <div class="tile__media"><div class="slot" data-src="assets/arts-tile.jpg" data-ph="Arts and Culture image"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p0"></span><span data-icon="chevron-white-22"></span></div>
@@ -84,10 +88,6 @@
           <button class="u press tile" data-tile="bigbets" data-action="open-prog" data-prog="bigbets">
             <div class="tile__media"><div class="slot" data-src="assets/bigbets-tile.jpg" data-ph="Education illustration"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p2"></span><span data-icon="chevron-white-22"></span></div>
-          </button>
-          <button class="u press tile" data-tile="community" data-action="open-prog" data-prog="community">
-            <div class="tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
-            <div class="tile__label"><span class="tile__name" data-t="p3"></span><span data-icon="chevron-white-22"></span></div>
           </button>
         </div>
       </section>
@@ -135,10 +135,10 @@
       </button>
     </section>
     <div class="home-photos" data-action="explore-start">
+      <div class="slide"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development photo"></div></div>
       <div class="slide"><div class="slot" data-src="assets/arts-card.jpg" data-ph="Arts and Culture photo"></div></div>
       <div class="slide"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development photo"></div></div>
       <div class="slide"><div class="slot" data-src="assets/bigbets-card.jpg" data-ph="Education photo"></div></div>
-      <div class="slide"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development photo"></div></div>
       <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
     </div>
     <nav class="bar bar--end">
@@ -154,10 +154,10 @@
         <h1 class="programs__title" data-t="allTitle"></h1>
       </div>
       <div class="track" id="track">
-        <div class="card" data-card="0"><div class="card__face"><div class="slot" data-src="assets/arts-card.jpg" data-ph="Arts and Culture image"></div></div></div>
-        <div class="card" data-card="1"><div class="card__face"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development image"></div></div></div>
-        <div class="card" data-card="2"><div class="card__face"><div class="slot" data-src="assets/bigbets-card.jpg" data-ph="Education image"></div></div></div>
-        <div class="card" data-card="3"><div class="card__face"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development image"></div></div></div>
+        <div class="card" data-card="0"><div class="card__face"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development image"></div></div></div>
+        <div class="card" data-card="1"><div class="card__face"><div class="slot" data-src="assets/arts-card.jpg" data-ph="Arts and Culture image"></div></div></div>
+        <div class="card" data-card="2"><div class="card__face"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development image"></div></div></div>
+        <div class="card" data-card="3"><div class="card__face"><div class="slot" data-src="assets/bigbets-card.jpg" data-ph="Education image"></div></div></div>
         <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous pillar"><span data-icon="back-blue-32"></span></button>
         <button class="u arrow arrow--next" data-action="next" aria-label="Next pillar"><span data-icon="chevron-blue-32"></span></button>
       </div>
@@ -200,9 +200,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=20261019071517"></script>
-<script src="programs.js?v=20261019071517"></script>
-<script src="project-view.js?v=20261019071517"></script>
-<script src="app.js?v=20261019071517"></script>
+<script src="copy.js?v=20261019071821"></script>
+<script src="programs.js?v=20261019071821"></script>
+<script src="project-view.js?v=20261019071821"></script>
+<script src="app.js?v=20261019071821"></script>
 </body>
 </html>

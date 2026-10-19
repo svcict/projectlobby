@@ -115,7 +115,7 @@
     }[route.view];
     document.title = route.view === 'home' ? 'Ayala Foundation' : $('#barTitle').textContent + ' · Ayala Foundation';
 
-    const names = [t.p0, t.p1, t.p2, t.p3];
+    const names = [t.p3, t.p0, t.p1, t.p2]; // slide order: community, arts, leadership, education
     slides.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
     dots.forEach((el, i) => el.classList.toggle('is-on', i === state.slide));
     $('#slideName').textContent = names[state.slide];
