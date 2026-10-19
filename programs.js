@@ -995,6 +995,68 @@ window.KIOSK_PROGRAMS = {
       }
     }
   },
+  "zambales": {
+    "pillar": "community",
+    "title": "San Marcelino, Zambales",
+    "hero": {
+      "id": "zambales-hero",
+      "src": "assets/zambales-hero.jpg",
+      "pos": "50% 50%",
+      "ph": "San Marcelino, Zambales photo"
+    },
+    "en": {
+      "lead": "Strengthening agricultural value chains to unlock inclusive rural growth",
+      "body": [
+        "Agricultural communities in Barangays Santa Fe and San Rafael, San Marcelino, Zambales depend heavily on farming — yet face structural barriers that constrain income growth and long-term resilience.",
+        "In Santa Fe, 52% of households (251 of 479) rely on agriculture, while in San Rafael, 45% of households (372 of 820) are engaged in farming. Despite this strong agricultural base, productivity remains limited. Irrigation constraints restrict some farmers to only one cropping cycle per year, while flooding and lahar damage fields, reducing yields by up to 50% during the rainy season. At the same time, palay is frequently sold below cost at ₱6–12 per kilo, leaving farmers with thin or negative margins.",
+        "Fragmented farmer groups with limited bargaining power further weaken market access, forcing many to remain price-takers within vulnerable supply chains. Without stronger cooperative systems, improved production practices, and access to higher-value markets, agricultural households remain exposed to income instability despite the province’s significant potential."
+      ],
+      "sections": [
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Building a high-value agri ecosystem",
+          "sub": "Strengthening farmer cooperatives and unlocking new revenue streams through value chain integration.",
+          "items": [
+            {
+              "icon": "sun",
+              "title": "Strengthen Existing Corn Production",
+              "body": "Improving yields and reducing costs through precision farming, resilient crop varieties, improved post-harvest systems, and stronger market access."
+            },
+            {
+              "icon": "gem",
+              "title": "Unlock High-Growth Ube Value Chains",
+              "body": "Developing ube as a high-value “hero product” through land preparation, seedling acquisition, technical cultivation support, processing, branding, and local and international market entry."
+            },
+            {
+              "icon": "users",
+              "title": "Cooperative Capacity Building",
+              "body": "Implementing a hub-and-spoke model anchored on the San Marcelino Corn Cooperative to consolidate produce, process high-value goods, and strengthen governance systems among nodal associations."
+            },
+            {
+              "icon": "briefcase",
+              "title": "Market & Finance Linkages",
+              "body": "Facilitating access to finance, establishing marketing agreements, mobilizing capital, and securing government and private sector partnerships to scale impact."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
+  },
   "ccv": {
     "pillar": "support",
     "title": "Corporate Citizenship and Volunteerism",
