@@ -2,9 +2,9 @@
 // Add a project: give it a program ('arts' | 'leadership' | 'bigbets' | 'community'), a title,
 // a hero image, and en/fil content. Entries without en/fil show in the list but don't open yet.
 // Section types (each becomes a tab on the kiosk): 'pillars' | 'results' | 'stats' | 'packages'.
-// A 'stats' section may also have a label and a location shown above the figures;
+// A 'stats' section may also have a label, a location and a short sub shown above the figures;
 // three or four figures use a compact 2×2 layout.
-// Icons: users, smile, pres, lap, heart, hand, book, gem, image.
+// Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun.
 window.KIOSK_PROJECTS = {
   "museum": {
     "program": "arts",
@@ -521,6 +521,221 @@ window.KIOSK_PROJECTS = {
               ],
               "impact": "Aabot ang programa sa ~1,050 mag-aaral mula sa mga Child Development Center at Kindergarten bawat paaralan sa loob ng tatlong taon.",
               "foot": "*Ipinapalagay na may hindi bababa sa 30 paaralan para sa Professional Learning Communities."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
+  },
+  "elnido": {
+    "program": "community",
+    "title": "El Nido, Palawan",
+    "hero": {
+      "id": "elnido-hero",
+      "src": "",
+      "ph": "El Nido, Palawan photo"
+    },
+    "en": {
+      "lead": "Uplifting families from poverty to the middle class through multi-sector, community-driven solutions.",
+      "body": [
+        "El Nido continues to face significant development gaps, with higher poverty and unemployment rates compared to the rest of the province of Palawan. Many households still lack reliable electricity, internet access, and safe drinking water, while malnutrition remains a concern. Among our community enterprise beneficiaries, average household incomes remain below the lower middle-income threshold.",
+        "Through our integrated approach, we aim to help families progress toward more stable, sustainable livelihoods by 2028."
+      ],
+      "sections": [
+        {
+          "tab": "Our approach",
+          "type": "pillars",
+          "heading": "Creating a thriving community ecosystem",
+          "sub": "Improving access to income, education, healthcare, and essential utilities through coordinated, community-led solutions.",
+          "items": [
+            {
+              "icon": "heart",
+              "title": "Fulfill basic needs",
+              "body": "Improving quality of nutrition, health, education, WASH, electricity, and connectivity."
+            },
+            {
+              "icon": "briefcase",
+              "title": "Boost economic and community vitality",
+              "body": "Financial inclusion and livelihood programs, local museums and libraries."
+            },
+            {
+              "icon": "users",
+              "title": "Increase social capital",
+              "body": "Participation in community organizations, leadership and resilience programs."
+            }
+          ]
+        },
+        {
+          "tab": "Programs",
+          "type": "pillars",
+          "heading": "Our programs in El Nido",
+          "sub": "Four programs that work together to help families build stable sources of income.",
+          "items": [
+            {
+              "icon": "briefcase",
+              "title": "Sustainable Livelihood Development",
+              "body": "Strengthening community enterprises through cooperative training and market access, so families can grow stable sources of income."
+            },
+            {
+              "icon": "pres",
+              "title": "Education for Employment",
+              "body": "Preparing senior high students and teachers with industry-aligned training, simulations, and internships in the local hospitality sector."
+            },
+            {
+              "icon": "stethoscope",
+              "title": "Health Access through Telehealth",
+              "body": "Equipping barangays with digital health tools, trained health workers (BHWs), and volunteer doctors to deliver timely consultations in remote areas."
+            },
+            {
+              "icon": "sun",
+              "title": "Sustainable Energy Access",
+              "body": "Providing solar home systems and community support centers to expand reliable, affordable electricity in underserved sitios."
+            }
+          ]
+        },
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "label": "Our impact",
+          "location": "El Nido, Palawan",
+          "sub": "The El Nido Community Development program leverages the support of Ayala Business Units involved since 2013, while actively expanding partnerships to advance its mission of poverty alleviation in El Nido communities.",
+          "stats": [
+            {
+              "icon": "briefcase",
+              "value": "16.78%",
+              "label": "increase in household monthly income of beneficiaries"
+            },
+            {
+              "icon": "pres",
+              "value": "98%",
+              "label": "advancement rate (employment, further studies or entrepreneurial activity)"
+            },
+            {
+              "icon": "stethoscope",
+              "value": "9,396",
+              "label": "first patient encounters and first patient consultations facilitated"
+            },
+            {
+              "icon": "sun",
+              "value": "1,620",
+              "label": "households provided with solar home systems"
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Tinutulungan ang mga pamilya na makaahon mula sa kahirapan tungo sa gitnang uri sa pamamagitan ng mga solusyong multi-sektor at pinangungunahan ng komunidad.",
+      "body": [
+        "Patuloy na humaharap ang El Nido sa malalaking kakulangan sa pag-unlad, na may mas mataas na antas ng kahirapan at kawalan ng trabaho kumpara sa ibang bahagi ng lalawigan ng Palawan. Maraming sambahayan pa rin ang walang maaasahang kuryente, internet, at ligtas na inuming tubig, habang nananatiling alalahanin ang malnutrisyon. Sa mga benepisyaryo ng aming mga community enterprise, nananatiling mas mababa sa lower middle-income threshold ang karaniwang kita ng sambahayan.",
+        "Sa pamamagitan ng aming pinagsama-samang paraan, layunin naming matulungan ang mga pamilya na magkaroon ng mas matatag at pangmatagalang kabuhayan pagsapit ng 2028."
+      ],
+      "sections": [
+        {
+          "tab": "Aming paraan",
+          "type": "pillars",
+          "heading": "Pagbuo ng masiglang ecosystem ng komunidad",
+          "sub": "Pagpapalawak ng access sa kita, edukasyon, kalusugan, at mahahalagang serbisyo sa pamamagitan ng magkakaugnay na solusyong pinangungunahan ng komunidad.",
+          "items": [
+            {
+              "icon": "heart",
+              "title": "Pagtugon sa mga pangunahing pangangailangan",
+              "body": "Pagpapabuti sa kalidad ng nutrisyon, kalusugan, edukasyon, WASH, kuryente, at koneksyon."
+            },
+            {
+              "icon": "briefcase",
+              "title": "Pagpapasigla sa ekonomiya at komunidad",
+              "body": "Financial inclusion at mga programang pangkabuhayan, mga lokal na museo at aklatan."
+            },
+            {
+              "icon": "users",
+              "title": "Pagpapalakas ng social capital",
+              "body": "Pakikilahok sa mga organisasyon ng komunidad, at mga programa sa pamumuno at katatagan."
+            }
+          ]
+        },
+        {
+          "tab": "Mga programa",
+          "type": "pillars",
+          "heading": "Ang aming mga programa sa El Nido",
+          "sub": "Apat na programang magkakasamang tumutulong sa mga pamilya na bumuo ng matatag na mapagkukunan ng kita.",
+          "items": [
+            {
+              "icon": "briefcase",
+              "title": "Sustainable Livelihood Development",
+              "body": "Pagpapalakas sa mga community enterprise sa pamamagitan ng pagsasanay sa kooperatiba at access sa merkado, upang mapalago ng mga pamilya ang matatag na mapagkukunan ng kita."
+            },
+            {
+              "icon": "pres",
+              "title": "Education for Employment",
+              "body": "Paghahanda sa mga mag-aaral at guro sa senior high sa pamamagitan ng pagsasanay na akma sa industriya, mga simulation, at internship sa lokal na hospitality sector."
+            },
+            {
+              "icon": "stethoscope",
+              "title": "Health Access through Telehealth",
+              "body": "Pagbibigay sa mga barangay ng digital na kagamitang pangkalusugan, sinanay na mga barangay health worker (BHW), at mga boluntaryong doktor para sa napapanahong konsultasyon sa malalayong lugar."
+            },
+            {
+              "icon": "sun",
+              "title": "Sustainable Energy Access",
+              "body": "Pagbibigay ng solar home system at mga community support center upang mapalawak ang maaasahan at abot-kayang kuryente sa mga sitiong kulang sa serbisyo."
+            }
+          ]
+        },
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "label": "Aming epekto",
+          "location": "El Nido, Palawan",
+          "sub": "Ginagamit ng El Nido Community Development program ang suporta ng mga Ayala Business Unit na kasangkot mula pa noong 2013, habang aktibong pinalalawak ang mga pakikipagtulungan upang isulong ang misyon nitong labanan ang kahirapan sa mga komunidad ng El Nido.",
+          "stats": [
+            {
+              "icon": "briefcase",
+              "value": "16.78%",
+              "label": "pagtaas sa buwanang kita ng sambahayan ng mga benepisyaryo"
+            },
+            {
+              "icon": "pres",
+              "value": "98%",
+              "label": "advancement rate (trabaho, karagdagang pag-aaral o pagnenegosyo)"
+            },
+            {
+              "icon": "stethoscope",
+              "value": "9,396",
+              "label": "unang patient encounter at unang konsultasyon na naisagawa"
+            },
+            {
+              "icon": "sun",
+              "value": "1,620",
+              "label": "sambahayang nabigyan ng solar home system"
             }
           ]
         }

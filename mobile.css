@@ -180,16 +180,6 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   justify-content: center;
 }
 
-.m-box {
-  background: var(--tint);
-  border-radius: 6px;
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.m-box__title { font-size: 19px; font-weight: 700; color: var(--blue); }
-.m-box__body { font-size: 15px; line-height: 1.5; }
 
 /* ---------- Home ---------- */
 
@@ -394,6 +384,7 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-stat__value { font-size: 32px; line-height: 1; font-weight: 800; }
 .pj-stat__label { font-size: 14px; line-height: 1.4; }
 .pj-statblock { display: flex; flex-direction: column; gap: 14px; }
+.pj-statblock__sub { margin: 0; font-size: 15px; line-height: 1.5; }
 
 /* Results read top to bottom on a phone. */
 .pj-results, .pj-results__main, .pj-results__side { display: flex; flex-direction: column; gap: 14px; }

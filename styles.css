@@ -231,20 +231,12 @@ img { -webkit-user-drag: none; user-select: none; }
 
 .join {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.25fr);
   gap: 20px;
   min-height: 216px;
 }
-.info {
-  background: var(--tint);
-  border-radius: 4px;
-  padding: 28px 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.info__title { font-size: 28px; font-weight: 700; color: var(--blue); overflow-wrap: anywhere; }
-.info__body { font-size: 22px; line-height: 1.4; color: var(--ink); text-wrap: pretty; }
+/* The partner strip spans the space the Give and Partner boxes used to. */
+.join__partner { padding: 28px 32px; }
 .take {
   background: var(--blue);
   border-radius: 4px;
@@ -435,10 +427,11 @@ img { -webkit-user-drag: none; user-select: none; }
 /* No tabular-nums: it spaces out the comma in "92,833". */
 .pj-stat__value { margin-top: 8px; font-size: 96px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
 .pj-stat__label { font-size: 25px; line-height: 1.35; text-wrap: pretty; }
-.pj-statblock { display: flex; flex-direction: column; gap: 24px; }
+.pj-statblock { display: flex; flex-direction: column; gap: 20px; }
+.pj-statblock__sub { margin: -8px 0 0; max-width: 980px; font-size: 21px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
 /* Three or four figures: icon beside the value so two rows fit the panel. */
 .pj-stats--compact .pj-stat {
-  padding: 28px 32px;
+  padding: 24px 32px;
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
   align-items: center;

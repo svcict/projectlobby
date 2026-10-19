@@ -18,18 +18,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610190416">
+<link rel="stylesheet" href="styles.css?v=202610190423">
 </head>
 <body>
 <div class="viewport">
 <div class="stage" id="stage">
 
-  <!-- Program page (base layer): Arts and Culture or Big Bets -->
+  <!-- Program page (base layer): Arts and Culture, Big Bets or Community Development -->
   <div class="screen screen--program" data-screen="program">
     <aside class="panel">
       <div class="panel__media">
         <div class="hero-layer" data-hero="arts"><div class="slot" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div></div>
         <div class="hero-layer" data-hero="bigbets"><div class="slot" data-src="assets/bigbets-banner.jpg" data-ph="Big Bets hero photo"></div></div>
+        <div class="hero-layer" data-hero="community"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development hero photo"></div></div>
       </div>
       <div class="panel__text">
         <div class="eyebrow">Ayala Foundation</div>
@@ -42,18 +43,18 @@
       <section class="section">
         <h2 class="h2" data-t="partOf"></h2>
         <div class="join">
-          <div class="info">
-            <div class="info__title" data-t="give"></div>
-            <div class="info__body" data-pg="giveBody"></div>
-          </div>
-          <div class="info">
-            <div class="info__title" data-t="partner"></div>
-            <div class="info__body" data-t="partnerBody"></div>
+          <div class="pj-contact join__partner">
+            <div class="pj-contact__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B53A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:none"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+            <div class="pj-contact__text">
+              <div class="pj-contact__title" data-t="partner"></div>
+              <div class="pj-contact__lines"><span>partnerships@ayalafoundation.org</span><span>www.ayalafoundation.org</span></div>
+            </div>
           </div>
           <div class="take">
             <div class="take__qr">
               <div class="slot slot--contain" data-for-prog="arts" data-src="assets/qr-arts.png" data-ph="QR code"></div>
               <div class="slot slot--contain" data-for-prog="bigbets" data-src="assets/qr-bigbets.png" data-ph="QR code"></div>
+              <div class="slot slot--contain" data-for-prog="community" data-src="assets/qr-community.png" data-ph="QR code"></div>
             </div>
             <div class="take__text">
               <div class="take__title" data-t="take"></div>
@@ -85,7 +86,7 @@
             <div class="tile__media"><div class="slot" data-src="assets/bigbets-tile.jpg" data-ph="Big Bets illustration"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p2"></span><span data-icon="chevron-white-22"></span></div>
           </button>
-          <button class="u press tile" data-tile="community">
+          <button class="u press tile" data-tile="community" data-action="open-prog" data-prog="community">
             <div class="tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p3"></span><span data-icon="chevron-white-22"></span></div>
           </button>
@@ -187,9 +188,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=202610190416"></script>
-<script src="projects.js?v=202610190416"></script>
-<script src="project-view.js?v=202610190416"></script>
-<script src="app.js?v=202610190416"></script>
+<script src="copy.js?v=202610190423"></script>
+<script src="projects.js?v=202610190423"></script>
+<script src="project-view.js?v=202610190423"></script>
+<script src="app.js?v=202610190423"></script>
 </body>
 </html>

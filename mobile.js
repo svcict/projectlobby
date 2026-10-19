@@ -13,7 +13,8 @@
     '': { view: 'home' },
     'programs': { view: 'programs', parent: '' },
     'arts': { view: 'program', prog: 'arts', parent: 'programs' },
-    'bigbets': { view: 'program', prog: 'bigbets', parent: 'programs' }
+    'bigbets': { view: 'program', prog: 'bigbets', parent: 'programs' },
+    'community': { view: 'program', prog: 'community', parent: 'programs' }
   };
   Object.keys(PROJECTS).forEach((id) => {
     const p = PROJECTS[id];
@@ -73,9 +74,7 @@
 
     $$('[data-view]').forEach((el) => { el.hidden = el.dataset.view !== route.view; });
 
-    const pg = prog === 'bigbets'
-      ? { title: t.p2, body: t.bbBody, giveBody: t.bbGive }
-      : { title: t.title, body: t.body, giveBody: t.giveBody };
+    const pg = window.programPage(t, prog);
     $$('[data-pg]').forEach((el) => { el.textContent = pg[el.dataset.pg]; });
     $$('[data-for-prog]').forEach((el) => { el.hidden = el.dataset.forProg !== prog; });
     $$('[data-tile]').forEach((el) => { el.hidden = el.dataset.tile === prog; });

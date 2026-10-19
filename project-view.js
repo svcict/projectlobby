@@ -15,6 +15,9 @@
     book: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
     gem: '<path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/>',
     image: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+    briefcase: '<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>',
+    stethoscope: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
     pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
     check: '<path d="M20 6 9 17l-5-5"/>'
   };
@@ -57,7 +60,8 @@
         ${s.label ? `<div class="pj-results__label">${esc(s.label)}</div>` : ''}
         ${s.location ? `<div class="pj-results__place">${icon('pin', z.pin, '#F7941D')}${esc(s.location)}</div>` : ''}
       </div>` : '';
-    return `<div class="pj-statblock">${where}<div class="pj-stats${list.length > 2 ? ' pj-stats--compact' : ''}">${list.map((st) => `<div class="pj-stat">
+    const sub = s.sub ? `<p class="pj-statblock__sub">${esc(s.sub)}</p>` : '';
+    return `<div class="pj-statblock">${where}${sub}<div class="pj-stats${list.length > 2 ? ' pj-stats--compact' : ''}">${list.map((st) => `<div class="pj-stat">
       <div class="pj-stat__icon">${icon(st.icon, z.stat, '#041F3F')}</div>
       <div class="pj-stat__value">${esc(st.value)}</div>
       <div class="pj-stat__label">${esc(st.label)}</div>

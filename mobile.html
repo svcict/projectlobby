@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="mobile.css?v=202610190416">
+<link rel="stylesheet" href="mobile.css?v=202610190423">
 </head>
 <body>
 <div class="page">
@@ -70,19 +70,21 @@
         <span class="m-go" data-icon="go"></span>
       </div>
     </a>
-    <div class="m-card">
+    <a class="u press m-card" href="#community">
       <div class="m-card__media"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development image"></div></div>
       <div class="m-card__body">
         <div class="m-card__text"><span class="m-card__name" data-t="p3"></span><span class="m-card__desc" data-t="d3"></span></div>
+        <span class="m-go" data-icon="go"></span>
       </div>
-    </div>
+    </a>
   </section>
 
-  <!-- Program page: Arts and Culture or Big Bets -->
+  <!-- Program page: Arts and Culture, Big Bets or Community Development -->
   <section class="view" data-view="program" hidden>
     <div class="m-hero m-hero--wide">
       <div class="slot" data-for-prog="arts" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div>
       <div class="slot" data-for-prog="bigbets" data-src="assets/bigbets-banner.jpg" data-ph="Big Bets hero photo"></div>
+      <div class="slot" data-for-prog="community" data-src="assets/community-card.jpg" data-ph="Community Development hero photo"></div>
     </div>
     <div class="m-band">
       <div class="m-eyebrow">Ayala Foundation</div>
@@ -97,8 +99,16 @@
       </div>
       <div class="m-group">
         <h2 class="m-h2" data-t="partOf"></h2>
-        <div class="m-box"><div class="m-box__title" data-t="give"></div><div class="m-box__body" data-pg="giveBody"></div></div>
-        <div class="m-box"><div class="m-box__title" data-t="partner"></div><div class="m-box__body" data-t="partnerBody"></div></div>
+        <div class="pj-contact">
+          <div class="pj-contact__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B53A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:none"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+          <div class="pj-contact__text">
+            <div class="pj-contact__title" data-t="partner"></div>
+            <div class="pj-contact__lines">
+              <a class="pj-contact__link" href="mailto:partnerships@ayalafoundation.org">partnerships@ayalafoundation.org</a>
+              <a class="pj-contact__link" href="https://www.ayalafoundation.org" target="_blank" rel="noopener">www.ayalafoundation.org</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="m-group">
         <h2 class="m-h2" data-t="more"></h2>
@@ -116,10 +126,10 @@
             <div class="m-tile__media"><div class="slot" data-src="assets/bigbets-tile.jpg" data-ph="Big Bets illustration"></div></div>
             <div class="m-tile__name" data-t="p2"></div>
           </a>
-          <button class="u press m-tile" data-tile="community">
+          <a class="u press m-tile" href="#community" data-tile="community">
             <div class="m-tile__media"><div class="slot" data-src="assets/community-tile.jpg" data-ph="Community photo"></div></div>
             <div class="m-tile__name" data-t="p3"></div>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -138,9 +148,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=202610190416"></script>
-<script src="projects.js?v=202610190416"></script>
-<script src="project-view.js?v=202610190416"></script>
-<script src="mobile.js?v=202610190416"></script>
+<script src="copy.js?v=202610190423"></script>
+<script src="projects.js?v=202610190423"></script>
+<script src="project-view.js?v=202610190423"></script>
+<script src="mobile.js?v=202610190423"></script>
 </body>
 </html>

@@ -4,13 +4,13 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 
 **Lobby kiosk** (`index.html`, `styles.css`, `app.js`)
 
-- Screens: Home, Our programs, the program page (Arts and Culture or Big Bets), the project page, and the "Still there?" warning
+- Screens: Home, Our programs, the program page (Arts and Culture, Big Bets or Community Development), the project page, and the "Still there?" warning
 - `app.js` handles navigation, carousel swipe, photo rotation, the idle reset and stage scaling
 
 **Phone page** (`mobile.html`, `mobile.css`, `mobile.js`)
 
 - The same content in a single column for phones
-- Each screen has its own address, so the phone's back button works: `#programs`, `#arts`, `#bigbets`, and `#project/<id>` (e.g. `#project/museum`)
+- Each screen has its own address, so the phone's back button works: `#programs`, `#arts`, `#bigbets`, `#community`, and `#project/<id>` (e.g. `#project/museum`)
 - Phones that open `index.html` are sent here automatically
 
 **Shared**
@@ -21,7 +21,7 @@ Plain HTML/CSS/JS with no build step. It is built from the Claude Design files "
 
 ## Projects
 
-All project pages (Ayala Museum, CENTEX Digital Education, CENTEX Early Grades, and future ones) use one layout, filled from `projects.js`. To add or edit a project, change `projects.js` only:
+All project pages (Ayala Museum, CENTEX Digital Education, CENTEX Early Grades, El Nido, and future ones) use one layout, filled from `projects.js`. To add or edit a project, change `projects.js` only:
 
 - `program` puts it in that program's project list, in file order
 - `title`, an optional `hero` image, and `en` / `fil` content: `lead`, `body` paragraphs, `sections`, and an optional `contact`
@@ -51,8 +51,9 @@ The program page's "Take this with you" code opens the phone page on that progra
 
 - `assets/qr-arts.png` → https://svcict.github.io/projectlobby/mobile.html#arts
 - `assets/qr-bigbets.png` → https://svcict.github.io/projectlobby/mobile.html#bigbets
+- `assets/qr-community.png` → https://svcict.github.io/projectlobby/mobile.html#community
 
-If the site moves to another address, regenerate both codes for the new address.
+If the site moves to another address, regenerate the codes for the new address.
 
 ## Images
 
@@ -63,10 +64,10 @@ Each image spot loads a file from `assets/`. To change one, replace the file, or
 | Home logo | `logo.webp` | SVG, or 1440×600 PNG | Fits a 716×300 box uncropped; transparent background |
 | Home rotating photos | `home-arts.webp`, `leadership-home.jpg`, `bigbets-home.jpg`, `home-community.webp` | 2400×2200 | Sides or top may crop; keep faces and subject centred |
 | Program cards | `*-card.jpg` | 1600×1000 (16:10) | Largest images; use the best you have |
-| Program banners | `arts-hero.webp`, `bigbets-banner.jpg` | 1600×640 (2.5:1) | Only a thin slice shows on the kiosk |
+| Program banners | `arts-hero.webp`, `bigbets-banner.jpg`, `community-card.jpg` | 1600×640 (2.5:1) | Only a thin slice shows on the kiosk |
 | Project heroes | set in `projects.js` (`hero.src`) | 1600×1200 | Fills the kiosk's left column above the text; 16:10 on phones |
 | More programs tiles | `*-tile.jpg` | 800×450 (16:9) | Small; simple illustrations or close-ups |
 
 Photos: JPG or WebP at 80–85% quality, under about 1 MB. Logos and illustrations: PNG or SVG. Don't put text in images; the pages set all text so it can switch language.
 
-CENTEX Early Grades has no hero photo yet and shows a labelled placeholder: add the image to `assets/` and set its `hero.src` in `projects.js`.
+CENTEX Early Grades and El Nido have no hero photo yet and show a labelled placeholder: add the image to `assets/` and set the project's `hero.src` in `projects.js`.

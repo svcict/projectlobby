@@ -9,7 +9,7 @@
   const DESIGN_W = 1920, DESIGN_H = 1080;
   const PROGRAM_COUNT = 4;
   // Carousel card index → program page it opens (null: no page yet).
-  const PROGRAM_PAGES = ['arts', null, 'bigbets', null];
+  const PROGRAM_PAGES = ['arts', null, 'bigbets', 'community'];
   const SLIDE_MS = 7000;
   const IDLE_MS = 75000;
   const WARN_SECONDS = 15;
@@ -120,11 +120,8 @@
       el.setAttribute('aria-hidden', String(el.dataset.screen !== state.screen));
     });
 
-    // Program page: Arts and Culture or Big Bets.
-    const bb = state.prog === 'bigbets';
-    const pg = bb
-      ? { title: t.p2, body: t.bbBody, giveBody: t.bbGive }
-      : { title: t.title, body: t.body, giveBody: t.giveBody };
+    // Program page: Arts and Culture, Big Bets or Community Development.
+    const pg = window.programPage(t, state.prog);
     $$('[data-pg]').forEach((el) => { el.textContent = pg[el.dataset.pg]; });
     $$('[data-hero]').forEach((el) => el.classList.toggle('is-on', el.dataset.hero === state.prog));
     $$('[data-for-prog]').forEach((el) => { el.hidden = el.dataset.forProg !== state.prog; });
