@@ -3,12 +3,13 @@
    4 seconds, or with no network at all, the saved copy is used, so a dropped Wi-Fi never leaves the
    lobby screen blank. Pictures, fonts and icons come straight from the saved copy and are refreshed
    in the background. Bump VERSION when files are added to or removed from PRECACHE. */
-var VERSION = 'tulay-v1';
+var VERSION = 'tulay-v2';
 var PRECACHE = [
   './',
   'manifest.webmanifest',
   'img/welcome.webp', 'img/arts.webp', 'img/leadership.webp', 'img/bigbets.webp', 'img/community.webp', 'img/museum.webp',
   'fonts/familjen-grotesk-latin.woff2', 'fonts/familjen-grotesk-latin-ext.woff2',
+  'vendor/qrcode.js',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'
 ];
 var PAGE_TIMEOUT_MS = 4000;

@@ -62,7 +62,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--blue) var(--white); }
 .btn.quiet { background: var(--white); color: var(--blue); border: 4px solid var(--blue); }
 .btn.on-field { background: transparent; color: var(--white); border: 4px solid var(--white); }
 /* press feedback, shared: every touch target answers within a frame and settles fast */
-.btn, .mini, .proj { transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease; }
+.btn { transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease; }
 
 /* welcome */
 .welcome { min-height: calc(100 * var(--svh)); display: grid; grid-template-rows: minmax(calc(30 * var(--svh)), 1fr) auto auto; background: var(--ink); color: var(--on-field); cursor: pointer; }
@@ -105,11 +105,9 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 /* coverflow: the programs fan out in an arc, the chosen one in front. The stage takes whatever height is left; the cards size to it. */
 #attract { display: grid; grid-template-rows: minmax(0, 1fr) auto auto auto; justify-items: center; row-gap: clamp(8px, calc(1.6 * var(--svh)), 18px); padding: var(--m); background: var(--ink); }
 #stage { position: relative; width: 100%; min-height: 0; container-type: size; perspective: 1500px; perspective-origin: 50% 42%; --cw: min(calc(80cqh * 4 / 3), 46cqw); }
-#stage::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 2%; height: 9%; background: radial-gradient(ellipse at center, rgba(0,20,70,.55), rgba(0,20,70,0) 70%); pointer-events: none; z-index: 0; }
 #stage .slide { --o: 0; --a: 0; --z: 1; inset: auto; left: 50%; top: 46%; width: var(--cw); height: calc(var(--cw) * .75); display: block; background: var(--pc); border: 0; z-index: var(--z);
   opacity: 1; backface-visibility: hidden; will-change: transform, opacity; transform-origin: 50% 50%;
   transform: translate(-50%, -50%) translateX(calc(var(--o) * 80%)) translateZ(calc(var(--a) * -220px)) rotateY(calc(var(--o) * -42deg)) scale(calc(1 - var(--a) * .06));
-  box-shadow: 0 22px 44px rgba(0,18,64,.45);
   transition: transform 520ms var(--ease-out), opacity 520ms var(--ease-out); cursor: pointer; }
 #stage .slide::after { content: ""; position: absolute; inset: 0; background: rgba(0,48,140,.24); opacity: var(--a); z-index: 1; transition: opacity 520ms var(--ease-out); pointer-events: none; }
 #stage .slide::before { content: ""; position: absolute; inset: 0; border: 6px solid var(--white); z-index: 2; pointer-events: none; }
@@ -132,10 +130,6 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 .wordmark { font-size: var(--step-lead); font-weight: 700; }
 
 /* programs */
-.projs { display: grid; gap: 10px; }
-.projs-h { font-size: var(--step-body); font-weight: 700; }
-.proj { background: var(--white); color: var(--blue); border: 4px solid var(--blue); border-bottom: 10px solid var(--orange); min-height: var(--touch); padding: 8px 24px; display: flex; align-items: center; font-size: var(--step-lead); font-weight: 700; line-height: 1.1; }
-.proj:active { transform: scale(.98); }
 
 /* detail hero */
 .hero { background: var(--pc); color: var(--on-field); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); margin-top: var(--m); }
@@ -153,12 +147,6 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 .sec .lede { font-size: var(--step-body); color: var(--ink-soft); max-width: 36ch; }
 
 /* impact */
-.impact.two { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 28px; }
-.fig small { font-size: var(--step-body); display: block; margin-top: 8px; font-weight: 700; }
-.impact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 20px); }
-.fig { background: var(--pc); color: var(--on-field); padding: clamp(16px, 2.6vw, 28px); display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: clamp(170px, 22vw, 260px); }
-.fig b { max-width: 100%; font-size: clamp(34px, 6.6vw, 72px); line-height: 1; font-weight: 700; letter-spacing: -.02em; }
-.fig span { font-size: var(--step-body); line-height: 1.3; overflow-wrap: break-word; }
 
 /* support */
 
@@ -171,22 +159,9 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 .idle { position: fixed; z-index: 20; left: var(--m); right: var(--m); bottom: 140px; max-width: 984px; margin: 0 auto; background: var(--ink); color: var(--on-field); padding: clamp(16px, 2.6vw, 28px); display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; font-size: var(--step-body); line-height: 1.3; font-weight: 600; animation: rise 300ms var(--ease-out) both; }
 .idle b { font-variant-numeric: tabular-nums; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.path { padding: clamp(18px, 3vw, 34px); display: grid; gap: 10px; align-content: start; font-size: var(--step-body); line-height: 1.3; }
-.path b { font-size: var(--step-lead); line-height: 1.1; }
-.path.give { background: var(--pc); color: var(--on-field); }
-.path.partner { background: var(--white); color: var(--blue); border: 4px solid var(--blue); }
-.path.take { grid-column: 1 / -1; background: var(--white); color: var(--blue); border: 4px solid var(--blue); grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(16px, 3vw, 32px); }
-.qr { width: clamp(110px, 16vw, 170px); aspect-ratio: 1; background: var(--white); border: 8px solid var(--blue); display: grid; place-items: center; text-align: center; font-weight: 700; font-size: var(--step-body); letter-spacing: .04em; }
-.more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.mini { background: var(--pc); color: var(--on-field); display: grid; grid-template-rows: auto 1fr; }
-.mini:active { transform: scale(.98); }
-.mini img { width: 100%; height: clamp(140px, 22vw, 260px); object-fit: cover; }
-.mini span { padding: clamp(14px, 2.4vw, 26px); font-size: var(--step-lead); font-weight: 700; line-height: 1.1; display: flex; align-items: center; min-height: clamp(84px, 11vw, 120px); }
 
 /* one orchestrated moment: each screen assembles when it opens */
 .enter .stag { animation: rise 280ms var(--ease-out) both; animation-delay: calc(min(var(--i, 0), 4) * 60ms); }
-.fig.pop { animation: fade 240ms ease-out both; animation-delay: calc(var(--i, 0) * 60ms); } /* the count-up is the motion here, so the block only fades */
 @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 /* reduced motion: fewer and gentler. Keep the fades that explain order, drop the travel and the drift. */
@@ -195,7 +170,7 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 @media (prefers-reduced-motion: reduce) {
   .slide figcaption { transform: none; transition: none; }
   .slide.on { transition-duration: 200ms; }
-  .enter .stag, .fig.pop, .idle { animation-name: fade; animation-duration: 200ms; }
+  .enter .stag, .idle { animation-name: fade; animation-duration: 200ms; }
 }
 @media (min-aspect-ratio: 5/4) and (max-height: 500px) { /* a phone held sideways */
   :root { --touch: 48px; --m: 14px; }
@@ -219,19 +194,10 @@ img[src$="community.webp"] { object-position: 64% 50%; }
   .slide[data-p] img { min-height: 100px; aspect-ratio: 2 / 1; }
   .dock { gap: 8px; }
   .dock .btn { font-size: 19px; padding: 8px 4px; overflow-wrap: normal; }
-  .more { grid-template-columns: minmax(0, 1fr); }
   .w-links { gap: 20px; padding-bottom: 12px; }
   .w-links .txt { font-size: 19px; padding: 0 10px; }
   .welcome { grid-template-rows: minmax(calc(56 * var(--svh)), 1fr) auto auto; }
-  .paths { grid-template-columns: minmax(0, 1fr); }
-  .path.take { grid-template-columns: minmax(0, 1fr); }
-  h1, h2, .fig b { overflow-wrap: anywhere; }
-  .impact, .impact.two { grid-template-columns: minmax(0, 1fr); }
-  .impact.two { margin-top: 20px; }
-  .fig small { font-size: 18px; margin-top: 4px; }
-  .fig { flex-direction: row; align-items: center; min-height: 0; gap: 18px; padding: 16px 18px; }
-  .fig b { font-size: 40px; flex: 0 0 auto; min-width: 0; }
-  .fig span { font-size: 18px; }
+  h1, h2 { overflow-wrap: anywhere; }
   .btn { font-size: max(19px, var(--step-lead)); }
   .hero { grid-template-columns: 1fr; }
   .hero-pic { order: -1; }
@@ -277,14 +243,6 @@ img[src$="community.webp"] { object-position: 64% 50%; }
   .sec { padding: 32px var(--m); }
   #detail > .bar, #project > .bar { padding-bottom: 0; }
   .about-t { font-size: 26px; max-width: 64ch; }
-  .impact.two { margin-top: 12px; }
-  .fig { min-height: 0; gap: 12px; padding: 24px; }
-  .fig b { font-size: clamp(48px, 4vw, 72px); }
-  .fig span, .fig small { font-size: 24px; }
-  .projs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .proj { min-height: 120px; }
-  .mini img { height: clamp(120px, 11vw, 200px); }
-  .mini span { min-height: 80px; }
 
   /* short screens: there is no room to pin the whole title block, so it scrolls with the page */
   @media (max-height: 880px) {
@@ -296,6 +254,79 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 
 /* a 4K TV that is not set to 200% display scaling: zoom the whole page so everything keeps its intended physical size.
    Recommended: set the display scaling to 200% instead, then this block does nothing. Heights are divided by the zoom so screens still fill the TV exactly. */
+/* ---- the sentence is the layout ----
+   Each screen is built on a short sentence set large. The welcome line carries the foundation's own photograph where a word would be,
+   each program's four stages step across the screen like spans of a bridge, its figures are written into a sentence, and the close
+   says the idea back: "Be the bridge." Kiosk type runs about 1.6 times web sizes, so a "statement" here tops out near 56px, not 36px. */
+
+/* welcome: wordmark at the top, the sentence in the middle, the links at the bottom within reach */
+#welcome { display: flex; flex-direction: column; padding: var(--m) var(--m) 0; }
+.w-mark { font-size: var(--step-lead); font-weight: 700; }
+.w-main { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: clamp(20px, calc(2.6 * var(--svh)), 40px); padding-block: var(--m); }
+.w-say { display: flex; flex-direction: column; align-items: flex-start; gap: .12em; width: 100%; font-size: clamp(44px, 12.4vw, 150px); line-height: .95; font-weight: 700; letter-spacing: -.035em; }
+.w-say > span:not(.w-strip) { white-space: nowrap; }
+.w-strip { display: block; width: 100%; aspect-ratio: 2 / 1; overflow: hidden; background: var(--white); }
+.w-strip img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; }
+.w-line { font-size: var(--step-lead); line-height: 1.25; }
+#welcome .w-links { padding: 16px 0 var(--m); }
+/* the signature move: the photograph opens like a shutter as the welcome appears */
+.enter .w-strip { animation: shutter 1.1s var(--ease-out) both; }
+.enter .w-strip img { animation: settle 1.1s var(--ease-out) both; }
+@keyframes shutter { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes settle { from { transform: scale(1.12); } to { transform: none; } }
+
+/* how it works: one line per stage, each starting further across, so the four read as a bridge being crossed */
+.steps { list-style: none; display: grid; gap: clamp(28px, 3vw, 56px); }
+.steps li { margin-left: calc(var(--s) * 16%); display: grid; gap: 12px; max-width: calc(100% - var(--s) * 16%); }
+.steps b { font-size: clamp(36px, 4.6vw, 76px); line-height: 1; font-weight: 700; letter-spacing: -.03em; }
+.steps span { font-size: var(--step-body); line-height: 1.4; max-width: 34ch; }
+
+/* figures inside a sentence: words regular, the figures alone bold, no boxes */
+.said { font-size: clamp(30px, 4.4vw, 56px); line-height: 1.15; font-weight: 400; letter-spacing: -.01em; max-width: 30ch; }
+.said b { font-weight: 700; }
+.said + .asof { margin-top: 4px; }
+
+/* the close: the page's colours turn over, and the idea comes back */
+.sec.close { background: var(--blue); color: var(--white); padding-block: clamp(48px, 7vw, 96px); margin-block: clamp(24px, 3vw, 48px); gap: clamp(32px, 4vw, 64px); }
+.sec .close-h { font-size: clamp(56px, 9vw, 120px); line-height: .92; font-weight: 700; letter-spacing: -.035em; color: var(--white); }
+.close-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; }
+.close-p { font-size: var(--step-lead); line-height: 1.3; max-width: 26ch; }
+.take { display: flex; align-items: flex-end; gap: 20px; max-width: 30ch; font-size: var(--step-small); line-height: 1.35; }
+.take .qr { flex: 0 0 auto; width: clamp(140px, 14vw, 200px); aspect-ratio: 1; border: 0; background: var(--white); display: block; }
+.take .qr svg { display: block; width: 100%; height: 100%; }
+
+/* the other programs: a plain list, each name underlined in the action orange like every other link */
+.rows { display: grid; gap: 8px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: var(--touch); padding: 16px 0; width: 100%; color: var(--blue); }
+.row-t { display: grid; gap: 6px; }
+.row-t b { font-size: var(--step-lead); line-height: 1.1; font-weight: 700; text-decoration: underline 4px var(--orange); text-underline-offset: 8px; }
+.row-t span { font-size: var(--step-body); line-height: 1.3; }
+.row-a { flex: 0 0 auto; width: 40px; height: 40px; }
+.row:active { transform: translateX(6px); }
+.row { transition: transform 160ms var(--ease-out); }
+
+/* about: the photograph closes the half that stood empty */
+.about { grid-template-columns: minmax(0, 1fr); align-content: start; }
+.about-pic img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
+.about-copy { display: grid; gap: 28px; }
+
+/* programs, portrait: the cards take the width and sit together with their caption in the middle of the screen */
+@media (max-aspect-ratio: 5/4) {
+  #attract { grid-template-rows: auto auto auto auto; align-content: center; }
+  #stage { --cw: min(82vw, 900px); height: calc(var(--cw) * .75 + 56px); }
+}
+@media (min-width: 560px) and (min-aspect-ratio: 5/4) {
+  .w-say { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .1em .22em; font-size: clamp(56px, 9vw, 190px); }
+  .w-strip { flex: 1 1 0; min-width: 2.4em; width: auto; height: .72em; aspect-ratio: auto; }
+  .about { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: center; align-items: center; gap: clamp(32px, 4vw, 72px); }
+  .about-pic { order: 2; }
+  .about-pic img { aspect-ratio: 4 / 3; }
+  .sec.close { margin-inline: var(--m); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .enter .w-strip, .enter .w-strip img { animation: none; }
+}
+
 @media (min-width: 3200px) and (min-aspect-ratio: 5/4) { html { zoom: 2; } :root { --svh: calc(1svh / 2); } }
 @media (min-width: 2200px) and (max-width: 3199px) and (min-aspect-ratio: 5/4) { html { zoom: 1.3333; } :root { --svh: calc(1svh / 1.3333); } }
 </style>
@@ -303,10 +334,12 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 <button class="skip" type="button" id="skip" data-k="k.skip">Skip to the buttons</button>
 
 <main class="kiosk" id="kiosk">
-  <section class="welcome" id="welcome" aria-label="Welcome">
-    <div class="welcome-pic" id="home-pic">
-      <figure class="slide on" data-p="brand"><img src="img/welcome.webp" width="1600" height="800" fetchpriority="high" alt="Volunteers and staff at a packing table, taking red emergency bags out of cardboard boxes."><figcaption><h1 id="w-h">Tulay Foundation</h1><span data-k="w.line">Choose a program to learn more.</span></figcaption></figure>
-      <button class="btn go cta" id="home-go" type="button" data-k="w.go">Touch to explore</button>
+  <section class="welcome enter" id="welcome" aria-labelledby="w-h">
+    <p class="w-mark">Tulay Foundation</p>
+    <div class="w-main">
+      <h1 class="w-say" id="w-h"><span data-k="w.ha">Tulay means</span> <span class="w-strip" aria-hidden="true"><img src="img/welcome.webp" width="1600" height="800" fetchpriority="high" alt=""></span><span data-k="w.hb">bridge.</span></h1>
+      <p class="w-line" data-k="w.line">Choose a program to learn more.</p>
+      <button class="btn go" id="home-go" type="button" data-k="w.go">Touch to explore</button>
     </div>
     <div class="w-links"><button class="txt" type="button" data-act="about" data-k="k.about">About us</button><button class="txt" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button></div>
   </section>
@@ -325,8 +358,10 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 
   <section id="about" hidden aria-labelledby="about-h">
     <div class="bar stag" style="--i:0"><span class="wordmark">Tulay Foundation</span></div>
-    <div class="about stag" style="--i:1"><h1 id="about-h" data-k="k.about">About us</h1>
-      <p class="about-p" data-k="w.sub">We believe in contributing to the nation’s development goals by adapting to the evolving needs of stakeholders so we can remain relevant and responsive. Through our programs, we affirm our commitment to aligning, giving focus, and making an impact in the lives of people in our conglomerate, communities, and country.</p></div>
+    <div class="about stag" style="--i:1">
+      <div class="about-pic"><img src="img/welcome.webp" width="1600" height="800" loading="lazy" alt="Volunteers and staff at a packing table, taking red emergency bags out of cardboard boxes."></div>
+      <div class="about-copy"><h1 id="about-h" data-k="k.about">About us</h1>
+      <p class="about-p" data-k="w.sub">We believe in contributing to the nation’s development goals by adapting to the evolving needs of stakeholders so we can remain relevant and responsive. Through our programs, we affirm our commitment to aligning, giving focus, and making an impact in the lives of people in our conglomerate, communities, and country.</p></div></div>
     <nav class="dock" aria-label="Kiosk buttons"><button class="btn" type="button" data-act="progs" data-k="k.all">All programs</button><button class="btn on-field" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button><button class="btn on-field" type="button" data-act="welcome" data-k="k.start">Start over</button></nav>
   </section>
   <section id="detail" hidden data-p="arts" aria-labelledby="d-name">
@@ -342,27 +377,31 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 
     <div class="sec stag" id="projects-sec" style="--i:2" hidden>
       <h2 data-k="c.projects">Projects</h2>
-      <div class="projs" id="projs"></div>
+      <div class="rows" id="projs"></div>
     </div>
 
-    <div class="sec stag" style="--i:3" id="impact-sec">
-      <h2 data-k="d.chg">What it has changed</h2>
+    <div class="sec stag how" style="--i:3">
+      <h2 class="sr" data-k="d.how">How it works</h2>
+      <ol class="steps" id="steps"></ol>
+    </div>
+
+    <div class="sec stag" style="--i:4" id="impact-sec">
+      <h2 class="sr" data-k="d.chg">What it has changed</h2>
+      <p class="said" id="impact"></p>
       <p class="asof" data-k="d.asof">Figures as of 2025</p>
-      <div class="impact" id="impact"></div>
     </div>
 
-    <div class="sec stag" style="--i:5">
-      <h2 data-k="d.part">Be part of it</h2>
-      <div class="paths">
-        <div class="path give"><b data-k="d.give">Give</b><p id="give-t"></p></div>
-        <div class="path partner"><b data-k="d.pb">Partner with us</b><p data-k="d.pp">Ask the front desk to connect you with the partnerships team.</p></div>
-        <div class="path take"><div class="qr" role="img" aria-label="Sample QR code placeholder"><span>SAMPLE<br>QR</span></div><div><b data-k="d.tb">Take this with you</b><p data-k="d.tp">Scan to keep reading on your phone. This screen collects nothing about you.</p></div></div>
+    <div class="sec stag close" style="--i:5">
+      <h2 class="close-h" data-k="d.close">Be the bridge.</h2>
+      <div class="close-foot">
+        <p class="close-p" id="give-t"></p>
+        <div class="take" id="take" hidden><div class="qr" id="qr"></div><p data-k="d.tp">Scan to keep reading on your phone. This screen collects nothing about you.</p></div>
       </div>
     </div>
 
     <div class="sec stag" style="--i:6">
-      <h2 data-k="d.more">More programs</h2>
-      <div class="more" id="more"></div>
+      <h2 data-k="d.more">Three more programs to explore</h2>
+      <div class="rows" id="more"></div>
     </div>
     <nav class="dock" aria-label="Kiosk buttons"><button class="btn" type="button" data-act="progs" data-k="k.all">All programs</button><button class="btn on-field" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button><button class="btn on-field" type="button" data-act="welcome" data-k="k.start">Start over</button></nav>
   </section>
@@ -374,9 +413,9 @@ img[src$="community.webp"] { object-position: 64% 50%; }
     </div>
     <div class="sec stag" style="--i:2">
       <p class="about-t" id="pj-t" data-k="pj.tbd">Project description to come.</p>
-      <div class="impact two" id="pj-stats" hidden></div>
+      <p class="said" id="pj-stats" hidden></p>
     </div>
-    <div class="sec stag" style="--i:3"><div class="path give"><b id="pj-gb"></b><p id="pj-gt"></p></div></div>
+    <div class="sec stag close" style="--i:3"><h2 class="close-h" id="pj-gb"></h2><div class="close-foot"><p class="close-p" id="pj-gt"></p></div></div>
     <div class="sec stag" style="--i:4"><button class="btn back" type="button" data-act="back" id="pj-back"></button></div>
     <nav class="dock" aria-label="Kiosk buttons"><button class="btn" type="button" data-act="progs" data-k="k.all">All programs</button><button class="btn on-field" type="button" data-act="lang" data-k="lang" lang="fil">Filipino</button><button class="btn on-field" type="button" data-act="welcome" data-k="k.start">Start over</button></nav>
   </section>
@@ -386,6 +425,7 @@ img[src$="community.webp"] { object-position: 64% 50%; }
   <button class="btn" type="button" data-act="stay" data-k="i.stay">I’m still here</button>
 </div>
 
+<script src="vendor/qrcode.js"></script>
 <script>
 (function () {
   var IDLE_MS = 60000;
@@ -397,7 +437,7 @@ img[src$="community.webp"] { object-position: 64% 50%; }
         { n: "Discover", t: "Local artists and craft makers are found through open calls and cultural groups." },
         { n: "Create", t: "Makers get studio time, materials and a mentor to develop new work." },
         { n: "Show", t: "Their work is shown in exhibitions, markets and community festivals." },
-        { n: "Pass on", t: "Artists teach what they know to the next generation." }
+        { n: "Pass on", t: "Artists teach what they know to young makers." }
       ],
       impact: [{ v: 1200, l: "artists supported" },{ v: 85, l: "exhibitions and festivals" },{ v: 24, l: "heritage crafts documented" }],
       gifts: [{ a: 500, t: "art materials for 5 young artists" },{ a: 1000, t: "a month of studio space for 3 makers" },{ a: 5000, t: "a community exhibition from start to finish" }] },
@@ -437,7 +477,7 @@ img[src$="community.webp"] { object-position: 64% 50%; }
   /* Filipino copy: a first draft for a native-speaker review before any public use */
   var lang = 'en';
   var FIL = {"w.h": "Mga Programa", "w.sub": "Naniniwala kaming makatutulong kami sa mga layunin ng bansa sa pag-unlad sa pamamagitan ng pag-angkop sa nagbabagong pangangailangan ng mga stakeholder, upang manatili kaming makabuluhan at tumutugon. Sa pamamagitan ng aming mga programa, pinagtitibay namin ang aming pangako sa pag-aayon, pagbibigay-tuon, at paglikha ng epekto sa buhay ng mga tao sa aming conglomerate, mga komunidad, at bansa.", "w.go": "Pindutin para tuklasin", "lang": "English", "p.h": "Aming mga programa", "p.c": "<b>Pumili ng isa</b> para matuto pa.", "c.projects": "Mga Proyekto", "pj.tbd": "Paparating ang paglalarawan ng proyekto.", "d.chg": "Ano ang nabago nito", "d.asof": "Mga datos hanggang 2025", "d.part": "Maging bahagi nito", "d.give": "Magbigay", "d.pb": "Makipagtulungan sa amin", "d.pp": "Hilingin sa front desk na ikonekta kayo sa partnerships team.", "d.tb": "Dalhin ito sa inyo", "d.tp": "I-scan para ipagpatuloy ang pagbabasa sa inyong telepono. Walang kinokolektang impormasyon tungkol sa inyo ang screen na ito.", "d.more": "Iba pang programa", "k.start": "Magsimula muli", "k.about": "Tungkol sa amin", "k.skip": "Lumaktaw sa mga pindutan", "k.all": "Lahat ng programa", "i.sr": "Nandiyan pa ba kayo? Magsisimula muli ang screen na ito.", "i.a": "Nandiyan pa ba kayo? Magsisimula muli sa loob ng", "i.b": "segundo.", "i.stay": "Nandito pa ako"};
-  var FILP = {"arts": {"projects": [{"id": "museum", "name": "Ayala Museum", "img": "museum.webp", "about": 'Bilang isa sa mga nangungunang pribadong museo sa bansa, ginagawang abot-kamay ng Ayala Museum sa publiko ang kasaysayan, sining at kultura ng Pilipinas sa pamamagitan ng mga kawili-wiling eksibisyon at programa. Dito matatagpuan ang kauna-unahang Digital Gallery ng bansa, isang immersive na karanasang pahawak-screen na nagbibigay-daan sa mga bisitang tuklasin nang digital ang mga bagay mula sa mga koleksyon ng museo at aklatan. Narito rin ang permanenteng eksibisyong Crossroads of Civilizations na nagtatampok ng mga yamang pre-kolonyal ng Pilipinas, at ang natatanging Diorama Experience of Philippine History. Ipinagdiriwang ang ika-50 taon nito noong 2024, gumagamit ang Ayala Museum ng omnichannel na pamamaraan, sa tradisyonal at hindi-tradisyonal na plataporma, upang maipakita ang mayamang pamana ng ating bansa para sa kasiyahan ng mga tao sa lahat ng henerasyon.', "stats": ["bisita noong 2023", "satisfaction rating ng Arts and Culture Division mula sa mga bisita at dumalo sa programa"]}, {"id": "library", "name": "Filipinas Heritage Library"}], "name": "Sining at Kultura", "line": "Pinananatiling buhay ang pamana at binibigyan ng entablado ang mga alagad ng sining.", "tag": "Mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining.", "about": "Nagbibigay kami ng mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining sa mga makabagong museo at aklatan. Sa pagtitipon ng mga pisikal at digital na koleksyon na nagdiriwang sa saya at kababalaghan ng sining at kulturang Pilipino, umaasa kaming makapag-ambag sa mga usapan tungkol sa nagbabagong pagkakakilanlan at kakayahang kumilos ng mga Pilipino sa buong kasaysayan.", "stages": [{"n": "Tuklasin", "t": "Natutuklasan ang mga lokal na artista at manlilikha ng sining-kamay sa pamamagitan ng bukas na tawag at mga grupong pangkultura."}, {"n": "Lumikha", "t": "Nakatatanggap ang mga manlilikha ng oras sa studio, materyales at mentor para sa bagong obra."}, {"n": "Itanghal", "t": "Itinatanghal ang kanilang gawa sa mga eksibisyon, palengke at pista ng komunidad."}, {"n": "Ipasa", "t": "Itinuturo ng mga artista ang kanilang alam sa susunod na henerasyon."}], "impact": ["artistang sinuportahan", "eksibisyon at pista", "sining-kamay na naitala"], "gifts": ["mga gamit sa sining para sa 5 batang artista", "isang buwan ng studio para sa 3 manlilikha", "isang buong eksibisyon ng komunidad mula simula hanggang katapusan"]}, "leadership": {"name": "Pagpapaunlad ng Pamumuno", "line": "Natututong manguna ang kabataan sa mga proyekto sa sarili nilang barangay.", "tag": "Sinasanay ang mga batang lider na maglingkod sa sarili nilang komunidad.", "stages": [{"n": "Aplay", "t": "Nag-aaplay ang mga kabataang 17 hanggang 24 taong gulang na may planong lutasin ang isang problema sa kanilang barangay."}, {"n": "Sanay", "t": "Anim na buwang pagsasanay sa teamwork, public speaking at pagpaplano ng proyekto."}, {"n": "Manguna", "t": "Bawat fellow ay nagpapatakbo ng maliit na proyekto kasama ang isang mentor at badyet na 30,000 piso."}, {"n": "Ibahagi", "t": "Ibinabahagi ng mga fellow ang kanilang resulta at tumutulong magsanay sa susunod na grupo."}], "impact": ["fellow na nasanay", "proyektong pangkomunidad na natapos", "ang nagboboluntaryo pa rin pagkalipas ng 3 taon"], "gifts": ["mga gamit sa pagsasanay para sa 3 fellow", "isang buwang mentoring para sa proyekto ng isang fellow", "ang buong pagsasanay ng 2 fellow"]}, "bigbets": {"name": "Malalaking Taya", "line": "Maagang edukasyon at digital na edukasyon para harapin ang krisis sa pagkatuto.", "tag": "Isang nakatutok na taya sa kung paano natututo ang pinakabatang mag-aaral.", "about": "Sa harap ng krisis sa pagkatuto sa Pilipinas, nagtataya kami nang malaki sa edukasyon. Pinatatalas namin ang aming pokus sa dalawang programa para suportahan ang mga mag-aaral sa kanilang unang mga taon: ang Early Grades at ang Digital Education. Ito ang mga estratehikong pasukan kung saan makapagbubukas ng makabuluhan, napapalawak at napapanatiling solusyon ang mga tiyak at mataas-ang-epektong interbensyon, lalo na para sa mga pinakakapos na mag-aaral.\n\nHinaharap ng aming Malalaking Taya sa Maagang Edukasyon at Digital na Edukasyon ang krisis sa pagkatuto. Binubuksan ng aming platform sa boluntaryismo ang makabuluhang pagkilos para sa mga empleyado at kasosyo, at tinutulungan ang mga komunidad na maghanda at tumugon sa mga sakuna.", "stages": [{"n": "Simulan", "t": "Dekalidad na pangangalaga at pagkatuto para sa mga bata sa kanilang unang mga taon."}, {"n": "Kagamitan", "t": "Nasasanay ang mga guro at tagapag-alaga at nabibigyan ng kagamitan sa pagkatuto."}, {"n": "Ikonekta", "t": "Nabibigyan ang mga paaralan ng device, koneksyon at digital na aralin."}, {"n": "Sukatin", "t": "Sinusubaybayan ang resulta sa pagbasa at numeracy para humusay ang mga taya."}], "impact": ["sentro para sa maagang edukasyon", "mag-aaral na naabot", "paaralang may koneksyon online"], "gifts": ["mga learning kit para sa 5 paslit", "pagsasanay para sa 10 guro", "isang digital classroom para sa isang paaralan"]}, "community": {"name": "Pagpapaunlad ng Komunidad", "line": "Tubig, kabuhayan at ligtas na tahanan, itinatayo kasama ang mga residente.", "tag": "Katuwang ang mga barangay sa tubig, kabuhayan at ligtas na tahanan.", "stages": [{"n": "Makinig", "t": "Pinipili ng mga residente ang kanilang tatlong pangunahing prayoridad sa pagpupulong ng nayon."}, {"n": "Magplano", "t": "Bumubuo ang isang pangkat ng plano at badyet, at tumutulong ang komunidad sa pagpopondo."}, {"n": "Magtayo", "t": "Nagtatrabaho ang mga residente kasama ng aming mga inhinyero sa mga water point at tirahan."}, {"n": "Magpatuloy", "t": "Ang lokal na komite na ang bahala sa pagpapanatili, may pagsasanay at pondo para sa pagkukumpuni."}], "impact": ["barangay na nasilbihan", "tao na may mas ligtas na tubig", "tahanang naayos"], "gifts": ["tubo para sa linya ng tubig ng isang sambahayan", "pagkukumpuni ng bubong ng isang bahay", "pinagsasaluhang gripo para sa 20 pamilya"]}};
+  var FILP = {"arts": {"projects": [{"id": "museum", "name": "Ayala Museum", "img": "museum.webp", "about": 'Bilang isa sa mga nangungunang pribadong museo sa bansa, ginagawang abot-kamay ng Ayala Museum sa publiko ang kasaysayan, sining at kultura ng Pilipinas sa pamamagitan ng mga kawili-wiling eksibisyon at programa. Dito matatagpuan ang kauna-unahang Digital Gallery ng bansa, isang immersive na karanasang pahawak-screen na nagbibigay-daan sa mga bisitang tuklasin nang digital ang mga bagay mula sa mga koleksyon ng museo at aklatan. Narito rin ang permanenteng eksibisyong Crossroads of Civilizations na nagtatampok ng mga yamang pre-kolonyal ng Pilipinas, at ang natatanging Diorama Experience of Philippine History. Ipinagdiriwang ang ika-50 taon nito noong 2024, gumagamit ang Ayala Museum ng omnichannel na pamamaraan, sa tradisyonal at hindi-tradisyonal na plataporma, upang maipakita ang mayamang pamana ng ating bansa para sa kasiyahan ng mga tao sa lahat ng henerasyon.', "stats": ["bisita noong 2023", "satisfaction rating ng Arts and Culture Division mula sa mga bisita at dumalo sa programa"]}, {"id": "library", "name": "Filipinas Heritage Library"}], "name": "Sining at Kultura", "line": "Pinananatiling buhay ang pamana at binibigyan ng entablado ang mga alagad ng sining.", "tag": "Mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining.", "about": "Nagbibigay kami ng mga plataporma na nagtatampok sa kasaysayan, kontemporaryo at pinong sining sa mga makabagong museo at aklatan. Sa pagtitipon ng mga pisikal at digital na koleksyon na nagdiriwang sa saya at kababalaghan ng sining at kulturang Pilipino, umaasa kaming makapag-ambag sa mga usapan tungkol sa nagbabagong pagkakakilanlan at kakayahang kumilos ng mga Pilipino sa buong kasaysayan.", "stages": [{"n": "Tuklasin", "t": "Natutuklasan ang mga lokal na artista at manlilikha ng sining-kamay sa pamamagitan ng bukas na tawag at mga grupong pangkultura."}, {"n": "Lumikha", "t": "Nakatatanggap ang mga manlilikha ng oras sa studio, materyales at mentor para sa bagong obra."}, {"n": "Itanghal", "t": "Itinatanghal ang kanilang gawa sa mga eksibisyon, palengke at pista ng komunidad."}, {"n": "Ipasa", "t": "Itinuturo ng mga artista ang kanilang alam sa mga batang manlilikha."}], "impact": ["artistang sinuportahan", "eksibisyon at pista", "sining-kamay na naitala"], "gifts": ["mga gamit sa sining para sa 5 batang artista", "isang buwan ng studio para sa 3 manlilikha", "isang buong eksibisyon ng komunidad mula simula hanggang katapusan"]}, "leadership": {"name": "Pagpapaunlad ng Pamumuno", "line": "Natututong manguna ang kabataan sa mga proyekto sa sarili nilang barangay.", "tag": "Sinasanay ang mga batang lider na maglingkod sa sarili nilang komunidad.", "stages": [{"n": "Aplay", "t": "Nag-aaplay ang mga kabataang 17 hanggang 24 taong gulang na may planong lutasin ang isang problema sa kanilang barangay."}, {"n": "Sanay", "t": "Anim na buwang pagsasanay sa teamwork, public speaking at pagpaplano ng proyekto."}, {"n": "Manguna", "t": "Bawat fellow ay nagpapatakbo ng maliit na proyekto kasama ang isang mentor at badyet na 30,000 piso."}, {"n": "Ibahagi", "t": "Ibinabahagi ng mga fellow ang kanilang resulta at tumutulong magsanay sa susunod na grupo."}], "impact": ["fellow na nasanay", "proyektong pangkomunidad na natapos", "ang nagboboluntaryo pa rin pagkalipas ng 3 taon"], "gifts": ["mga gamit sa pagsasanay para sa 3 fellow", "isang buwang mentoring para sa proyekto ng isang fellow", "ang buong pagsasanay ng 2 fellow"]}, "bigbets": {"name": "Malalaking Taya", "line": "Maagang edukasyon at digital na edukasyon para harapin ang krisis sa pagkatuto.", "tag": "Isang nakatutok na taya sa kung paano natututo ang pinakabatang mag-aaral.", "about": "Sa harap ng krisis sa pagkatuto sa Pilipinas, nagtataya kami nang malaki sa edukasyon. Pinatatalas namin ang aming pokus sa dalawang programa para suportahan ang mga mag-aaral sa kanilang unang mga taon: ang Early Grades at ang Digital Education. Ito ang mga estratehikong pasukan kung saan makapagbubukas ng makabuluhan, napapalawak at napapanatiling solusyon ang mga tiyak at mataas-ang-epektong interbensyon, lalo na para sa mga pinakakapos na mag-aaral.\n\nHinaharap ng aming Malalaking Taya sa Maagang Edukasyon at Digital na Edukasyon ang krisis sa pagkatuto. Binubuksan ng aming platform sa boluntaryismo ang makabuluhang pagkilos para sa mga empleyado at kasosyo, at tinutulungan ang mga komunidad na maghanda at tumugon sa mga sakuna.", "stages": [{"n": "Simulan", "t": "Dekalidad na pangangalaga at pagkatuto para sa mga bata sa kanilang unang mga taon."}, {"n": "Kagamitan", "t": "Nasasanay ang mga guro at tagapag-alaga at nabibigyan ng kagamitan sa pagkatuto."}, {"n": "Ikonekta", "t": "Nabibigyan ang mga paaralan ng device, koneksyon at digital na aralin."}, {"n": "Sukatin", "t": "Sinusubaybayan ang resulta sa pagbasa at numeracy para humusay ang mga taya."}], "impact": ["sentro para sa maagang edukasyon", "mag-aaral na naabot", "paaralang may koneksyon online"], "gifts": ["mga learning kit para sa 5 paslit", "pagsasanay para sa 10 guro", "isang digital classroom para sa isang paaralan"]}, "community": {"name": "Pagpapaunlad ng Komunidad", "line": "Tubig, kabuhayan at ligtas na tahanan, itinatayo kasama ang mga residente.", "tag": "Katuwang ang mga barangay sa tubig, kabuhayan at ligtas na tahanan.", "stages": [{"n": "Makinig", "t": "Pinipili ng mga residente ang kanilang tatlong pangunahing prayoridad sa pagpupulong ng nayon."}, {"n": "Magplano", "t": "Bumubuo ang isang pangkat ng plano at badyet, at tumutulong ang komunidad sa pagpopondo."}, {"n": "Magtayo", "t": "Nagtatrabaho ang mga residente kasama ng aming mga inhinyero sa mga water point at tirahan."}, {"n": "Magpatuloy", "t": "Ang lokal na komite na ang bahala sa pagpapanatili, may pagsasanay at pondo para sa pagkukumpuni."}], "impact": ["barangay na nasilbihan", "tao na may mas ligtas na tubig", "tahanang naayos"], "gifts": ["tubo para sa linya ng tubig ng isang sambahayan", "pagkukumpuni ng bubong ng isang bahay", "pinagsasaluhang gripo para sa 20 pamilya"]}};
   var EN = {};
   var S = { p: null, proj: null };
   var $ = function (id) { return document.getElementById(id); };
@@ -508,11 +548,16 @@ img[src$="community.webp"] { object-position: 64% 50%; }
 
   /* impact counters and gift picker */
   function renderImpact(animate) {
-    var p = cur();
-    $('impact').innerHTML = p.impact.map(function (f, i) {
-      return '<div class="fig' + (animate ? ' pop' : '') + '" style="--i:' + i + '"><b class="num" data-v="' + f.v + '" data-s="' + (f.s || '') + '">' + fmt(animate && !reduce ? 0 : f.v) + (f.s || '') + '</b><span>' + f.l + '</span></div>';
-    }).join('');
+    $('impact').innerHTML = figureSentence(cur().impact, animate);
     if (animate && !reduce) countUp('#impact b');
+  }
+  /* the figures are written into one sentence: "112 barangays served, 38,000 people with safer water and 640 homes repaired." */
+  function figureSentence(list, animate) {
+    var parts = list.map(function (f) {
+      return '<b class="num" data-v="' + f.v + '" data-s="' + (f.s || '') + '">' + fmt(animate && !reduce ? 0 : f.v) + (f.s || '') + '</b>&nbsp;' + f.l + (f.n ? ' (' + f.n + ')' : '');
+    });
+    var last = parts.pop();
+    return (parts.length ? parts.join(', ') + (lang === 'fil' ? ' at ' : ' and ') : '') + last + '.';
   }
   function countUp(sel) {
     /* one counter after another, 60ms apart, matching the boxes' own entrance; ease-out so the last digits settle slowly */
@@ -549,18 +594,36 @@ img[src$="community.webp"] { object-position: 64% 50%; }
     $('d-name').textContent = p.name; $('d-tag').textContent = p.id === 'arts' ? p.about : p.tag; /* Arts: the About text replaces the tagline in the hero */
     $('projects-sec').hidden = !p.projects;
     $('impact-sec').hidden = !!p.projects; /* projects carry their own figures */
-    $('projs').innerHTML = (p.projects || []).map(function (j) { return '<button class="proj" type="button" data-proj="' + j.id + '">' + j.name + '</button>'; }).join('');
+    $('projs').innerHTML = (p.projects || []).map(function (j) { return '<button class="row" type="button" data-proj="' + j.id + '"><span class="row-t"><b>' + j.name + '</b></span>' + ARROW + '</button>'; }).join('');
     $('about-sec').hidden = !p.about || p.id === 'arts'; $('about-t').textContent = p.about || '';
+    /* the four stages step across the screen, one span of the bridge each */
+    $('steps').innerHTML = p.stages.map(function (st, i) { return '<li style="--s:' + i + '"><b>' + st.n + '</b><span>' + st.t + '</span></li>'; }).join('');
     $('more').innerHTML = PROGRAMS.filter(function (q) { return q.id !== S.p; }).map(function (q) {
       q = tr(q);
-      return '<button class="mini" type="button" data-p="' + q.id + '" data-open="' + q.id + '"><img src="img/' + q.img + '" width="1200" height="900" loading="lazy" decoding="async" alt=""><span>' + q.name + '</span></button>';
+      return '<button class="row" type="button" data-open="' + q.id + '"><span class="row-t"><b>' + q.name + '</b><span>' + q.line + '</span></span>' + ARROW + '</button>';
     }).join('');
     $('give-t').textContent = lang === 'fil'
-      ? 'Para suportahan ang ' + p.name + ', pakilapitan ang aming front desk team.'
-      : 'To support ' + p.name + ', please see our front desk team.';
+      ? 'Para suportahan ang ' + p.name + ' o makipagtulungan sa amin, pakilapitan ang aming front desk team.'
+      : 'To support ' + p.name + ' or to partner with us, please see our front desk team.';
+    paintQr();
     renderImpact(false);
   }
 
+  var ARROW = '<svg class="row-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h15M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3"/></svg>';
+  /* "take this with you": a QR code of this page's own address, so a phone opens the same page. Only on the published (https) site;
+     a kiosk opened from a file or a local test address has nothing a phone could reach, so the block stays hidden there. */
+  function paintQr() {
+    var ok = location.protocol === 'https:' && typeof qrcode === 'function';
+    $('take').hidden = !ok;
+    if (!ok) return;
+    if (!$('qr').firstChild) {
+      var q = qrcode(0, 'M'); q.addData(location.origin + location.pathname); q.make();
+      var n = q.getModuleCount(), d = '';
+      for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) if (q.isDark(r, c)) d += 'M' + c + ' ' + r + 'h1v1h-1z';
+      $('qr').innerHTML = '<svg viewBox="-4 -4 ' + (n + 8) + ' ' + (n + 8) + '" role="img"><rect x="-4" y="-4" width="' + (n + 8) + '" height="' + (n + 8) + '" fill="#fff"/><path d="' + d + '" fill="#0054a6"/></svg>';
+    }
+    $('qr').firstChild.setAttribute('aria-label', lang === 'fil' ? 'QR code ng pahinang ito' : 'QR code for this page');
+  }
   function openProject(id) {
     var p = tr(PROGRAMS.filter(function (q) { return q.id === 'arts'; })[0]);
     S.proj = id; S.p = 'arts';
@@ -573,7 +636,7 @@ img[src$="community.webp"] { object-position: 64% 50%; }
     $('pj-name').textContent = j.name; $('pj-prog').textContent = p.name;
     $('pj-back').innerHTML = '<span aria-hidden="true">← </span>'; $('pj-back').appendChild(document.createTextNode((lang === 'fil' ? 'Bumalik sa ' : 'Back to ') + p.name));
     var fil = lang === 'fil';
-    $('pj-gb').textContent = fil ? 'Suportahan ang proyektong ito' : 'Support this project';
+    $('pj-gb').textContent = fil ? 'Maging tulay.' : 'Be the bridge.';
     $('pj-gt').textContent = fil ? 'Para suportahan ang ' + j.name + ', pakilapitan ang aming front desk team.' : 'To support ' + j.name + ', please see our front desk team.';
     $('pj-pic').hidden = !j.img; if (j.img) { $('pj-img').style.visibility = ''; $('pj-img').src = 'img/' + j.img; $('pj-img').alt = fil ? 'Isang bisita sa harap ng malapad na touch-screen na pader sa lobby ng museo, habang may taong dumaraan.' : 'A visitor at a wide touch-screen wall in a museum lobby while another person walks past.'; }
     var has = !!j.about, t = $('pj-t'), st = $('pj-stats');
@@ -581,9 +644,7 @@ img[src$="community.webp"] { object-position: 64% 50%; }
     st.hidden = !j.stats;
     if (j.stats) {
       var raw = PROGRAMS.filter(function (q) { return q.id === 'arts'; })[0].projects.filter(function (x) { return x.id === j.id; })[0].stats;
-      st.innerHTML = raw.map(function (f, i) {
-        return '<div class="fig pop" style="--i:' + i + '"><b class="num" data-v="' + f.v + '" data-s="' + (f.s || '') + '">' + fmt(animate && !reduce ? 0 : f.v) + (f.s || '') + '</b><span>' + (lang === 'fil' ? j.stats[i] : f.l) + (f.n ? '<small>' + f.n + '</small>' : '') + '</span></div>';
-      }).join('');
+      st.innerHTML = figureSentence(raw.map(function (f, i) { return { v: f.v, s: f.s, l: lang === 'fil' ? j.stats[i] : f.l, n: f.n }; }), animate);
       if (animate && !reduce) countUp('#pj-stats b');
     }
   }
@@ -622,6 +683,8 @@ img[src$="community.webp"] { object-position: 64% 50%; }
   var KEYED = [].slice.call(document.querySelectorAll('[data-k]'));
   KEYED.forEach(function (el) { EN[el.dataset.k] = el.innerHTML; });
   FIL['c.open'] = 'Tuklasin'; FIL['w.line'] = 'Pumili ng programa para matuto pa.';
+  FIL['w.ha'] = 'Isang tulay'; FIL['w.hb'] = 'para sa lahat.'; FIL['d.how'] = 'Paano ito gumagana'; FIL['d.close'] = 'Maging tulay.'; FIL['d.more'] = 'Tatlo pang programang matutuklasan';
+  setTimeout(function () { $('welcome').classList.remove('enter'); }, 2000); /* the first welcome plays its entrance once, like every later one */
   function applyLang() {
     var fil = lang === 'fil';
     document.documentElement.lang = fil ? 'fil' : 'en';

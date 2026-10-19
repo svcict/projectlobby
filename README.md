@@ -9,6 +9,7 @@ Tulay Foundation lobby kiosk: a single static page that installs as a web app an
 | `index.html` | The whole kiosk: markup, styles, script and the English and Filipino text. |
 | `img/` | Program and project photographs. |
 | `fonts/` | Familjen Grotesk, served from this site (SIL Open Font License, `fonts/OFL.txt`). |
+| `vendor/qrcode.js` | QR code generator (qrcode-generator 2.0.4 by Kazuhiko Arase, MIT licence, header kept in the file). Draws the "take this with you" code from the page's own address on the published site. |
 | `icons/` | App and browser icons. **Placeholder artwork**: replace with the foundation's official logo, keeping the file names and sizes (192, 512 and 180 px PNGs, plus `icon.svg`). |
 | `manifest.webmanifest` | Makes the site installable as an app (name, icons, colours, full-screen display). |
 | `sw.js` | Offline support: saves the page, photos, fonts and icons so the kiosk keeps running if the Wi-Fi drops. |
@@ -42,5 +43,5 @@ Then open `http://localhost:8000`. Offline support works on `localhost` and on H
 ## Before public use
 
 - The impact figures on the Leadership, Big Bets and Community pages are sample numbers and need to be replaced with confirmed figures.
-- The "SAMPLE QR" box needs a real QR code.
+- The four stages shown on each program page (for example Discover, Create, Show, Pass on) need the foundation's confirmation; they were written as sample copy.
 - The Filipino text is a first draft awaiting review by a native speaker.
