@@ -38,8 +38,9 @@ window.COPY = {
 
 // Pillar page text for a pillar ('arts' | 'leadership' | 'bigbets' | 'community'),
 // in a language's copy.
+// tag: the pillar's place in the foundation's diagram, as on the carousel.
 window.pillarPage = (t, pillar) => ({
-  leadership: { title: t.p1, body: t.ldBody },
-  bigbets: { title: t.p2, body: t.bbBody },
-  community: { title: t.p3, body: t.cdBody }
-}[pillar] || { title: t.title, body: t.body });
+  leadership: { title: t.p1, body: t.ldBody, tag: t.tagPillar },
+  bigbets: { title: t.p2, body: t.bbBody, tag: t.tagBet },
+  community: { title: t.p3, body: t.cdBody, tag: t.tagPillar }
+}[pillar] || { title: t.title, body: t.body, tag: t.tagPillar });
