@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="mobile.css?v=202610190434">
+<link rel="stylesheet" href="mobile.css?v=20261019044132">
 </head>
 <body>
 <div class="page">
@@ -28,7 +28,7 @@
   <!-- Home -->
   <section class="view view--home" data-view="home" hidden>
     <div class="m-logo"><h1 class="sr-only">Ayala Foundation</h1><div class="slot slot--contain" data-src="assets/logo.webp" data-ph="Ayala Foundation logo"></div></div>
-    <a class="m-slides" href="#programs">
+    <a class="m-slides" href="#pillars">
       <div class="m-slide"><div class="slot" data-src="assets/home-arts.webp" data-ph="Arts and Culture photo"></div></div>
       <div class="m-slide"><div class="slot" data-src="assets/leadership-home-m.jpg" data-ph="Leadership Development photo"></div></div>
       <div class="m-slide"><div class="slot" data-src="assets/bigbets-home-m.jpg" data-ph="Big Bets photo"></div></div>
@@ -38,13 +38,13 @@
         <div class="m-dots"><div class="m-dot"></div><div class="m-dot"></div><div class="m-dot"></div><div class="m-dot"></div></div>
       </div>
     </a>
-    <a class="u press m-cta" href="#programs">
+    <a class="u press m-cta" href="#pillars">
       <span class="m-cta__label" data-t="mobileCta"></span>
       <span class="m-cta__go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="#F7941D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </a>
   </section>
 
-  <!-- Our programs -->
+  <!-- Our pillars -->
   <section class="view view--programs" data-view="programs" hidden>
     <div class="m-head">
       <div class="m-accent"></div>
@@ -57,12 +57,13 @@
         <span class="m-go" data-icon="go"></span>
       </div>
     </a>
-    <div class="m-card">
+    <a class="u press m-card" href="#leadership">
       <div class="m-card__media"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development image"></div></div>
       <div class="m-card__body">
         <div class="m-card__text"><span class="m-card__name" data-t="p1"></span><span class="m-card__desc" data-t="d1"></span></div>
+        <span class="m-go" data-icon="go"></span>
       </div>
-    </div>
+    </a>
     <a class="u press m-card" href="#bigbets">
       <div class="m-card__media"><div class="slot" data-src="assets/bigbets-card.jpg" data-ph="Big Bets image"></div></div>
       <div class="m-card__body">
@@ -79,10 +80,11 @@
     </a>
   </section>
 
-  <!-- Program page: Arts and Culture, Big Bets or Community Development -->
+  <!-- Pillar page: Arts and Culture, Leadership Development, Big Bets or Community Development -->
   <section class="view" data-view="program" hidden>
     <div class="m-hero m-hero--wide">
       <div class="slot" data-for-prog="arts" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div>
+      <div class="slot" data-for-prog="leadership" data-src="assets/leadership-card.jpg" data-ph="Leadership Development hero image"></div>
       <div class="slot" data-for-prog="bigbets" data-src="assets/bigbets-banner.jpg" data-ph="Big Bets hero photo"></div>
       <div class="slot" data-for-prog="community" data-src="assets/community-card.jpg" data-ph="Community Development hero photo"></div>
     </div>
@@ -94,7 +96,7 @@
     <div class="m-content">
       <div class="m-group">
         <h2 class="m-h2" data-t="projects"></h2>
-        <!-- Built from projects.js: every project whose program is on screen. -->
+        <!-- Built from programs.js: every program under the pillar on screen. -->
         <div class="m-projects" id="projectList"></div>
       </div>
       <div class="m-group">
@@ -112,16 +114,16 @@
       </div>
       <div class="m-group">
         <h2 class="m-h2" data-t="more"></h2>
-        <!-- The tile for the program on screen is hidden. -->
+        <!-- The tile for the pillar on screen is hidden. -->
         <div class="m-tiles">
           <a class="u press m-tile" href="#arts" data-tile="arts">
             <div class="m-tile__media"><div class="slot" data-src="assets/arts-tile.jpg" data-ph="Arts and Culture image"></div></div>
             <div class="m-tile__name" data-t="p0"></div>
           </a>
-          <button class="u press m-tile" data-tile="leadership">
+          <a class="u press m-tile" href="#leadership" data-tile="leadership">
             <div class="m-tile__media"><div class="slot" data-src="assets/leadership-tile.jpg" data-ph="Leadership illustration"></div></div>
             <div class="m-tile__name" data-t="p1"></div>
-          </button>
+          </a>
           <a class="u press m-tile" href="#bigbets" data-tile="bigbets">
             <div class="m-tile__media"><div class="slot" data-src="assets/bigbets-tile.jpg" data-ph="Big Bets illustration"></div></div>
             <div class="m-tile__name" data-t="p2"></div>
@@ -135,7 +137,7 @@
     </div>
   </section>
 
-  <!-- Project page: one layout for every project in projects.js -->
+  <!-- Program page: one layout for every program in programs.js -->
   <section class="view" data-view="project" hidden>
     <div class="m-hero m-hero--wide" id="pjHeroes"></div>
     <div class="m-band" id="pjIntro"></div>
@@ -148,9 +150,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=202610190434"></script>
-<script src="projects.js?v=202610190434"></script>
-<script src="project-view.js?v=202610190434"></script>
-<script src="mobile.js?v=202610190434"></script>
+<script src="copy.js?v=20261019044132"></script>
+<script src="programs.js?v=20261019044132"></script>
+<script src="project-view.js?v=20261019044132"></script>
+<script src="mobile.js?v=20261019044132"></script>
 </body>
 </html>

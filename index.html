@@ -18,17 +18,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610190434">
+<link rel="stylesheet" href="styles.css?v=20261019044132">
 </head>
 <body>
 <div class="viewport">
 <div class="stage" id="stage">
 
-  <!-- Program page (base layer): Arts and Culture, Big Bets or Community Development -->
+  <!-- Pillar page (base layer): Arts and Culture, Leadership Development, Big Bets or Community Development -->
   <div class="screen screen--program" data-screen="program">
     <aside class="panel">
       <div class="panel__media">
         <div class="hero-layer" data-hero="arts"><div class="slot" data-src="assets/arts-hero.webp" data-ph="Hero photo — artist at work"></div></div>
+        <div class="hero-layer" data-hero="leadership"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development hero image"></div></div>
         <div class="hero-layer" data-hero="bigbets"><div class="slot" data-src="assets/bigbets-banner.jpg" data-ph="Big Bets hero photo"></div></div>
         <div class="hero-layer" data-hero="community"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development hero photo"></div></div>
       </div>
@@ -53,6 +54,7 @@
           <div class="take">
             <div class="take__qr">
               <div class="slot slot--contain" data-for-prog="arts" data-src="assets/qr-arts.png" data-ph="QR code"></div>
+              <div class="slot slot--contain" data-for-prog="leadership" data-src="assets/qr-leadership.png" data-ph="QR code"></div>
               <div class="slot slot--contain" data-for-prog="bigbets" data-src="assets/qr-bigbets.png" data-ph="QR code"></div>
               <div class="slot slot--contain" data-for-prog="community" data-src="assets/qr-community.png" data-ph="QR code"></div>
             </div>
@@ -66,11 +68,11 @@
 
       <section class="section">
         <h2 class="h2" data-t="projects"></h2>
-        <!-- Built from projects.js: every project whose program is on screen. -->
+        <!-- Built from programs.js: every program under the pillar on screen. -->
         <div class="projects" id="projectList"></div>
       </section>
 
-      <!-- The tile for the program on screen is hidden, leaving three. -->
+      <!-- The tile for the pillar on screen is hidden, leaving three. -->
       <section class="section section--fill">
         <h2 class="h2" data-t="more"></h2>
         <div class="tiles">
@@ -78,7 +80,7 @@
             <div class="tile__media"><div class="slot" data-src="assets/arts-tile.jpg" data-ph="Arts and Culture image"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p0"></span><span data-icon="chevron-white-22"></span></div>
           </button>
-          <button class="u press tile" data-tile="leadership">
+          <button class="u press tile" data-tile="leadership" data-action="open-prog" data-prog="leadership">
             <div class="tile__media"><div class="slot" data-src="assets/leadership-tile.jpg" data-ph="Leadership illustration"></div></div>
             <div class="tile__label"><span class="tile__name" data-t="p1"></span><span data-icon="chevron-white-22"></span></div>
           </button>
@@ -101,7 +103,7 @@
     </nav>
   </div>
 
-  <!-- Project page: one layout for every project in projects.js -->
+  <!-- Program page: one layout for every program in programs.js -->
   <div class="screen screen--project" data-screen="project">
     <aside class="panel">
       <div class="panel__media" id="pjHeroes"></div>
@@ -144,7 +146,7 @@
     </nav>
   </div>
 
-  <!-- Our programs -->
+  <!-- Our pillars -->
   <div class="screen screen--programs" data-screen="programs">
     <section class="programs">
       <div class="programs__head">
@@ -156,8 +158,8 @@
         <div class="card" data-card="1"><div class="card__face"><div class="slot" data-src="assets/leadership-card.jpg" data-ph="Leadership Development image"></div></div></div>
         <div class="card" data-card="2"><div class="card__face"><div class="slot" data-src="assets/bigbets-card.jpg" data-ph="Big Bets image"></div></div></div>
         <div class="card" data-card="3"><div class="card__face"><div class="slot" data-src="assets/community-card.jpg" data-ph="Community Development image"></div></div></div>
-        <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous program"><span data-icon="back-blue-32"></span></button>
-        <button class="u arrow arrow--next" data-action="next" aria-label="Next program"><span data-icon="chevron-blue-32"></span></button>
+        <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous pillar"><span data-icon="back-blue-32"></span></button>
+        <button class="u arrow arrow--next" data-action="next" aria-label="Next pillar"><span data-icon="chevron-blue-32"></span></button>
       </div>
       <div class="programs__copy" id="programsCopy">
         <h2 class="programs__name" id="curName"></h2>
@@ -188,9 +190,9 @@
 
 </div>
 </div>
-<script src="copy.js?v=202610190434"></script>
-<script src="projects.js?v=202610190434"></script>
-<script src="project-view.js?v=202610190434"></script>
-<script src="app.js?v=202610190434"></script>
+<script src="copy.js?v=20261019044132"></script>
+<script src="programs.js?v=20261019044132"></script>
+<script src="project-view.js?v=20261019044132"></script>
+<script src="app.js?v=20261019044132"></script>
 </body>
 </html>

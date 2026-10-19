@@ -384,6 +384,12 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
 .pj-stat__value { font-size: 32px; line-height: 1; font-weight: 800; }
 .pj-stat__label { font-size: 14px; line-height: 1.4; }
 .pj-statblock { display: flex; flex-direction: column; gap: 14px; }
+.pj-quote { margin: 0; background: var(--tint); border-radius: 6px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.pj-quote blockquote { margin: 0; font-size: 15px; line-height: 1.55; font-style: italic; }
+.pj-quote blockquote::before { content: '\201C'; }
+.pj-quote blockquote::after { content: '\201D'; }
+.pj-quote figcaption { font-size: 14px; font-weight: 600; color: var(--blue); }
+.pj-highlight--lead { margin: 10px 0 12px; }
 .pj-statblock__sub { margin: 0; font-size: 15px; line-height: 1.5; }
 
 .pj-list { display: flex; flex-direction: column; }

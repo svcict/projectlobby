@@ -1,4 +1,4 @@
-// Builds project page sections from projects.js for both the kiosk (index.html)
+// Builds program page sections from programs.js for both the kiosk (index.html)
 // and the phone page (mobile.html). The markup is the same; each page's
 // stylesheet sizes it. variant: 'kiosk' | 'mobile'.
 (() => {
@@ -42,11 +42,14 @@
   }
 
   // Four or more items sit in two columns on the kiosk so they fit the panel.
-  function pillars(s, z) {
+  // (The pj-pillar* class names predate the pillar/program naming; they style
+  // a features section.)
+  function features(s, z) {
     const items = s.items || [];
     return `<div class="pj-pillars${items.length > 3 ? ' pj-pillars--grid' : ''}">
       <h2 class="pj-h2">${esc(s.heading)}</h2>
-      <p class="pj-sub">${esc(s.sub)}</p>
+      ${s.sub ? `<p class="pj-sub">${esc(s.sub)}</p>` : ''}
+      ${s.highlight ? `<div class="pj-highlight pj-highlight--lead">${esc(s.highlight)}</div>` : ''}
       <div class="pj-pillars__items">${items.map((it) => `<div class="pj-pillar">
         <div class="pj-pillar__icon">${icon(it.icon, z.pillar, '#041F3F')}</div>
         <div class="pj-pillar__text"><div class="pj-pillar__title">${esc(it.title)}</div><div class="pj-pillar__body">${esc(it.body)}</div></div>
@@ -65,7 +68,7 @@
       <div class="pj-stat__icon">${icon(st.icon, z.stat, '#041F3F')}</div>
       <div class="pj-stat__value">${esc(st.value)}</div>
       <div class="pj-stat__label">${esc(st.label)}</div>
-    </div>`).join('')}</div></div>`;
+    </div>`).join('')}</div>${s.quote ? `<figure class="pj-quote"><blockquote>${esc(s.quote.text)}</blockquote>${s.quote.by ? `<figcaption>${esc(s.quote.by)}</figcaption>` : ''}</figure>` : ''}</div>`;
   }
 
   function results(s, z) {
@@ -122,7 +125,7 @@
     </div>`;
   }
 
-  const RENDER = { pillars, stats, results, packages, list };
+  const RENDER = { features, stats, results, packages, list };
 
   window.ProjectView = {
     esc,

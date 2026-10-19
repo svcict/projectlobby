@@ -1,14 +1,18 @@
-// Project pages for the kiosk and mobile app. Both files read this.
-// Add a project: give it a program ('arts' | 'leadership' | 'bigbets' | 'community'), a title,
-// a hero image, and en/fil content. Entries without en/fil show in the list but don't open yet.
-// Section types (each becomes a tab on the kiosk): 'pillars' | 'results' | 'stats' | 'packages' | 'list'.
-// A 'list' section has a heading, sub, intro and a list of plain-text items.
-// A 'stats' section may also have a label, a location and a short sub shown above the figures;
-// three or four figures use a compact 2×2 layout, five or six use three columns.
+// Programs for the kiosk and the phone page. Both read this file.
+// Each program belongs to a pillar: 'arts' | 'leadership' | 'bigbets' | 'community'.
+// Add a program: give it a pillar, a title, a hero image, and en/fil content.
+// Entries without en/fil show in their pillar's list but don't open yet.
+// Section types (each becomes a tab on the kiosk): 'features' | 'results' | 'stats' | 'packages' | 'list'.
+//   features: heading, sub and/or highlight, and items with an icon, title and body.
+//     Four or more items sit in two columns on the kiosk.
+//   stats: figures with an icon, value and label; optional label, location, sub
+//     and a quote ({ text, by }). Three or four figures use a compact 2×2 layout,
+//     five or six use three columns.
+//   list: heading, sub, intro and a list of plain-text items.
 // Icons: users, smile, pres, lap, heart, hand, book, gem, image, briefcase, stethoscope, sun.
-window.KIOSK_PROJECTS = {
+window.KIOSK_PROGRAMS = {
   "museum": {
-    "program": "arts",
+    "pillar": "arts",
     "title": "Ayala Museum",
     "hero": {
       "id": "museum-hero",
@@ -25,7 +29,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "What we do",
-          "type": "pillars",
+          "type": "features",
           "heading": "Bringing Philippine heritage to life",
           "sub": "Ayala Museum combines scholarship, design, and public engagement to make art and history accessible, meaningful, and transformative.",
           "items": [
@@ -108,7 +112,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Aming ginagawa",
-          "type": "pillars",
+          "type": "features",
           "heading": "Pagbibigay-buhay sa pamanang Pilipino",
           "sub": "Pinagsasama ng Ayala Museum ang iskolarsip, disenyo, at pakikipag-ugnayan sa publiko upang gawing abot-kaya, makabuluhan, at makapagpabago ang sining at kasaysayan.",
           "items": [
@@ -183,7 +187,7 @@ window.KIOSK_PROJECTS = {
     }
   },
   "fhl": {
-    "program": "arts",
+    "pillar": "arts",
     "title": "Filipinas Heritage Library",
     "hero": {
       "id": "fhl-hero",
@@ -215,7 +219,7 @@ window.KIOSK_PROJECTS = {
         },
         {
           "tab": "What we do",
-          "type": "pillars",
+          "type": "features",
           "heading": "Bringing the Filipino story to life",
           "sub": "Four ways FHL preserves Philippine heritage and opens it up to everyone.",
           "items": [
@@ -313,7 +317,7 @@ window.KIOSK_PROJECTS = {
         },
         {
           "tab": "Aming ginagawa",
-          "type": "pillars",
+          "type": "features",
           "heading": "Pagbibigay-buhay sa kuwentong Pilipino",
           "sub": "Apat na paraan ng FHL sa pangangalaga sa pamanang Pilipino at sa pagbubukas nito para sa lahat.",
           "items": [
@@ -388,7 +392,7 @@ window.KIOSK_PROJECTS = {
     }
   },
   "centexDE": {
-    "program": "bigbets",
+    "pillar": "bigbets",
     "title": "CENTEX Digital Education",
     "hero": {
       "id": "centex-de-hero",
@@ -404,7 +408,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Our approach",
-          "type": "pillars",
+          "type": "features",
           "heading": "Creating a thriving learning community",
           "sub": "Confident, data-driven, and community-anchored educators leading thriving learning communities across public schools.",
           "items": [
@@ -501,7 +505,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Aming paraan",
-          "type": "pillars",
+          "type": "features",
           "heading": "Pagbuo ng masiglang komunidad ng pagkatuto",
           "sub": "Mga gurong may kumpiyansa, gumagamit ng datos, at nakaugat sa komunidad na nangunguna sa mga pampublikong paaralan.",
           "items": [
@@ -591,7 +595,7 @@ window.KIOSK_PROJECTS = {
     }
   },
   "centexEG": {
-    "program": "bigbets",
+    "pillar": "bigbets",
     "title": "CENTEX Early Grades",
     "hero": {
       "id": "centex-eg-hero",
@@ -608,7 +612,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Our approach",
-          "type": "pillars",
+          "type": "features",
           "heading": "Building strong foundations for learning",
           "sub": "Improving instructional quality, strengthening home-school collaboration, and aligning early grade systems to support long-term academic success.",
           "items": [
@@ -706,7 +710,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Aming paraan",
-          "type": "pillars",
+          "type": "features",
           "heading": "Pagbuo ng matibay na pundasyon sa pagkatuto",
           "sub": "Pagpapahusay sa kalidad ng pagtuturo, pagpapatibay sa ugnayan ng tahanan at paaralan, at pag-aayon ng mga sistema sa maagang baitang para sa pangmatagalang tagumpay sa pag-aaral.",
           "items": [
@@ -796,7 +800,7 @@ window.KIOSK_PROJECTS = {
     }
   },
   "elnido": {
-    "program": "community",
+    "pillar": "community",
     "title": "El Nido, Palawan",
     "hero": {
       "id": "elnido-hero",
@@ -812,7 +816,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Our approach",
-          "type": "pillars",
+          "type": "features",
           "heading": "Creating a thriving community ecosystem",
           "sub": "Improving access to income, education, healthcare, and essential utilities through coordinated, community-led solutions.",
           "items": [
@@ -835,7 +839,7 @@ window.KIOSK_PROJECTS = {
         },
         {
           "tab": "Programs",
-          "type": "pillars",
+          "type": "features",
           "heading": "Our programs in El Nido",
           "sub": "Four programs that work together to help families build stable sources of income.",
           "items": [
@@ -915,7 +919,7 @@ window.KIOSK_PROJECTS = {
       "sections": [
         {
           "tab": "Aming paraan",
-          "type": "pillars",
+          "type": "features",
           "heading": "Pagbuo ng masiglang ecosystem ng komunidad",
           "sub": "Pagpapalawak ng access sa kita, edukasyon, kalusugan, at mahahalagang serbisyo sa pamamagitan ng magkakaugnay na solusyong pinangungunahan ng komunidad.",
           "items": [
@@ -938,7 +942,7 @@ window.KIOSK_PROJECTS = {
         },
         {
           "tab": "Mga programa",
-          "type": "pillars",
+          "type": "features",
           "heading": "Ang aming mga programa sa El Nido",
           "sub": "Apat na programang magkakasamang tumutulong sa mga pamilya na bumuo ng matatag na mapagkukunan ng kita.",
           "items": [
@@ -990,6 +994,183 @@ window.KIOSK_PROJECTS = {
               "icon": "sun",
               "value": "1,620",
               "label": "sambahayang nabigyan ng solar home system"
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Makipagtulungan sa amin",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    }
+  },
+  "ugo": {
+    "pillar": "leadership",
+    "title": "U-GO Scholar Grant Program",
+    "hero": {
+      "id": "ugo-hero",
+      "src": "assets/ugo-hero.jpg",
+      "ph": "U-GO Scholar Grant Program photo"
+    },
+    "en": {
+      "lead": "Unlocking opportunities for high-potential young women in financial need.",
+      "body": [
+        "For many young women, talent and ambition are often not enough to secure success. Women's labor force participation in the Philippines stands at 56%, significantly lower than men's at 76%, with 2.4 million women remaining in unpaid housework. The cost of lodging, transportation, food, and other essential schooling needs can put university out of reach, reinforcing inequality and limiting social mobility.",
+        "Educating women changes this trajectory. Yet with higher education attrition rates at nearly 40%, too many young Filipinas are unable to complete their degrees. When women finish their education, incomes rise, their children stay in school longer, and communities grow stronger."
+      ],
+      "sections": [
+        {
+          "tab": "Our approach",
+          "type": "features",
+          "heading": "Creating pathways for women's leadership",
+          "sub": "Expanding access to higher education while nurturing leadership, resilience, and career readiness among young women.",
+          "items": [
+            {
+              "icon": "book",
+              "title": "Access to Tertiary Education",
+              "body": "Through scholarship grants, financial assistance helps cover essential education-related costs, enabling scholars to focus on their studies."
+            },
+            {
+              "icon": "users",
+              "title": "Student Support and Engagement",
+              "body": "Structured opportunities for skills-building, mentoring, and exposure to career pathways."
+            },
+            {
+              "icon": "heart",
+              "title": "Purpose-Driven Impact",
+              "body": "Nurturing scholars into a growing pipeline of skilled professionals and leaders inspired to build better futures for their families and communities."
+            }
+          ]
+        },
+        {
+          "tab": "Our impact",
+          "type": "stats",
+          "stats": [
+            {
+              "icon": "pres",
+              "value": "1,082",
+              "label": "U-GO scholarships awarded nationwide since 2023"
+            },
+            {
+              "icon": "smile",
+              "value": "98%",
+              "label": "advancement rate among scholars"
+            }
+          ],
+          "quote": {
+            "text": "My dream is to finish college and become a teacher who can guide and inspire children, especially those from humble beginnings like mine. Every Saturday, my classmates and I teach kids in our village how to read, write, and count. Sharing what I've learned brings me joy and purpose. I may have grown up in hardship, but I carry big dreams: to teach, guide, and uplift others through education.",
+            "by": "Daijane, 2025 U-GO Scholar"
+          }
+        },
+        {
+          "tab": "About U-GO",
+          "type": "features",
+          "heading": "Help make opportunity as universal as talent",
+          "highlight": "Every peso you give goes twice as far with U-GO global donation matching.",
+          "items": [
+            {
+              "icon": "gem",
+              "title": "About U-GO",
+              "body": "U-GO is a global nonprofit dedicated to expanding access to higher education for ambitious and promising young women from low-income communities."
+            },
+            {
+              "icon": "hand",
+              "title": "U-GO and Ayala Foundation",
+              "body": "Operating across nine countries, U-GO partners with trusted local institutions to deliver scholarships and student support throughout a scholar's university journey. In the Philippines, Ayala Foundation is U-GO's sole implementing partner, supporting the delivery of scholarships and student engagement nationwide."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "icon": "hand",
+        "title": "Partner with us",
+        "lines": [
+          {
+            "text": "partnerships@ayalafoundation.org",
+            "href": "mailto:partnerships@ayalafoundation.org"
+          },
+          {
+            "text": "www.ayalafoundation.org",
+            "href": "https://www.ayalafoundation.org"
+          }
+        ]
+      }
+    },
+    "fil": {
+      "lead": "Nagbubukas ng oportunidad para sa mga kabataang babaeng may potensyal ngunit nangangailangan ng tulong pinansyal.",
+      "body": [
+        "Para sa maraming kabataang babae, hindi sapat ang talento at ambisyon upang magtagumpay. Nasa 56% ang pakikilahok ng kababaihan sa lakas-paggawa sa Pilipinas, mas mababa kumpara sa 76% ng kalalakihan, at 2.4 milyong kababaihan ang nananatili sa gawaing-bahay na walang bayad. Dahil sa gastos sa tirahan, pamasahe, pagkain, at iba pang pangangailangan sa pag-aaral, nagiging mahirap abutin ang kolehiyo, na nagpapalala sa hindi pagkakapantay-pantay at naglilimita sa pag-angat sa buhay.",
+        "Binabago ng edukasyon ng kababaihan ang direksyong ito. Ngunit dahil halos 40% ang hindi nakatatapos ng kolehiyo, napakaraming kabataang Pilipina ang hindi nakakukumpleto ng kanilang kurso. Kapag nakatapos ang kababaihan, tumataas ang kita, mas matagal nag-aaral ang kanilang mga anak, at lumalakas ang mga komunidad."
+      ],
+      "sections": [
+        {
+          "tab": "Aming paraan",
+          "type": "features",
+          "heading": "Paglikha ng daan para sa pamumuno ng kababaihan",
+          "sub": "Pinalalawak ang access sa mas mataas na edukasyon habang hinuhubog ang pamumuno, katatagan, at kahandaan sa karera ng mga kabataang babae.",
+          "items": [
+            {
+              "icon": "book",
+              "title": "Access sa Tertiary Education",
+              "body": "Sa pamamagitan ng scholarship grant, tumutulong ang tulong pinansyal sa mahahalagang gastusin sa pag-aaral upang makapagpokus ang mga iskolar sa kanilang pag-aaral."
+            },
+            {
+              "icon": "users",
+              "title": "Suporta at Pakikilahok ng Mag-aaral",
+              "body": "Mga nakaayos na pagkakataon para sa pagpapaunlad ng kasanayan, mentoring, at pagkilala sa iba't ibang landas ng karera."
+            },
+            {
+              "icon": "heart",
+              "title": "Epektong may Layunin",
+              "body": "Hinuhubog ang mga iskolar upang maging bahagi ng lumalaking hanay ng mahuhusay na propesyonal at lider na naghahangad ng mas magandang kinabukasan para sa kanilang pamilya at komunidad."
+            }
+          ]
+        },
+        {
+          "tab": "Aming epekto",
+          "type": "stats",
+          "stats": [
+            {
+              "icon": "pres",
+              "value": "1,082",
+              "label": "U-GO scholarship na naigawad sa buong bansa mula 2023"
+            },
+            {
+              "icon": "smile",
+              "value": "98%",
+              "label": "advancement rate ng mga iskolar"
+            }
+          ],
+          "quote": {
+            "text": "Pangarap kong makatapos ng kolehiyo at maging gurong gagabay at magbibigay-inspirasyon sa mga bata, lalo na sa mga nagmula sa payak na pamumuhay tulad ko. Tuwing Sabado, nagtuturo kami ng aking mga kaklase sa mga bata sa aming baryo kung paano bumasa, sumulat, at bumilang. Ang pagbabahagi ng aking natutunan ay nagbibigay sa akin ng saya at layunin. Maaaring lumaki ako sa hirap, ngunit may dala akong malalaking pangarap: ang magturo, gumabay, at mag-angat ng iba sa pamamagitan ng edukasyon.",
+            "by": "Daijane, 2025 U-GO Scholar"
+          }
+        },
+        {
+          "tab": "Tungkol sa U-GO",
+          "type": "features",
+          "heading": "Gawing kasing-laganap ng talento ang oportunidad",
+          "highlight": "Dumodoble ang bawat pisong ibibigay mo sa pamamagitan ng U-GO global donation matching.",
+          "items": [
+            {
+              "icon": "gem",
+              "title": "Tungkol sa U-GO",
+              "body": "Ang U-GO ay isang pandaigdigang nonprofit na nakatuon sa pagpapalawak ng access sa mas mataas na edukasyon para sa mga ambisyoso at may potensyal na kabataang babae mula sa mga komunidad na mababa ang kita."
+            },
+            {
+              "icon": "hand",
+              "title": "Ang U-GO at Ayala Foundation",
+              "body": "Sa siyam na bansa, nakikipagtulungan ang U-GO sa mga mapagkakatiwalaang lokal na institusyon upang maghatid ng scholarship at suporta sa buong panahon ng pag-aaral ng iskolar sa unibersidad. Sa Pilipinas, ang Ayala Foundation ang nag-iisang implementing partner ng U-GO, na tumutulong sa paghahatid ng scholarship at pakikilahok ng mga mag-aaral sa buong bansa."
             }
           ]
         }

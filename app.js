@@ -1,15 +1,19 @@
+// Naming: on screen, the four carousel cards are pillars and the entries in
+// programs.js are programs. In this file the pillar page is the 'program'
+// screen (state.prog) and a program page is the 'project' screen
+// (state.project); PROJECTS holds programs.js.
 (() => {
   'use strict';
 
   const COPY = window.COPY;
-  const PROJECTS = window.KIOSK_PROJECTS || {};
+  const PROJECTS = window.KIOSK_PROGRAMS || {};
   const PV = window.ProjectView;
   const PROGRAM_NAMES = (t) => ({ arts: t.p0, leadership: t.p1, bigbets: t.p2, community: t.p3 });
 
   const DESIGN_W = 1920, DESIGN_H = 1080;
   const PROGRAM_COUNT = 4;
-  // Carousel card index → program page it opens (null: no page yet).
-  const PROGRAM_PAGES = ['arts', null, 'bigbets', 'community'];
+  // Carousel card index → the pillar page it opens.
+  const PROGRAM_PAGES = ['arts', 'leadership', 'bigbets', 'community'];
   const SLIDE_MS = 7000;
   const IDLE_MS = 75000;
   const WARN_SECONDS = 15;
@@ -120,8 +124,8 @@
       el.setAttribute('aria-hidden', String(el.dataset.screen !== state.screen));
     });
 
-    // Program page: Arts and Culture, Big Bets or Community Development.
-    const pg = window.programPage(t, state.prog);
+    // Pillar page.
+    const pg = window.pillarPage(t, state.prog);
     $$('[data-pg]').forEach((el) => { el.textContent = pg[el.dataset.pg]; });
     $$('[data-hero]').forEach((el) => el.classList.toggle('is-on', el.dataset.hero === state.prog));
     $$('[data-for-prog]').forEach((el) => { el.hidden = el.dataset.forProg !== state.prog; });
@@ -148,7 +152,7 @@
     $('#idleCount').textContent = state.count;
   }
 
-  // Every project in projects.js whose program is on screen. Projects without
+  // Every program in programs.js under the pillar on screen. Programs without
   // content yet are listed but don't open.
   let listKey = '';
   function renderProjectList(t) {
@@ -156,7 +160,7 @@
     if (key === listKey) return;
     listKey = key;
     const chevron = ICONS['chevron-navy-24'];
-    $('#projectList').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].program === state.prog).map((id) => {
+    $('#projectList').innerHTML = Object.keys(PROJECTS).filter((id) => PROJECTS[id].pillar === state.prog).map((id) => {
       const p = PROJECTS[id];
       const action = p.en ? ` data-action="open-project" data-project="${PV.esc(id)}"` : '';
       return `<button class="u press project"${action}>
@@ -178,7 +182,7 @@
     const key = state.project + '|' + state.lang;
     if (key !== projectKey) {
       projectKey = key;
-      const progName = PROGRAM_NAMES(t)[p.program] || '';
+      const progName = PROGRAM_NAMES(t)[p.pillar] || '';
       $('#pjIntro').innerHTML =
         `<div class="eyebrow">${PV.esc(progName)}</div>
         <h1 class="pj-title">${PV.esc(p.title)}</h1>
@@ -304,10 +308,9 @@
     'all-programs': () => openList(0),
     'open-prog': (el) => setState({ screen: 'program', prog: el.dataset.prog }),
     'open-project': (el) => setState({ screen: 'project', project: el.dataset.project, projTab: 0 }),
-    'project-back': () => setState({ screen: 'program', prog: (PROJECTS[state.project] || {}).program || 'arts' }),
+    'project-back': () => setState({ screen: 'program', prog: (PROJECTS[state.project] || {}).pillar || 'arts' }),
     'prev': () => go(state.idx - 1),
     'next': () => go(state.idx + 1),
-    // Only Arts and Culture and Big Bets have their own pages so far.
     'explore': () => {
       const prog = PROGRAM_PAGES[state.idx];
       if (prog) setState({ screen: 'program', prog });

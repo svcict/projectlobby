@@ -428,6 +428,12 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-stat__value { margin-top: 8px; font-size: 96px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
 .pj-stat__label { font-size: 25px; line-height: 1.35; text-wrap: pretty; }
 .pj-statblock { display: flex; flex-direction: column; gap: 20px; }
+.pj-quote { margin: 0; background: var(--tint); border-radius: 4px; padding: 24px 32px; display: flex; flex-direction: column; gap: 10px; }
+.pj-quote blockquote { margin: 0; font-size: 20px; line-height: 1.4; font-style: italic; color: var(--ink); text-wrap: pretty; }
+.pj-quote blockquote::before { content: '\201C'; }
+.pj-quote blockquote::after { content: '\201D'; }
+.pj-quote figcaption { font-size: 19px; font-weight: 600; color: var(--blue); }
+.pj-highlight--lead { margin: 14px 0 18px; }
 .pj-statblock__sub { margin: -8px 0 0; max-width: 980px; font-size: 21px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
 /* Three or four figures: icon beside the value so two rows fit the panel. */
 .pj-stats--compact .pj-stat {
