@@ -464,13 +464,23 @@ img { -webkit-user-drag: none; user-select: none; }
   top: 0;
   height: 100%;
   aspect-ratio: 16 / 10;
+  transition: transform 380ms var(--ease-in-out), opacity 380ms var(--ease-in-out);
+}
+.track.is-dragging .card { transition: none; }
+/* After a swipe, cards settle on a critically damped spring (set in app.js). */
+.track.is-springing .card {
+  transition: transform 400ms var(--spring, var(--ease-out)), opacity 400ms var(--spring, var(--ease-out));
+}
+.card__face {
+  position: absolute;
+  inset: 0;
   border-radius: 6px;
   overflow: hidden;
   background: var(--blue-dark);
   box-shadow: 0 24px 60px rgba(4, 31, 63, 0.45);
-  transition: transform 380ms var(--ease-in-out), opacity 380ms var(--ease-in-out);
+  transition: transform 160ms var(--ease-out);
 }
-.track.is-dragging .card { transition: none; }
+.card.is-pressed .card__face { transform: scale(0.97); }
 
 .arrow {
   position: absolute;
@@ -535,6 +545,8 @@ img { -webkit-user-drag: none; user-select: none; }
   transition: opacity 160ms var(--ease-out);
 }
 .idle__box {
+  position: relative;
+  overflow: hidden;
   width: 760px;
   background: #FFFFFF;
   border-radius: 6px;
@@ -564,3 +576,16 @@ img { -webkit-user-drag: none; user-select: none; }
   box-shadow: inset 0 0 0 2px rgba(11, 83, 165, 0.4);
 }
 .idle__btn--primary { font-weight: 700; color: var(--navy); background: var(--orange); box-shadow: none; }
+/* Shrinks steadily over the 15-second countdown (animated in app.js). */
+.idle__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: var(--orange);
+  transform-origin: left;
+}
+@media (prefers-reduced-motion: reduce) {
+  .idle__bar { display: none; }
+}

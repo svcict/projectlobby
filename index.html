@@ -157,10 +157,10 @@
         <h1 class="programs__title" data-t="allTitle"></h1>
       </div>
       <div class="track" id="track">
-        <div class="card" data-card="0"><div class="slot" data-src="assets/placeholders/card-arts.svg" data-ph="Arts and Culture image"></div></div>
-        <div class="card" data-card="1"><div class="slot" data-src="assets/placeholders/card-leadership.svg" data-ph="Leadership Development image"></div></div>
-        <div class="card" data-card="2"><div class="slot" data-src="assets/placeholders/card-bigbets.svg" data-ph="Big Bets image"></div></div>
-        <div class="card" data-card="3"><div class="slot" data-src="assets/placeholders/card-community.svg" data-ph="Community Development image"></div></div>
+        <div class="card" data-card="0"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-arts.svg" data-ph="Arts and Culture image"></div></div></div>
+        <div class="card" data-card="1"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-leadership.svg" data-ph="Leadership Development image"></div></div></div>
+        <div class="card" data-card="2"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-bigbets.svg" data-ph="Big Bets image"></div></div></div>
+        <div class="card" data-card="3"><div class="card__face"><div class="slot" data-src="assets/placeholders/card-community.svg" data-ph="Community Development image"></div></div></div>
         <button class="u arrow arrow--prev" data-action="prev" aria-label="Previous program"><span data-icon="back-blue-32"></span></button>
         <button class="u arrow arrow--next" data-action="next" aria-label="Next program"><span data-icon="chevron-blue-32"></span></button>
       </div>
@@ -188,6 +188,7 @@
         <button class="u press idle__btn" data-action="start-over" data-t="startOver"></button>
         <button class="u press idle__btn idle__btn--primary" data-action="keep-going" data-t="keep"></button>
       </div>
+      <div class="idle__bar" id="idleBar"></div>
     </div>
   </div>
 

@@ -181,7 +181,55 @@
     const prevScreen = state.screen;
     Object.assign(state, patch);
     render();
-    if (state.screen !== prevScreen) bump();
+    if (state.screen !== prevScreen) {
+      // Coming back from the museum is a step out, so only animate going in.
+      if (state.screen === 'program' && prevScreen !== 'museum') enterArts();
+      bump();
+    }
+  }
+
+  // ---------- Motion ----------
+
+  const EASE_OUT = 'cubic-bezier(0.23, 1, 0.32, 1)';
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Arts and Culture content rises 12px and fades in, 30ms apart, done in
+  // under 300ms. Taps work throughout.
+  const artsParts = $$('.screen--arts .panel__text, .screen--arts .arts-main > .section');
+  function enterArts() {
+    const from = reducedMotion() ? { opacity: 0 } : { opacity: 0, transform: 'translateY(12px)' };
+    const to = reducedMotion() ? { opacity: 1 } : { opacity: 1, transform: 'translateY(0)' };
+    artsParts.forEach((el, i) => {
+      el.animate([from, to], { duration: 200, delay: i * 30, easing: EASE_OUT, fill: 'backwards' });
+    });
+  }
+
+  // Critically damped spring (no bounce) sampled into a CSS linear() easing.
+  (() => {
+    if (!CSS.supports('transition-timing-function', 'linear(0, 1)')) return;
+    const w = 8, n = 24, pts = [];
+    for (let k = 0; k <= n; k++) {
+      const t = k / n;
+      pts.push(k === n ? 1 : +(1 - (1 + w * t) * Math.exp(-w * t)).toFixed(4));
+    }
+    document.documentElement.style.setProperty('--spring', `linear(${pts.join(', ')})`);
+  })();
+
+  let springTimer;
+  function springCards() {
+    clearTimeout(springTimer);
+    track.classList.add('is-springing');
+    springTimer = setTimeout(() => track.classList.remove('is-springing'), 420);
+  }
+
+  const idleBar = $('#idleBar');
+  let idleBarAnim;
+  function startIdleBar() {
+    if (idleBarAnim) idleBarAnim.cancel();
+    idleBarAnim = idleBar.animate(
+      [{ transform: 'scaleX(1)' }, { transform: 'scaleX(0)' }],
+      { duration: WARN_SECONDS * 1000, easing: 'linear', fill: 'forwards' }
+    );
   }
 
   // ---------- Navigation ----------
@@ -232,13 +280,19 @@
   let drag = null;
   track.addEventListener('pointerdown', (e) => {
     if (drag || e.target.closest('.arrow')) return;
-    drag = { x: e.clientX, t: performance.now(), id: e.pointerId, moved: false };
+    // Side cards shrink slightly while pressed, like every other tappable.
+    const card = e.target.closest('[data-card]');
+    const pressed = card && +card.dataset.card !== state.idx ? card : null;
+    if (pressed) pressed.classList.add('is-pressed');
+    drag = { x: e.clientX, t: performance.now(), id: e.pointerId, moved: false, pressed };
   });
+  const release = (d) => { if (d.pressed) d.pressed.classList.remove('is-pressed'); };
   track.addEventListener('pointermove', (e) => {
     if (!drag || e.pointerId !== drag.id) return;
     let dx = (e.clientX - drag.x) / state.scale;
     if (!drag.moved && Math.abs(dx) > 8) {
       drag.moved = true;
+      release(drag);
       try { track.setPointerCapture(drag.id); } catch (_) {}
     }
     if (!drag.moved) return;
@@ -254,6 +308,7 @@
     const d = drag;
     if (!d || e.pointerId !== d.id) return;
     drag = null;
+    release(d);
     if (!d.moved) {
       if (e.type === 'pointercancel') return;
       const hit = document.elementFromPoint(e.clientX, e.clientY);
@@ -265,6 +320,7 @@
     const v = Math.abs(dx) / Math.max(1, performance.now() - d.t);
     let i = state.idx;
     if (Math.abs(dx) > 220 || (v > 0.11 && Math.abs(dx) > 30)) i += dx < 0 ? 1 : -1;
+    springCards();
     setState({ dragX: 0, dragging: false });
     go(i);
   };
@@ -284,6 +340,7 @@
     if (state.screen === 'home') return;
     idleTimer = setTimeout(() => {
       setState({ warn: true, count: WARN_SECONDS });
+      startIdleBar();
       tickTimer = setInterval(() => {
         const c = state.count - 1;
         if (c <= 0) goHome(); else setState({ count: c });
