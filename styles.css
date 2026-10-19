@@ -2,7 +2,7 @@
    fit and widened/heightened so it always fills the screen edge to edge. */
 
 :root {
-  --blue: #0B53A5;
+  --blue: #0322B1;
   --blue-dark: #073D7A;
   --navy: #041F3F;
   --orange: #F0781E;
@@ -270,7 +270,7 @@ img { -webkit-user-drag: none; user-select: none; }
   gap: 16px;
   background: #FFFFFF;
   border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(11, 83, 165, 0.18), 0 6px 18px rgba(4, 31, 63, 0.08);
+  box-shadow: 0 0 0 1px rgba(3, 34, 177, 0.18), 0 6px 18px rgba(4, 31, 63, 0.08);
 }
 .project__text { display: flex; flex-direction: column; gap: 6px; }
 .project__name { font-size: 28px; font-weight: 700; line-height: 1.15; color: var(--blue); }
@@ -392,7 +392,7 @@ img { -webkit-user-drag: none; user-select: none; }
   gap: 24px;
   align-items: start;
   padding: 22px 0;
-  border-top: 1px solid rgba(11, 83, 165, 0.15);
+  border-top: 1px solid rgba(3, 34, 177, 0.15);
 }
 .pj-pillar__icon, .pj-stat__icon {
   width: 72px;
@@ -548,7 +548,7 @@ img { -webkit-user-drag: none; user-select: none; }
   flex-direction: column;
   gap: 16px;
   background: #FFFFFF;
-  box-shadow: 0 0 0 2px rgba(11, 83, 165, 0.25);
+  box-shadow: 0 0 0 2px rgba(3, 34, 177, 0.25);
 }
 .pj-package--dark { background: var(--blue); color: #FFFFFF; box-shadow: none; }
 .pj-package__tag {
@@ -570,7 +570,7 @@ img { -webkit-user-drag: none; user-select: none; }
 .pj-package__impact {
   margin-top: 6px;
   padding-top: 18px;
-  border-top: 1px solid rgba(11, 83, 165, 0.15);
+  border-top: 1px solid rgba(3, 34, 177, 0.15);
   font-size: 25px;
   line-height: 1.35;
   font-weight: 700;
@@ -599,7 +599,7 @@ img { -webkit-user-drag: none; user-select: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 1px rgba(11, 83, 165, 0.15);
+  box-shadow: 0 0 0 1px rgba(3, 34, 177, 0.15);
 }
 .pj-contact__text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .pj-contact__title { font-size: 28px; font-weight: 700; color: var(--blue); }
@@ -812,7 +812,7 @@ img { -webkit-user-drag: none; user-select: none; }
   font-size: 28px;
   font-weight: 600;
   color: var(--blue);
-  box-shadow: inset 0 0 0 2px rgba(11, 83, 165, 0.4);
+  box-shadow: inset 0 0 0 2px rgba(3, 34, 177, 0.4);
 }
 .idle__btn--primary { font-weight: 700; color: var(--navy); background: var(--orange); box-shadow: none; }
 /* Shrinks steadily over the 15-second countdown (animated in app.js). */
