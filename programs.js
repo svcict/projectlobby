@@ -229,7 +229,8 @@ window.KIOSK_PROGRAMS = {
     "title": "CENTEX Digital Education",
     "hero": {
       "id": "centex-de-hero",
-      "src": "assets/centex-de-banner.jpg",
+      "src": "assets/centex-de-hero.jpg",
+      "pos": "50% 8%",
       "ph": "CENTEX Digital Education photo"
     },
     "en": {
@@ -439,6 +440,7 @@ window.KIOSK_PROGRAMS = {
     "hero": {
       "id": "elnido-hero",
       "src": "assets/elnido-hero.jpg",
+      "pos": "50% 0%",
       "ph": "El Nido, Palawan photo"
     },
     "en": {
