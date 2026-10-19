@@ -698,3 +698,13 @@ a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; 
   .m-tagline__line { font-size: 14px; }
   .m-hero--wide { aspect-ratio: 16 / 9; max-height: 60vh; }
 }
+
+/* The narrowest phones (320px, e.g. iPhone SE 1st generation): a smaller
+   tagline so it stays below the pillar name on the square home photo, and the
+   email address on one line. */
+@media (max-width: 340px) {
+  .m-tagline { padding-top: 90px; }
+  .m-tagline__title { font-size: 19px; }
+  .m-tagline__line { font-size: 13px; line-height: 1.4; }
+  .pj-contact__link { font-size: 14px; }
+}
