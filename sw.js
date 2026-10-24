@@ -12,7 +12,7 @@ const SLOW_MS = 4000;
 // Kept at install so the very first offline start has the page itself.
 // Photos are kept as the kiosk loads them (it loads every photo at start).
 const CORE = [
-  './', 'index.html', 'styles.css', 'copy.js', 'programs.js', 'project-view.js',
+  './', 'index.html', 'redirect.js', 'styles.css', 'copy.js', 'programs.js', 'project-view.js',
   'app.js', 'kiosk.js', 'assets/logo.webp',
   'assets/fonts/schibsted-grotesk-latin.woff2', 'assets/fonts/schibsted-grotesk-latin-ext.woff2'
 ];

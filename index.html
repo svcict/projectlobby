@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Scripts may only come from this site (no inline scripts, nothing from other sites). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Ayala Foundation</title>
 <meta name="description" content="Building thriving communities toward shared prosperity. Explore the Ayala Foundation’s programs in Community Development, Arts and Culture, Leadership Development and Education.">
@@ -19,17 +21,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ayala Foundation logo beside a photo of two Iraya Mangyan weavers">
 <meta name="twitter:card" content="summary_large_image">
-<script>
-  // Phones and tablets get the phone page (the QR codes link there directly
-  // too). The lobby TV is a touchscreen as well, but much larger.
-  // Add ?kiosk to the address to always show the kiosk.
-  try {
-    const short = Math.min(window.innerWidth, window.innerHeight), long = Math.max(window.innerWidth, window.innerHeight);
-    const touchTablet = window.matchMedia('(pointer: coarse)').matches && long < 1280;
-    const forced = new URLSearchParams(location.search).has('kiosk');
-    if (window.top === window && !forced && (short < 600 || touchTablet)) location.replace('mobile.html' + location.hash);
-  } catch (_) {}
-</script>
+<script src="redirect.js?v=ce224bf439"></script>
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css?v=15a74f8b5b">
 </head>
