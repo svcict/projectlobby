@@ -231,8 +231,11 @@
   const DEPTH = { home: 0, programs: 1, program: 2, project: 3 };
   let booted = false, depth = 0;
   function onRoute() {
-    const key = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
-    state.route = key in ROUTES ? key : '';
+    // A bad address (a broken % escape, or a name like "toString" that every
+    // object inherits) falls back to Home instead of leaving a blank page.
+    let key = '';
+    try { key = decodeURIComponent(location.hash.replace(/^#\/?/, '')); } catch (_) { /* malformed: Home */ }
+    state.route = Object.prototype.hasOwnProperty.call(ROUTES, key) ? key : '';
     state.tab = 0;
     trackHistory();
     render();

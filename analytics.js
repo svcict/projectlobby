@@ -15,7 +15,9 @@
   s.src = 'https://gc.zgo.at/count.js';
   s.dataset.goatcounter = `https://${CODE}.goatcounter.com/count`;
   s.onload = () => {
-    const route = () => '/' + decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+    const route = () => {
+      try { return '/' + decodeURIComponent(location.hash.replace(/^#\/?/, '')); } catch (_) { return '/'; }   // a broken % escape counts as Home
+    };
     // One count per screen the visitor opens; a visit that starts from the
     // lobby QR code is also counted once as an event.
     if (new URLSearchParams(location.search).get('from') === 'lobby') {
